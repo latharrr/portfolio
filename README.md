@@ -58,7 +58,6 @@ Feel free to reach out regarding collaborations, engineering roles, or strategic
 
 Detail	Contact
 Email	deepanshulathar@gmail.com
-GitHub	github.com/latharrr
+GitHub	https://github.com/latharrr
 
-Export to Sheets
 Designed and Engineered by Deepanshu Lathar
