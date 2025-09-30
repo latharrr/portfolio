@@ -1,5 +1,4 @@
-Deepanshu Lathar: Portfolio & Engineering Showcase 💻
-Overview
+
 Welcome to the GitHub repository for Deepanshu Lathar's personal portfolio website. This project showcases my skills in Computer Science Engineering, with a dual focus on IoT Systems (code-to-hardware solutions) and Strategic Product Development.
 
 The goal of this site is to demonstrate technical proficiency, leadership experience, and my ability to deliver functional, high-performance projects.
