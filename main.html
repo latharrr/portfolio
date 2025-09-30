@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepanshu Lathar - Portfolio | CSE & IoT</title>
+    <meta name="description" content="Deepanshu Lathar's portfolio showcasing skills in CSE, IoT, Python, C++, and strategic internships at Picapool and Inglu Global.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23ff7f50%22>D</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* BASE & TYPOGRAPHY */
+        :root {
+            --bg-color: #0c002b; 
+            --text-color: #e0e0e0; 
+            --accent-color: #ff7f50; 
+            --secondary-accent: #8e2de2; 
+            --card-bg: #1a004a; 
+            --text-secondary: #b0b0b0; 
+            --max-width: 1300px; 
+            --header-height: 70px;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 0.5em;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+
+        h2 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 1.2em; 
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+            margin: 15px auto 0;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            font-size: 1.8em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* UTILITY CLASSES */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+            cursor: pointer; /* Ensure button looks clickable */
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 127, 80, 0.4);
+            color: #fff; 
+        }
+
+        /* HEADER & NAVIGATION */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            height: var(--header-height);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item a {
+            padding: 0.7rem 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 5px;
+            transform: translateX(-50%) scaleX(0);
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: transform 0.3s ease, width 0.3s ease;
+        }
+
+        .nav-item a:hover::after,
+        .nav-item a.active::after {
+            transform: translateX(-50%) scaleX(1);
+            width: calc(100% - 2.4rem); 
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: var(--accent-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 0; 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            position: relative;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HOMEPAGE (HERO) */
+        #home {
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background-image: radial-gradient(circle at center, rgba(142, 45, 226, 0.1) 0%, rgba(12, 0, 43, 0) 70%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding-top: 50px; 
+            max-width: 1000px; 
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5em; 
+            margin-bottom: 0.1em;
+        }
+
+        /* ABOUT ME */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 3fr; 
+            gap: 40px; 
+            align-items: flex-start;
+            text-align: left;
+        }
+        
+        .profile-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--secondary-accent);
+        }
+        
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            max-width: var(--max-width); 
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 20px; 
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--accent-color);
+        }
+        
+        .skill-card h3 {
+            font-size: 1.2em; 
+            margin-bottom: 10px; 
+        }
+        
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px; 
+        }
+
+        .skill-list li {
+            padding: 5px 10px; 
+            font-size: 0.8em; 
+        }
+
+        /* PROJECTS (No specific changes needed) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        /* CONTACT */
+        #contact {
+            text-align: center;
+            padding-bottom: 80px; 
+        }
+
+        .contact-content {
+            max-width: 700px; 
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        /* Style the complex form fields */
+        .form-complex-fields {
+            background-color: rgba(255, 127, 80, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+            border: 1px solid rgba(255, 127, 80, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        .form-complex-fields label, .form-complex-fields p {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .form-complex-fields input[type="radio"],
+        .form-complex-fields input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
+        .form-complex-fields select {
+            padding: 8px;
+            border-radius: 5px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            margin-top: 5px;
+        }
+        
+        /* The main contact form styles remain the same */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input:not([type="radio"]):not([type="checkbox"]),
+        .contact-form textarea {
+            padding: 18px;
+            border: 1px solid rgba(255, 127, 80, 0.3);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
+        }
+        
+        /* FOOTER (No specific changes needed) */
+        .footer {
+            background-color: #00001a;
+            color: var(--text-secondary);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 127, 80, 0.1);
+        }
+
+        .social-icons a {
+            font-size: 1.8em;
+            margin: 0 15px;
+            color: var(--text-color);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer p {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            /* ... (Mobile navigation and spacing styles) ... */
+            .nav-list {
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--bg-color);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                transform: translateY(-100vh);
+                transition: transform 0.4s ease-in-out;
+                padding-bottom: 10px;
+            }
+
+            .nav-list.active {
+                transform: translateY(0);
+            }
+
+            .nav-item {
+                text-align: center;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255, 127, 80, 0.1);
+            }
+            
+            #home {
+                min-height: 70vh;
+            }
+
+            .hero-content h1 {
+                font-size: 3em;
+            }
+
+            .hero-content p {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+            
+            h2 {
+                font-size: 2.2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">D.<span style="color: var(--secondary-accent);">LATHAR</span></a>
+            <nav>
+                <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item"><a href="#home">Home</a></li>
+                    <li class="nav-item"><a href="#about-me">About</a></li>
+                    <li class="nav-item"><a href="#skills">Skills</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="home" class="container">
+            <div class="hero-content">
+                <p style="font-size: 1.3em; color: var(--accent-color); font-weight: 500;">Hello, I'm</p>
+                <h1>DEEPANSHU <span>LATHAR</span></h1>
+                <p>An aspiring **Computer Science Engineer** focused on **IoT Systems** and **Strategic Product Development**. I build functional, high-performance solutions from code to hardware.</p>
+                <a href="#contact" class="btn">Start a Conversation <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+            </div>
+        </section>
+
+        <section id="about-me" class="container">
+            <h2>About Me & Experience</h2>
+            <div class="about-grid">
+                <div class="profile-card">
+                    <h3>Deepanshu Lathar</h3>
+                    <p>B.Tech CSE (2024-2028)</p>
+                    <p style="color: var(--secondary-accent);">Lovely Professional University</p>
+                    
+                    <h3 style="margin-top: 25px;">Core Interests</h3>
+                    <ul>
+                        <li><i class="fas fa-code"></i> Programming (C++, Python, JS)</li>
+                        <li><i class="fas fa-microchip"></i> Hardware & IoT Systems</li>
+                        <li><i class="fas fa-chart-line"></i> Strategic Product Management</li>
+                        <li><i class="fas fa-laptop-code"></i> Web Development (HTML/CSS)</li>
+                    </ul>
+                </div>
+
+                <div class="about-summary">
+                    <p>I am a highly motivated student bridging the gap between core programming principles and real-world strategic execution. My technical foundation is strong, built on **C++, Python, and JavaScript**, enabling me to engineer end-to-end solutions, such as the IoT-based Vehicle Pollution Monitoring System.</p>
+
+                    <p>My professional growth has been rapid: as a **Strategic Intern at Picapool Private Limited**, I analyzed workflows and helped **streamline the bug-resolution process**, leading to a **35% increase in user retention** by fixing key drop-off points. Before this, I led and mentored a team of **40 Campus Heads** at **Inglu Global** as a **Regional Manager**, consistently exceeding engagement goals by 60%.</p>
+                    
+                    <p>This unique blend of technical skill, hardware expertise, and proven strategic leadership is what I bring to every project.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>Technical & Professional Toolkit</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3><i class="fas fa-terminal" style="color: var(--accent-color);"></i> Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>C</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-desktop" style="color: var(--accent-color);"></i> Web & Core Tech</h3>
+                    <ul class="skill-list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3><i class="fas fa-robot" style="color: var(--accent-color);"></i> Hardware & IoT</h3>
+                    <ul class="skill-list">
+                        <li>Arduino</li>
+                        <li>ESP32</li>
+                        <li>Gas Sensors</li>
+                        <li>VS Code (IDE)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-tools" style="color: var(--accent-color);"></i> Other Tools</h3>
+                    <ul class="skill-list">
+                        <li>AutoCAD</li>
+                        <li>VMware</li>
+                        <li>Data Analytics (Deloitte)</li>
+                        <li>Digital Marketing (HubSpot)</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Engineering & Product Work</h2>
+            <div class="projects-grid">
+                
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3>Vehicle Pollution Monitoring & Detection System</h3>
+                        <p>Engineered a complete IoT system to capture and analyze real-time vehicle emission data, offering a low-cost, scalable alternative to traditional testing stations.</p>
+                        <p>Developed the core hardware using an **ESP32 microcontroller** and built a **live web dashboard** for instant data visualization.</p>
+                        <span class="tech-stack"><i class="fas fa-tag"></i> Tech Stack: C++, Arduino IDE, VS Code, ESP32</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3>Strategic Workflow Optimization (Picapool)</h3>
+                        <p>Collaborated with Product, Marketing, and Tech teams to analyze workflows and provided key suggestions that **streamlined the bug-resolution process**.</p>
+                        <p>Executed a launch strategy, onboarding **200+ users** in 5 days, and analyzed user data to fix key drop-off points, **increasing user retention by 35%**.</p>
+                        <span class="tech-stack"><i class="fas fa-tag"></i> Role Focus: Product Strategy, Data Analysis, Bug Resolution</span>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3>Regional Leadership & Management (Inglu Global)</h3>
+                        <p>Led and mentored a large team of **40 Campus Heads** across 10 campuses, aligning their efforts with organizational goals.</p>
+                        <p>Monitored performance targets, **exceeding quarterly student engagement goals by 60%**, and delivered structured, data-driven progress reports to senior management.</p>
+                        <span class="tech-stack"><i class="fas fa-tag"></i> Role Focus: Team Leadership, Performance Monitoring, Reporting</span>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I am actively seeking opportunities where I can apply my skills in both technical engineering and strategic planning. Connect with me directly or use the secure form below.</p>
+                
+                <div class="contact-info">
+                    <a href="mailto:deepanshulathar@gmail.com"><i class="fas fa-envelope"></i> deepanshulathar@gmail.com</a>
+                    <a href="tel:+918221016809"><i class="fas fa-phone"></i> +91-8221016809</a>
+                </div>
+
+                <form action="https://getform.io/f/bllqxlzb" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message or Inquiry" required></textarea>
+
+                    <div class="form-complex-fields">
+                        <p>Additional Details (Optional)</p>
+                        
+                        <label for="work-experience">Relevant Work Experience:</label>
+                        <select name="work-experience" id="work-experience">
+                            <option value="one-year">0-1 years</option>
+                            <option value="one-five-years">1-5 years</option>
+                        </select>
+                        
+                        <div style="margin-top: 15px;">
+                            <label>Gender:</label>
+                            <input type="radio" name="gender" value="male" id="gender-male" checked> <label for="gender-male" style="display: inline;">Male</label>
+                            <input type="radio" name="gender" value="female" id="gender-female"> <label for="gender-female" style="display: inline;">Female</label>
+                            <input type="radio" name="gender" value="other" id="gender-other"> <label for="gender-other" style="display: inline;">Other</label>
+                        </div>
+                        
+                        <div style="margin-top: 15px;">
+                            <input type="checkbox" name="subscribe" value="yes" id="subscribe-yes" checked> <label for="subscribe-yes" style="display: inline;">Subscribe to future updates?</label>
+                            <input type="hidden" name="subscribe" value="no">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="_gotcha" style="display:none !important">
+                    
+                    <button type="submit" class="btn">Send Secure Message <i class="fas fa-paper-plane" style="margin-left: 10px;"></i></button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://github.com/latharrr" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="mailto:deepanshulathar@gmail.com" aria-label="Email Address"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/deepanshulathar/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2025 Deepanshu Lathar. Engineered for performance. Form powered by Getform.io.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navList = document.getElementById('nav-list');
+            const menuToggle = document.getElementById('menu-toggle');
+            const sections = document.querySelectorAll('section');
+
+            // --- Mobile Navigation Toggle ---
+            menuToggle.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
+            
+            // Close menu on link click (for mobile)
+            navList.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navList.classList.contains('active')) {
+                        navList.classList.remove('active');
+                    }
+                });
+            });
+
+
+            // --- Scroll Animation (Intersection Observer) ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                if (section.id !== 'home') {
+                    observer.observe(section);
+                }
+            });
+            
+            // Initial visibility for the Home section
+            const homeSection = document.getElementById('home');
+            if(homeSection) {
+                homeSection.classList.add('visible');
+            }
+        });
+    </script>
+
+</body>
+</html>
