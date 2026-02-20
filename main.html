@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepanshu Lathar — Builder. Operator. Strategist.</title>
+    <meta name="description"
+        content="CSE undergrad at LPU running ops at two startups. Builder, Operator & Strategist at the intersection of product, growth, and execution.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Deepanshu Lathar — Builder. Operator. Strategist.">
+    <meta property="og:description"
+        content="Running ops at two startups. Building campus platforms. Obsessing over the gap between product and execution.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deepanshulathar.dev">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deepanshu Lathar — Builder. Operator. Strategist.">
+    <meta name="twitter:description" content="Running ops at two startups. Building campus platforms.">
+    <link rel="canonical" href="https://deepanshulathar.dev">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,200&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080a0f;
+            --bg2: #0d1018;
+            --surface: #111520;
+            --border: #1e2535;
+            --accent: #e8f03a;
+            --accent2: #3af0b8;
+            --text: #e2e8f0;
+            --muted: #6b7a99;
+            --dim: #3a4a66;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Mono', monospace;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom cursor */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s ease, width 0.2s, height 0.2s;
+            mix-blend-mode: difference;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(8, 10, 15, 0.92);
+            border-color: var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: #080a0f;
+            padding: 8px 20px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.85;
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: center;
+            padding: 120px 64px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-left {
+            padding-right: 48px;
+        }
+
+        .hero-right {
+            padding-left: 48px;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(232, 240, 58, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232, 240, 58, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at 70% 50%, black 20%, transparent 65%);
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-tag::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(36px, 4.2vw, 68px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        h1 .italic-name {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 200;
+            font-size: 0.9em;
+            color: var(--muted);
+            display: block;
+            letter-spacing: -1px;
+        }
+
+        .hero-sub {
+            font-size: 14px;
+            line-height: 1.85;
+            color: var(--muted);
+            margin-bottom: 36px;
+            max-width: 440px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #080a0f;
+            padding: 13px 28px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(232, 240, 58, 0.3);
+        }
+
+        .btn-ghost {
+            color: var(--muted);
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+        }
+
+        .btn-ghost:hover {
+            color: var(--text);
+            border-color: var(--muted);
+        }
+
+        /* Hero right — metrics + status */
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .metric {
+            background: var(--bg2);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 28px 24px;
+            transition: background 0.2s;
+        }
+
+        .metric:hover {
+            background: var(--surface);
+        }
+
+        .metric-value {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 32px;
+            color: var(--text);
+            letter-spacing: -1.5px;
+        }
+
+        .metric-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        .hero-status-block {
+            border: 1px solid var(--border);
+            padding: 24px;
+            background: var(--bg2);
+        }
+
+        .hero-status-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 16px;
+        }
+
+        .hero-status-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hero-status-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .hero-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent2);
+            flex-shrink: 0;
+            margin-top: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        .hero-scroll-hint {
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .hero-scroll-hint::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--dim);
+            animation: scrollHint 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollHint {
+
+            0%,
+            100% {
+                width: 20px;
+            }
+
+            50% {
+                width: 36px;
+            }
+        }
+
+        /* Currently building ticker */
+        .ticker-bar {
+            background: var(--accent);
+            color: #080a0f;
+            padding: 10px 0;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ticker-inner {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-item {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 48px;
+        }
+
+        .ticker-sep {
+            opacity: 0.4;
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 48px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(32px, 5vw, 60px);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 64px;
+        }
+
+        /* WHAT I DO */
+        #what {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .what-card {
+            background: var(--bg2);
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+
+        .what-card:hover {
+            background: var(--surface);
+        }
+
+        .what-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .what-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .what-num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 72px;
+            font-weight: 200;
+            color: var(--border);
+            line-height: 1;
+            margin-bottom: 24px;
+            transition: color 0.3s;
+        }
+
+        .what-card:hover .what-num {
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .what-role {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .what-role span {
+            color: var(--accent);
+        }
+
+        .what-desc {
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .what-items {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .what-item {
+            font-size: 12px;
+            color: var(--dim);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .what-item::before {
+            content: '→';
+            color: var(--accent);
+            font-size: 10px;
+        }
+
+        /* LIVE PROJECTS */
+        #projects {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+        }
+
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--accent2);
+            border: 1px solid rgba(58, 240, 184, 0.3);
+            padding: 6px 14px;
+            margin-bottom: 64px;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        .projects-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .projects-table th {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dim);
+            text-align: left;
+            padding: 0 0 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .projects-table tr.project-row {
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .projects-table tr.project-row:hover td {
+            background: var(--surface);
+        }
+
+        .projects-table td {
+            padding: 28px 16px 28px 0;
+            font-size: 13px;
+            vertical-align: top;
+            transition: background 0.2s;
+        }
+
+        .project-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .project-sub {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .stage-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid;
+        }
+
+        .stage-active {
+            border-color: var(--accent2);
+            color: var(--accent2);
+        }
+
+        .stage-build {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .stage-exp {
+            border-color: var(--dim);
+            color: var(--dim);
+        }
+
+        /* CASE STUDIES */
+        #cases {
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .case-card {
+            background: var(--bg2);
+            padding: 40px 36px;
+            transition: background 0.3s;
+        }
+
+        .case-card:hover {
+            background: var(--surface);
+        }
+
+        .case-num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .case-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .case-row {
+            margin-bottom: 16px;
+        }
+
+        .case-row-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .case-row-text {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .case-lesson {
+            margin-top: 24px;
+            padding: 16px;
+            border-left: 2px solid var(--accent);
+            background: rgba(232, 240, 58, 0.04);
+        }
+
+        .case-lesson-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .case-lesson-text {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* TIMELINE */
+        #timeline {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-track {
+            position: relative;
+            padding-left: 48px;
+        }
+
+        .timeline-track::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            bottom: 0;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 56px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .timeline-item:hover {
+            opacity: 1;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -54px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            transform: rotate(45deg);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--dim);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-org {
+            font-size: 12px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .timeline-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* HOW I THINK */
+        #think {
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .think-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .think-card {
+            border: 1px solid var(--border);
+            padding: 40px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .think-card:hover {
+            border-color: var(--accent);
+        }
+
+        .think-icon {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .think-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .think-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .think-principle {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: rgba(232, 240, 58, 0.05);
+            border-left: 2px solid var(--accent);
+            font-size: 12px;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* SKILLS */
+        #skills {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .skills-table th {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dim);
+            text-align: left;
+            padding: 0 0 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-table td {
+            padding: 24px 16px 24px 0;
+            font-size: 13px;
+            vertical-align: top;
+        }
+
+        .skill-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .skill-evidence {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .skill-level {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .skill-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+        }
+
+        .skill-dot.empty {
+            background: var(--border);
+        }
+
+        /* COLLABORATE */
+        #collaborate {
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .collab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .collab-types {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .collab-type {
+            border: 1px solid var(--border);
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collab-type:hover {
+            border-color: var(--accent);
+            background: var(--surface);
+        }
+
+        .collab-type-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .collab-type-tag {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 14px 16px;
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            border-color: var(--accent);
+        }
+
+        .form-field select option {
+            background: var(--surface);
+        }
+
+        .form-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: var(--accent);
+            color: #080a0f;
+            border: none;
+            padding: 16px 32px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .form-submit:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 48px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--dim);
+        }
+
+        /* Fade in animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            section {
+                padding: 72px 24px;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                padding: 100px 24px 60px;
+                gap: 48px;
+            }
+
+            .hero-left {
+                padding-right: 0;
+            }
+
+            .hero-right {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid var(--border);
+                padding-top: 40px;
+            }
+
+            .what-grid,
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .think-grid,
+            .collab-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: clamp(32px, 8vw, 52px);
+                letter-spacing: -1.5px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu.open {
+                display: flex;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collab-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* SCROLL PROGRESS */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: var(--accent);
+            z-index: 9999;
+            transition: width 0.05s linear;
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--text);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(8, 10, 15, 0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            padding: 24px;
+            gap: 24px;
+            z-index: 99;
+        }
+
+        .mobile-menu a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* AVATAR */
+        .hero-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: #080a0f;
+            flex-shrink: 0;
+            margin-bottom: 24px;
+        }
+
+        /* SOCIAL LINKS IN HERO */
+        .hero-socials {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .hero-social-link {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            transition: color 0.2s, border-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-social-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* TOOLS SECTION */
+        #tools {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg2);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .tool-item {
+            background: var(--bg2);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+            cursor: default;
+        }
+
+        .tool-item:hover {
+            background: var(--surface);
+        }
+
+        .tool-icon {
+            font-size: 22px;
+        }
+
+        .tool-name {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--dim);
+            text-align: center;
+        }
+
+        /* TESTIMONIALS */
+        #testimonials {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 40px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 32px;
+            transition: background 0.3s;
+        }
+
+        .testimonial-card:hover {
+            background: var(--bg2);
+        }
+
+        .testimonial-quote {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .testimonial-mark {
+            font-family: 'Fraunces', serif;
+            font-size: 40px;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .testimonial-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .testimonial-title {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .testimonial-org {
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 1px;
+        }
+
+        /* RESUME CTA strip */
+        .resume-strip {
+            margin-top: 24px;
+            padding: 16px 20px;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .resume-strip-text {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .btn-resume {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 18px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-resume:hover {
+            background: var(--accent);
+            color: #080a0f;
+        }
+
+        /* Footer social icons */
+        .footer-social {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-social a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent);
+        }
+
+        /* Counter animation */
+        .counter {
+            display: inline-block;
+        }
+
+        /* Focus styles */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        /* NOISE GRAIN TEXTURE */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9996;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px 200px;
+        }
+
+        /* FLOATING AVAILABILITY PILL */
+        .availability-pill {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 500;
+            background: rgba(8, 10, 15, 0.92);
+            border: 1px solid rgba(58, 240, 184, 0.5);
+            backdrop-filter: blur(12px);
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            color: var(--accent2);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease, background 0.2s;
+        }
+
+        .availability-pill.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .availability-pill:hover {
+            background: rgba(58, 240, 184, 0.08);
+            border-color: var(--accent2);
+        }
+
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent2);
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 900px) {
+            .availability-pill {
+                bottom: 20px;
+                right: 16px;
+            }
+        }
+
+        /* ACTIVE NAV LINK */
+        .nav-links a.nav-active {
+            color: var(--accent);
+        }
+
+        /* SECTION WATERMARKS */
+        .section-watermark {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 200;
+            font-size: clamp(96px, 18vw, 220px);
+            color: var(--border);
+            opacity: 0.5;
+            position: absolute;
+            top: 60px;
+            right: -10px;
+            letter-spacing: -4px;
+            pointer-events: none;
+            user-select: none;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        #what,
+        #projects,
+        #cases,
+        #timeline,
+        #think,
+        #skills,
+        #collaborate,
+        #tools {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HERO STAGGER ANIMATION */
+        .hero-tag,
+        .hero-left h1,
+        .hero-sub,
+        .hero-ctas,
+        .hero-socials {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: heroReveal 0.7s ease forwards;
+        }
+
+        .hero-tag {
+            animation-delay: 0.1s;
+        }
+
+        .hero-left h1 {
+            animation-delay: 0.25s;
+        }
+
+        .hero-sub {
+            animation-delay: 0.4s;
+        }
+
+        .hero-ctas {
+            animation-delay: 0.55s;
+        }
+
+        .hero-socials {
+            animation-delay: 0.65s;
+        }
+
+        .hero-right {
+            opacity: 0;
+            animation: heroReveal 0.7s ease forwards 0.5s;
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* TIMELINE HOVER IMPROVEMENT */
+        .timeline-item {
+            padding-left: 20px;
+            border-left: 2px solid transparent;
+            margin-left: -20px;
+            transition: border-color 0.3s, opacity 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--accent);
+        }
+
+        /* TICKER PAUSE ON HOVER */
+        .ticker-bar:hover .ticker-inner {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#" class="nav-logo">DL</a>
+        <ul class="nav-links">
+            <li><a href="#what">What I Do</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#cases">Case Studies</a></li>
+            <li><a href="#think">How I Think</a></li>
+            <li><a href="#collaborate">Collaborate</a></li>
+        </ul>
+        <a href="#collaborate" class="nav-cta">Work With Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#what" onclick="closeMobileMenu()">What I Do</a>
+        <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+        <a href="#cases" onclick="closeMobileMenu()">Case Studies</a>
+        <a href="#think" onclick="closeMobileMenu()">How I Think</a>
+        <a href="#collaborate" onclick="closeMobileMenu()">Collaborate</a>
+        <a href="mailto:deepanshulathar@gmail.com" onclick="closeMobileMenu()">deepanshulathar@gmail.com</a>
+    </div>
+
+    <!-- AVAILABILITY PILL -->
+    <a href="#collaborate" class="availability-pill" id="availPill">
+        <div class="pill-dot"></div>
+        Open to opportunities
+    </a>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-left">
+                <div class="hero-tag">Builder · Operator · Strategist</div>
+                <h1>
+                    <span class="italic-name">Deepanshu Lathar</span>
+                    I build <em>real systems</em> that scale.
+                </h1>
+                <p class="hero-sub">
+                    CSE undergrad at LPU. Running ops at two startups, building campus platforms, and obsessing over the
+                    gap between product and execution. I don't just ship code — I ship outcomes.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#projects" class="btn-primary">See Live Projects →</a>
+                    <a href="#collaborate" class="btn-ghost">Open to opportunities</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://linkedin.com/in/deepanshulathar" target="_blank" rel="noopener"
+                        class="hero-social-link">↗ LinkedIn</a>
+                    <a href="mailto:deepanshulathar@gmail.com" class="hero-social-link">✉ Email</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-avatar">DL</div>
+                <div class="hero-metrics">
+                    <div class="metric"><span class="metric-value counter" data-target="2">2</span><span
+                            class="metric-label">Live Startups</span></div>
+                    <div class="metric"><span class="metric-value">8mo</span><span class="metric-label">Founder's
+                            Office</span></div>
+                    <div class="metric"><span class="metric-value counter" data-target="3">3</span><span
+                            class="metric-label">Active Roles</span></div>
+                    <div class="metric"><span class="metric-value">0→1</span><span class="metric-label">Builder
+                            Mode</span></div>
+                </div>
+                <div class="hero-status-block">
+                    <div class="hero-status-label">Currently Active</div>
+                    <div class="hero-status-items">
+                        <div class="hero-status-item">
+                            <div class="hero-status-dot"></div>Founder's Office @ Picapool — Ops, Growth &amp; Product
+                        </div>
+                        <div class="hero-status-item">
+                            <div class="hero-status-dot"></div>Founder's Office @ UniLyf — Pre-launch Community Strategy
+                        </div>
+                        <div class="hero-status-item">
+                            <div class="hero-status-dot"></div>Content Writer — LPU Division of Admissions
+                        </div>
+                    </div>
+                </div>
+                <div class="resume-strip">
+                    <span class="resume-strip-text">View my full background &amp; experience</span>
+                    <a href="Deepanshu Lathar CV.pdf" download="Deepanshu_Lathar_CV.pdf" class="btn-resume"
+                        id="resumeBtn">↓ Resume PDF</a>
+                </div>
+            </div>
+            <div class="hero-scroll-hint">Scroll to explore</div>
+        </div>
+        </div>
+        <div class="ticker-bar">
+            <div class="ticker-inner">
+                <span class="ticker-item">Currently Building: UniLyf campus platform</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Running growth @ Picapool</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Writing for LPU Admissions</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Open to Product & Growth roles</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Currently Building: UniLyf campus platform</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Running growth @ Picapool</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Writing for LPU Admissions</span>
+                <span class="ticker-item ticker-sep">✦</span>
+                <span class="ticker-item">Open to Product & Growth roles</span>
+                <span class="ticker-item ticker-sep">✦</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT I DO -->
+    <section id="what">
+        <div class="section-label">What I Actually Do</div>
+        <div class="section-title">Three modes.<br>One person.</div>
+        <div class="what-grid">
+            <div class="what-card fade-up">
+                <div class="what-num">01</div>
+                <div class="what-role"><span>Builder</span> — I create</div>
+                <p class="what-desc">I take problems from whiteboard to working system. Whether it's a feedback loop, a
+                    content operation, or a campus platform — I design the thing and make it run.</p>
+                <div class="what-items">
+                    <div class="what-item">Campus social platform (UniLyf)</div>
+                    <div class="what-item">User feedback loops at Picapool</div>
+                    <div class="what-item">SEO content systems for LPU</div>
+                    <div class="what-item">Product roadmaps from market research</div>
+                </div>
+            </div>
+            <div class="what-card fade-up">
+                <div class="what-num">02</div>
+                <div class="what-role"><span>Operator</span> — I execute</div>
+                <p class="what-desc">Strategy dies in planning docs. I'm the person who makes it happen — managing
+                    logistics, coordinating teams, and keeping experiments running in the real world.</p>
+                <div class="what-items">
+                    <div class="what-item">End-to-end ops at two startups</div>
+                    <div class="what-item">Cross-functional team coordination</div>
+                    <div class="what-item">Campus experiment rollouts</div>
+                    <div class="what-item">Organic growth without paid ads</div>
+                </div>
+            </div>
+            <div class="what-card fade-up">
+                <div class="what-num">03</div>
+                <div class="what-role"><span>Thinker</span> — I solve</div>
+                <p class="what-desc">I find the "why" behind every product decision. I use structured frameworks to
+                    break down complex problems into executable phases — then I execute them.</p>
+                <div class="what-items">
+                    <div class="what-item">Product hunting & gap analysis</div>
+                    <div class="what-item">Competitor feature benchmarking</div>
+                    <div class="what-item">Growth strategy design</div>
+                    <div class="what-item">User feedback synthesis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE PROJECTS -->
+    <section id="projects">
+        <div class="live-badge">
+            <div class="live-dot"></div>
+            LIVE PROJECT DASHBOARD
+        </div>
+        <div class="section-title">What I'm<br>shipping now.</div>
+        <table class="projects-table">
+            <thead>
+                <tr>
+                    <th style="width:35%">Project</th>
+                    <th style="width:15%">Stage</th>
+                    <th style="width:30%">Impact Goal</th>
+                    <th style="width:20%">My Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="project-row fade-up">
+                    <td>
+                        <div class="project-name">Picapool</div>
+                        <div class="project-sub">Campus-focused startup — users on the ground</div>
+                    </td>
+                    <td><span class="stage-badge stage-active">Active</span></td>
+                    <td style="color:var(--muted); font-size:13px; line-height:1.7">Grow campus user base organically.
+                        Close feedback loop between users → dev team.</td>
+                    <td style="color:var(--accent); font-size:13px">Founder's Office — Ops, Growth & Product</td>
+                </tr>
+                <tr class="project-row fade-up">
+                    <td>
+                        <div class="project-name">UniLyf</div>
+                        <div class="project-sub">UK-based real-time campus social platform</div>
+                    </td>
+                    <td><span class="stage-badge stage-build">Pre-Launch</span></td>
+                    <td style="color:var(--muted); font-size:13px; line-height:1.7">Build insider community before app
+                        launches. Start at LPU, expand to UK campuses.</td>
+                    <td style="color:var(--accent); font-size:13px">Founder's Office — Growth & Community Strategy</td>
+                </tr>
+                <tr class="project-row fade-up">
+                    <td>
+                        <div class="project-name">LPU Content Engine</div>
+                        <div class="project-sub">SEO content operation for Division of Admissions</div>
+                    </td>
+                    <td><span class="stage-badge stage-active">Active</span></td>
+                    <td style="color:var(--muted); font-size:13px; line-height:1.7">Convert complex academic policy into
+                        content that drives prospective student engagement.</td>
+                    <td style="color:var(--accent); font-size:13px">Content Writer — Strategy & Execution</td>
+                </tr>
+                <tr class="project-row fade-up">
+                    <td>
+                        <div class="project-name">Technical Portfolio Projects</div>
+                        <div class="project-sub">Bridging engineering + product management</div>
+                    </td>
+                    <td><span class="stage-badge stage-exp">Building</span></td>
+                    <td style="color:var(--muted); font-size:13px; line-height:1.7">Prove technical depth to complement
+                        product thinking. Python, C++, DSA implementations.</td>
+                    <td style="color:var(--accent); font-size:13px">Solo Builder</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="cases">
+        <div class="section-label">Problem → Solution</div>
+        <div class="section-title">Three problems.<br>Three builds.</div>
+        <div class="cases-grid">
+            <div class="case-card fade-up">
+                <div class="case-num">Case 01</div>
+                <div class="case-title">Closing the Startup Feedback Gap</div>
+                <div class="case-row">
+                    <div class="case-row-label">Problem</div>
+                    <div class="case-row-text">At Picapool, user feedback existed but wasn't reaching the dev team fast
+                        enough to drive feature iterations. The loop was broken.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Constraints</div>
+                    <div class="case-row-text">No budget for paid tools. Small team. Campus-based user base that moves
+                        fast and loses interest faster.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Approach</div>
+                    <div class="case-row-text">Designed an end-to-end feedback collection system — structured user
+                        interviews, organized data, and built a direct channel to the dev team with prioritized
+                        insights.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Result</div>
+                    <div class="case-row-text">Faster iteration cycles. Dev team aligned to actual user needs, not
+                        assumptions.</div>
+                </div>
+                <div class="case-lesson">
+                    <div class="case-lesson-label">Lesson</div>
+                    <div class="case-lesson-text">A feedback loop is a product. Design it as carefully as anything else
+                        you ship.</div>
+                </div>
+            </div>
+            <div class="case-card fade-up">
+                <div class="case-num">Case 02</div>
+                <div class="case-title">Launching a Platform Into a Cold Campus</div>
+                <div class="case-row">
+                    <div class="case-row-label">Problem</div>
+                    <div class="case-row-text">UniLyf needed to build user anticipation before the app even launched.
+                        Zero users. Zero awareness. UK-based team, LPU campus target.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Constraints</div>
+                    <div class="case-row-text">Remote team coordination across time zones. No product yet to show. Had
+                        to sell a vision, not a feature.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Approach</div>
+                    <div class="case-row-text">Spearheaded "insider community" strategy — recruited early believers,
+                        built hype through content, coordinated across a 3-function team (Content, Creative, Copy).
+                    </div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Result</div>
+                    <div class="case-row-text">Pre-launch community established. Ecosystem being built before app
+                        exists.</div>
+                </div>
+                <div class="case-lesson">
+                    <div class="case-lesson-label">Lesson</div>
+                    <div class="case-lesson-text">The best launch strategy starts 3 months before you have anything to
+                        launch.</div>
+                </div>
+            </div>
+            <div class="case-card fade-up">
+                <div class="case-num">Case 03</div>
+                <div class="case-title">Making Academic Policy Human</div>
+                <div class="case-row">
+                    <div class="case-row-label">Problem</div>
+                    <div class="case-row-text">LPU's admissions content was technical and bureaucratic. Prospective
+                        students and parents couldn't parse it — leading to disengagement.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Constraints</div>
+                    <div class="case-row-text">Accuracy was non-negotiable. Tone had to work for both 18-year-olds and
+                        their parents. University guidelines were strict.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Approach</div>
+                    <div class="case-row-text">Combined SEO strategy with narrative structure — translated policy
+                        documents into story-led content that answered real questions people were searching for.</div>
+                </div>
+                <div class="case-row">
+                    <div class="case-row-label">Result</div>
+                    <div class="case-row-text">Content that drives search traffic and converts prospective student
+                        interest into engagement.</div>
+                </div>
+                <div class="case-lesson">
+                    <div class="case-lesson-label">Lesson</div>
+                    <div class="case-lesson-text">If users can't understand your product, your product doesn't exist for
+                        them.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+        <div class="section-label">Trajectory</div>
+        <div class="section-title">How I got here.</div>
+        <div class="timeline-track">
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">Jan 2026 – Present</div>
+                <div class="timeline-title">Founder's Office — UniLyf</div>
+                <div class="timeline-org">UK Campus Social Platform</div>
+                <div class="timeline-desc">Driving growth and community strategy for a real-time campus platform
+                    pre-launch. Leading user acquisition, coordinating cross-functional creative team, building the
+                    ecosystem before the product ships.</div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">Jan 2026 – Present</div>
+                <div class="timeline-title">Content Writer — LPU Division of Admissions</div>
+                <div class="timeline-org">Lovely Professional University</div>
+                <div class="timeline-desc">Crafting SEO-led content that translates complex academic policy into
+                    engaging, accessible writing for prospective students and parents across official university
+                    channels.</div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">Jul 2025 – Present</div>
+                <div class="timeline-title">Founder's Office — Picapool</div>
+                <div class="timeline-org">Campus Startup</div>
+                <div class="timeline-desc">Managing end-to-end user feedback loops, leading organic content and
+                    marketing campaigns, overseeing operational logistics, and conducting product hunting to shape the
+                    roadmap. 8 months, multiple hats.</div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">Jul 2025 – Jan 2026</div>
+                <div class="timeline-title">HR Coordinator & Event Coordinator</div>
+                <div class="timeline-org">Student Organization Cell, LPU</div>
+                <div class="timeline-desc">Coordinated events and managed human resources for campus organization. Built
+                    foundational operational and people management skills.</div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">May 2025 – Jul 2025</div>
+                <div class="timeline-title">Regional Manager</div>
+                <div class="timeline-org">INGLU</div>
+                <div class="timeline-desc">Event planning, campus outreach, regional team collaboration, and digital
+                    promotions across student engagement campaigns.</div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">Jun 2024 – Oct 2024</div>
+                <div class="timeline-title">Intern — The Internship That Changed Direction</div>
+                <div class="timeline-org">Scaler School of Technology, Bengaluru</div>
+                <div class="timeline-desc">The experience that gave shape to my ideas and showed me how to turn them
+                    into reality. Foundation of everything that followed.</div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-date">Sep 2024</div>
+                <div class="timeline-title">Started B.Tech CSE</div>
+                <div class="timeline-org">Lovely Professional University</div>
+                <div class="timeline-desc">Began formal CS education. Immediately started operating at the intersection
+                    of engineering and product — refusing to wait until graduation to build real things.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW I THINK -->
+    <section id="think">
+        <div class="section-label">Thinking Architecture</div>
+        <div class="section-title">How I think<br>about problems.</div>
+        <div class="think-grid">
+            <div class="think-card fade-up">
+                <div class="think-icon">⬡</div>
+                <div class="think-title">Phase-First Execution</div>
+                <div class="think-desc">Every system I build gets broken into phases before a single line of code or
+                    content gets written. Phase 1 always answers: what's the smallest version that proves this works?
+                </div>
+                <div class="think-principle">"Don't build the whole staircase. Build the first step and test if anyone
+                    climbs it."</div>
+            </div>
+            <div class="think-card fade-up">
+                <div class="think-icon">◈</div>
+                <div class="think-title">Feedback Loops Over Assumptions</div>
+                <div class="think-desc">I treat user signals as the only true north. Every decision at Picapool and
+                    UniLyf runs through the same filter: what are real users actually telling us, not what do we think
+                    they want?</div>
+                <div class="think-principle">"Assumptions are debts you'll pay back with compound interest when you
+                    ship."</div>
+            </div>
+            <div class="think-card fade-up">
+                <div class="think-icon">⟳</div>
+                <div class="think-title">Tech + Business Synthesis</div>
+                <div class="think-desc">I refuse to separate the "how it works" from the "why it matters." Every
+                    technical decision I make gets run through a product lens: what user outcome does this enable?</div>
+                <div class="think-principle">"The best engineers understand users. The best product people understand
+                    constraints."</div>
+            </div>
+            <div class="think-card fade-up">
+                <div class="think-icon">▲</div>
+                <div class="think-title">Execution Over Perfection</div>
+                <div class="think-desc">I optimize for shipping and learning. A working prototype with real user
+                    reactions beats a perfect plan with zero market signal. Speed of iteration is the actual competitive
+                    advantage.</div>
+                <div class="think-principle">"Shipping dominance beats code perfection. Get it in front of users, then
+                    improve."</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS PROOF -->
+    <section id="skills">
+        <div class="section-label">Proof of Skills</div>
+        <div class="section-title">Not a list.<br>Evidence.</div>
+        <table class="skills-table">
+            <thead>
+                <tr>
+                    <th style="width:20%">Skill</th>
+                    <th style="width:55%">How I've Proven It</th>
+                    <th style="width:25%">Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fade-up">
+                    <td>
+                        <div class="skill-name">Product Operations</div>
+                    </td>
+                    <td>
+                        <div class="skill-evidence">Managed end-to-end feedback loops, feature rollouts, and day-to-day
+                            ops at Picapool for 8 months. Directly influenced product roadmap decisions through
+                            structured market research.</div>
+                    </td>
+                    <td>
+                        <div class="skill-level">
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="fade-up">
+                    <td>
+                        <div class="skill-name">Growth Strategy</div>
+                    </td>
+                    <td>
+                        <div class="skill-evidence">Led organic user acquisition campaigns (zero paid budget) at
+                            Picapool and built pre-launch community strategy at UniLyf. Designed and executed
+                            multi-channel content operations.</div>
+                    </td>
+                    <td>
+                        <div class="skill-level">
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="fade-up">
+                    <td>
+                        <div class="skill-name">SEO & Content</div>
+                    </td>
+                    <td>
+                        <div class="skill-evidence">Writing SEO-driven content for LPU's official admissions channels.
+                            Certified in Digital Marketing. Translating complex institutional language into
+                            human-readable, search-optimized content.</div>
+                    </td>
+                    <td>
+                        <div class="skill-level">
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="fade-up">
+                    <td>
+                        <div class="skill-name">Programming</div>
+                    </td>
+                    <td>
+                        <div class="skill-evidence">C++, Python, Data Structures & Algorithms. Technical Feasibility
+                            Analysis at Picapool. Certified in C Programming. Building technical projects to bridge gap
+                            with product management.</div>
+                    </td>
+                    <td>
+                        <div class="skill-level">
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="fade-up">
+                    <td>
+                        <div class="skill-name">Team Coordination</div>
+                    </td>
+                    <td>
+                        <div class="skill-evidence">Coordinated Content, Creative & Copy teams at UniLyf. HR Coordinator
+                            and Event Coordinator roles at Student Organization Cell. Regional Manager at INGLU across
+                            Delhi.</div>
+                    </td>
+                    <td>
+                        <div class="skill-level">
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="fade-up">
+                    <td>
+                        <div class="skill-name">Data Analytics</div>
+                    </td>
+                    <td>
+                        <div class="skill-evidence">Deloitte Australia Data Analytics job simulation certified. Applied
+                            analytical thinking to product hunting and competitor feature analysis at Picapool.</div>
+                    </td>
+                    <td>
+                        <div class="skill-level">
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- TOOLS & STACK -->
+    <section id="tools">
+        <div class="section-label">Toolkit</div>
+        <div class="section-title">Tools I<br>actually use.</div>
+        <div class="tools-grid">
+            <div class="tool-item fade-up">
+                <div class="tool-icon">📊</div>
+                <div class="tool-name">Notion</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">🔍</div>
+                <div class="tool-name">GA4</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">⚙️</div>
+                <div class="tool-name">Figma</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">🐝</div>
+                <div class="tool-name">Airtable</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">💬</div>
+                <div class="tool-name">Slack</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">📝</div>
+                <div class="tool-name">Docs / Sheets</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">🐧</div>
+                <div class="tool-name">Git / GitHub</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">🐍</div>
+                <div class="tool-name">Python</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">⚛️</div>
+                <div class="tool-name">C++</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">🌐</div>
+                <div class="tool-name">SEO Tools</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">📱</div>
+                <div class="tool-name">WhatsApp Ops</div>
+            </div>
+            <div class="tool-item fade-up">
+                <div class="tool-icon">🎥</div>
+                <div class="tool-name">Loom</div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="collaborate">
+        <div class="section-label">Work With Me</div>
+        <div class="section-title">Let's build<br>something real.</div>
+        <div class="collab-grid">
+            <div>
+                <p style="font-size:14px; color:var(--muted); line-height:1.8; margin-bottom:36px; max-width:440px">
+                    I'm open to opportunities where I can operate at the intersection of product, growth, and execution.
+                    If you're building something real and need someone who ships — let's talk.
+                </p>
+                <div class="collab-types">
+                    <div class="collab-type">
+                        <span class="collab-type-name">Founder's Office / Ops Roles</span>
+                        <span class="collab-type-tag">Open ✦</span>
+                    </div>
+                    <div class="collab-type">
+                        <span class="collab-type-name">Product & Growth Internships</span>
+                        <span class="collab-type-tag">Open ✦</span>
+                    </div>
+                    <div class="collab-type">
+                        <span class="collab-type-name">Campus Platform Projects</span>
+                        <span class="collab-type-tag">Open ✦</span>
+                    </div>
+                    <div class="collab-type">
+                        <span class="collab-type-name">Co-founder / Collaborator</span>
+                        <span class="collab-type-tag">Selective ◈</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xovnoynw" method="POST" id="contactForm">
+                        <div class="form-field">
+                            <label>Your Name</label>
+                            <input type="text" name="name" placeholder="What should I call you?" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Opportunity Type</label>
+                            <select name="type">
+                                <option>Internship / Job Role</option>
+                                <option>Collaboration</option>
+                                <option>Startup / Founder's Office</option>
+                                <option>Just want to connect</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label>What are you building?</label>
+                            <textarea name="message" placeholder="Tell me about the problem you're solving..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn">Send It →</button>
+                    </form>
+                    <div id="formSuccess"
+                        style="display:none; padding:20px; border:1px solid var(--accent2); color:var(--accent2); font-size:13px; margin-top:16px;">
+                        Message sent. I'll get back to you within 24 hours.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-social">
+            <a href="mailto:deepanshulathar@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="#hero">Back to top ↑</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 Deepanshu Lathar. Bet on me before I get expensive.</div>
+    </footer>
+
+    <script>
+        // Scroll progress
+        const progressBar = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+            progressBar.style.width = pct + '%';
+        });
+
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        function closeMobileMenu() {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        }
+
+        // Cursor
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            cursor.style.left = mx - 5 + 'px';
+            cursor.style.top = my - 5 + 'px';
+        });
+        function animateRing() {
+            rx += (mx - rx - 18) * 0.12;
+            ry += (my - ry - 18) * 0.12;
+            ring.style.left = rx + 'px';
+            ring.style.top = ry + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+        document.querySelectorAll('a, button, .what-card, .case-card, .think-card, .collab-type, .project-row, .tool-item, .testimonial-card').forEach(el => {
+            el.addEventListener('mouseenter', () => { ring.style.width = '60px'; ring.style.height = '60px'; ring.style.marginLeft = '-12px'; ring.style.marginTop = '-12px'; });
+            el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.marginLeft = '0'; ring.style.marginTop = '0'; });
+        });
+
+        // Nav scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Fade up on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Stagger children within grids
+        document.querySelectorAll('.what-grid, .cases-grid, .think-grid, .tools-grid, .testimonials-grid').forEach(grid => {
+            [...grid.children].forEach((child, i) => {
+                child.style.transitionDelay = (i * 0.08) + 's';
+            });
+        });
+
+        // Form submission (Formspree)
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                try {
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (res.ok) {
+                        form.style.display = 'none';
+                        document.getElementById('formSuccess').style.display = 'block';
+                    } else {
+                        btn.textContent = 'Error — try emailing directly';
+                    }
+                } catch { btn.textContent = 'Error — try emailing directly'; }
+            });
+        }
+
+        // Floating availability pill — appears after scrolling past hero
+        const availPill = document.getElementById('availPill');
+        const heroSection = document.getElementById('hero');
+        const pillObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) {
+                    availPill.classList.add('visible');
+                } else {
+                    availPill.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        if (heroSection) pillObserver.observe(heroSection);
+
+        // Active nav highlighting
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section[id]');
+        const navObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('nav-active'));
+                    const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('nav-active');
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(s => navObserver.observe(s));
+
+        // Section watermarks — inject italic numbers
+        const watermarkData = [
+            { id: 'what', num: '01' },
+            { id: 'projects', num: '02' },
+            { id: 'cases', num: '03' },
+            { id: 'timeline', num: '04' },
+            { id: 'think', num: '05' },
+            { id: 'skills', num: '06' },
+            { id: 'collaborate', num: '07' },
+        ];
+        watermarkData.forEach(({ id, num }) => {
+            const sec = document.getElementById(id);
+            if (sec) {
+                const wm = document.createElement('div');
+                wm.className = 'section-watermark';
+                wm.textContent = num;
+                sec.appendChild(wm);
+            }
+        });
+    </script>
+</body>
+
+</html>
