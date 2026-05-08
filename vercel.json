@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/main.html" }
+    { "source": "/", "destination": "/main.html" },
+    { "source": "/cv", "destination": "/Deepanshu_Lathar_Resume.pdf" }
   ]
 }
