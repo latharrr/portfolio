@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { HAIRLINE, INK, LEDGER, MONO } from "@/lib/tokens";
 
 export function Header() {
@@ -23,8 +24,12 @@ export function Header() {
           textTransform: "uppercase",
           color: INK,
           borderBottom: 0,
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
         }}
       >
+        <Logo size={17} />
         Deepanshu Lathar
       </Link>
       <span

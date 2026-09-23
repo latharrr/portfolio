@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/Badge";
+import { Logo } from "@/components/Logo";
 import { copy, type Link as LinkItem } from "@/lib/data";
 import { DISPLAY, HAIRLINE, LINK_UNDERLINE, MONO, PENCIL } from "@/lib/tokens";
 
@@ -38,6 +39,9 @@ export default function LabsPage() {
   const { labs } = copy;
   return (
     <main>
+      <div style={{ marginBottom: 28 }}>
+        <Logo size={64} title={`${labs.title} logo`} />
+      </div>
       <h1 style={{ fontFamily: DISPLAY, fontWeight: 600, fontSize: 46, letterSpacing: "-0.02em", margin: 0 }}>
         {labs.title}
       </h1>
