@@ -12,6 +12,7 @@ const routes = [
   "/about",
   "/resume",
   "/archive",
+  "/labs",
   "/labs/privacy-policy",
 ];
 

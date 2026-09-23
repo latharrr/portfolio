@@ -497,6 +497,7 @@ export const navItems: { href: string; label: string }[] = [
   { href: "/about", label: "About" },
   { href: "/resume", label: "Resume" },
   { href: "/archive", label: "Archive" },
+  { href: "/labs", label: "Labs" },
 ];
 
 // Static prose copy, kept here (rather than inline JSX text) so every
@@ -577,6 +578,42 @@ export const copy = {
       'There is no "N products built" headline anywhere on this site, because a headline number survives about one click. This is the list it would have summarised: in progress, abandoned, and scoped-but-never-started, with the reason.',
     footerNote:
       "This list is deliberately short of thirty rows. It only contains work that actually exists in some state — nothing has been invented to lengthen it. Rows get added as they happen.",
+  },
+  labs: {
+    title: "Deepanshu Labs",
+    tagline: "Building software, AI, and digital products.",
+    intro:
+      "Deepanshu Labs is the name my products ship under. It is one person, not an agency: the same work as the rest of this site, with a company page and an app registration behind it so that products which talk to other platforms have somewhere accountable to live.",
+    productsHeading: "Under the Labs name",
+    products: [
+      {
+        name: "LinkedIn post copilot",
+        badge: "In development",
+        live: false,
+        blurb:
+          "A drafting and scheduling tool that publishes to LinkedIn through the official API. It writes two drafts from a brief, and nothing is posted until a human has picked a draft and picked a time.",
+        links: [{ href: "/labs/privacy-policy", label: "Privacy policy →", internal: true }],
+      },
+      {
+        name: "ProofMart",
+        badge: "In development",
+        live: false,
+        blurb:
+          "A document forensics API where every finding pins to a page coordinate and every dossier ships Ed25519-signed.",
+        links: [{ href: "/work/proofmart", label: "Case study →", internal: true }],
+      },
+      {
+        name: "Gapl",
+        badge: "Live — no commercial users",
+        live: true,
+        blurb: "AI resume intelligence with a multi-model failover gateway and edge-based email attribution.",
+        links: [{ href: "/work/gapl", label: "Case study →", internal: true }],
+      },
+    ] satisfies { name: string; badge: string; live: boolean; blurb: string; links: Link[] }[],
+    links: [
+      { href: "https://www.linkedin.com/company/deepanshulabs", label: "LinkedIn page ↗" },
+      { href: "/labs/privacy-policy", label: "Privacy policy →", internal: true },
+    ] satisfies Link[],
   },
   footer: {
     tagline: "Deepanshu Lathar · Attribution, forensics, internal tooling",
