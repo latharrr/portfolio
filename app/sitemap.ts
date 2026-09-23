@@ -12,6 +12,7 @@ const routes = [
   "/about",
   "/resume",
   "/archive",
+  "/labs/privacy-policy",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
