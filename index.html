@@ -195,17 +195,8 @@
     .lede .more { display: none; }
     .lede { font-size: var(--fs-body); line-height: 1.6; color: var(--ink-2); max-width: 600px; margin: 0 0 32px; }
     .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
-    /* the one 3D object: a static flat mark until (and unless) three.js takes over */
-    .hero-3d { grid-column: 3; grid-row: 1; align-self: center; position: relative; width: 100%; max-width: 420px; aspect-ratio: 4 / 5; justify-self: end; }
-    /* until (and unless) three.js takes over: the same cut-out, flat, fading into the facts line */
-    .hero-3d-fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity 0.7s var(--ease), filter 0.9s ease;
-      -webkit-mask-image: url(assets/portrait-depth.png), linear-gradient(#000 78%, transparent 99%); -webkit-mask-size: 100% 100%; -webkit-mask-composite: source-in;
-      mask-image: url(assets/portrait-depth.png), linear-gradient(#000 78%, transparent 99%); mask-size: 100% 100%; mask-composite: intersect; }
-    [data-theme="dark"] .hero-3d-fallback { filter: grayscale(1) contrast(1.08) brightness(0.92); }
-    .hero-3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 0.9s var(--ease); cursor: grab; touch-action: pan-y; }
-    .hero-3d canvas:active { cursor: grabbing; }
-    .hero-3d.is-3d canvas { opacity: 1; }
-    .hero-3d.is-3d .hero-3d-fallback { opacity: 0; }
+    /* the portrait, as it is: the original photo in a quiet frame */
+    .hero-photo { grid-column: 3; grid-row: 1; align-self: center; justify-self: end; width: 100%; max-width: 360px; margin: 0; }
     /* recruiter facts: one row, three columns, hairline above */
     .facts { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; margin: clamp(40px, 5vw, 64px) 0 0; border-top: 1px solid var(--line); }
     .facts > div { padding-top: 18px; min-width: 0; }
@@ -302,7 +293,7 @@
     /* portrait: full colour in daylight, black & white at night */
     .portrait-zone { position: relative; grid-column: 1; margin: 0; min-width: 0; perspective: 900px; }
     .portrait-frame { position: relative; background: var(--bg2); border-radius: 6px; overflow: hidden; box-shadow: 0 24px 50px -28px var(--glow), var(--shadow-sm); }
-    .portrait-frame img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; filter: saturate(1.06) contrast(1.02); transition: filter 0.9s ease; }
+    .portrait-frame img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; transition: filter 0.9s ease; }
     [data-theme="dark"] .portrait-frame img { filter: grayscale(1) brightness(0.9) contrast(1.08); }
     .portrait-frame::after { content: ""; position: absolute; inset: 0; border-radius: 6px; box-shadow: inset 0 0 0 1px var(--line-2); pointer-events: none; }
     .ide-status { display: flex; gap: 12px; justify-content: space-between; margin-top: 12px; font-family: var(--mono); font-size: var(--fs-label); color: var(--muted); }
@@ -311,7 +302,7 @@
     @media (max-width: 759px) {
       .hero-top { grid-template-columns: minmax(0, 1fr); }
       .hero-copy, .facts { grid-column: 1; }
-      .hero-3d { display: none; }
+      .hero-photo { display: none; }
       .facts { grid-template-columns: minmax(0, 1fr); margin-top: 40px; }
       .facts > div { padding: 14px 0; border-bottom: 1px solid var(--line-2); }
       .facts > div:last-child { border-bottom: 0; }
@@ -792,7 +783,6 @@
       .flip-chips i.dev { opacity: 1 !important; scale: 1 !important; animation: none !important; }
     }
   </style>
-  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -884,11 +874,13 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg>Email me</a>
             </div>
           </div>
-          <div class="hero-3d" id="hero-3d" aria-hidden="true">
-            <img class="hero-3d-fallback" src="assets/portrait.webp" width="720" height="900" alt="" decoding="async" />
-          </div>
+          <figure class="hero-photo hero-in" style="--d:120ms">
+            <div class="portrait-frame">
+              <img src="assets/portrait.webp" width="720" height="900" decoding="async" fetchpriority="high" alt="Portrait of Deepanshu Lathar" />
+            </div>
+          </figure>
           <figure class="portrait-zone m-photo hero-in" style="--d:120ms">
-            <div class="portrait-frame" data-tilt>
+            <div class="portrait-frame">
               <img src="assets/portrait.webp" width="720" height="900" decoding="async" alt="Portrait of Deepanshu Lathar" />
             </div>
           </figure>
@@ -2326,201 +2318,6 @@
       });
       el.addEventListener('pointerleave', () => { el.style.translate = ''; });
     });
-  })();
-  </script>
-  <script type="module">
-  /* The one 3D object: the portrait as a 3D relief. A depth map (Depth Anything v2, computed offline and packed into
-     assets/portrait-depth.png: RGB = depth, A = silhouette) pushes a dense mesh forward, the photo is wrapped over it,
-     and it is lit from the top right where the sun / moon sits. Colour by day, black & white at night.
-     Loaded only after `load` + idle, and never on reduced motion, narrow screens, Save-Data or low-core devices. */
-  (() => {
-    'use strict';
-    const host = document.getElementById('hero-3d');
-    if (!host) return;
-    const nav = navigator, conn = nav.connection || {};
-    const skip = matchMedia('(prefers-reduced-motion: reduce)').matches || innerWidth < 760 || conn.saveData === true || (nav.hardwareConcurrency || 8) < 4;
-    if (skip) return;
-    const idle = (fn) => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: 2500 }) : setTimeout(fn, 300));
-    const loadImg = (src) => new Promise((res, rej) => { const i = new Image(); i.decoding = 'async'; i.onload = () => res(i); i.onerror = rej; i.src = src; });
-    const start = () => idle(() => Promise.all([
-      import('three'), import('three/addons/environments/RoomEnvironment.js'),
-      loadImg('assets/portrait.webp'), loadImg('assets/portrait-depth.png'),
-    ]).then(init).catch(() => {}));
-    if (document.readyState === 'complete') start(); else addEventListener('load', start, { once: true });
-
-    function init([THREE, { RoomEnvironment }, photo, depthImg]) {
-      if (innerWidth < 760) return;
-      const root = document.documentElement;
-      const dark = () => root.getAttribute('data-theme') === 'dark';
-
-      // ---- read the depth + silhouette
-      const DW = depthImg.naturalWidth, DH = depthImg.naturalHeight;
-      const dc = document.createElement('canvas'); dc.width = DW; dc.height = DH;
-      const dctx = dc.getContext('2d', { willReadFrequently: true }); dctx.drawImage(depthImg, 0, 0);
-      const dd = dctx.getImageData(0, 0, DW, DH).data;
-
-      // ---- the photo, cut out (alpha = silhouette, fading out at the bottom edge); a colour and a B&W copy
-      const PW = photo.naturalWidth, PH = photo.naturalHeight;
-      const makeTex = (grey) => {
-        const c = document.createElement('canvas'); c.width = PW; c.height = PH;
-        const g = c.getContext('2d', { willReadFrequently: true });
-        g.drawImage(photo, 0, 0, PW, PH);
-        const im = g.getImageData(0, 0, PW, PH), px = im.data;
-        const m = document.createElement('canvas'); m.width = PW; m.height = PH;
-        const mg = m.getContext('2d', { willReadFrequently: true }); mg.drawImage(depthImg, 0, 0, PW, PH);
-        const ma = mg.getImageData(0, 0, PW, PH).data;
-        for (let y = 0; y < PH; y++) {
-          const fade = Math.min(1, (PH - y) / (PH * 0.16));
-          for (let x = 0; x < PW; x++) {
-            const i = (y * PW + x) * 4;
-            if (grey) { const l = Math.min(255, Math.max(0, (0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2] - 128) * 1.08 + 122)); px[i] = px[i + 1] = px[i + 2] = l; }
-            px[i + 3] = ma[i + 3] * fade;
-          }
-        }
-        g.putImageData(im, 0, 0);
-        const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
-        return t;
-      };
-      const colorTex = makeTex(false), greyTex = makeTex(true);
-
-      // ---- a dense plane, displaced by the depth map
-      const PLW = 1.6, PLH = 2.0, SX = 160, SY = 200, DEPTH = 0.62;
-      const geo = new THREE.PlaneGeometry(PLW, PLH, SX, SY);
-      const pos = geo.attributes.position;
-      const sample = (u, v) => { // bilinear over the depth map; returns [depth 0..1, alpha 0..1]
-        u = Math.min(1, Math.max(0, u)); v = Math.min(1, Math.max(0, v));
-        const x = u * (DW - 1), y = (1 - v) * (DH - 1), x0 = Math.floor(x), y0 = Math.floor(y), x1 = Math.min(DW - 1, x0 + 1), y1 = Math.min(DH - 1, y0 + 1), fx = x - x0, fy = y - y0;
-        const at = (xx, yy, ch) => dd[(yy * DW + xx) * 4 + ch];
-        const lerp = (ch) => (at(x0, y0, ch) * (1 - fx) + at(x1, y0, ch) * fx) * (1 - fy) + (at(x0, y1, ch) * (1 - fx) + at(x1, y1, ch) * fx) * fy;
-        return [lerp(0) / 255, lerp(3) / 255];
-      };
-      // depth on the vertex grid: inside the silhouette only, then grown outward (so edge triangles never stretch
-      // down to a flat backdrop) and smoothed (so lapel / ear steps don't turn into saw-teeth)
-      const GX = SX + 1, GY = SY + 1, zg = new Float32Array(GX * GY), has = new Uint8Array(GX * GY);
-      for (let gy = 0; gy < GY; gy++) for (let gx = 0; gx < GX; gx++) {
-        const [d, a] = sample(gx / SX, 1 - gy / SY), k = gy * GX + gx;
-        if (a > 0.5) { zg[k] = 0.12 + 0.88 * Math.pow(d, 0.85); has[k] = 1; }
-      }
-      for (let pass = 0; pass < 40; pass++) {
-        let grew = false; const next = has.slice();
-        for (let gy = 0; gy < GY; gy++) for (let gx = 0; gx < GX; gx++) {
-          const k = gy * GX + gx; if (has[k]) continue;
-          let sum = 0, n = 0;
-          for (const [ox, oy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const x = gx + ox, y = gy + oy; if (x < 0 || y < 0 || x >= GX || y >= GY) continue; const j = y * GX + x; if (has[j]) { sum += zg[j]; n++; } }
-          if (n) { zg[k] = (sum / n) * 0.985; next[k] = 1; grew = true; }
-        }
-        has.set(next); if (!grew) break;
-      }
-      for (let k = 0; k < zg.length; k++) if (!has[k]) zg[k] = 0.1;
-      const tmp = new Float32Array(zg.length);
-      for (let pass = 0; pass < 3; pass++) { // separable box blur, radius 2
-        for (let gy = 0; gy < GY; gy++) for (let gx = 0; gx < GX; gx++) { let sum = 0, n = 0; for (let o = -2; o <= 2; o++) { const x = gx + o; if (x >= 0 && x < GX) { sum += zg[gy * GX + x]; n++; } } tmp[gy * GX + gx] = sum / n; }
-        for (let gy = 0; gy < GY; gy++) for (let gx = 0; gx < GX; gx++) { let sum = 0, n = 0; for (let o = -2; o <= 2; o++) { const y = gy + o; if (y >= 0 && y < GY) { sum += tmp[y * GX + gx]; n++; } } zg[gy * GX + gx] = sum / n; }
-      }
-      // PlaneGeometry vertices run row by row from the top-left, matching the grid
-      for (let i = 0; i < pos.count; i++) pos.setZ(i, zg[i] * DEPTH);
-      geo.computeVertexNormals();
-      geo.translate(0, 0, -DEPTH * 0.5);
-
-      const mat = new THREE.MeshStandardMaterial({ map: dark() ? greyTex : colorTex, transparent: true, alphaTest: 0.04, roughness: 0.72, metalness: 0.0, envMapIntensity: 0.9 });
-      const bust = new THREE.Mesh(geo, mat);
-
-      // a band of drifting dust orbiting the neck, passing behind the head (sun motes by day, stardust by night)
-      const dustHex = () => (dark() ? 0x9be8ff : 0xffb020);
-      const orbit = new THREE.Group();
-      orbit.position.set(0, -0.16, 0);
-      const N = 220, dp = new Float32Array(N * 3);
-      for (let i = 0; i < N; i++) {
-        const a = Math.random() * Math.PI * 2, rr = 0.82 + Math.random() * 0.3, h = (Math.random() - 0.5) * 0.1;
-        dp[i * 3] = Math.cos(a) * rr; dp[i * 3 + 1] = Math.sin(a) * rr; dp[i * 3 + 2] = h;
-      }
-      const dustGeo = new THREE.BufferGeometry(); dustGeo.setAttribute('position', new THREE.BufferAttribute(dp, 3));
-      const dustMat = new THREE.PointsMaterial({ color: dustHex(), size: 0.026, sizeAttenuation: true, transparent: true, opacity: 0.85, depthWrite: false });
-      orbit.add(new THREE.Points(dustGeo, dustMat));
-
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
-      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
-      renderer.setClearColor(0x000000, 0);
-      renderer.toneMapping = THREE.NoToneMapping; // keep the photo's own colours
-
-      const scene = new THREE.Scene();
-      const pmrem = new THREE.PMREMGenerator(renderer);
-      scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
-      const amb = new THREE.AmbientLight(0xffffff, 0.6); scene.add(amb);
-      // key light from the upper right — where the sun (or moon) sits on the page
-      const key = new THREE.DirectionalLight(0xffffff, 1.2); key.position.set(4, 5, 5); scene.add(key);
-      const rim = new THREE.DirectionalLight(0xffffff, 0.0); rim.position.set(-3, 2, -3); scene.add(rim);
-      const light = () => {
-        const d = dark();
-        key.color.setHex(d ? 0xd6dcff : 0xfff0d8); key.intensity = d ? 1.0 : 1.35;
-        rim.color.setHex(0x8b9dff); rim.intensity = d ? 1.4 : 0.5;
-        amb.intensity = d ? 0.45 : 0.6;
-        mat.envMapIntensity = d ? 0.7 : 0.9;
-      };
-      light();
-      scene.add(bust); scene.add(orbit);
-
-      const camera = new THREE.PerspectiveCamera(28, 0.8, 0.1, 50);
-      camera.position.set(0, 0, 4.75);
-      host.appendChild(renderer.domElement);
-      const size = () => {
-        const w = host.clientWidth, h = host.clientHeight;
-        if (!w || !h) return;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h; camera.updateProjectionMatrix();
-      };
-      size();
-      new ResizeObserver(size).observe(host);
-
-      const recolor = () => {
-        mat.map = dark() ? greyTex : colorTex; mat.needsUpdate = true;
-        dustMat.color.setHex(dustHex()); light();
-        if (!running) renderer.render(scene, camera);
-      };
-      new MutationObserver(recolor).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-
-      // motion: turns to look toward the pointer, a slow sway on top; drag to turn it further, it springs back
-      const SWAY = 0.12, PERIOD = 11000, LIMIT = 0.6;
-      let tx = 0, ty = 0, px = 0, py = 0;
-      addEventListener('pointermove', (e) => {
-        const r = host.getBoundingClientRect();
-        tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (innerWidth * 0.5))) * 0.42;
-        ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height * 0.35)) / (innerHeight * 0.5))) * 0.22;
-      }, { passive: true });
-
-      let spin = 0, vel = 0, dragX = null, lastX = 0, hover = 0, hoverT = 0;
-      const cv = renderer.domElement;
-      cv.addEventListener('pointerdown', (e) => { dragX = lastX = e.clientX; vel = 0; cv.setPointerCapture(e.pointerId); });
-      cv.addEventListener('pointermove', (e) => { if (dragX === null) return; const dx = e.clientX - lastX; lastX = e.clientX; vel = dx * 0.01; spin = Math.max(-0.9, Math.min(0.9, spin + vel)); });
-      const release = () => { dragX = null; };
-      cv.addEventListener('pointerup', release); cv.addEventListener('pointercancel', release);
-      cv.addEventListener('pointerenter', () => { hoverT = 1; }); cv.addEventListener('pointerleave', () => { hoverT = 0; });
-
-      let running = false, visible = true, raf = 0, t0 = performance.now();
-      const pose = (t) => {
-        px += (tx - px) * 0.05; py += (ty - py) * 0.05;
-        if (dragX === null) { spin *= 0.9; }
-        hover += (hoverT - hover) * 0.08;
-        const k = (t - t0) / PERIOD * Math.PI * 2;
-        bust.rotation.y = Math.max(-LIMIT, Math.min(LIMIT, SWAY * Math.sin(k) + px)) + spin;
-        bust.rotation.x = py + 0.03 * Math.sin(k * 0.7);
-        bust.position.y = Math.sin((t - t0) / 1900) * 0.025 - 0.02;
-        bust.scale.setScalar(1 + hover * 0.03);
-        orbit.rotation.set(1.36 + py * 0.5, 0.18 + bust.rotation.y * 0.4, (t - t0) / 7000);
-      };
-      const frame = (t) => { pose(t); renderer.render(scene, camera); raf = requestAnimationFrame(frame); };
-      const update = () => {
-        const want = visible && !document.hidden;
-        if (want && !running) { running = true; raf = requestAnimationFrame(frame); }
-        else if (!want && running) { running = false; cancelAnimationFrame(raf); }
-      };
-      new IntersectionObserver((es) => { visible = es[0].isIntersecting; update(); }).observe(host);
-      document.addEventListener('visibilitychange', update);
-      pose(performance.now());
-      renderer.render(scene, camera);
-      update();
-      requestAnimationFrame(() => host.classList.add('is-3d'));
-    }
   })();
   </script>
   <!-- Analytics carried over from the previous site (same GA4 property + Clarity project, so history stays continuous).
