@@ -1462,7 +1462,7 @@
     }
     addEventListener('click', (e) => { const b = onSky(e); if (b) { hideHint(); root.classList.remove('sky-hot'); doToggleTheme(b); } });
 
-    /* ---- one quiet hint, once per visitor, only when their clock disagrees with the theme ---- */
+    /* ---- one quiet hint, once per visitor: the other theme exists (worded for their clock) ---- */
     const hint = $('#theme-hint');
     let hintTimer = 0;
     function hideHint() {
@@ -1473,11 +1473,11 @@
     (() => {
       if (!hint) return;
       let seen = null; try { seen = localStorage.getItem('dl-theme-hint'); } catch (e) { return; }
-      let chosen = null; try { chosen = localStorage.getItem('dl-theme'); } catch (e) {}
-      if (seen || chosen) return; // already told once, or they've picked a theme themselves
+      if (seen) return; // everyone is told once, never twice
       const h = new Date().getHours(), night = h >= 19 || h < 6, dark = root.getAttribute('data-theme') === 'dark';
-      if (night === dark) return; // the theme already matches their sky
-      hint.innerHTML = night ? 'It’s night where you are — <b>see the night sky</b>' : 'The sun’s up where you are — <b>switch to day</b>';
+      hint.innerHTML = dark
+        ? (night ? 'Prefer daylight? — <b>switch to day</b>' : 'The sun’s up where you are — <b>switch to day</b>')
+        : (night ? 'It’s night where you are — <b>see the night sky</b>' : 'There’s a night sky here too — <b>take a look</b>');
       const show = () => {
         if (root.classList.contains('term-maxed') || document.hidden) return;
         try { localStorage.setItem('dl-theme-hint', '1'); } catch (e) {}
