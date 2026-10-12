@@ -6,4 +6,4 @@
 :HL["/labs/_next/static/media/GeneralSans_600-s.p.1ilrb12bo3o3m.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"privacy","h":96,"c":"$Q2"}]]
-0:{"b":"Yhwqv3JwQ365YwcvCewxA","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"XFx6mjDJoGoPdom5LT9jR","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
