@@ -93,7 +93,7 @@
 
     /* ============ hero: the map. one 1440 x 760 stage, scaled by its own width ============ */
     .hero { position: relative; overflow: clip; }
-    .stage { position: relative; width: 100%; max-width: 1760px; margin-inline: auto; aspect-ratio: 1440 / 760; container-type: inline-size; }
+    .stage { position: relative; width: min(100%, 1760px, max(900px, calc((100svh - var(--bar-h)) * 1.8947))); margin-inline: auto; aspect-ratio: 1440 / 760; container-type: inline-size; }
     .map { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
     .map path { fill: none; stroke-width: 20; stroke-linejoin: round; }
     .map .eng { stroke: var(--eng); } .map .growth { stroke: var(--growth); } .map .writing { stroke: var(--writing); }
@@ -117,19 +117,22 @@
     .st:hover .rd, .st:focus-visible .rd { background: var(--c); scale: 1.14; }
     .st:focus-visible { outline: none; }
     .st:focus-visible .lb { outline: 3px solid var(--eng); outline-offset: 4px; }
-    .st[data-state="pre"] .rd, .stop[data-state="pre"] > .rd { border: 0; background: radial-gradient(closest-side, var(--paper) 52%, transparent 54%), repeating-conic-gradient(var(--ink) 0 30deg, var(--paper) 30deg 60deg); }
+    .st[data-state="pre"] .rd, .st[data-state="pre"]:hover .rd, .stop[data-state="pre"] > .rd { border: 0; background: none; color: var(--ink); }
+    .rd svg { width: 100%; height: 100%; overflow: visible; }
+    .rd circle { fill: var(--paper); stroke: currentColor; stroke-width: 7; stroke-dasharray: 7.2 4.843; transition: fill 0.18s; }
+    .st:hover .rd circle, .st:focus-visible .rd circle { fill: var(--c); }
     .st[data-state="off"] .rd::after { content: ""; position: absolute; left: 50%; top: 50%; width: 150%; height: 0.36cqw; background: var(--ink); translate: -50% -50%; rotate: -45deg; }
     .st.x .rd { width: 5cqw; height: 5cqw; border-width: 0.66cqw; }
     .st.x .rd::after { content: ""; position: absolute; inset: 22%; border-radius: 50%; background: var(--ink); }
-    .st .lb { position: absolute; white-space: nowrap; font-size: max(13px, 1.11cqw); line-height: 1.2; }
+    .st .lb { position: absolute; white-space: nowrap; font-size: max(14px, 1.11cqw); line-height: 1.2; }
     .st .lb b { display: block; font-weight: 800; }
-    .st .lb small { display: block; font-size: 0.84em; font-weight: 500; color: var(--ink-2); }
+    .st .lb small { display: block; font-size: max(13px, 0.93cqw); font-weight: 500; color: var(--ink-2); }
     .st.one .lb b, .st.one .lb small { display: inline; }
     .st:hover .lb b, .st:focus-visible .lb b { text-decoration: underline; text-decoration-thickness: 0.12em; }
     .st.n .lb { left: 0; bottom: 1.75cqw; translate: -50% 0; text-align: center; }
     .st.s .lb { left: 0; top: 1.75cqw; translate: -50% 0; text-align: center; }
     .st.e .lb { left: 2cqw; top: 0; translate: 0 -50%; }
-    .st.w .lb { right: 3.4cqw; top: 0; translate: 0 -50%; text-align: right; }
+    .st.w .lb { right: 3.4cqw; bottom: 0.3cqw; text-align: right; }
 
     .exits { position: absolute; left: 5cqw; top: 87.6%; display: flex; gap: 0.9cqw; }
     .exit { display: inline-flex; align-items: center; gap: 0.7em; padding: 0.66em 1em 0.56em 0.66em; font-size: max(15px, 1.3cqw); font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; border-radius: 4px; background: var(--f-growth); color: var(--sign-ink); border: 3px solid var(--sign-ink); transition: translate 0.2s var(--ease), box-shadow 0.2s var(--ease); }
@@ -185,8 +188,8 @@
     /* fields: a whole section in one route colour */
     .f-growth { background: var(--f-growth); color: var(--sign-ink); --ink: #1a1a1a; --ink-2: rgba(26, 26, 26, 0.8); --paper: #f5c400; --rule: rgba(26, 26, 26, 0.3); --eng: #1a1a1a; }
     .f-eng { background: var(--f-eng); color: #fff; --ink: #fff; --ink-2: rgba(255, 255, 255, 0.88); --paper: #0a5fb4; --rule: rgba(255, 255, 255, 0.34); --eng: #fff; }
-    .f-writing { background: var(--f-writing); color: #fff; --ink: #fff; --ink-2: rgba(255, 255, 255, 0.9); --paper: #c2187a; --rule: rgba(255, 255, 255, 0.36); --eng: #fff; }
-    .f-ink { background: var(--f-ink); color: var(--on-ink); --ink: var(--on-ink); --ink-2: var(--on-ink-2); --paper: var(--f-ink); --rule: var(--ink-rule); --eng: #f5c400; }
+    .f-writing { overflow-x: clip; background: var(--f-writing); color: #fff; --ink: #fff; --ink-2: rgba(255, 255, 255, 0.9); --paper: #c2187a; --rule: rgba(255, 255, 255, 0.36); --eng: #fff; }
+    .f-ink { overflow-x: clip; background: var(--f-ink); color: var(--on-ink); --ink: var(--on-ink); --ink-2: var(--on-ink-2); --paper: var(--f-ink); --rule: var(--ink-rule); --eng: #f5c400; }
     .f-eng ::selection, .f-writing ::selection { background: #fff; color: var(--sign-ink); }
     .f-growth ::selection { background: var(--sign-ink); color: var(--f-growth); }
 
@@ -198,13 +201,13 @@
     .stop::before { top: 0; height: 20px; }
     .stop::after { top: 20px; bottom: 0; }
     .stop:first-child::before { display: none; }
-    .stop[data-state="pre"]::before, .stop:has(+ .stop[data-state="pre"])::after { background: repeating-linear-gradient(to bottom, var(--eng) 0 16px, transparent 16px 27px); }
+    .stop[data-state="pre"]::before, .stop[data-state="pre"]::after { background: repeating-linear-gradient(to bottom, var(--eng) 0 16px, transparent 16px 27px); }
     .stop:last-child::after { bottom: auto; height: 0; }
     .stop > .rd { position: absolute; z-index: 1; left: calc(var(--gut) * -1 + 15px); top: 20px; width: 34px; height: 34px; translate: -50% -50%; border-radius: 50%; background: var(--paper); border: 8px solid var(--ink); }
     .stop[data-state="off"] > .rd::after { content: ""; position: absolute; left: 50%; top: 50%; width: 46px; height: 6px; background: var(--ink); translate: -50% -50%; rotate: -45deg; }
     .stop-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 18px; }
     .stop h3 { font-size: clamp(1.9rem, 3.2vw, 2.9rem); letter-spacing: -0.03em; line-height: 1; }
-    .stop h3 small { font-size: 0.42em; font-weight: 600; letter-spacing: 0; color: var(--ink-2); margin-left: 0.4em; }
+    .stop h3 small { font-size: 0.46em; font-weight: 600; letter-spacing: 0; color: var(--ink-2); margin-left: 0.4em; }
     .state { display: inline-flex; align-items: center; gap: 0.5em; padding: 0.42em 0.7em 0.3em 0.55em; font-size: 0.875rem; font-weight: 800; line-height: 1; border: 2px solid var(--ink); border-radius: 3px; white-space: nowrap; }
     .state svg { width: 14px; height: 14px; margin-top: -0.1em; }
     .state[data-state="live"] { background: var(--ink); color: var(--paper); }
@@ -328,7 +331,7 @@
     .act-desc { display: block; font-size: 0.9375rem; color: var(--ink-2); }
     .act-meta { font-size: 0.875rem; color: var(--ink-2); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
     .lang-stack { display: flex; height: 22px; border: 2px solid var(--ink); border-radius: 3px; overflow: hidden; }
-    .lang-stack i { width: var(--w); background: var(--lc); transition: width 0.9s var(--ease); }
+    .lang-stack i { width: var(--w); background: var(--lc); }
     .lang-stack i + i { border-left: 2px solid var(--paper); }
     .lang-legend { margin-top: 12px; }
     .lang-legend li { display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; align-items: center; padding: 8px 0 5px; border-bottom: 1px solid var(--rule); }
@@ -343,10 +346,11 @@
     .post { position: relative; display: flex; flex-direction: column; height: 100%; text-decoration: none; }
     .post .rd { position: absolute; left: 0; top: -45px; width: 34px; height: 34px; translate: 0 -50%; border-radius: 50%; background: var(--f-writing); border: 8px solid #fff; transition: background 0.18s; }
     .post:hover .rd, .post:focus-visible .rd { background: #fff; }
-    .post .src { font-size: 0.875rem; font-weight: 700; color: var(--ink-2); }
-    .post h3 { margin-top: 10px; font-size: 1.5rem; text-wrap: balance; }
+    .post h3 { font-size: 1.5rem; text-wrap: balance; }
     .post p { margin-top: 12px; color: var(--ink-2); }
-    .post .go { margin-top: auto; padding-top: 18px; display: inline-flex; align-items: center; gap: 0.35em; font-weight: 800; text-decoration: underline; }
+    .post .foot { margin-top: auto; padding-top: 18px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+    .post .go { display: inline-flex; align-items: center; gap: 0.35em; font-weight: 800; text-decoration: underline; }
+    .post .kind { font-size: 0.875rem; font-weight: 600; color: var(--ink-2); }
     .post:hover h3 { text-decoration: underline; text-decoration-thickness: 0.08em; }
     .strip-cta { margin-top: clamp(40px, 5vw, 64px); }
     .f-writing .btn:hover, .f-eng .btn:hover { color: var(--sign-ink); background: #fff; border-color: #fff; }
@@ -384,16 +388,20 @@
     footer :focus-visible, .f-ink :focus-visible { outline-color: var(--f-growth); }
     footer nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
-    /* ============ below 1100px: the map folds into a strip list ============ */
-    @media (max-width: 1099px) {
+    /* ============ below 1280px the bar's links fold into the menu ============ */
+    @media (max-width: 1279px) {
       .nav { display: none; }
       .menu-btn { display: grid; }
       .mnav { position: absolute; left: 0; right: 0; top: calc(100% + 3px); max-height: calc(100dvh - var(--bar-h)); overflow-y: auto; background: var(--paper); border-bottom: 3px solid var(--ink); padding: 6px var(--pad) 18px; }
       .mnav.open { display: block; }
       .mnav a { display: flex; align-items: center; min-height: 50px; font-size: 1.125rem; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--rule); }
       .mnav a.active { text-decoration: underline; text-decoration-thickness: 3px; }
+    }
+    @media (max-width: 1479px) { .nav a.ext { display: none; } }
 
-      .stage { aspect-ratio: auto; max-width: none; padding: clamp(28px, 6vw, 56px) var(--pad) clamp(44px, 8vw, 72px); display: flex; flex-direction: column; }
+    /* ============ below 1100px: the map folds into a strip list ============ */
+    @media (max-width: 1099px) {
+      .stage { aspect-ratio: auto; width: 100%; padding: clamp(28px, 6vw, 56px) var(--pad) clamp(44px, 8vw, 72px); display: flex; flex-direction: column; }
       .map { display: none; }
       .map-m { display: block; width: calc(100% + var(--pad) * 2); max-width: none; height: auto; margin: clamp(30px, 6vw, 48px) calc(var(--pad) * -1) 0; overflow: visible; order: 5; }
       .map-m path { fill: none; stroke-width: 11; stroke-linejoin: round; }
@@ -426,7 +434,8 @@
       .stop.text .decision { margin-top: 14px; }
       .role { grid-template-columns: var(--gut) minmax(0, 1fr); column-gap: 14px; row-gap: 6px; }
       .role::before, .role > .rd { grid-column: 1; }
-      .when, .what, .did { grid-column: 2; grid-row: auto; text-align: left; }
+      .when, .what, .did { grid-column: 2; text-align: left; }
+      .what { grid-row: 1; } .when { grid-row: 2; padding-top: 0; } .did { grid-row: 3; }
       .when .now { margin: 0 0 0 10px; }
       .did { margin-top: 8px; }
       .ask-grid { grid-template-columns: minmax(0, 1fr); }
@@ -538,13 +547,12 @@
           <!-- only seen on very wide screens: the lines keep running to the edge -->
           <path class="far growth" d="M-40 626H-2400M1480 540H3840"/>
           <path class="far eng" d="M-40 556H-2400"/>
-          <path class="far eng pre" d="M1480 240H3840"/>
           <!-- every line is drawn outward from the interchange -->
           <path class="ln growth" pathLength="1" d="M795.6 385.6 555.2 626H-40"/>
           <path class="ln growth" pathLength="1" style="--d:.05s" d="M795.6 385.6 950 540H1480"/>
           <path class="ln eng" pathLength="1" d="M780 370 594 556H-40"/>
-          <path class="ln eng" pathLength="1" style="--d:.05s" d="M780 370H1090L1220 240"/>
-          <path class="eng pre" d="M1220 240H1480"/>
+          <path class="ln eng" pathLength="1" style="--d:.05s" d="M780 370H1090L1220 240H1246"/>
+          <path class="eng pre" d="M1262 240H3840"/>
           <path class="ln writing" pathLength="1" style="--d:.1s" d="M788 378V800"/>
           <path class="ln writing" pathLength="1" style="--d:.1s" d="M788 378 1186-20"/>
         </svg>
@@ -578,7 +586,7 @@
           <li class="tag" data-line="eng" style="--x:72;--y:556">Engineering line</li>
           <li data-line="eng" style="--x:945;--y:370"><a class="st n" href="#proofmart" style="--i:2"><i class="rd"></i><span class="lb"><b>ProofMart</b><small>Live &middot; beta</small></span></a></li>
           <li data-line="eng" style="--x:1050;--y:370"><a class="st s" href="#gapl" style="--i:3"><i class="rd"></i><span class="lb"><b>Gapl</b><small>Live &middot; personal project</small></span></a></li>
-          <li data-line="eng" data-state="pre" style="--x:1300;--y:240"><a class="st s" href="#college-cli" data-state="pre" style="--i:5"><i class="rd"></i><span class="lb"><b>College-CLI</b><small>Working &middot; pre-release</small></span></a></li>
+          <li data-line="eng" data-state="pre" style="--x:1300;--y:240"><a class="st s" href="#college-cli" data-state="pre" style="--i:5"><i class="rd"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="11.5"/></svg></i><span class="lb"><b>College-CLI</b><small>Working &middot; pre-release</small></span></a></li>
           <li data-line="eng" style="--x:330;--y:556"><a class="st n one" href="#uniconnect" data-state="off" style="--i:4"><i class="rd"></i><span class="lb"><b>UniConnect</b> <small>Built &middot; demo offline</small></span></a></li>
           <li class="tag" data-line="growth" style="--x:72;--y:626">Growth line</li>
           <li data-line="growth" style="--x:788;--y:378"><a class="st w x" href="#experience" style="--i:0"><i class="rd"></i><span class="lb"><b>PicaPool</b><small>Now &middot; Founder&rsquo;s Office</small></span></a></li>
@@ -639,7 +647,7 @@
             <figure class="shot"><img src="assets/shot-gapl.webp" width="1100" height="653" decoding="async" loading="lazy" alt="Gapl live site — a resume analysis report with ATS score, readiness and skill gaps" /></figure>
           </li>
           <li class="stop text" id="college-cli" data-state="pre">
-            <i class="rd" aria-hidden="true"></i>
+            <i class="rd" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="11.5"/></svg></i>
             <div>
               <div class="stop-head"><h3>College-CLI</h3><span class="state" data-state="pre"><svg aria-hidden="true"><use href="#s-pre"/></svg>Working &middot; pre-release</span></div>
               <p>Students lose the first week of every course to installing the wrong tools. College-CLI maps a course to exactly what it needs &mdash; <code>npx college-cli lpu/cse-301</code> detects, plans, installs and verifies the setup on a fresh laptop.</p>
@@ -763,7 +771,7 @@
           <li><b>1,000+</b><span>flat-launch submissions collected in 72 hours for a campus product</span><i>Launch</i></li>
           <li><b>200+</b><span>beta users expressing demand before a product launch</span><i>Validation</i></li>
           <li><b>6-person</b><span>team led on attribution and internal tooling in the Founder&rsquo;s Office</span><i>Leadership</i></li>
-          <li><b>48</b><span>open-source repos on GitHub</span><i>Open source</i></li>
+          <li><b id="rc-repos">&mdash;</b><span>open-source repos on GitHub, counted live</span><i>Open source</i></li>
           <li><b>2</b><span>products live in production</span><i>Products</i></li>
           <li><b>GTM</b><span>campus campaigns at PicaPool with attribution wired in from day one</span><i>Growth</i></li>
           <li><b>30 days</b><span>of writing in public completed &mdash; essays on GTM, deadlocks, and retention</span><i>Writing</i></li>
@@ -888,31 +896,27 @@
         <ol class="strip">
           <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
-            <span class="src">LinkedIn &middot; essay &middot; featured</span>
             <h3>The campus GTM playbook I wish I had</h3>
             <p>What actually moves a campus: pools, timing, and measurement &mdash; not posters. The playbook behind PicaPool&rsquo;s campus launches, with attribution wired in from day one.</p>
-            <span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span>
+            <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Essay &middot; featured</span></span>
           </a></li>
           <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
-            <span class="src">LinkedIn &middot; essay</span>
             <h3>Deadlocks are an organizational bug</h3>
             <p>Two teams waiting on each other is a systems problem &mdash; here is how I debug it.</p>
-            <span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span>
+            <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Essay</span></span>
           </a></li>
           <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
-            <span class="src">LinkedIn &middot; essay</span>
             <h3>Retention is a metric, not a mood</h3>
             <p>Cohorts, curves, and the questions I ask before trusting any dashboard.</p>
-            <span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span>
+            <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Essay</span></span>
           </a></li>
           <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
-            <span class="src">LinkedIn &middot; personal</span>
             <h3>Retiring the laptop that raised me</h3>
             <p>Five years, two degrees of heat, one very patient machine. A goodbye.</p>
-            <span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span>
+            <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Personal</span></span>
           </a></li>
         </ol>
         <p class="strip-cta"><a class="btn" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">Read all 30 days of writing on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a></p>
@@ -1249,23 +1253,10 @@
     'use strict';
     const $ = (s, r) => (r || document).querySelector(s);
     const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
-    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const GH = 'latharrr';
     const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
     const ghNote = (v) => setTxt('gh-sync-note', v);
-    const countUp = (id, target, unit) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const fmt = (v) => v.toLocaleString('en-IN') + (unit || '');
-      if (reduceMotion || typeof target !== 'number') { el.textContent = fmt(target || 0); return; }
-      const t0 = performance.now(), dur = 1300;
-      const step = (t) => {
-        const p = Math.min(1, (t - t0) / dur), e2 = 1 - Math.pow(1 - p, 3);
-        el.textContent = fmt(Math.round(target * e2));
-        if (p < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
+    const setNum = (id, n, unit) => setTxt(id, (typeof n === 'number' ? n : 0).toLocaleString('en-IN') + (unit || ''));
     const graphOffline = () => {
       const g = $('#gh-graph');
       if (g) g.innerHTML = '<p class="note">Could not load the contribution calendar right now — <a href="https://github.com/' + GH + '" target="_blank" rel="noopener">see it on GitHub</a>.</p>';
@@ -1309,8 +1300,8 @@
         '<div class="hm-foot"><span><b>' + data.total.toLocaleString('en-IN') + '</b> contributions in the last year · <b>' + active + '</b> active days · busiest: <b>' + busiest[1] + '</b> on ' + parse(busiest[0]).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + (cur ? ' · current streak <b>' + cur + 'd</b>' : '') + '</span>' +
         '<span class="hm-legend">less <i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> more</span></div>';
       const sc = $('.hm-scroll', box); if (sc) sc.scrollLeft = sc.scrollWidth; // phones: land on the most recent weeks
-      countUp('gh-contrib', data.total);
-      countUp('gh-streak', best, best === 1 ? ' day' : ' days');
+      setNum('gh-contrib', data.total);
+      setNum('gh-streak', best, best === 1 ? ' day' : ' days');
     };
     /* one route colour, stepped by rank: the map has no room for nine language hues */
     const rankShade = (i) => 'color-mix(in srgb, var(--eng) ' + [100, 72, 50, 32, 18][i] + '%, var(--paper))';
@@ -1362,7 +1353,8 @@
         if (!cr.ok) throw new Error('contrib-' + cr.status);
         renderGraph(await cr.json());
         setTxt('gh-graph-note', 'live');
-      } catch (e) { graphOffline(); }
+        return true;
+      } catch (e) { graphOffline(); return false; }
     };
     const loadGH = async (fresh) => {
       // one cached call to our own endpoint (no per-visitor GitHub rate limit); straight to GitHub only if it's down
@@ -1374,10 +1366,11 @@
       } catch (e) {
         [uRes, rRes] = await Promise.all([fetchGH('/users/' + GH, fresh), fetchGH('/users/' + GH + '/repos?per_page=100&sort=pushed', fresh)]);
       }
-      countUp('gh-repos', uRes.public_repos);
+      setNum('gh-repos', uRes.public_repos);
+      setNum('rc-repos', uRes.public_repos);
       if (uRes.created_at) setTxt('gh-since', 'on GitHub since ' + new Date(uRes.created_at).getFullYear());
       const stars = rRes.reduce((a, r) => a + (r.stargazers_count || 0), 0);
-      countUp('gh-stars', stars);
+      setNum('gh-stars', stars);
       const langs = {};
       rRes.forEach(r => { if (r.language) langs[r.language] = (langs[r.language] || 0) + 1; });
       const total = Object.values(langs).reduce((a, b) => a + b, 0) || 1;
@@ -1386,9 +1379,8 @@
       setTxt('gh-lang-note', 'live');
       if (lm) {
         const rows = top.map(([l, n], i) => ({ l: l.replace(/</g, '&lt;'), pct: Math.round(n / total * 100), c: rankShade(i) }));
-        lm.innerHTML = '<div class="lang-stack">' + rows.map(r => '<i title="' + r.l + ' ' + r.pct + '%" data-w="' + r.pct + '" style="--w:0%;--lc:' + r.c + '"></i>').join('') + '</div>' +
+        lm.innerHTML = '<div class="lang-stack">' + rows.map(r => '<i title="' + r.l + ' ' + r.pct + '%" style="--w:' + r.pct + '%;--lc:' + r.c + '"></i>').join('') + '</div>' +
           '<ul class="lang-legend">' + rows.map(r => '<li><i style="--lc:' + r.c + '"></i>' + r.l + '<b>' + r.pct + '%</b></li>').join('') + '</ul>';
-        requestAnimationFrame(() => requestAnimationFrame(() => $$('#lang-mix .lang-stack i').forEach(el => el.style.setProperty('--w', el.dataset.w + '%'))));
       }
       const recent = rRes.filter(r => r.pushed_at).sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5);
       const act = $('#gh-activity');
@@ -1418,17 +1410,19 @@
       const btn = $('#gh-retry');
       if (btn) btn.disabled = true;
       ghNote('syncing…');
-      try { await Promise.all([loadGH(fresh === true), loadCal(fresh === true)]); }
-      catch (e) { ghFail(e); }
+      try {
+        const [, calOk] = await Promise.all([loadGH(fresh === true), loadCal(fresh === true)]);
+        if (!calOk) { setDot(false); ghNote('repos and languages synced · contribution calendar unavailable · github.com/' + GH); }
+      } catch (e) { ghFail(e); }
       finally { ghBusy = false; if (btn) btn.disabled = false; }
     };
     const rb = $('#gh-retry');
     if (rb) rb.addEventListener('click', () => runGH(true));
     // below the fold: start syncing once the section is near, not on first paint
-    const osSec = document.getElementById('opensource');
-    if (osSec && 'IntersectionObserver' in window) {
+    const liveSecs = ['achievements', 'opensource'].map(id => document.getElementById(id)).filter(Boolean);
+    if (liveSecs.length && 'IntersectionObserver' in window) {
       const gio = new IntersectionObserver((es) => { if (es.some(e => e.isIntersecting)) { gio.disconnect(); runGH(); } }, { rootMargin: '600px 0px' });
-      gio.observe(osSec);
+      liveSecs.forEach(el => gio.observe(el));
     } else runGH();
   })();
   </script>
