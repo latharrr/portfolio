@@ -5,119 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#14181c" />
   <meta name="color-scheme" content="dark light" />
-  <title>Deepanshu Labs · WhatsApp AI receptionist for small businesses</title>
-  <meta name="description" content="An AI receptionist that answers your customers on WhatsApp in seconds, answers their questions, and books calls straight into the diary - tailored to your services and prices on setup. Try the live demo." />
+  <title>Deepanshu Labs · Independent software studio</title>
+  <meta name="description" content="Deepanshu Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. First project: a WhatsApp AI receptionist with a live demo." />
   <meta name="author" content="Deepanshu Lathar" />
-  <meta property="og:title" content="Deepanshu Labs · WhatsApp AI receptionist for small businesses" />
-  <meta property="og:description" content="WhatsApp the live demo. Message the number and watch it book you a call with a real Google Meet link." />
+  <meta property="og:title" content="Deepanshu Labs · Independent software studio" />
+  <meta property="og:description" content="Deepanshu Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. First project: a WhatsApp AI receptionist with a live demo." />
   <meta property="og:locale" content="en_GB" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Deepanshu Labs · WhatsApp AI receptionist for small businesses" />
-  <meta name="twitter:description" content="WhatsApp the live demo. Message the number and watch it book you a call with a real Google Meet link." />
+  <meta name="twitter:title" content="Deepanshu Labs · Independent software studio" />
+  <meta name="twitter:description" content="Deepanshu Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. First project: a WhatsApp AI receptionist with a live demo." />
   <link rel="preload" href="/labs/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/labs/icon.svg" sizes="any" type="image/svg+xml" />
   <link rel="stylesheet" href="/labs/labs.css" />
 </head>
-<body class="has-dock">
+<body>
   <a class="skip" href="#main">Skip to content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.6-.2.5-.9 2.1-.9 4.1s.9 3.9 1.1 4.1c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></symbol>
   </svg>
   <header class="bar">
     <a class="brand" href="/labs" aria-label="Deepanshu Labs, home"><i aria-hidden="true"><svg viewBox="251 194 800 800"><path d="M336 508 623 229v414L337 959zM565 778h401L786 959H346z"/></svg></i>Deepanshu Labs</a>
-    <nav aria-label="Primary"><a class="wide" href="#how">How it works</a><a class="wide" href="#expect">What to expect</a><a class="wide" href="#contact">Contact</a><a href="/labs/privacy">Privacy</a></nav>
-    <a class="push small" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Book a demo call</a>
+    <nav aria-label="Primary"><a class="wide" href="/labs#projects">Projects</a><a class="wide" href="/labs#contact">Contact</a><a href="/labs/privacy">Privacy</a></nav>
   </header>
 
   <main id="main">
     <section class="door" aria-labelledby="hero-h">
       <div class="wrap">
         <div class="hang">
-          <div class="swing" id="swing">
+          <div class="swing">
             <svg class="cord" viewBox="0 0 100 28.25" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M29.09 28.25 50 1.5 70.91 28.25"/><circle cx="50" cy="1.5" r="1.5"/></svg>
-            <button class="sign" id="sign" type="button" aria-pressed="false" aria-label="Sign: Your WhatsApp is open, answered in seconds.">
-              <span class="card">
-                <span class="face open"><small>Your WhatsApp is</small><b>Open</b><span>answered in seconds</span></span>
-                <span class="face busy" aria-hidden="true"><small>Sorry, we’re</small><b>Busy</b><span>with a customer</span></span>
-              </span>
-            </button>
+            <div class="sign"><span class="card"><span class="face open" aria-hidden="true"><small>Come in, we’re</small><b>Open</b><span>software studio</span></span></span></div>
           </div>
-          <script>
-            /* the sign arrives showing BUSY and turns itself over once; this does not wait for labs.js */
-            (function (s, w) {
-              if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-              s.classList.add('pre'); s.setAttribute('aria-pressed', 'true');
-              requestAnimationFrame(function () { requestAnimationFrame(function () {
-                s.classList.remove('pre');
-                setTimeout(function () {
-                  s.setAttribute('aria-pressed', 'false');
-                  s.dispatchEvent(new Event('turned'));
-                  setTimeout(function () { w.classList.add('settle'); }, 520);
-                }, 700);
-              }); });
-            })(document.getElementById('sign'), document.getElementById('swing'));
-          </script>
-          <span class="turn" id="sign-hint" aria-hidden="true"></span>
         </div>
         <div class="vinyl">
-          <h1 id="hero-h">An AI receptionist for your business.</h1>
-          <p class="lede">While you’re with a customer, it replies to the next one in seconds, answers their questions, and books the next step straight into the diary. Set up around your business: your services, your prices, your hours.</p>
-          <div class="act">
-            <a class="push" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Try it on WhatsApp</a>
-            <p><strong>Message the number and watch it book you a call.</strong> Demo line: +91 99996 02901</p>
-          </div>
-          <dl class="hours">
-            <div><dt>Demo hours<span class="now" id="demo-now" hidden></span></dt><dd>08:00 to 23:30 IST<span class="more">, every day</span></dd></div>
-            <div><dt>Booking</dt><dd>A real Google Meet link<span class="more"> in the chat</span></dd></div>
-            <div><dt>Your setup</dt><dd><span class="brief">Your services and prices</span><span class="more">Your services, prices and diary</span></dd></div>
-          </dl>
+          <h1 id="hero-h">Deepanshu Labs</h1>
+          <p class="lede">An independent software studio run by Deepanshu Lathar in Delhi NCR, India. One person, not an agency: the person you message is the person who builds and fixes it.</p>
         </div>
       </div>
     </section>
 
-    <section class="sec enamel" id="how">
+    <section class="sec enamel" id="projects">
       <div class="wrap">
-        <h2>Try it the way a customer would.</h2>
-        <p class="sub">Four steps, all on WhatsApp. Nothing to install, and no real business gets your messages.</p>
-        <div class="how-grid">
-          <div>
-            <ol class="steps">
-              <li><span class="n" aria-hidden="true">1</span><h3>Message the number</h3><p>Open WhatsApp and say hello to +91 99996 02901. Ask it to book you a call with Deepanshu.</p></li>
-              <li><span class="n" aria-hidden="true">2</span><h3>Give it a time and topic</h3><p>Pick a day and time and say what the call is about. It asks for whatever is missing - one short question, never a form.</p></li>
-              <li><span class="n" aria-hidden="true">3</span><h3>Get a real Meet link</h3><p>Within a couple of minutes a Google Meet link lands in the chat, with the date, time and both names on it.</p></li>
-              <li><span class="n" aria-hidden="true">4</span><h3>Show up and talk</h3><p>The same details reach Deepanshu and his calendar. The flow you just tried is the one your customers would get.</p></li>
-            </ol>
-            <div class="how-act">
-              <a class="push dark small" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Book a demo call</a>
-              <p>The demo line answers 08:00 to 23:30 IST, every day.</p>
+        <h2>Projects.</h2>
+        <ul class="shelf">
+          <li>
+            <div class="shelf-name"><h3><a href="/labs/whatsapp-receptionist">WhatsApp AI Receptionist</a></h3><span class="now">Live 24/7</span></div>
+            <div class="shelf-body">
+              <p>An AI receptionist for your business. It replies to your customers on WhatsApp in seconds, answers their questions, and books the next step straight into the diary.</p>
+              <div class="shelf-act">
+                <a class="push dark small" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Try it on WhatsApp</a>
+                <a class="more-link" href="/labs/whatsapp-receptionist">How it works</a>
+              </div>
             </div>
-          </div>
-          <figure class="chat">
-            <div class="chat-head"><div><b>Deepanshu Labs</b><span>Live WhatsApp line · AI assistant</span></div></div>
-            <ol>
-              <li class="them"><span class="who">Visitor: </span>Hi, I’d like to book a call with Deepanshu this week.</li>
-              <li class="bot"><span class="who">Assistant: </span>Happy to set that up - what day and time works for you?</li>
-              <li class="them"><span class="who">Visitor: </span>Tomorrow at 3pm</li>
-              <li class="bot"><span class="who">Assistant: </span>What should we cover on the call?</li>
-              <li class="them"><span class="who">Visitor: </span>An AI receptionist for my salon</li>
-              <li class="bot"><span class="who">Assistant: </span>Locked in: AI receptionist - Sam x Deepanshu, 14 Oct 2026, 3:00 PM IST. Your Google Meet link: meet.google.com/abc-defg-hij</li>
-            </ol>
-            <figcaption class="chat-note">An example conversation. The real one is waiting on WhatsApp.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec redfield" id="expect">
-      <div class="wrap">
-        <h2>What to expect.</h2>
-        <ul class="promises">
-          <li><h3>You deal with me</h3><p>One person, not an agency. The person you message is the person who builds and fixes it.</p></li>
-          <li><h3>It sounds like your business</h3><p>Set up around your business: your services, your prices, your diary. Not a generic script.</p></li>
-          <li><h3>You stay in charge</h3><p>It doesn’t pretend to be human: ask and it says it’s an AI assistant. And when someone books a call, you hear about it right away.</p></li>
-          <li><h3>Try it before we talk</h3><p>The demo is live now. Test it as hard as you like, then bring me your questions.</p></li>
-          <li><h3>Straight answers</h3><p>Plain English, honest labels, and no numbers I can’t back up.</p></li>
+          </li>
+          <li class="soon">
+            <div class="shelf-name"><h3>More on the way</h3></div>
+            <div class="shelf-body"><p>New projects will be listed here when they are live.</p></div>
+          </li>
         </ul>
       </div>
     </section>
@@ -125,15 +70,14 @@
     <section class="sec amberfield contact" id="contact">
       <div class="wrap">
         <div class="lead">
-        <h2>Message the number. Then let’s talk.</h2>
-        <p class="sub">Ask it to book you a call and watch a real Google Meet link land in the chat. If you like what you see, tell me about your business and how your customers get in touch today.</p>
-        <a class="push dark" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Try it on WhatsApp</a>
+          <h2>Let’s talk.</h2>
+          <p class="sub">Tell me about your business and how your customers get in touch today.</p>
         </div>
         <div class="reach">
-          <p>Or reach me directly</p>
+          <p>Reach me directly</p>
           <ul>
             <li><a href="mailto:deepanshulathar@gmail.com">deepanshulathar@gmail.com</a></li>
-            <li><a href="https://wa.me/919999602901?text=Hi%20Deepanshu%2C%20I'd%20like%20to%20talk%20about%20a%20receptionist%20for%20my%20business." target="_blank" rel="noopener">Message me on WhatsApp</a></li>
+            <li><a href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20Deepanshu%20Labs" target="_blank" rel="noopener">Message me on WhatsApp</a></li>
             <li><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
@@ -144,10 +88,9 @@
   <footer>
     <div class="wrap">
       <span>© 2026 Deepanshu Labs · Deepanshu Lathar · Delhi NCR, India</span>
-      <nav aria-label="Footer"><a href="/labs">Home</a><a href="/labs/privacy">Privacy</a><a href="mailto:deepanshulathar@gmail.com">Email</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a></nav>
+      <nav aria-label="Footer"><a href="/labs">Deepanshu Labs</a><a href="/labs/privacy">Privacy</a><a href="mailto:deepanshulathar@gmail.com">Email</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a></nav>
     </div>
   </footer>
-  <div class="dock"><a class="push" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Try it on WhatsApp</a></div>
-  <script src="/labs/labs.js" defer></script>
+
 </body>
 </html>

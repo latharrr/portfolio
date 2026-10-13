@@ -29,6 +29,16 @@
         ],
         "createdAt": "2026-10-13T14:19:01.131Z",
         "reason": "User picked the Line Map direction card on the decision page; its palette names #fbfaf5 map paper as the ground"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "404.html",
+          "privacy.html"
+        ],
+        "createdAt": "2026-10-13T15:14:32.409Z",
+        "reason": "User picked the Line Map direction card; these sub-pages share the home page's #fbfaf5 map-paper ground"
       }
     ]
   }

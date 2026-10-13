@@ -37,6 +37,16 @@ Open points only the owner can settle:
 - Unknown URLs under /labs get Vercel's default not-found page, because the repo has no root 404.html. /labs/404 exists and is reachable directly.
 - Whether to name a country now that the audience is any small business.
 
+## Owner changes on 2026-10-13 (after launch)
+
+- Deepanshu Labs is the studio; the receptionist is one project under it. `/labs` is now the studio home with a project shelf, and the receptionist moved to `/labs/whatsapp-receptionist`. The direction contract below describes the receptionist page; the studio home uses the same door with a fixed "Come in, we're OPEN" sign.
+- Demo line is live 24/7; the hours, booking and setup rows and the open-now clock are gone. The hero shows one row, "Demo line: Live 24/7".
+- The example chat is colourful, in WhatsApp's own look, at the owner's request.
+- "Message me on WhatsApp" now opens Deepanshu's own number (+91 82210 16809), taken from the portfolio's contact link, not the demo line.
+- Privacy policy updated and re-dated 13 October 2026: the "projects shown" phrase is gone and it now points to the site policy at `/privacy`.
+- Unknown URLs under /labs now reach the labs not-found page through the new site-wide 404.html.
+- Still open: whether to name a country.
+
 ## Direction contract
 
 THESIS: A shop door. The sign on it flips from "busy with a customer" to "open", because that is what the product does for a business's WhatsApp. Refuses the product-page default of a headline beside a phone mock-up with feature cards beneath.

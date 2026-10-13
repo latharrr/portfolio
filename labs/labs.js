@@ -21,19 +21,4 @@
     sign.addEventListener('turned', say);
     say();
   }
-
-  /* is the demo line answering this minute? 08:00 to 23:30 IST, every day */
-  var now = document.getElementById('demo-now');
-  if (now) {
-    var tick = function () {
-      var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
-      var h = 0, m = 0;
-      p.forEach(function (x) { if (x.type === 'hour') h = Number(x.value) % 24; if (x.type === 'minute') m = Number(x.value); });
-      var mins = h * 60 + m, open = mins >= 480 && mins < 1410;
-      now.hidden = false;
-      now.dataset.open = String(open);
-      now.textContent = open ? 'Open now' : 'Closed now, opens 08:00 IST';
-    };
-    tick(); setInterval(tick, 60000);
-  }
 })();

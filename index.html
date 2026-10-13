@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#fbfaf5" />
-  <meta name="description" content="Deepanshu Lathar — B.Tech CSE student and full-stack + AI engineer building attribution systems, document forensics and internal tooling for early-stage startups. ProofMart · Gapl · 48 open-source repos." />
+  <meta name="description" content="Deepanshu Lathar — B.Tech CSE student and full-stack + AI engineer building attribution systems, document forensics and internal tooling for early-stage startups. ProofMart · Gapl · open source on GitHub." />
   <title>Deepanshu Lathar — Full-Stack & AI Engineer</title>
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Deepanshu Lathar — Full-Stack & AI Engineer" />
@@ -984,7 +984,7 @@
   <footer>
     <div class="wrap">
       <span>© 2026 Deepanshu Lathar — built by hand, no template</span>
-      <nav aria-label="Footer"><a href="/labs">Labs</a><a href="/labs/privacy">Privacy</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a><a href="#home">Back to top</a></nav>
+      <nav aria-label="Footer"><a href="/labs">Labs</a><a href="/privacy">Privacy</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a><a href="#home">Back to top</a></nav>
     </div>
   </footer>
 
@@ -1427,9 +1427,12 @@
   })();
   </script>
   <!-- Analytics carried over from the previous site (same GA4 property + Clarity project, so history stays continuous).
-       Production domain only, loaded after the page is interactive. Disclosed in /labs/privacy-policy. -->
+       Production domain only, loaded after the page is interactive. Disclosed in /privacy, where a visitor can switch it off;
+       it also stays off when the browser sends a Global Privacy Control or Do Not Track signal. -->
   <script>
-    if (/(^|\.)deepanshulathar\.com$/.test(location.hostname)) addEventListener('load', function () {
+    var noAnalytics = !!navigator.globalPrivacyControl || navigator.doNotTrack === '1';
+    try { if (localStorage.getItem('dl-no-analytics') === '1') noAnalytics = true; } catch (e) {}
+    if (!noAnalytics && /(^|\.)deepanshulathar\.com$/.test(location.hostname)) addEventListener('load', function () {
       var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-65PX2BG1P8'; document.head.appendChild(g);
       window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
       gtag('js', new Date()); gtag('config', 'G-65PX2BG1P8');

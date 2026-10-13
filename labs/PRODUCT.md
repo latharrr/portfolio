@@ -18,9 +18,11 @@ They are not technical and do not judge the product by the builder's engineering
 
 ## Product Purpose
 
-Deepanshu Labs sells a WhatsApp AI receptionist: it replies to a business's customers in seconds, answers their questions, and books the next step into the diary. It is set up around each business's own services, prices and hours.
+Deepanshu Labs is an independent software studio run by Deepanshu Lathar. It is the umbrella, not a single product: projects ship under it, and more will be added. `/labs` is the studio's home and lists every live project.
 
-The page exists to get a business owner to try the live demo. Success is a visitor who taps through to WhatsApp, messages the demo line, and sees it book a real call.
+The first project is the **WhatsApp AI Receptionist** (`/labs/whatsapp-receptionist`): it replies to a business's customers in seconds, answers their questions, and books the next step into the diary. It is set up around each business's own services, prices and hours.
+
+The receptionist page exists to get a business owner to try the live demo. Success is a visitor who taps through to WhatsApp, messages the demo line, and sees it book a real call.
 
 ## Positioning
 
@@ -33,7 +35,8 @@ Second: one person, not an agency. The person the visitor messages is the person
 - The visitor arrives on a phone far more often than a laptop, and the main action opens WhatsApp.
 - Primary action: "Try it on WhatsApp", which opens a chat with the demo line, +91 99996 02901, with a prefilled message asking to book a call.
 - Secondary: message Deepanshu directly on WhatsApp, or email.
-- The demo line answers 08:00 to 23:30 IST, every day.
+- The demo line is live 24/7 (stated by the owner on 2026-10-13; the page no longer shows hours or an open/closed state).
+- "Message me on WhatsApp" opens Deepanshu's own number, +91 82210 16809, which is separate from the AI demo line.
 - The demo books a call with Deepanshu: the visitor gives a day, a time and a topic; the assistant asks for anything missing, one short question at a time; a Google Meet link with the date, time and both names arrives in the chat.
 
 ## Capabilities and Constraints
@@ -51,12 +54,15 @@ Second: one person, not an agency. The person the visitor messages is the person
 - The page sets no cookies, runs no analytics and has no forms. The privacy policy says so; the page must stay that way unless the policy changes first.
 - The privacy policy at `/labs/privacy` is legal text. It is carried word for word.
 - The site sits under `/labs` on deepanshulathar.com and shares the L mark with the portfolio.
+- Structure: `/labs` (studio home, project list), `/labs/<project>` (one page per project), `/labs/privacy`, `/labs/404`. A new project gets its own page and a row on the studio home.
+- The owner asked for the hero to show only "Live 24/7", without the booking and setup rows, and for the example chat to be colourful in the way WhatsApp looks.
 - The builder's engineering background (repo counts, project gallery, tech stacks, portrait) is deliberately not on this page. It lives on the portfolio.
 
 **Undecided:**
 
 - Pricing, setup time and supported languages are not stated anywhere and must not be invented.
 - Whether the page should name a country. The earlier copy addressed UK trades and priced in pounds; the audience is now any small business.
+- What the studio says about itself beyond one sentence; future projects are not named anywhere.
 
 ## Brand Commitments
 
@@ -70,7 +76,7 @@ Second: one person, not an agency. The person the visitor messages is the person
 - The live demo line itself.
 - An example conversation, labelled as an example on the page.
 - The four-step description of the demo and the five "what to expect" commitments.
-- The privacy policy, effective 12 October 2026.
+- The labs privacy policy, effective 13 October 2026, and the site policy at `/privacy`.
 
 **Absent, and not to be fabricated:** customer names, testimonials, logos, case studies, response-time statistics, prices, number of businesses served.
 

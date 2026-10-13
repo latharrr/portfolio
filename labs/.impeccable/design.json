@@ -180,8 +180,8 @@
       "name": "Hours rows",
       "kind": "custom",
       "refersTo": "now-chip",
-      "description": "Hours-of-business lettering with the open-now chip.",
-      "html": "<dl class=\"ds-hours\"><div><dt>Demo hours <i>Open now</i></dt><dd>08:00 to 23:30 IST</dd></div><div><dt>Booking</dt><dd>A real Google Meet link</dd></div></dl>",
+      "description": "The single status row in the receptionist hero.",
+      "html": "<dl class=\"ds-hours\"><div><dt>Demo line</dt><dd><i>Live 24/7</i></dd></div></dl>",
       "css": ".ds-hours { margin: 0; width: 340px; padding: 14px; background: #14181c; color: #fff; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 16px; } .ds-hours div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0 10px; border-bottom: 1px solid rgba(255,255,255,0.3); } .ds-hours div:first-child { border-top: 2px solid #fff; } .ds-hours dt { color: rgba(255,255,255,0.8); } .ds-hours dd { margin: 0; font-weight: 700; } .ds-hours i { font-style: normal; margin-left: 0.5em; padding: 0.16em 0.5em 0.1em; font-size: 13px; font-weight: 800; border-radius: 3px; background: #f2b705; color: #14181c; }"
     },
     {
@@ -196,9 +196,9 @@
       "name": "Chat card",
       "kind": "card",
       "refersTo": "chat-card",
-      "description": "The example conversation, always captioned as an example.",
-      "html": "<figure class=\"ds-chat\"><p class=\"ds-them\">Tomorrow at 3pm</p><p class=\"ds-bot\">What should we cover on the call?</p><figcaption>An example conversation.</figcaption></figure>",
-      "css": ".ds-chat { margin: 0; width: 320px; display: grid; gap: 10px; padding: 20px 18px 16px; background: #14181c; color: #fff; border-radius: 14px; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 15px; line-height: 1.4; } .ds-chat p { margin: 0; max-width: 86%; padding: 10px 14px 9px; border-radius: 14px; } .ds-them { justify-self: end; background: #fff; color: #14181c; border-bottom-right-radius: 3px !important; } .ds-bot { justify-self: start; background: #20262c; border: 1px solid rgba(255,255,255,0.3); border-bottom-left-radius: 3px !important; } .ds-chat figcaption { color: rgba(255,255,255,0.8); }"
+      "description": "The example conversation in WhatsApp's own colours, at the owner's request; always captioned as an example.",
+      "html": "<figure class=\"ds-chat\"><div class=\"ds-chat-head\"><i>DL</i><b>Deepanshu Labs</b></div><p class=\"ds-them\">Tomorrow at 3pm</p><p class=\"ds-bot\">What should we cover on the call?</p></figure>",
+      "css": ".ds-chat { margin: 0; width: 320px; display: grid; gap: 8px; padding: 0 0 18px; background: #efe7dd; color: #111b21; border-radius: 14px; overflow: hidden; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 15px; line-height: 1.4; } .ds-chat-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin-bottom: 10px; background: #075e54; color: #fff; } .ds-chat-head i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #f2b705; color: #14181c; font-style: normal; font-weight: 800; } .ds-chat p { margin: 0 14px; max-width: 84%; padding: 8px 12px 7px; border-radius: 10px; box-shadow: 0 1px 1px rgba(17,27,33,0.14); } .ds-them { justify-self: end; background: #d9fdd3; } .ds-bot { justify-self: start; background: #fff; }"
     },
     {
       "name": "Navigation bar",

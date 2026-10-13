@@ -43,10 +43,12 @@ The second half of the position is range: he builds the product and also runs gr
 - An interactive terminal that answers questions about Deepanshu through Groq (`api/ask.mjs`). It answers only from a fixed fact sheet, is rate-limited to 15 questions per visitor per day, and is restricted to the site's own origins.
 - The main site is one hand-written static `index.html` with no framework, self-hosted Geist fonts, light and dark themes, and three Vercel serverless functions. Deployed on Vercel with `cleanUrls` and security headers set in `vercel.json`.
 - Résumé served as `Deepanshu-Lathar-Resume.pdf` at the repo root.
+- The home page loads Google Analytics 4 and Microsoft Clarity on the production domain. This is disclosed at `/privacy`, where a visitor can switch it off; it also stays off for browsers sending Global Privacy Control or Do Not Track.
+- `/privacy` and the site-wide `404.html` are plain sub-pages styled by `assets/pages.css`.
 
 **Out of scope for this file:**
 
-- `/labs` is Deepanshu Labs, a WhatsApp AI receptionist offer for UK tradespeople. It is a separate product with a different audience, shipped here as a prebuilt Next.js static export under `labs/`. This PRODUCT.md does not govern it.
+- `/labs` is Deepanshu Labs, an independent software studio whose first project is a WhatsApp AI receptionist. It has a different audience and its own `labs/PRODUCT.md` and `labs/DESIGN.md`. This PRODUCT.md does not govern it.
 
 **Terminology:** "ProofMart", "Gapl", "College-CLI", "UniConnect" (also shown as "LPU Connect"), "PicaPool", "UniLyf", "Founder's Office". Availability is stated as "Summer 2027 internships".
 

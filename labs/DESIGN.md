@@ -12,6 +12,14 @@ colors:
   plate-dark-hover: "#262d34"
   plate-dark-pressed: "#000000"
   ink-secondary: "#4a5057"
+  chat-header: "#075e54"
+  chat-header-soft: "#d7efe9"
+  chat-wallpaper: "#efe7dd"
+  chat-sent: "#d9fdd3"
+  chat-ink: "#111b21"
+  chat-time: "#54656f"
+  chat-time-sent: "#3b6350"
+  chat-tick: "#1c8fd6"
   cord-grey: "#9aa0a6"
   nail-grey: "#c3c8cd"
 typography:
@@ -128,8 +136,8 @@ components:
     rounded: "{rounded.chip}"
     padding: "0.16em 0.5em 0.1em"
   chat-card:
-    backgroundColor: "{colors.door-glass}"
-    textColor: "{colors.enamel-white}"
+    backgroundColor: "{colors.chat-wallpaper}"
+    textColor: "{colors.chat-ink}"
     rounded: "{rounded.card}"
     padding: "20px 18px 16px"
 ---
@@ -140,7 +148,7 @@ components:
 
 **Creative North Star: "The Open Sign"**
 
-The page is a shop door. A two-sided sign hangs on it by a cord: one side says the owner is busy with a customer, the other says their WhatsApp is open. That turn of the sign is the whole product in one gesture, and it is the first thing a visitor sees.
+The studio's pages are a shop door. On the receptionist page a two-sided sign hangs on it by a cord: one side says the owner is busy with a customer, the other says their WhatsApp is open. That turn of the sign is the whole product in one gesture, and it is the first thing a visitor sees.
 
 Everything else on the door is what a real door carries: lettering in white on dark glass, the hours ruled in rows, and one brass-coloured push plate that is the only way in. Below the door the page moves through plain fields of sign colour: enamel white for how the demo works, sign red for the commitments, amber for the final invitation.
 
@@ -199,7 +207,7 @@ The colours of a shop door: dark glass, white enamel, sign red and a brass-amber
 
 ## Layout
 
-Phone first. The hero stacks: the sign on its cord, the lettered line, three hours rows, then the paragraph. The push plate is docked to the bottom of the screen on phones so the action is always reachable; from 900px up the dock goes away and the plate sits in the hero beside the sign, which hangs in the left column.
+Phone first. The studio home is the shopfront: the sign, the studio's name lettered on the glass, then a shelf of projects. Each project has its own page. On the receptionist page the hero stacks: the sign on its cord, the lettered line, one status row, then the paragraph. The push plate is docked to the bottom of the screen on phones so the action is always reachable; from 900px up the dock goes away and the plate sits in the hero beside the sign, which hangs in the left column.
 
 Below the hero, each section is a full-bleed field with a centred wrap (max 1240px). Content is lists with rules, not cards: four numbered steps (numbered because they are a sequence), five commitments in two columns on desktop, and one dark chat card holding the example conversation.
 
@@ -236,14 +244,17 @@ Rectangles with modest corners, as cut and printed things have. The sign has a t
 
 ### Hours rows
 - **Style:** a 2px white rule above, 1px rules between; the label at the left in softened white, the value at the right in weight 700.
-- **Open-now chip:** amber when the demo line is answering, outlined when it is closed, worked out from the clock. It sits under the label on phones and beside it on desktop, never inside the value.
+- **Status chip:** amber, reading "Live 24/7". The hero shows one row, "Demo line", carrying this chip.
 
 ### Steps and commitments
 - **Steps:** a large red numeral, a title and a sentence per row, ruled.
 - **Commitments:** title and sentence on the red field, white rules.
 
 ### Chat card
-- **Style:** dark glass card, 14px radius. Visitor messages are white bubbles at the right; assistant messages are outlined dark bubbles at the left. Always captioned as an example.
+- **Style:** the one place that borrows WhatsApp's own look, at the owner's request: a green header (`#075e54`) with an amber avatar, a warm wallpaper (`#efe7dd`), pale green visitor bubbles at the right (`#d9fdd3`) with blue ticks, white assistant bubbles at the left, and small grey times. 14px radius. Always captioned as an example, outside the card.
+
+### Project shelf (studio home)
+- **Style:** one ruled row per project on the white field: the project name as a heavy link with a status chip, then a sentence and its actions (a dark push plate and a text link to the project page). A muted last row says more are on the way.
 
 ### Navigation
 - **Style:** a 58px dark bar with the red brand mark; three section links from 900px up, and Privacy at every width. Links underline on hover.
@@ -260,7 +271,7 @@ Rectangles with modest corners, as cut and printed things have. The sign has a t
 
 ### Don't:
 - **Don't** add cookies, analytics, storage or forms; the privacy policy says there are none.
-- **Don't** imitate WhatsApp's own interface colours or wallpaper.
+- **Don't** use WhatsApp's interface colours anywhere except inside the example chat card, where the owner asked for them.
 - **Don't** put engineering credentials, repo counts or a project gallery on this page.
 - **Don't** animate anything on entry other than the sign.
 - **Don't** fake hardware with gradients or hard-edged block shadows; the plate is flat.
