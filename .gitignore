@@ -6,3 +6,7 @@ node_modules/
 # old single-file drafts and the source logo — local only
 deepanshu-portfolio*.html
 deepanshu labs.png
+# impeccable working files (mocks, review captures) — local only
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/questions/
