@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T15:00:53+00:00",
+  "title": "Design System: Deepanshu Labs — Open Sign",
+  "extensions": {
+    "colorMeta": {
+      "push-amber": {
+        "role": "primary",
+        "displayName": "Push Amber",
+        "canonical": "#f2b705",
+        "tonalRamp": [
+          "#4b3902",
+          "#826203",
+          "#be9004",
+          "#fabd05",
+          "#fbcd41",
+          "#fcdd7d",
+          "#fdebb4",
+          "#fef8e6"
+        ]
+      },
+      "sign-red": {
+        "role": "secondary",
+        "displayName": "Sign Red",
+        "canonical": "#d6281d",
+        "tonalRamp": [
+          "#430d09",
+          "#751610",
+          "#ab2017",
+          "#e12a1e",
+          "#e85d54",
+          "#ef908a",
+          "#f6bfbc",
+          "#fceae9"
+        ]
+      },
+      "door-glass": {
+        "role": "neutral",
+        "displayName": "Door Glass",
+        "canonical": "#14181c",
+        "tonalRamp": [
+          "#20262d",
+          "#37424d",
+          "#516171",
+          "#6a7f95",
+          "#8e9eae",
+          "#b2bdc8",
+          "#d2d9df",
+          "#f0f2f4"
+        ]
+      },
+      "enamel-white": {
+        "role": "neutral",
+        "displayName": "Enamel White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#616161",
+          "#808080",
+          "#9e9e9e",
+          "#bdbdbd",
+          "#d9d9d9",
+          "#f2f2f2"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#4a5057",
+        "tonalRamp": [
+          "#232629",
+          "#3d4248",
+          "#596069",
+          "#757f8a",
+          "#969da6",
+          "#b7bcc2",
+          "#d6d9dc",
+          "#f1f2f3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "sign": {
+        "displayName": "Sign",
+        "purpose": "The one word on the sign."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per section."
+      },
+      "lettering": {
+        "displayName": "Lettering",
+        "purpose": "The white h1 on the glass."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Steps and commitments."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Push-plate labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sign-shadow",
+        "value": "0 18px 30px -18px rgba(0, 0, 0, 0.8)",
+        "purpose": "Under the hanging sign."
+      },
+      {
+        "name": "plate-rest",
+        "value": "0 10px 20px -10px rgba(0, 0, 0, 0.6)",
+        "purpose": "The push plate at rest."
+      },
+      {
+        "name": "plate-pressed",
+        "value": "0 2px 4px -2px rgba(0, 0, 0, 0.6)",
+        "purpose": "The push plate while pressed."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The sign turning over and the plate pressing."
+      },
+      {
+        "name": "sign-turn",
+        "value": "0.9s",
+        "purpose": "One turn of the sign, once on arrival and on each tap."
+      },
+      {
+        "name": "sign-settle",
+        "value": "1.5s ease-in-out",
+        "purpose": "The damped swing on the cord after a turn."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desk",
+        "value": "900px"
+      },
+      {
+        "name": "short-phone",
+        "value": "max-height 700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Push plate",
+      "kind": "button",
+      "refersTo": "push-plate",
+      "description": "The one action: opens WhatsApp. Flat amber, presses in.",
+      "html": "<a class=\"ds-push\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z\"/></svg>Try it on WhatsApp</a>",
+      "css": ".ds-push { display: inline-flex; align-items: center; justify-content: center; gap: 0.6em; min-height: 62px; padding: 0.7em 1.6em; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 20px; font-weight: 900; font-stretch: 105%; line-height: 1.1; text-decoration: none; color: #14181c; background: #f2b705; border-radius: 8px; box-shadow: 0 10px 20px -10px rgba(0,0,0,0.6); transition: translate 0.14s cubic-bezier(0.16,1,0.3,1), background 0.14s, box-shadow 0.14s; } .ds-push:hover { translate: 0 1px; background: #e4ab00; box-shadow: 0 6px 12px -8px rgba(0,0,0,0.6); } .ds-push:active { translate: 0 3px; background: #d9a300; box-shadow: 0 2px 4px -2px rgba(0,0,0,0.6); } .ds-push:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Push plate (dark)",
+      "kind": "button",
+      "refersTo": "push-plate-dark",
+      "description": "The same action on the white and amber fields.",
+      "html": "<a class=\"ds-push-d\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z\"/></svg>Book a demo call</a>",
+      "css": ".ds-push-d { display: inline-flex; align-items: center; gap: 0.6em; min-height: 46px; padding: 0.5em 1.2em; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 16px; font-weight: 900; font-stretch: 105%; line-height: 1.1; text-decoration: none; color: #fff; background: #14181c; border-radius: 8px; box-shadow: 0 10px 20px -10px rgba(0,0,0,0.55); transition: translate 0.14s, background 0.14s; } .ds-push-d:hover { translate: 0 1px; background: #262d34; } .ds-push-d:active { translate: 0 3px; background: #000; } .ds-push-d:focus-visible { outline: 3px solid #14181c; outline-offset: 3px; }"
+    },
+    {
+      "name": "The sign",
+      "kind": "custom",
+      "refersTo": "sign-open",
+      "description": "The hanging two-sided sign; this is its open face.",
+      "html": "<div class=\"ds-sign\"><small>Your WhatsApp is</small><b>Open</b><span>answered in seconds</span></div>",
+      "css": ".ds-sign { container-type: inline-size; width: 300px; aspect-ratio: 334 / 250; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff; color: #d6281d; border: 9px solid #d6281d; border-radius: 13px; rotate: -2deg; box-shadow: 0 18px 30px -18px rgba(0,0,0,0.8); font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; text-align: center; } .ds-sign small { font-size: 16px; font-weight: 800; font-stretch: 112%; letter-spacing: 0.05em; text-transform: uppercase; color: #14181c; } .ds-sign b { font-size: 74px; font-weight: 900; font-stretch: 118%; line-height: 0.9; letter-spacing: -0.02em; text-transform: uppercase; } .ds-sign span { font-size: 21px; font-weight: 800; color: #14181c; }"
+    },
+    {
+      "name": "Hours rows",
+      "kind": "custom",
+      "refersTo": "now-chip",
+      "description": "Hours-of-business lettering with the open-now chip.",
+      "html": "<dl class=\"ds-hours\"><div><dt>Demo hours <i>Open now</i></dt><dd>08:00 to 23:30 IST</dd></div><div><dt>Booking</dt><dd>A real Google Meet link</dd></div></dl>",
+      "css": ".ds-hours { margin: 0; width: 340px; padding: 14px; background: #14181c; color: #fff; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 16px; } .ds-hours div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0 10px; border-bottom: 1px solid rgba(255,255,255,0.3); } .ds-hours div:first-child { border-top: 2px solid #fff; } .ds-hours dt { color: rgba(255,255,255,0.8); } .ds-hours dd { margin: 0; font-weight: 700; } .ds-hours i { font-style: normal; margin-left: 0.5em; padding: 0.16em 0.5em 0.1em; font-size: 13px; font-weight: 800; border-radius: 3px; background: #f2b705; color: #14181c; }"
+    },
+    {
+      "name": "Step row",
+      "kind": "custom",
+      "refersTo": "steps",
+      "description": "One numbered step of the demo.",
+      "html": "<div class=\"ds-step\"><b>1</b><div><h3>Message the number</h3><p>Open WhatsApp and say hello.</p></div></div>",
+      "css": ".ds-step { display: grid; grid-template-columns: 3.2rem 1fr; gap: 14px; width: 340px; padding: 20px 0 18px; border-top: 3px solid #14181c; border-bottom: 1px solid rgba(20,24,28,0.18); font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; color: #14181c; } .ds-step b { font-size: 51px; font-weight: 900; font-stretch: 112%; line-height: 0.9; color: #d6281d; } .ds-step h3 { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.15; } .ds-step p { margin: 4px 0 0; font-size: 17px; line-height: 1.55; color: #4a5057; }"
+    },
+    {
+      "name": "Chat card",
+      "kind": "card",
+      "refersTo": "chat-card",
+      "description": "The example conversation, always captioned as an example.",
+      "html": "<figure class=\"ds-chat\"><p class=\"ds-them\">Tomorrow at 3pm</p><p class=\"ds-bot\">What should we cover on the call?</p><figcaption>An example conversation.</figcaption></figure>",
+      "css": ".ds-chat { margin: 0; width: 320px; display: grid; gap: 10px; padding: 20px 18px 16px; background: #14181c; color: #fff; border-radius: 14px; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 15px; line-height: 1.4; } .ds-chat p { margin: 0; max-width: 86%; padding: 10px 14px 9px; border-radius: 14px; } .ds-them { justify-self: end; background: #fff; color: #14181c; border-bottom-right-radius: 3px !important; } .ds-bot { justify-self: start; background: #20262c; border: 1px solid rgba(255,255,255,0.3); border-bottom-left-radius: 3px !important; } .ds-chat figcaption { color: rgba(255,255,255,0.8); }"
+    },
+    {
+      "name": "Navigation bar",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Lettering along the top of the door.",
+      "html": "<nav class=\"ds-bar\"><b>Deepanshu Labs</b><a href=\"#\">How it works</a><a href=\"#\">Privacy</a></nav>",
+      "css": ".ds-bar { display: flex; align-items: center; gap: 22px; height: 58px; padding: 0 20px; background: #14181c; color: #fff; border-bottom: 2px solid rgba(255,255,255,0.3); font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; } .ds-bar b { margin-right: auto; font-weight: 800; font-stretch: 108%; } .ds-bar a { color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; } .ds-bar a:hover { text-decoration: underline; } .ds-bar a:focus-visible { outline: 3px solid #f2b705; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Open Sign",
+    "overview": "The page is a shop door. A two-sided sign hangs on it by a cord: one side says the owner is busy with a customer, the other says their WhatsApp is open. That turn of the sign is the whole product in one gesture, and it is the first thing a visitor sees.\n\nEverything else on the door is what a real door carries: lettering in white on dark glass, the hours ruled in rows, and one brass-coloured push plate that is the only way in. Below the door the page moves through plain fields of sign colour: enamel white for how the demo works, sign red for the commitments, amber for the final invitation.\n\nIt is built for a business owner on a phone. The push plate stays docked under the thumb, type is large, and nothing needs explaining. It is deliberately unlike the portfolio it lives beside: no map, no route colours, a different typeface.",
+    "keyCharacteristics": [
+      "A hanging two-sided sign, tilted on its cord, as the hero.",
+      "White lettering on dark glass; hours-of-business rows with a rule above.",
+      "One action colour: amber appears on the push plate, the open-now chip and the closing field, and nowhere else.",
+      "Whole sections in glass, white, red or amber.",
+      "One family, Archivo, wide and heavy on the sign and plain for reading.",
+      "One authored motion: the sign turns over once on arrival."
+    ],
+    "rules": [
+      {
+        "name": "The One Plate Rule",
+        "body": "Amber means \"press here\". It is never used for decoration, headings or icons.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sign Red Rule",
+        "body": "Red belongs to the sign and to whole fields. It is not used for body-size text on white.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Rule",
+        "body": "Emphasis comes from Archivo's width and weight together. There is no second typeface and no monospace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Objects Rule",
+        "body": "Only the sign and the push plate cast shadows. Sections, lists and the chat card stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep amber for the action and the open-now state only.",
+      "**Do** keep the push plate reachable without scrolling on a phone.",
+      "**Do** label any example as an example and any AI as an AI.",
+      "**Do** let a section be one colour edge to edge.",
+      "**Do** size sign lettering from the sign's own width.",
+      "**Do** keep every hours value to one line on a phone."
+    ],
+    "donts": [
+      "**Don't** add cookies, analytics, storage or forms; the privacy policy says there are none.",
+      "**Don't** imitate WhatsApp's own interface colours or wallpaper.",
+      "**Don't** put engineering credentials, repo counts or a project gallery on this page.",
+      "**Don't** animate anything on entry other than the sign.",
+      "**Don't** fake hardware with gradients or hard-edged block shadows; the plate is flat.",
+      "**Don't** borrow the portfolio's route colours, map or typeface."
+    ]
+  }
+}

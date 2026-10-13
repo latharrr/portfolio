@@ -4,21 +4,24 @@
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* the sign turns over once on arrival, from BUSY to OPEN, and again whenever it is tapped */
-  var sign = document.getElementById('sign'), hint = document.getElementById('sign-hint');
+  var sign = document.getElementById('sign'), hint = document.getElementById('sign-hint'), swing = document.getElementById('swing');
   if (sign && sign.tagName === 'BUTTON') {
     var say = function () {
       var busy = sign.getAttribute('aria-pressed') === 'true';
       sign.setAttribute('aria-label', busy ? 'Sign showing: Sorry, we’re busy with a customer. Turn the sign over.' : 'Sign showing: Your WhatsApp is open, answered in seconds. Turn the sign over.');
       if (hint) hint.textContent = busy ? 'Your door, while you work. Tap to turn it.' : 'Tap the sign to turn it.';
     };
-    sign.addEventListener('click', function () { sign.setAttribute('aria-pressed', sign.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); say(); });
-    if (!reduce) {
-      var card = sign.querySelector('.card');
-      card.style.transition = 'none';
-      sign.setAttribute('aria-pressed', 'true');
+    var settle = function () {
+      if (reduce || !swing) return;
+      swing.classList.remove('settle'); void swing.offsetWidth; swing.classList.add('settle');
+    };
+    var turn = function (to) { sign.setAttribute('aria-pressed', String(to)); say(); setTimeout(settle, 520); };
+    sign.addEventListener('click', function () { turn(sign.getAttribute('aria-pressed') !== 'true'); });
+    if (sign.classList.contains('pre')) {
+      // the page arrived showing BUSY (set before first paint); turn it over once
       requestAnimationFrame(function () { requestAnimationFrame(function () {
-        card.style.transition = '';
-        setTimeout(function () { sign.setAttribute('aria-pressed', 'false'); say(); }, 900);
+        sign.classList.remove('pre');
+        setTimeout(function () { turn(false); }, 700);
       }); });
     }
     say();

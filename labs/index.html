@@ -19,7 +19,7 @@
   <link rel="icon" href="/labs/icon.svg" sizes="any" type="image/svg+xml" />
   <link rel="stylesheet" href="/labs/labs.css" />
 </head>
-<body>
+<body class="has-dock">
   <a class="skip" href="#main">Skip to content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.6-.2.5-.9 2.1-.9 4.1s.9 3.9 1.1 4.1c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></symbol>
@@ -27,33 +27,36 @@
   <header class="bar">
     <a class="brand" href="/labs" aria-label="Deepanshu Labs, home"><i aria-hidden="true"><svg viewBox="251 194 800 800"><path d="M336 508 623 229v414L337 959zM565 778h401L786 959H346z"/></svg></i>Deepanshu Labs</a>
     <nav aria-label="Primary"><a class="wide" href="#how">How it works</a><a class="wide" href="#expect">What to expect</a><a class="wide" href="#contact">Contact</a><a href="/labs/privacy">Privacy</a></nav>
+    <a class="push small" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Book a demo call</a>
   </header>
 
   <main id="main">
     <section class="door" aria-labelledby="hero-h">
       <div class="wrap">
         <div class="hang">
-          <svg class="cord" viewBox="0 0 160 84" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 84 80 8 156 84"/><circle cx="80" cy="7" r="6"/></svg>
-          <button class="sign" id="sign" type="button" aria-pressed="false" aria-describedby="sign-hint">
-            <span class="card">
-              <span class="face open"><small>Your WhatsApp is</small><b>Open</b><span>answered in seconds</span></span>
-              <span class="face busy" aria-hidden="true"><small>Sorry, we’re</small><b>Busy</b><span>with a customer</span></span>
-            </span>
-          </button>
-          <span class="turn" id="sign-hint">Tap the sign to turn it.</span>
+          <div class="swing" id="swing">
+            <svg class="cord" viewBox="0 0 100 25.25" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M27.65 25.25 50 1.5 72.35 25.25"/><circle cx="50" cy="1.5" r="1.5"/></svg>
+            <button class="sign" id="sign" type="button" aria-pressed="false" aria-label="Sign: Your WhatsApp is open, answered in seconds.">
+              <span class="card">
+                <span class="face open"><small>Your WhatsApp is</small><b>Open</b><span>answered in seconds</span></span>
+                <span class="face busy" aria-hidden="true"><small>Sorry, we’re</small><b>Busy</b><span>with a customer</span></span>
+              </span>
+            </button>
+          </div>
+          <script>(function(s){if(!matchMedia('(prefers-reduced-motion: reduce)').matches){s.classList.add('pre');s.setAttribute('aria-pressed','true')}})(document.getElementById('sign'))</script>
+          <span class="turn" id="sign-hint" aria-hidden="true"></span>
         </div>
         <div class="vinyl">
-          <h1 id="hero-h">Your WhatsApp, answered in seconds.</h1>
-          <p class="letter">An AI receptionist for your business.</p>
+          <h1 id="hero-h">An AI receptionist for your business.</h1>
           <p class="lede">While you’re with a customer, it replies to the next one in seconds, answers their questions, and books the next step straight into the diary. Set up around your business: your services, your prices, your hours.</p>
           <div class="act">
             <a class="push" href="https://wa.me/919999602901?text=Hi%2C%20I'd%20like%20to%20book%20a%20call%20with%20Deepanshu%20this%20week." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Try it on WhatsApp</a>
             <p><strong>Message the number and watch it book you a call.</strong> Demo line: +91 99996 02901</p>
           </div>
           <dl class="hours">
-            <div><dt>Demo hours</dt><dd>08:00 to 23:30 IST, every day<span class="now" id="demo-now" hidden></span></dd></div>
-            <div><dt>Booking</dt><dd>A real Google Meet link in the chat</dd></div>
-            <div><dt>Your setup</dt><dd>Your services, prices and diary</dd></div>
+            <div><dt>Demo hours<span class="now" id="demo-now" hidden></span></dt><dd>08:00 to 23:30 IST<span class="more">, every day</span></dd></div>
+            <div><dt>Booking</dt><dd>A real Google Meet link<span class="more"> in the chat</span></dd></div>
+            <div><dt>Your setup</dt><dd><span class="brief">Your services and prices</span><span class="more">Your services, prices and diary</span></dd></div>
           </dl>
         </div>
       </div>
