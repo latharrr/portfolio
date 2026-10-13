@@ -271,6 +271,7 @@
     .receipts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(28px, 5vw, 88px); border-top: 3px solid var(--ink); }
     .receipts li { display: grid; grid-template-columns: 9.4rem minmax(0, 1fr) auto; gap: 18px; align-items: baseline; padding: 15px 0 11px; border-bottom: 1px solid var(--rule); }
     .receipts b { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .receipts a { font-weight: 700; }
     .receipts i { font-style: normal; font-size: 0.875rem; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
     .creds { margin-top: clamp(56px, 7vw, 96px); display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); scroll-margin-top: calc(var(--bar-h) + 28px); }
     .creds-head h3 { font-size: clamp(1.6rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; text-wrap: balance; }
@@ -771,11 +772,11 @@
           <li><b>1,000+</b><span>flat-launch submissions collected in 72 hours for a campus product</span><i>Launch</i></li>
           <li><b>200+</b><span>beta users expressing demand before a product launch</span><i>Validation</i></li>
           <li><b>6-person</b><span>team led on attribution and internal tooling in the Founder&rsquo;s Office</span><i>Leadership</i></li>
-          <li><b id="rc-repos">&mdash;</b><span>open-source repos on GitHub, counted live</span><i>Open source</i></li>
-          <li><b>2</b><span>products live in production</span><i>Products</i></li>
+          <li><b id="rc-repos">&mdash;</b><span>open-source repos on <a href="https://github.com/latharrr?tab=repositories" target="_blank" rel="noopener">GitHub</a>, counted live</span><i>Open source</i></li>
+          <li><b>2</b><span>products live in production: <a href="https://proofmart.shop" target="_blank" rel="noopener">ProofMart</a> and <a href="https://gapl.vercel.app" target="_blank" rel="noopener">Gapl</a></span><i>Products</i></li>
           <li><b>GTM</b><span>campus campaigns at PicaPool with attribution wired in from day one</span><i>Growth</i></li>
-          <li><b>30 days</b><span>of writing in public completed &mdash; essays on GTM, deadlocks, and retention</span><i>Writing</i></li>
-          <li><b>1,500+</b><span>LinkedIn followers built through consistent public writing</span><i>Community</i></li>
+          <li><b>30 days</b><span>of <a href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">writing in public</a> completed &mdash; essays on GTM, deadlocks, and retention</span><i>Writing</i></li>
+          <li><b>1,500+</b><span><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn followers</a> built through consistent public writing</span><i>Community</i></li>
           <li><b>4 months</b><span>from member to HR Coordinator for a 10&ndash;15 person campus team</span><i>Leadership</i></li>
           <li><b>Grade A</b><span>in Advanced Backend Development training at LPU</span><i>Academics</i></li>
           <li><b>McKinsey</b><span>Forward Program &mdash; structured problem-solving for early-career talent</span><i>Programs</i></li>
@@ -965,7 +966,7 @@
         </svg>
         <h2>If you need systems that <em>explain themselves</em>, let&rsquo;s connect.</h2>
         <p class="sub">I reply within a day &mdash; usually faster. Internships, freelance builds, open-source collabs, or just a good argument about attribution models.</p>
-        <a class="mail" id="email-link" href="#contact">deepanshu.lathar [at] gmail.com</a>
+        <a class="mail" id="email-link" href="#contact">deepanshulathar [at] gmail.com</a>
         <div class="contact-row">
           <a class="exit" href="Deepanshu-Lathar-Resume.pdf" download="Deepanshu-Lathar-Resume.pdf"><span class="ex" aria-hidden="true">A</span>Download résumé</a>
           <a class="tlink" href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
@@ -1050,7 +1051,7 @@
       a.href = 'Deepanshu-Lathar-Resume.pdf'; a.download = 'Deepanshu-Lathar-Resume.pdf';
       document.body.appendChild(a); a.click(); a.remove();
     };
-    const siteEmail = () => 'deepanshu.lathar' + '@' + 'gmail.com';
+    const siteEmail = () => 'deepanshulathar' + '@' + 'gmail.com';
     const commands = {
       help: () => ['whoami · skills · projects · contact · resume · theme [light|dark] · date · clear', '<span class="k">ask anything about deepanshu</span> — just type a question, e.g. <span class="c">is he open to internships?</span>', '<span class="c">up/down for history · tab to complete</span>'],
       whoami: () => ['deepanshu-lathar — full-stack & AI engineer', 'B.Tech CSE @ LPU · Founder’s Office @ PicaPool'],

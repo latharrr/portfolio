@@ -37,7 +37,6 @@ button { font: inherit; color: inherit; }
 .bar nav { display: flex; gap: clamp(14px, 2vw, 28px); }
 .bar nav a { font-size: 0.9375rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
 .bar nav a:hover { text-decoration: underline; }
-.bar nav a.wide { display: none; }
 
 /* ---- push plate: the one action. Flat amber, presses in ---- */
 .push { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 0.6em; min-height: 62px; padding: 0.7em 1.6em; font-size: 1.25rem; font-weight: 900; font-stretch: 105%; line-height: 1.1; text-align: center; text-decoration: none; color: var(--ink); background: var(--amber); border-radius: 8px; box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.6); transition: translate 0.14s var(--ease), background 0.14s, box-shadow 0.14s var(--ease); }
@@ -84,7 +83,12 @@ button { font: inherit; color: inherit; }
 @keyframes settle { 0% { rotate: -2deg; } 22% { rotate: -4.4deg; } 48% { rotate: -0.6deg; } 72% { rotate: -2.7deg; } 100% { rotate: -2deg; } }
 .swing.settle { animation: settle 1.5s ease-in-out; }
 .turn { display: block; min-height: 1.4em; margin-top: 12px; text-align: center; font-size: 0.9375rem; color: var(--on-glass-2); }
-.vinyl h1 { font-size: clamp(2.1rem, 8.8vw, 3.4rem); font-weight: 800; font-stretch: 104%; line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; max-width: 11.5em; }
+.vinyl h1 { font-size: clamp(2rem, 8.2vw, 3.4rem); font-weight: 800; font-stretch: 104%; line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; max-width: 13em; }
+.vinyl .lede strong { color: var(--white); font-weight: 800; }
+/* phone: the question comes first, the sign answers it */
+.door:has(#sign) .vinyl { display: contents; }
+.door:has(#sign) .vinyl h1 { order: -1; margin-top: 26px; }
+.door:has(#sign) .hang { margin-top: -4px; }
 .vinyl .lede { max-width: 54ch; color: var(--on-glass-2); }
 .hours { border-top: 2px solid var(--white); }
 .hours > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0 10px; border-bottom: 1px solid var(--rule-glass); }
@@ -101,7 +105,18 @@ button { font: inherit; color: inherit; }
 /* ---- the dock: on a phone the push plate is always under the thumb ---- */
 .dock { position: fixed; z-index: 45; left: 0; right: 0; bottom: 0; padding: 10px var(--pad) calc(10px + env(safe-area-inset-bottom)); background: var(--glass); border-top: 2px solid var(--rule-glass); }
 .dock .push { width: 100%; }
-body.has-dock { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+.dock { transition: translate 0.3s var(--ease); }
+.dock.away { translate: 0 110%; }
+body.has-dock { padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
+/* phones: the bar is two rows and scrolls away with the page; every link stays reachable */
+@media (max-width: 899px) {
+  :root { --bar-h: 0px; }
+  .bar { position: static; height: auto; flex-wrap: wrap; gap: 0 16px; padding-top: 12px; }
+  .bar .brand { min-height: 34px; }
+  .bar nav { flex: 0 0 100%; gap: 6px 18px; margin-top: 10px; border-top: 1px solid var(--rule-glass); overflow-x: auto; scrollbar-width: none; }
+  .bar nav a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 420px) { .bar nav { gap: 6px 14px; } .bar nav a { font-size: 0.875rem; } }
 
 /* ---- sections as whole fields ---- */
 .sec { padding-block: clamp(60px, 9vw, 120px); }
@@ -119,6 +134,7 @@ h3 { font-size: 1.375rem; font-weight: 800; line-height: 1.15; letter-spacing: -
 
 /* how the demo works */
 .how-grid { display: grid; gap: clamp(36px, 5vw, 72px); margin-top: clamp(36px, 5vw, 64px); }
+.how-grid .chat { order: -1; }
 .steps { display: grid; border-top: 3px solid var(--ink); }
 .steps li { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 4px 14px; padding: 20px 0 18px; border-bottom: 1px solid var(--rule); }
 .steps .n { grid-row: 1 / span 2; font-size: 3.2rem; font-weight: 900; font-stretch: 112%; line-height: 0.9; color: var(--red); font-variant-numeric: tabular-nums; }
@@ -139,6 +155,13 @@ h3 { font-size: 1.375rem; font-weight: 800; line-height: 1.15; letter-spacing: -
 .chat time { display: inline-flex; align-items: center; gap: 3px; float: right; margin: 6px 0 -2px 12px; font-size: 0.8125rem; line-height: 1; color: #54656f; font-variant-numeric: tabular-nums; }
 .chat .them time { color: #3b6350; }
 .chat time svg { width: 16px; height: 11px; fill: none; stroke: #1c8fd6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* the payoff: the Meet link landing in the chat */
+.chat .payoff { max-width: 92%; }
+.meet { display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 10px 12px; border-radius: 8px; background: #e7f4ee; }
+.meet i { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 8px; background: #075e54; }
+.meet svg { width: 26px; height: 26px; fill: #fff; }
+.meet b { display: block; font-size: 1.0625rem; font-weight: 800; line-height: 1.2; }
+.meet span span { display: block; font-size: 0.9375rem; color: #0b5e52; text-decoration: underline; overflow-wrap: anywhere; }
 .chat .who { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .chat-note { margin-top: 12px; font-size: 0.9375rem; color: var(--ink-2); }
 
@@ -205,13 +228,16 @@ footer a { display: inline-flex; align-items: center; min-height: 36px; color: v
 @media (min-width: 900px) {
   body.has-dock { padding-bottom: 0; }
   .dock { display: none; }
-  .bar nav a.wide { display: inline; }
   .door .wrap { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: clamp(40px, 6vw, 96px); align-items: start; padding-bottom: clamp(56px, 7vw, 96px); }
   .door .wrap.gone { grid-template-columns: minmax(0, 1fr); }
   .bar .push { display: inline-flex; }
   .crumb { display: inline; margin-right: auto; margin-left: -8px; padding-left: 14px; border-left: 2px solid var(--rule-glass); font-size: 0.9375rem; font-weight: 600; white-space: nowrap; }
   .bar:has(.crumb) .brand { margin-right: 0; }
   .hang { width: min(100%, 480px); }
+  .door:has(#sign) .vinyl { display: flex; }
+  .door:has(#sign) .vinyl h1 { order: 0; margin-top: 0; }
+  .door:has(#sign) .hang { margin-top: 0; }
+  .how-grid .chat { order: 0; }
   .vinyl { padding-top: clamp(48px, 7vw, 96px); }
   .vinyl .lede { order: 0; margin-top: 18px; }
   .vinyl .act { order: 1; }

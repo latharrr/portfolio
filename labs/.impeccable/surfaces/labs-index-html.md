@@ -45,6 +45,8 @@ Open points only the owner can settle:
 - "Message me on WhatsApp" now opens Deepanshu's own number (+91 82210 16809), taken from the portfolio's contact link, not the demo line.
 - Privacy policy updated and re-dated 13 October 2026: the "projects shown" phrase is gone and it now points to the site policy at `/privacy`.
 - Unknown URLs under /labs now reach the labs not-found page through the new site-wide 404.html.
+- Receptionist hero now opens with a scene as the h1, "It's 9pm. A customer just WhatsApped you. Who answers?"; on phones the question sits above the sign so the sign answers it. "An AI receptionist for your business." leads the paragraph.
+- The example chat ends on a Google Meet link card, and on phones the chat comes before the four steps.
 - Still open: whether to name a country.
 
 ## Direction contract

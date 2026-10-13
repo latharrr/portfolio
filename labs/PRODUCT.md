@@ -26,7 +26,7 @@ The receptionist page exists to get a business owner to try the live demo. Succe
 
 ## Positioning
 
-The demo is the product, running live. A visitor messages a real WhatsApp number and a real Google Meet link lands in the chat within a couple of minutes, which is the same flow their own customers would get. A competitor with a video or a mock-up could not copy this claim.
+The demo is the product, running live. A visitor messages a real WhatsApp number and a real Google Meet link lands in the chat within minutes (delivery can take up to about 15 minutes, so the page says "within minutes"), which is the same flow their own customers would get. A competitor with a video or a mock-up could not copy this claim.
 
 Second: one person, not an agency. The person the visitor messages is the person who builds and fixes it.
 
@@ -35,7 +35,7 @@ Second: one person, not an agency. The person the visitor messages is the person
 - The visitor arrives on a phone far more often than a laptop, and the main action opens WhatsApp.
 - Primary action: "Try it on WhatsApp", which opens a chat with the demo line, +91 99996 02901, with a prefilled message asking to book a call.
 - Secondary: message Deepanshu directly on WhatsApp, or email.
-- The demo line is live 24/7 (stated by the owner on 2026-10-13; the page no longer shows hours or an open/closed state).
+- The demo line is live 24/7 (the owner confirmed on 2026-10-13 that he tested the full booking flow outside the old 08:00 to 23:30 hours; the page no longer shows hours or an open/closed state).
 - "Message me on WhatsApp" opens Deepanshu's own number, +91 82210 16809, which is separate from the AI demo line.
 - The demo books a call with Deepanshu: the visitor gives a day, a time and a topic; the assistant asks for anything missing, one short question at a time; a Google Meet link with the date, time and both names arrives in the chat.
 

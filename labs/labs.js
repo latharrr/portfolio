@@ -21,4 +21,10 @@
     sign.addEventListener('turned', say);
     say();
   }
+
+  /* the docked plate steps aside while the closing section, which has the same plate, is on screen */
+  var dock = document.querySelector('.dock'), end = document.getElementById('contact');
+  if (dock && end && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { dock.classList.toggle('away', es[0].isIntersecting); }, { rootMargin: '0px 0px -80px 0px' }).observe(end);
+  }
 })();
