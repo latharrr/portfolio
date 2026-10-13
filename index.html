@@ -1412,7 +1412,7 @@
       ghNote('syncing…');
       try {
         const [, calOk] = await Promise.all([loadGH(fresh === true), loadCal(fresh === true)]);
-        if (!calOk) { setDot(false); ghNote('repos and languages synced · contribution calendar unavailable · github.com/' + GH); }
+        if (!calOk) { setDot(false); ghNote('repos and languages synced · contribution calendar unavailable'); }
       } catch (e) { ghFail(e); }
       finally { ghBusy = false; if (btn) btn.disabled = false; }
     };
