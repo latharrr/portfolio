@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T14:18:00+00:00",
+  "title": "Design System: Deepanshu Lathar — Line Map",
+  "extensions": {
+    "colorMeta": {
+      "engineering-blue": {
+        "role": "primary",
+        "displayName": "Engineering Blue",
+        "canonical": "#0a5fb4",
+        "tonalRamp": [
+          "#042648",
+          "#07427e",
+          "#0a61b8",
+          "#0d7ff2",
+          "#479ef5",
+          "#81bdf8",
+          "#b7d9fb",
+          "#e7f2fe"
+        ]
+      },
+      "growth-yellow": {
+        "role": "secondary",
+        "displayName": "Growth Yellow",
+        "canonical": "#f5c400",
+        "tonalRamp": [
+          "#4c3d00",
+          "#856a00",
+          "#c29b00",
+          "#ffcc00",
+          "#ffd83d",
+          "#ffe47a",
+          "#fff0b2",
+          "#fffae5"
+        ]
+      },
+      "writing-magenta": {
+        "role": "tertiary",
+        "displayName": "Writing Magenta",
+        "canonical": "#c2187a",
+        "tonalRamp": [
+          "#44082b",
+          "#760f4a",
+          "#ac156c",
+          "#e31c8f",
+          "#ea53aa",
+          "#f089c5",
+          "#f7bbdd",
+          "#fce8f4"
+        ]
+      },
+      "map-paper": {
+        "role": "neutral",
+        "displayName": "Map Paper",
+        "canonical": "#fbfaf5",
+        "tonalRamp": [
+          "#373116",
+          "#5f5526",
+          "#8a7d37",
+          "#b6a449",
+          "#c8ba75",
+          "#d9d0a0",
+          "#e9e4c8",
+          "#f8f6ed"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1a1a1a",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#616161",
+          "#808080",
+          "#9e9e9e",
+          "#bdbdbd",
+          "#d9d9d9",
+          "#f2f2f2"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#4d4b45",
+        "tonalRamp": [
+          "#282724",
+          "#46443f",
+          "#66645c",
+          "#868379",
+          "#a3a199",
+          "#c0bfb9",
+          "#dbdad7",
+          "#f3f3f2"
+        ]
+      },
+      "night-ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "canonical": "#111318",
+        "tonalRamp": [
+          "#20232d",
+          "#373d4e",
+          "#505a71",
+          "#6a7695",
+          "#8e97af",
+          "#b1b8c8",
+          "#d2d6df",
+          "#f0f1f4"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "#f3f1ea",
+        "tonalRamp": [
+          "#312c1c",
+          "#544c30",
+          "#7b7046",
+          "#a2935d",
+          "#b9ad84",
+          "#cfc7ab",
+          "#e3dfce",
+          "#f6f4ef"
+        ]
+      },
+      "night-engineering-blue": {
+        "role": "primary",
+        "displayName": "Night Engineering Blue",
+        "canonical": "#5aa9f5",
+        "tonalRamp": [
+          "#042748",
+          "#08437d",
+          "#0b63b7",
+          "#0f82f0",
+          "#48a0f4",
+          "#82bef7",
+          "#b7d9fb",
+          "#e7f2fe"
+        ]
+      },
+      "night-writing-magenta": {
+        "role": "tertiary",
+        "displayName": "Night Writing Magenta",
+        "canonical": "#f0569f",
+        "tonalRamp": [
+          "#460625",
+          "#7a0b3f",
+          "#b2105d",
+          "#ea157a",
+          "#ef4d9a",
+          "#f485ba",
+          "#f9b9d7",
+          "#fde8f2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per section."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Roles, essays, credentials, table group names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, capped at 60 to 62ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Status plates, line lozenges, chips."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Terminal, inline code and credential IDs."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sign-lift",
+        "value": "0 6px 14px -6px rgba(0, 0, 0, 0.45)",
+        "purpose": "Under an exit sign on hover only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The hero line draw, roundel seating and sign lift."
+      },
+      {
+        "name": "line-draw",
+        "value": "1.15s",
+        "purpose": "Route lines drawing outward from the interchange, once on load."
+      },
+      {
+        "name": "state",
+        "value": "0.18s to 0.2s",
+        "purpose": "Hover colour and fill changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "bar-fold",
+        "value": "1279px"
+      },
+      {
+        "name": "map-fold",
+        "value": "1099px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Exit sign (primary)",
+      "kind": "button",
+      "refersTo": "exit-sign",
+      "description": "The lettered sign for the main action, the résumé download.",
+      "html": "<a class=\"ds-exit\" href=\"#\"><span class=\"ds-exit-ex\">A</span>Download résumé</a>",
+      "css": ".ds-exit { display: inline-flex; align-items: center; gap: 0.7em; padding: 0.66em 1em 0.56em 0.66em; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; font-size: 19px; font-weight: 800; line-height: 1; text-decoration: none; border-radius: 4px; background: #f5c400; color: #1a1a1a; border: 3px solid #1a1a1a; transition: translate 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-exit-ex { display: grid; place-items: center; width: 1.7em; height: 1.7em; padding-top: 0.12em; background: #1a1a1a; color: #f5c400; border-radius: 2px; } .ds-exit:hover { translate: 0 -2px; box-shadow: 0 6px 14px -6px rgba(0,0,0,0.45); } .ds-exit:focus-visible { outline: 3px solid #0a5fb4; outline-offset: 3px; }"
+    },
+    {
+      "name": "Exit sign (secondary)",
+      "kind": "button",
+      "refersTo": "exit-sign-secondary",
+      "description": "The second lettered sign, used for email.",
+      "html": "<a class=\"ds-exit-b\" href=\"#\"><span class=\"ds-exit-b-ex\">B</span>Email me</a>",
+      "css": ".ds-exit-b { display: inline-flex; align-items: center; gap: 0.7em; padding: 0.66em 1em 0.56em 0.66em; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; font-size: 19px; font-weight: 800; line-height: 1; text-decoration: none; border-radius: 4px; background: var(--ink, #1a1a1a); color: var(--paper, #fbfaf5); border: 3px solid var(--ink, #1a1a1a); transition: translate 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-exit-b-ex { display: grid; place-items: center; width: 1.7em; height: 1.7em; padding-top: 0.12em; background: var(--paper, #fbfaf5); color: var(--ink, #1a1a1a); border-radius: 2px; } .ds-exit-b:hover { translate: 0 -2px; box-shadow: 0 6px 14px -6px rgba(0,0,0,0.45); } .ds-exit-b:focus-visible { outline: 3px solid #0a5fb4; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary actions such as Retry sync and All repositories.",
+      "html": "<button class=\"ds-btn\" type=\"button\">Retry sync</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.6em; padding: 0.72em 1.05em 0.6em; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; font-size: 17px; font-weight: 800; line-height: 1; color: var(--ink, #1a1a1a); border: 3px solid currentColor; border-radius: 4px; background: none; cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-btn:hover { background: var(--ink, #1a1a1a); color: var(--paper, #fbfaf5); border-color: var(--ink, #1a1a1a); } .ds-btn:focus-visible { outline: 3px solid #0a5fb4; outline-offset: 3px; }"
+    },
+    {
+      "name": "Status plates",
+      "kind": "chip",
+      "refersTo": "status-plate",
+      "description": "A station mark plus plain words; the live plate is inverted.",
+      "html": "<span class=\"ds-state ds-state-live\"><svg viewBox=\"0 0 16 16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/></svg>Live · beta</span> <span class=\"ds-state\"><svg viewBox=\"0 0 16 16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-dasharray=\"3.4 2.36\"/></svg>Working · pre-release</span> <span class=\"ds-state\"><svg viewBox=\"0 0 16 16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"M2 14 14 2\" stroke=\"currentColor\" stroke-width=\"2.6\"/></svg>Built · demo offline</span>",
+      "css": ".ds-state { display: inline-flex; align-items: center; gap: 0.5em; margin-right: 8px; padding: 0.42em 0.7em 0.3em 0.55em; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 1; color: var(--ink, #1a1a1a); border: 2px solid var(--ink, #1a1a1a); border-radius: 3px; white-space: nowrap; } .ds-state svg { width: 14px; height: 14px; margin-top: -0.1em; } .ds-state-live { background: var(--ink, #1a1a1a); color: var(--paper, #fbfaf5); }"
+    },
+    {
+      "name": "Line lozenges",
+      "kind": "chip",
+      "refersTo": "line-lozenge",
+      "description": "Names a route line in its own colour.",
+      "html": "<span class=\"ds-tag ds-tag-eng\">Engineering line</span> <span class=\"ds-tag ds-tag-growth\">Growth line</span> <span class=\"ds-tag ds-tag-writing\">Writing line</span>",
+      "css": ".ds-tag { display: inline-block; margin-right: 6px; padding: 0.42em 0.8em 0.3em; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; font-size: 13.5px; font-weight: 800; line-height: 1; border-radius: 99px; color: #fff; } .ds-tag-eng { background: #0a5fb4; } .ds-tag-growth { background: #f5c400; color: #1a1a1a; } .ds-tag-writing { background: #c2187a; }"
+    },
+    {
+      "name": "Station on a line",
+      "kind": "custom",
+      "refersTo": "station-roundel",
+      "description": "A roundel seated on a route line with its name and status; the mark fills with the line colour on hover.",
+      "html": "<a class=\"ds-st\" href=\"#\"><i class=\"ds-st-rd\"></i><b>ProofMart</b><small>Live · beta</small></a>",
+      "css": ".ds-st { position: relative; display: inline-block; padding: 44px 0 0 0; min-width: 220px; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; text-decoration: none; color: var(--ink, #1a1a1a); line-height: 1.2; } .ds-st::before { content: \"\"; position: absolute; left: 0; right: 0; top: 7px; height: 20px; background: #0a5fb4; } .ds-st-rd { position: absolute; left: 40px; top: 2px; width: 30px; height: 30px; border-radius: 50%; background: var(--paper, #fbfaf5); border: 7px solid var(--ink, #1a1a1a); box-sizing: border-box; transition: background 0.18s, scale 0.3s cubic-bezier(0.16,1,0.3,1); } .ds-st b { display: block; font-size: 16px; font-weight: 800; } .ds-st small { display: block; font-size: 13.5px; font-weight: 500; color: var(--ink-2, #4d4b45); } .ds-st:hover .ds-st-rd, .ds-st:focus-visible .ds-st-rd { background: #0a5fb4; scale: 1.14; } .ds-st:hover b { text-decoration: underline; }"
+    },
+    {
+      "name": "Navigation bar",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "A signage strip; the active link carries a ring marking the current stop.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-on\">Projects</a><a href=\"#\">Experience</a><a href=\"#\">Writing</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 20px; height: 60px; padding: 0 20px; font-family: Overpass, \"Helvetica Neue\", Arial, sans-serif; background: var(--paper, #fbfaf5); border-bottom: 3px solid var(--ink, #1a1a1a); } .ds-nav a { display: flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 600; color: var(--ink, #1a1a1a); text-decoration: none; } .ds-nav a::before { content: \"\"; width: 11px; height: 11px; border-radius: 50%; border: 3px solid transparent; box-sizing: border-box; } .ds-nav a:hover { text-decoration: underline; } .ds-nav a.ds-nav-on { font-weight: 800; } .ds-nav a.ds-nav-on::before { border-color: var(--ink, #1a1a1a); }"
+    },
+    {
+      "name": "Terminal input",
+      "kind": "input",
+      "refersTo": "terminal",
+      "description": "The help-point terminal prompt on the ink field.",
+      "html": "<div class=\"ds-term\"><span>~ $</span><input type=\"text\" placeholder=\"type help, or ask a question\" aria-label=\"Terminal input\"></div>",
+      "css": ".ds-term { display: flex; align-items: center; gap: 10px; padding: 12px 22px 14px; background: #0d0d0c; border: 2px solid rgba(251,250,245,0.28); border-radius: 6px; font: 400 15px/1.6 \"Overpass Mono\", ui-monospace, Menlo, monospace; color: #d9d6cc; caret-color: #f5c400; } .ds-term span { color: #f5c400; font-weight: 700; } .ds-term input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; font: inherit; color: #fff; } .ds-term input::placeholder { color: #9a978d; } .ds-term:focus-within { border-color: #f5c400; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Line Map",
+    "overview": "The site is a transit diagram of one person's work. Engineering, growth and writing are three route lines. Projects, roles and essays are stations on them, and the place where the lines cross is where he is now. The map is the page's working structure: every station in the hero is a link to its section, and the same drawing vocabulary (line, roundel, dashed track, lettered exit) carries through projects, experience, writing and contact.\n\nThe system exists to make status readable at a glance. A solid ring is live. A dashed ring on dashed track is unreleased. A barred ring is an offline demo. The words say the same thing beside the mark, so the drawing never has to be decoded.\n\nIt is flat, loud and exact: map paper, ink, and three saturated route colours that take over whole sections. Type is one family, the open Highway Gothic, set heavy. Nothing glows, floats or blurs.",
+    "keyCharacteristics": [
+      "Thick route lines on eight directions only: horizontal, vertical and 45 degrees.",
+      "Ink-ringed station roundels; a double ring with a solid centre marks the interchange and current roles.",
+      "Whole sections drenched in one route colour, alternating with map paper and ink.",
+      "One typeface at heavy weights; monospace only for code, the terminal and credential IDs.",
+      "Status is always a mark plus plain words, never a mark alone.",
+      "One authored motion: the hero lines draw outward from the interchange on load."
+    ],
+    "rules": [
+      {
+        "name": "The Line Colour Rule",
+        "body": "Blue means engineering, yellow means growth, magenta means writing. A route colour is never used as a generic accent, a status colour or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Field Rule",
+        "body": "Colour commits at section scale. A section is paper, ink, or one route colour from edge to edge. Route colours do not appear as small accents scattered over a neutral page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signage Rule",
+        "body": "Fields do not dim in the dark theme. Only the ground between them changes.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "Hierarchy comes from weight and size inside one family. No second display face, no italics for emphasis, no all-caps labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Data Rule",
+        "body": "Monospace appears only where the content is code, a command or an identifier.",
+        "section": "typography"
+      },
+      {
+        "name": "The Middle Dot Rule",
+        "body": "Overpass's middle dot sits hard against the following letter, so the font's unicode-range leaves it out and the system sans draws it. Keep that exclusion when the font files change.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Map Rule",
+        "body": "Surfaces are flat at rest. The single shadow is a response to hover on an exit sign.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep each route colour tied to its discipline: blue engineering, yellow growth, magenta writing.",
+      "**Do** pair every status mark with its plain words.",
+      "**Do** draw lines on eight directions only, and give every line a station it serves.",
+      "**Do** let a section be one colour edge to edge.",
+      "**Do** use weight for emphasis and Overpass for everything that is not code or an identifier.",
+      "**Do** theme the browser's own surfaces from the palette: yellow selection, ink scrollbar, 3px focus ring."
+    ],
+    "donts": [
+      "**Don't** put a small label above a heading, or number sections.",
+      "**Don't** use gradient text, glass, blur, or cards with shadows.",
+      "**Don't** add a decorative line that carries no station, or a station mark that states a status the project does not have.",
+      "**Don't** animate anything on entry other than the hero map.",
+      "**Don't** hard-code a figure that the page can read live."
+    ]
+  }
+}

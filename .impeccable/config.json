@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-13T14:18:54.963Z",
+        "reason": "Agent: false positive, every flagged section pads through its inner .wrap (20 to 72px) and bordered rows carry their own padding; the independent finish review confirmed the margins in the 1440 and 390 captures"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-13T14:18:54.980Z",
+        "reason": "Agent: the only hit is the two-line display quote under the hero (24 to 42px, weight 800) at 1.08; body text runs at 1.55; the independent finish review found no collisions at either width"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-13T14:19:01.131Z",
+        "reason": "User picked the Line Map direction card on the decision page; its palette names #fbfaf5 map paper as the ground"
+      }
+    ]
+  }
+}

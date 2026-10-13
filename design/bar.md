@@ -1,3 +1,5 @@
+> Superseded on 2026-10-13 by `/DESIGN.md` (the Line Map redesign). Kept as a record of the previous day/night look; do not design from it.
+
 # bar.md — what "best" means for this portfolio
 
 References (all measured live, 1440×900):
