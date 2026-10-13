@@ -53,6 +53,11 @@
       "source": "/cv",
       "destination": "/Deepanshu-Lathar-Resume.pdf",
       "permanent": false
+    },
+    {
+      "source": "/labs/privacy-policy",
+      "destination": "/labs/privacy",
+      "permanent": true
     }
   ],
   "headers": [
