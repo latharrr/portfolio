@@ -49,7 +49,7 @@ button { font: inherit; color: inherit; }
 .push.dark:active { background: #000; }
 .push.dark:focus-visible { outline-color: var(--ink); }
 .push.small { min-height: 46px; padding: 0.5em 1.2em; font-size: 1rem; }
-.bar .push { display: none; }
+.bar .push { display: none; box-shadow: none; }
 
 /* ---- hero: the door ---- */
 .door { position: relative; overflow: clip; background: var(--glass); }
@@ -60,9 +60,9 @@ button { font: inherit; color: inherit; }
 .vinyl .hours { order: 2; margin-top: 22px; }
 .vinyl .lede { order: 3; margin-top: 24px; }
 /* cord and sign are one body, hung from the nail and tilted about it */
-.hang { container-type: inline-size; width: min(88%, 360px, 35svh); margin-inline: auto; }
+.hang { container-type: inline-size; width: min(88%, 360px); margin-inline: auto; }
 .swing { position: relative; padding-top: 20cqw; rotate: -2deg; translate: -1.6cqw 0; transform-origin: 50% 1.5cqw; }
-.cord { position: absolute; z-index: 2; left: 0; top: 0; width: 100%; height: 25.25cqw; overflow: visible; pointer-events: none; }
+.cord { position: absolute; z-index: 2; left: 0; top: 0; width: 100%; height: 28.25cqw; overflow: visible; pointer-events: none; }
 .cord path { fill: none; stroke: #9aa0a6; stroke-width: 0.8; stroke-linejoin: round; }
 .cord circle { fill: #c3c8cd; }
 .sign { position: relative; display: block; width: 100%; aspect-ratio: 334 / 250; padding: 0; background: none; border: 0; cursor: pointer; perspective: 1200px; }
@@ -180,7 +180,7 @@ footer a { display: inline-flex; align-items: center; min-height: 36px; color: v
 .gone .face.busy { transform: none; }
 .gone .face b { font-size: 17.5cqw; }
 .gone .hang { width: min(88%, 420px, 46svh); }
-.gone h1 { font-size: clamp(2.1rem, 8.8vw, 3.4rem); font-weight: 800; font-stretch: 104%; line-height: 1.05; letter-spacing: -0.02em; }
+.gone h1 { text-wrap: balance; font-size: clamp(2.1rem, 8.8vw, 3.4rem); font-weight: 800; font-stretch: 104%; line-height: 1.05; letter-spacing: -0.02em; }
 .gone p { font-size: 1.25rem; font-weight: 700; }
 
 @media (min-width: 900px) {
@@ -213,4 +213,4 @@ footer a { display: inline-flex; align-items: center; min-height: 36px; color: v
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
 /* short phones: drop the hint so all three rows clear the dock */
-@media (max-height: 700px) and (max-width: 899px) { .turn { display: none; } .door .wrap { gap: 16px; } }
+@media (max-height: 700px) and (max-width: 899px) { .hang { width: min(88%, 360px, 35svh); } .turn { display: none; } .door .wrap { gap: 16px; } }

@@ -14,8 +14,28 @@ Action: tap "Try it on WhatsApp" and message the demo line.
 Proof on hand: the live demo line, an example conversation labelled as an example, the four demo steps, five commitments.
 Constraints: no cookies, analytics or forms; privacy policy carried word for word; must look unlike the portfolio; no invented prices, customers or statistics.
 Confirmed by owner: rebuild as static pages in this repo; audience widened from UK trades to any small business; the engineer's About and work sections removed entirely; direction "Open Sign" picked from the decision page.
-Copy changed for the wider audience (to be listed to the owner): title and description, the lede, "rate card in pounds", the example chat's "plumbing firm", plus new sign wording.
-Unresolved: whether to name a country; a privacy-policy sentence still mentions "the projects shown".
+## Changes and open points for the owner
+
+Copy changed for the wider audience:
+- Title and meta description: "for UK trades" became "for small businesses"; "rate card" became "prices".
+- Hero paragraph: "An AI receptionist for plumbers, electricians and builders. While you're on a job, it replies to your customers in seconds" became "While you're with a customer, it replies to the next one in seconds"; "your rate card in pounds" became "your prices".
+- What to expect: "your rate card in pounds" became "your prices".
+- Example chat: "for my plumbing firm" became "for my salon".
+- New wording on the sign: "Your WhatsApp is OPEN, answered in seconds" and "Sorry, we're BUSY with a customer"; on the not-found page, "Sorry, we're CLOSED on this page".
+- The old headline "Your WhatsApp, answered in seconds." is no longer a heading; its words are on the sign. The h1 is now "An AI receptionist for your business."
+- On phones the hours values are shortened to "08:00 to 23:30 IST", "A real Google Meet link" and "Your services and prices"; the full wording shows on desktop and in the How section.
+
+Removed or added without being asked:
+- Nav items About and Work are gone with their sections; "What to expect" and "Privacy" were added to the bar.
+- The chat example lost its timestamps, the "DL" avatar and the "LIVE" flag.
+- The 01 to 05 numerals on What to expect are gone (they were not a sequence).
+- GitHub left the "reach me directly" list; it is still in the footer.
+
+Open points only the owner can settle:
+- "Message me on WhatsApp" opens the same number as the AI demo line (+91 99996 02901). Carried from the old page.
+- The privacy policy still says "Links to WhatsApp, LinkedIn, GitHub and the projects shown". No projects are shown now. Changing it needs the owner's wording and a new effective date.
+- Unknown URLs under /labs get Vercel's default not-found page, because the repo has no root 404.html. /labs/404 exists and is reachable directly.
+- Whether to name a country now that the audience is any small business.
 
 ## Direction contract
 

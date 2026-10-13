@@ -35,7 +35,7 @@
       <div class="wrap">
         <div class="hang">
           <div class="swing" id="swing">
-            <svg class="cord" viewBox="0 0 100 25.25" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M27.65 25.25 50 1.5 72.35 25.25"/><circle cx="50" cy="1.5" r="1.5"/></svg>
+            <svg class="cord" viewBox="0 0 100 28.25" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M29.09 28.25 50 1.5 70.91 28.25"/><circle cx="50" cy="1.5" r="1.5"/></svg>
             <button class="sign" id="sign" type="button" aria-pressed="false" aria-label="Sign: Your WhatsApp is open, answered in seconds.">
               <span class="card">
                 <span class="face open"><small>Your WhatsApp is</small><b>Open</b><span>answered in seconds</span></span>
@@ -43,7 +43,21 @@
               </span>
             </button>
           </div>
-          <script>(function(s){if(!matchMedia('(prefers-reduced-motion: reduce)').matches){s.classList.add('pre');s.setAttribute('aria-pressed','true')}})(document.getElementById('sign'))</script>
+          <script>
+            /* the sign arrives showing BUSY and turns itself over once; this does not wait for labs.js */
+            (function (s, w) {
+              if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+              s.classList.add('pre'); s.setAttribute('aria-pressed', 'true');
+              requestAnimationFrame(function () { requestAnimationFrame(function () {
+                s.classList.remove('pre');
+                setTimeout(function () {
+                  s.setAttribute('aria-pressed', 'false');
+                  s.dispatchEvent(new Event('turned'));
+                  setTimeout(function () { w.classList.add('settle'); }, 520);
+                }, 700);
+              }); });
+            })(document.getElementById('sign'), document.getElementById('swing'));
+          </script>
           <span class="turn" id="sign-hint" aria-hidden="true"></span>
         </div>
         <div class="vinyl">

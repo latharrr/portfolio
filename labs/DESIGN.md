@@ -183,7 +183,7 @@ The colours of a shop door: dark glass, white enamel, sign red and a brass-amber
 **Character:** Archivo set wide and black reads as cut-vinyl sign lettering; at regular width and weight it is a plain, sturdy text face. One family does both jobs, so the sign and the small print sound like the same shop.
 
 ### Hierarchy
-- **Sign** (900, width 118, 25% of the sign's own width, 0.9): the one word on the sign, "OPEN", "BUSY" or "404". Sized in container units so it always fits its face.
+- **Sign** (900, width 118, 25% of the sign's own width, 0.9): the one word on the sign, "OPEN", "BUSY" or, on the not-found page, "CLOSED" (set smaller, at 17.5%). Sized in container units so it always fits its face.
 - **Headline** (900, width 108, clamp(2.2rem, 6vw, 4.25rem), 0.98): one per section, capped near 16ch.
 - **Lettering** (800, width 104, clamp(2.1rem, 8.8vw, 3.4rem), 1.02): the white line on the glass under the sign, which is the page's h1. Capped at 11.5em so it breaks into two even lines.
 - **Title** (800, 1.375rem, 1.15): steps and commitments.

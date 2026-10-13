@@ -17,13 +17,8 @@
     };
     var turn = function (to) { sign.setAttribute('aria-pressed', String(to)); say(); setTimeout(settle, 520); };
     sign.addEventListener('click', function () { turn(sign.getAttribute('aria-pressed') !== 'true'); });
-    if (sign.classList.contains('pre')) {
-      // the page arrived showing BUSY (set before first paint); turn it over once
-      requestAnimationFrame(function () { requestAnimationFrame(function () {
-        sign.classList.remove('pre');
-        setTimeout(function () { turn(false); }, 700);
-      }); });
-    }
+    // the first turn is done by the inline script beside the sign; keep the label and hint in step with it
+    sign.addEventListener('turned', say);
     say();
   }
 
