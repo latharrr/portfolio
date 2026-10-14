@@ -18,7 +18,7 @@ button { font: inherit; color: inherit; }
 .brand { display: flex; align-items: center; gap: 10px; margin-right: auto; font-weight: 800; text-decoration: none; white-space: nowrap; }
 .brand svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
 .bar nav { display: flex; gap: clamp(14px, 2vw, 24px); }
-.bar nav a { font-size: 0.9375rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.bar nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9375rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
 .bar nav a:hover { text-decoration: underline; }
 .doc { padding-block: clamp(44px, 7vw, 96px) clamp(64px, 9vw, 120px); }
 .doc h1 { font-size: clamp(2.25rem, 5vw, 4.5rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; }
@@ -42,9 +42,10 @@ button { font: inherit; color: inherit; }
 .btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .state { display: block; margin-top: 10px; font-weight: 700; }
 footer { border-top: 3px solid var(--ink); font-size: 0.9375rem; color: var(--ink-2); }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 30px; padding-block: 26px; }
-footer nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 30px; padding-block: 16px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 0 20px; }
 footer a { color: var(--ink); }
+footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
 /* not found: a closed station on a short stretch of line */
 .lost { min-height: calc(100svh - var(--bar-h) - 90px); display: grid; align-content: center; gap: 26px; padding-block: 48px; }
 .lost svg { display: block; width: min(100%, 560px); height: auto; overflow: visible; }
