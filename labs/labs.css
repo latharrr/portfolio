@@ -65,7 +65,9 @@ button { font: inherit; color: inherit; }
 .cord path { fill: none; stroke: #9aa0a6; stroke-width: 0.8; stroke-linejoin: round; }
 .cord circle { fill: #c3c8cd; }
 .sign { position: relative; display: block; width: 100%; aspect-ratio: 334 / 250; padding: 0; background: none; border: 0; cursor: pointer; perspective: 1200px; }
-.sign .card { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform 0.9s var(--ease); }
+.sign .card { position: absolute; inset: 0; transform-style: preserve-3d; rotate: y var(--ty, 0deg); transition: transform 0.9s var(--ease), rotate 0.5s var(--ease); }
+/* the sign leans on its cord toward the pointer and swings back when it leaves */
+.swing { transform: rotate(var(--lean, 0deg)); transition: transform 1.2s cubic-bezier(0.3, 1.6, 0.4, 1); }
 .sign[aria-pressed="true"] .card { transform: rotateY(180deg); }
 .sign.pre .card { transition: none; }
 .face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6cqw; padding-top: 4cqw; border-radius: 4.2cqw; text-align: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.8); }
@@ -155,6 +157,16 @@ h3 { font-size: 1.375rem; font-weight: 800; line-height: 1.15; letter-spacing: -
 .chat time { display: inline-flex; align-items: center; gap: 3px; float: right; margin: 6px 0 -2px 12px; font-size: 0.8125rem; line-height: 1; color: #54656f; font-variant-numeric: tabular-nums; }
 .chat .them time { color: #3b6350; }
 .chat time svg { width: 16px; height: 11px; fill: none; stroke: #1c8fd6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* the example plays itself once when it comes into view, and again from the replay button */
+.chat ol.playing li { visibility: hidden; }
+.chat ol.playing li.shown { visibility: visible; animation: msg-in 0.32s var(--ease) both; }
+.chat ol.playing li.typing::after { content: ""; visibility: visible; position: absolute; left: 0; top: 0; width: 62px; height: 36px; border-radius: 10px; border-top-left-radius: 2px; box-shadow: 0 1px 1px rgba(17, 27, 33, 0.14); background: radial-gradient(circle 3.5px, #7b8a92 97%, transparent) 14px 50% / 12px 8px repeat-x content-box, #fff; padding-right: 12px; box-sizing: border-box; animation: dots 0.9s ease-in-out infinite; }
+.chat ol.playing li.payoff.shown .meet { animation: meet-in 0.5s var(--ease) 0.15s both; }
+@keyframes msg-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+@keyframes dots { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+@keyframes meet-in { from { opacity: 0; scale: 0.9; } to { opacity: 1; scale: 1; } }
+.replay { display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; margin-top: 6px; padding: 0; font-weight: 800; color: var(--ink); background: none; border: 0; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.replay[hidden] { display: none; }
 /* the payoff: the Meet link landing in the chat */
 .chat .payoff { max-width: 92%; }
 .meet { display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 10px 12px; border-radius: 8px; background: #e7f4ee; }

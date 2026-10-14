@@ -143,7 +143,7 @@ It is flat, loud and exact: map paper, ink, and three saturated route colours th
 - Whole sections drenched in one route colour, alternating with map paper and ink.
 - One typeface at heavy weights; monospace only for code, the terminal and credential IDs.
 - Status is always a mark plus plain words, never a mark alone.
-- One authored motion: the hero lines draw outward from the interchange on load.
+- Motion is rationed: the hero lines draw once on load; pointing at a station lights its line; the local time flips in once on a split-flap board; the writing line draws across once; the contribution calendar fills in once when its data arrives. Nothing loops.
 
 ## Colors
 
@@ -256,12 +256,19 @@ Circles and straight lines. Stations are perfect circles with a heavy ring (7 to
 - **Skills table:** group name, the tools in weight 700, and a sentence on where they ship.
 
 ### Navigation
-- **Style:** a 60px signage strip on paper with a 3px ink rule beneath. Links at weight 600.
+- **Style:** a 60px signage strip on paper with a 3px ink rule beneath. Seven links at weight 600, then a small yellow résumé plate (icon only under 480px). On phones the menu opens with the résumé as its first, yellow row.
 - **Active:** weight 800 with a small ink ring before the label, marking the current stop.
 - **Mobile:** a bordered menu button opens a full-width list with 50px rows.
 
 ### Terminal
 - **Style:** near-black panel with a 2px light border on the ink field, Overpass Mono, yellow prompt and caret. No window chrome.
+- **Demo:** plays once, labelled as scripted, silent to screen readers while it plays. When the live assistant is unreachable, the four suggested questions get saved answers marked "saved".
+
+### Credentials list
+- Two columns of ruled rows: name in weight 800, issuer below in secondary ink, date at the right in tabular numerals.
+
+### Folded rows
+- Lesser material (the campus roles) sits behind a summary row with a chevron, so the page stays short.
 - **Focus:** the border turns Growth Yellow.
 
 ### Hero map draw (motion)
@@ -281,5 +288,5 @@ Circles and straight lines. Stations are perfect circles with a heavy ring (7 to
 - **Don't** put a small label above a heading, or number sections.
 - **Don't** use gradient text, glass, blur, or cards with shadows.
 - **Don't** add a decorative line that carries no station, or a station mark that states a status the project does not have.
-- **Don't** animate anything on entry other than the hero map.
+- **Don't** add looping or decorative motion; every animation must explain something or happen once.
 - **Don't** hard-code a figure that the page can read live.

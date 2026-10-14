@@ -29,7 +29,7 @@ The second half of the position is range: he builds the product and also runs gr
 - Entry points: the résumé PDF, LinkedIn profile, GitHub profile, and direct links. `/resume` and `/cv` redirect to the PDF.
 - The recruiter's ritual is comparison under time pressure, mostly on a laptop, sometimes on a phone from a LinkedIn link.
 - Outbound actions the site supports: download résumé, email, LinkedIn, GitHub, WhatsApp.
-- Section order today: home, about, skills, projects, certifications, achievements, open source, experience, writing, contact. Old routes (`/about`, `/work`, `/experience`, `/writing`, `/archive`) redirect to these anchors.
+- Section order today: home, projects, experience, ask (AI terminal), achievements with credentials, skills, open source, writing, about, contact. The résumé download sits in the top bar and first in the phone menu. Old routes (`/about`, `/work`, `/experience`, `/writing`, `/archive`) redirect to these anchors.
 
 ## Capabilities and Constraints
 
@@ -66,8 +66,9 @@ The second half of the position is range: he builds the product and also runs gr
 - Product screenshots: `assets/shot-proofmart.webp`, `assets/shot-gapl.webp`; project images `assets/proj-college-cli.webp`, `assets/proj-lpu-connect.webp`.
 - Writing thumbnails: `assets/post-campus-gtm.webp`, `post-deadlocks.webp`, `post-retention.webp`, `post-laptop.webp`. The essays themselves live on LinkedIn.
 - Live products: proofmart.shop (beta), gapl.vercel.app. College-CLI has source but no npm release yet. UniConnect has source; its demo is offline.
-- Stated figures: 48 open-source repos, 30 days of public writing completed, 2 products live, 1,500+ LinkedIn followers, a 6-person team led at PicaPool, 1,000+ launch submissions in 72 hours, 200+ beta users.
-- Credentials: Deloitte Australia Data Analytics Job Simulation (Forage, Sep 2025), C Programming Certification (iamneo, Apr 2025), each with a credential ID on the page.
+- Stated figures (matched to the résumé on 2026-10-14): 3,000+ students reached by a PicaPool campus push, 15+ internal tools in 8 weeks at PicaPool, a 6-person team led at UniLyf, 200+ profiled beta users at UniLyf, 1,000+ launch submissions in 72 hours (product not yet named), open-source repo count read live, 2 products live, 30 days of public writing, 1,500+ LinkedIn followers, Grade A in Advanced Backend Development.
+- Title at PicaPool: "AI Intern, Founder's Office" (as on the résumé). Education shown: B.Tech CSE, LPU, 2024–28.
+- Credentials: McKinsey Forward Program, Advanced Backend Development (Grade A), Deloitte Australia Data Analytics Job Simulation, Scaler Young Innovator Internship Challenge (Edition 2), HubSpot Digital Marketing, C Programming. Two carry credential IDs.
 - Experience: PicaPool Founder's Office (Jul 2025 – present), LPU Division of Admissions (Jan 2026 – present), Student Organization Cell, UniLyf, INGLU.
 
 **Absent, and not to be fabricated:** testimonials, recommendations, employer or client logos, press, case-study metrics beyond the figures above, GPA, and any live demo for UniConnect or published package for College-CLI.

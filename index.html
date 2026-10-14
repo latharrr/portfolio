@@ -27,7 +27,6 @@
   <link rel="canonical" href="https://deepanshulathar.com/" />
   <style>
     @font-face { font-family: "Overpass"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(assets/fonts/overpass-latin.woff2) format("woff2"); unicode-range: U+0000-00B6, U+00B8-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+2215; }
-    @font-face { font-family: "Overpass"; font-style: italic; font-weight: 100 900; font-display: swap; src: url(assets/fonts/overpass-italic-latin.woff2) format("woff2"); unicode-range: U+0000-00B6, U+00B8-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+2215; }
     @font-face { font-family: "Overpass Mono"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(assets/fonts/overpass-mono-latin.woff2) format("woff2"); }
 
     /* the middle dot is left out of Overpass on purpose: its glyph sits hard against the next letter */
@@ -56,10 +55,11 @@
 
     /* ============ base ============ */
     *, *::before, *::after { box-sizing: border-box; }
-    html { overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: calc(var(--bar-h) + 20px); -webkit-text-size-adjust: 100%; scrollbar-color: var(--ink) var(--paper); }
+    html { overflow-x: clip; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scrollbar-color: var(--ink) var(--paper); }
     body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.55 var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; }
     ::selection { background: var(--f-growth); color: var(--sign-ink); }
-    :focus-visible { outline: 3px solid var(--eng); outline-offset: 3px; border-radius: 2px; }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+    main section[id], #certs { scroll-margin-top: calc(var(--bar-h) + 20px); }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-decoration-thickness: 0.09em; text-underline-offset: 0.2em; }
     h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
@@ -80,10 +80,14 @@
     .nav a { position: relative; display: flex; align-items: center; gap: 7px; height: var(--bar-h); font-size: 0.9375rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
     .nav a::before { content: ""; width: 11px; height: 11px; border-radius: 50%; border: 3px solid transparent; transition: border-color 0.2s; }
     .nav a:hover { text-decoration: underline; }
+    .nav a:focus-visible { outline-offset: -6px; }
+    .bar-cv { display: inline-flex; align-items: center; gap: 0.45em; min-height: 44px; padding: 0 0.95em; font-size: 0.9375rem; font-weight: 800; text-decoration: none; white-space: nowrap; border-radius: 4px; background: var(--f-growth); color: var(--sign-ink); border: 2px solid var(--sign-ink); }
+    .bar-cv:hover { background: var(--sign-ink); color: var(--f-growth); }
+    .bar-cv .ic { width: 1.05em; height: 1.05em; }
     .nav a.active { font-weight: 800; }
     .nav a.active::before { border-color: var(--ink); }
     .nav a.ext::before { display: none; }
-    .icon-btn { display: grid; place-items: center; flex: none; width: 40px; height: 40px; background: none; border: 2px solid var(--ink); border-radius: 4px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .icon-btn { display: grid; place-items: center; flex: none; width: 44px; height: 44px; background: none; border: 2px solid var(--ink); border-radius: 4px; cursor: pointer; transition: background 0.2s, color 0.2s; }
     .icon-btn:hover { background: var(--ink); color: var(--paper); }
     .icon-btn .ic { width: 20px; height: 20px; }
     [data-theme="light"] .theme-toggle .moon, [data-theme="dark"] .theme-toggle .sun { display: none; }
@@ -107,7 +111,7 @@
 
     .stations { position: absolute; inset: 0; pointer-events: none; }
     .stations > li { pointer-events: auto; position: absolute; left: calc(var(--x) / 1440 * 100%); top: calc(var(--y) / 760 * 100%); }
-    .tag { translate: 0 -50%; padding: 0.42em 0.8em 0.3em; font-size: max(11.5px, 0.94cqw); font-weight: 800; line-height: 1; white-space: nowrap; border-radius: 99px; color: #fff; background: var(--c); }
+    .tag { translate: 0 -50%; padding: 0.42em 0.8em 0.3em; font-size: max(12px, 0.94cqw); font-weight: 800; line-height: 1; white-space: nowrap; border-radius: 99px; color: #fff; background: var(--c); }
     .tag[data-line="growth"] { color: var(--sign-ink); }
     .tag.mid { translate: -50% -50%; }
     [data-theme="dark"] .tag[data-line="eng"], [data-theme="dark"] .tag[data-line="writing"] { color: #0b0c0f; }
@@ -116,7 +120,7 @@
     .st .rd { position: absolute; left: 0; top: 0; width: 2.1cqw; height: 2.1cqw; translate: -50% -50%; border-radius: 50%; background: var(--paper); border: 0.5cqw solid var(--ink); transition: background 0.18s, scale 0.3s var(--ease); }
     .st:hover .rd, .st:focus-visible .rd { background: var(--c); scale: 1.14; }
     .st:focus-visible { outline: none; }
-    .st:focus-visible .lb { outline: 3px solid var(--eng); outline-offset: 4px; }
+    .st:focus-visible .lb { outline: 3px solid var(--ink); outline-offset: 4px; }
     .st[data-state="pre"] .rd, .st[data-state="pre"]:hover .rd, .stop[data-state="pre"] > .rd { border: 0; background: none; color: var(--ink); }
     .rd svg { width: 100%; height: 100%; overflow: visible; }
     .rd circle { fill: var(--paper); stroke: currentColor; stroke-width: 7; stroke-dasharray: 7.2 4.843; transition: fill 0.18s; }
@@ -145,6 +149,7 @@
     .facts > div { display: grid; grid-template-columns: 6.6em 1fr; gap: 0.8em; padding: 0.62em 0 0.5em; border-top: 2px solid var(--ink); }
     .facts dt { font-weight: 500; color: var(--ink-2); }
     .facts dd { font-weight: 700; }
+    .facts mark { white-space: nowrap; }
     .facts mark, .mk { background: var(--f-growth); color: var(--sign-ink); padding: 0.14em 0.3em 0.02em; }
 
     /* the draw: lines run out from the interchange once, stations seat in order */
@@ -160,6 +165,12 @@
       .hero.drawn .tag { transition: opacity 0.4s linear 1s; }
     }
 
+    /* pointing at a line, or one of its stations, lights that line and quiets the others */
+    .map path, .stations > li { transition: opacity 0.25s; }
+    .hero.settled .tag, .hero.settled .map path { transition: opacity 0.25s; }
+    .stage[data-hot="eng"] .map path:not(.eng), .stage[data-hot="growth"] .map path:not(.growth), .stage[data-hot="writing"] .map path:not(.writing) { opacity: 0.16; }
+    .stage[data-hot="eng"] .stations > li:not([data-line="eng"]):not(:has(.x)), .stage[data-hot="growth"] .stations > li:not([data-line="growth"]), .stage[data-hot="writing"] .stations > li:not([data-line="writing"]):not(:has(.x)) { opacity: 0.3; }
+
     /* ============ the board under the map: one line of his, and what is true right now ============ */
     .board { background: var(--f-ink); color: var(--on-ink); }
     .board .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; padding-block: clamp(36px, 4.4vw, 60px); }
@@ -171,12 +182,19 @@
     .board dt { color: var(--on-ink-2); }
     .board dd { font-weight: 700; font-variant-numeric: tabular-nums; }
     .board dd + dd { font-weight: 400; color: var(--on-ink-2); }
+    /* local time on a split-flap board; it flips in once when the board comes into view */
+    .flaps { display: inline-flex; align-items: center; gap: 3px; perspective: 260px; }
+    .flaps b { position: relative; display: inline-block; min-width: 1.05em; padding: 0.3em 0.16em 0.16em; text-align: center; line-height: 1; font-weight: 800; background: #2e2e2c; color: var(--on-ink); border-radius: 3px; backface-visibility: hidden; }
+    .flaps b::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0, 0, 0, 0.55); }
+    .flaps i { font-style: normal; padding-inline: 1px; }
+    @keyframes flap { 0% { transform: rotateX(0); } 49% { transform: rotateX(-90deg); } 51% { transform: rotateX(90deg); } 100% { transform: rotateX(0); } }
+    .flaps b.go { animation: flap 0.34s ease-in-out; }
 
     /* ============ sections ============ */
     .sec { padding-block: clamp(72px, 9vw, 132px); }
     .sec-head { margin-bottom: clamp(40px, 5vw, 72px); }
     h2 { font-size: clamp(2.25rem, 5vw, 4.5rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; text-wrap: balance; max-width: 17ch; }
-    .sub { margin-top: 22px; max-width: 62ch; font-size: 1.125rem; color: var(--ink-2); text-wrap: pretty; }
+    .sub { margin-top: 22px; max-width: 54ch; font-size: 1.125rem; color: var(--ink-2); text-wrap: pretty; }
     h3 { font-size: 1.5rem; font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; }
     .tlink { display: inline-flex; align-items: center; gap: 0.35em; font-weight: 700; text-decoration: underline; }
     .tlink:hover { text-decoration-thickness: 0.16em; }
@@ -251,7 +269,7 @@
     .ask-list { margin-top: 34px; border-top: 1px solid var(--rule); }
     .ask-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 54px; padding: 12px 2px 9px; text-align: left; font-weight: 700; background: none; border: 0; border-bottom: 1px solid var(--rule); cursor: pointer; transition: color 0.18s, padding 0.3s var(--ease); }
     .ask-q:hover:not(:disabled) { color: var(--f-growth); padding-left: 10px; }
-    .ask-q:disabled { opacity: 0.5; cursor: progress; }
+    .ask-q[aria-disabled="true"] { opacity: 0.5; cursor: progress; }
     .term { background: var(--term-bg); border: 2px solid rgba(251, 250, 245, 0.28); border-radius: 6px; font: 400 0.9375rem/1.6 var(--mono); color: #d9d6cc; caret-color: #f5c400; font-variant-ligatures: none; }
     .term-body { height: clamp(300px, 34vw, 420px); overflow-y: auto; padding: 20px 22px 8px; scrollbar-color: #55534d transparent; overflow-wrap: anywhere; }
     .term-body a { color: #f5c400; }
@@ -260,6 +278,7 @@
     .term .k { color: #fff; font-weight: 700; }
     .term .w { color: #ff9d7a; }
     .term .ai { color: #fff; }
+    .term .ai-tag.demo, .term .ai-tag.saved { background: #9a978d; }
     .term .ai-tag { display: inline-block; margin-right: 0.5em; padding: 0 0.4em; font-size: 0.78em; font-weight: 700; background: #f5c400; color: #1a1a1a; border-radius: 2px; }
     .term .ai-think::after { content: "…"; }
     .term-input-row { display: flex; align-items: center; gap: 10px; padding: 12px 22px 14px; border-top: 1px solid rgba(251, 250, 245, 0.16); }
@@ -273,16 +292,15 @@
     .receipts b { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .receipts a { font-weight: 700; }
     .receipts i { font-style: normal; font-size: 0.875rem; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
-    .creds { margin-top: clamp(56px, 7vw, 96px); display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); scroll-margin-top: calc(var(--bar-h) + 28px); }
-    .creds-head h3 { font-size: clamp(1.6rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; text-wrap: balance; }
-    .creds-head p { margin-top: 12px; color: var(--ink-2); }
-    .cred { border-top: 3px solid var(--ink); padding-top: 18px; }
-    .cred .issuer { margin-top: 6px; font-weight: 700; }
-    .cred .detail { margin-top: 10px; color: var(--ink-2); }
-    .cred dl { margin-top: 16px; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 0.9375rem; }
-    .cred dt { color: var(--ink-2); }
-    .cred dd { font-weight: 600; overflow-wrap: anywhere; }
-    .cred .tlink { margin-top: 16px; font-size: 0.9375rem; }
+    .creds { margin-top: clamp(56px, 7vw, 96px); }
+    .creds h3 { font-size: clamp(1.6rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; }
+    .cred-list { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(28px, 5vw, 88px); border-top: 3px solid var(--ink); }
+    .cred-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 16px; padding: 14px 0 11px; border-bottom: 1px solid var(--rule); }
+    .cred-list b { font-weight: 800; }
+    .cred-list span { grid-column: 1; font-size: 0.9375rem; color: var(--ink-2); overflow-wrap: anywhere; }
+    .cred-list time { grid-row: 1; grid-column: 2; font-size: 0.9375rem; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .cred-note { margin-top: 14px; color: var(--ink-2); }
+    .proof { margin-top: 12px; font-size: 0.9375rem; font-weight: 600; color: var(--ink-2); }
 
     /* ============ skills: blue field, a table. every row says where the tool ships ============ */
     .tools > div { display: grid; grid-template-columns: 11rem minmax(0, 0.9fr) minmax(0, 1.25fr); gap: clamp(18px, 3.4vw, 56px); padding: 26px 0 22px; border-top: 2px solid var(--rule); }
@@ -291,6 +309,12 @@
     .tools .kit { font-size: 1.1875rem; font-weight: 700; line-height: 1.45; }
     .tools .ships { color: var(--ink-2); }
     .tools .ships strong { color: var(--ink); font-weight: 700; }
+    .tools .kit small { display: block; margin-top: 6px; font-size: 0.9375rem; font-weight: 500; color: var(--ink-2); }
+    /* the row under the pointer is picked out; nothing moves */
+    @media (hover: hover) {
+      .tools > div { transition: background 0.2s, box-shadow 0.2s; }
+      .tools > div:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); box-shadow: -16px 0 0 color-mix(in srgb, var(--ink) 8%, transparent), 16px 0 0 color-mix(in srgb, var(--ink) 8%, transparent); }
+    }
 
     /* ============ open source: read live. a blank stays blank ============ */
     .sync { display: inline-flex; align-items: center; gap: 0.5em; font-weight: 700; color: var(--ink); }
@@ -343,7 +367,18 @@
 
     /* ============ writing: magenta field, a strip map of four essays ============ */
     .strip { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.8vw, 44px); padding-top: 62px; }
-    .strip::before { content: ""; position: absolute; top: 10px; left: -50vw; right: -50vw; height: 14px; background: #fff; }
+    .strip::before { content: ""; position: absolute; top: 10px; left: -50vw; right: -50vw; height: 14px; background: #fff; transform-origin: 0 50%; }
+    @media (prefers-reduced-motion: no-preference) {
+      /* the writing line draws across once and its four stations seat in order */
+      html.js .strip[data-enter]:not(.in)::before { scale: 0 1; }
+      html.js .strip[data-enter]:not(.in) .post .rd { scale: 0; }
+      .strip.in::before { transition: scale 1.1s var(--ease); }
+      .strip.in .post .rd { transition: scale 0.5s var(--ease), background 0.18s; }
+      .strip.in li:nth-child(2) .rd { transition-delay: 0.2s, 0s; } .strip.in li:nth-child(3) .rd { transition-delay: 0.4s, 0s; } .strip.in li:nth-child(4) .rd { transition-delay: 0.6s, 0s; }
+      /* the contribution calendar fills in column by column when its data arrives */
+      @keyframes cell-in { from { opacity: 0; scale: 0.4; } to { opacity: 1; scale: 1; } }
+      .hm-grid.wave i { animation: cell-in 0.35s var(--ease) both; animation-delay: calc(var(--c, 0) * 14ms); }
+    }
     .post { position: relative; display: flex; flex-direction: column; height: 100%; text-decoration: none; }
     .post .rd { position: absolute; left: 0; top: -45px; width: 34px; height: 34px; translate: 0 -50%; border-radius: 50%; background: var(--f-writing); border: 8px solid #fff; transition: background 0.18s; }
     .post:hover .rd, .post:focus-visible .rd { background: #fff; }
@@ -368,6 +403,13 @@
     .g15 h3 { font-size: 1.6rem; }
     .g15 p { color: var(--ink-2); }
     .g15 strong, .g15 em { color: var(--ink); }
+    .g15 em { font-style: normal; font-weight: 700; }
+    .role.campus .did { font-size: 0.9375rem; margin-top: 10px; }
+    .did-more { grid-column: 4; grid-row: 1; }
+    .did-more summary { display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; font-weight: 800; cursor: pointer; list-style: none; text-decoration: underline; text-underline-offset: 0.2em; }
+    .did-more summary::-webkit-details-marker { display: none; }
+    .did-more summary::before { content: ""; width: 0.55em; height: 0.55em; border-right: 3px solid currentColor; border-bottom: 3px solid currentColor; rotate: -45deg; transition: rotate 0.2s; }
+    .did-more[open] summary::before { rotate: 45deg; }
 
     /* ============ contact: the terminus ============ */
     .end { display: block; width: 100%; height: clamp(60px, 7vw, 96px); margin-bottom: clamp(40px, 5vw, 72px); overflow: visible; }
@@ -378,7 +420,7 @@
     .mail { display: inline-block; margin-top: clamp(28px, 4vw, 52px); font-size: clamp(1.4rem, 4.4vw, 3.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; text-decoration-thickness: 0.07em; text-underline-offset: 0.16em; overflow-wrap: anywhere; }
     .mail:hover { color: var(--f-growth); }
     .contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 30px; margin-top: clamp(28px, 4vw, 48px); }
-    .contact-row .exit { font-size: 1.125rem; }
+    .contact-row .exit { font-size: 1.125rem; border-color: var(--f-growth); }
     .contact-row .tlink .ic { width: 1.1em; height: 1.1em; }
     .contact-facts { display: flex; flex-wrap: wrap; gap: 8px 40px; margin-top: clamp(36px, 5vw, 64px); padding-top: 20px; border-top: 1px solid var(--ink-rule); font-size: 0.9375rem; }
     .contact-facts dt { display: inline; color: var(--on-ink-2); margin-right: 0.5em; }
@@ -397,8 +439,24 @@
       .mnav.open { display: block; }
       .mnav a { display: flex; align-items: center; min-height: 50px; font-size: 1.125rem; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--rule); }
       .mnav a.active { text-decoration: underline; text-decoration-thickness: 3px; }
+      .mnav a.cv { margin: 6px 0 4px; padding: 0 14px; border: 3px solid var(--sign-ink); border-radius: 4px; background: var(--f-growth); color: var(--sign-ink); }
     }
-    @media (max-width: 1479px) { .nav a.ext { display: none; } }
+    @media (max-width: 480px) {
+      .bar { gap: 10px; }
+      .brand span { font-size: 0.9375rem; }
+      .bar-cv { padding: 0; width: 44px; justify-content: center; }
+      .bar-cv span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    }
+    @media (max-width: 380px) {
+      .facts { font-size: 0.9375rem; }
+      .facts > div { grid-template-columns: 5.6em 1fr; }
+    }
+    /* touch: every standalone link and control is at least 44px tall */
+    @media (max-width: 1099px), (pointer: coarse) {
+      .tlink, footer nav a, .brand, .cred-note a { min-height: 44px; display: inline-flex; align-items: center; }
+      .mail { padding-block: 10px; }
+      .term-input-row input { min-height: 44px; }
+    }
 
     /* ============ below 1100px: the map folds into a strip list ============ */
     @media (max-width: 1099px) {
@@ -435,14 +493,13 @@
       .stop.text .decision { margin-top: 14px; }
       .role { grid-template-columns: var(--gut) minmax(0, 1fr); column-gap: 14px; row-gap: 6px; }
       .role::before, .role > .rd { grid-column: 1; }
-      .when, .what, .did { grid-column: 2; text-align: left; }
-      .what { grid-row: 1; } .when { grid-row: 2; padding-top: 0; } .did { grid-row: 3; }
+      .when, .what, .did, .did-more { grid-column: 2; text-align: left; }
+      .what { grid-row: 1; } .when { grid-row: 2; padding-top: 0; } .did, .did-more { grid-row: 3; }
       .when .now { margin: 0 0 0 10px; }
       .did { margin-top: 8px; }
       .ask-grid { grid-template-columns: minmax(0, 1fr); }
       .receipts { grid-template-columns: minmax(0, 1fr); }
-      .creds { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-      .creds-head { grid-column: 1 / -1; }
+      .cred-list { grid-template-columns: minmax(0, 1fr); }
       .tools > div { grid-template-columns: minmax(0, 1fr); gap: 10px; }
       .os-grid { grid-template-columns: minmax(0, 1fr); }
       .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 96px; }
@@ -460,7 +517,6 @@
       .receipts li { grid-template-columns: 6.6rem minmax(0, 1fr); gap: 4px 14px; }
       .receipts b { font-size: 1.6rem; }
       .receipts i { grid-column: 2; }
-      .creds { grid-template-columns: minmax(0, 1fr); }
       .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
       .stats > div:nth-child(n + 3) { border-top: 1px solid var(--rule); }
@@ -478,6 +534,7 @@
       .act-meta { grid-column: 1; text-align: left; }
     }
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
     }
     /* the theme switch wipes outward from the toggle */
@@ -525,8 +582,9 @@
       <span>Deepanshu Lathar</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#ask">Ask</a><a href="#achievements">Achievements</a><a href="#skills">Skills</a><a href="#opensource">Open source</a><a href="#writing">Writing</a><a href="#about">About</a><a href="#contact">Contact</a><a class="ext" href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#achievements">Achievements</a><a href="#skills">Skills</a><a href="#opensource">Open source</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
     </nav>
+    <a class="bar-cv" href="Deepanshu-Lathar-Resume.pdf" download="Deepanshu-Lathar-Resume.pdf"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg><span>Résumé</span></a>
     <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Toggle light / dark theme" title="Toggle light / dark theme">
       <svg class="ic sun" aria-hidden="true"><use href="#i-sun"/></svg>
       <svg class="ic moon" aria-hidden="true"><use href="#i-moon"/></svg>
@@ -536,7 +594,7 @@
       <svg class="ic x" aria-hidden="true"><use href="#i-x"/></svg>
     </button>
     <nav class="mnav" id="mobile-nav" aria-label="Primary">
-      <a href="#home">Home</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#ask">Ask</a><a href="#achievements">Achievements</a><a href="#skills">Skills</a><a href="#opensource">Open source</a><a href="#writing">Writing</a><a href="#about">About</a><a href="#contact">Contact</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="cv" href="Deepanshu-Lathar-Resume.pdf" download="Deepanshu-Lathar-Resume.pdf">Download résumé (PDF)</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#ask">Ask</a><a href="#achievements">Achievements</a><a href="#skills">Skills</a><a href="#opensource">Open source</a><a href="#writing">Writing</a><a href="#about">About</a><a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -560,7 +618,7 @@
 
         <h1 class="hero-name" id="hero-name">Deepanshu<br />Lathar</h1>
         <p class="hero-role">Full-stack &amp; AI engineer.</p>
-        <p class="hero-lede">B.Tech CSE student at LPU who ships <strong>full-stack and AI products</strong>: a live document-forensics API, an application-readiness engine with a multi-provider AI gateway, and internal attribution tooling inside a live startup.</p>
+        <p class="hero-lede">B.Tech CSE student at LPU (2024&ndash;28) who ships <strong>full-stack and AI products</strong>: a live document-forensics API, an application-readiness engine with a multi-provider AI gateway, and internal attribution tooling inside a live startup.</p>
 
         <div class="exits">
           <a class="exit" href="Deepanshu-Lathar-Resume.pdf" download="Deepanshu-Lathar-Resume.pdf"><span class="ex" aria-hidden="true">A</span>Download résumé</a>
@@ -568,7 +626,7 @@
         </div>
 
         <dl class="facts">
-          <div><dt>Now</dt><dd>Strategic intern, Founder&rsquo;s Office &middot; PicaPool</dd></div>
+          <div><dt>Now</dt><dd>AI Intern, Founder&rsquo;s Office &middot; PicaPool</dd></div>
           <div><dt>Based in</dt><dd>Delhi NCR, India &middot; IST (UTC+5:30)</dd></div>
           <div><dt>Available</dt><dd><mark>Summer 2027 internships</mark></dd></div>
         </dl>
@@ -625,9 +683,10 @@
               <div class="stop-head"><h3>ProofMart</h3><span class="state" data-state="live"><svg aria-hidden="true"><use href="#s-live"/></svg>Live &middot; beta</span></div>
               <p>Edited bank statements and invoices pass a visual check. ProofMart is a <strong>document-forensics API</strong>: upload a PDF and get back a structured report of findings &mdash; each pinned to its place on the page, each with the arithmetic that proves it.</p>
               <p class="decision"><strong>Technical decision:</strong> check the document&rsquo;s own math instead of guessing at pixels &mdash; running balances, cross-page carry-forwards, duplicate transactions &mdash; so every flag is explainable. Tesseract OCR covers scanned pages; Next.js route handlers expose it all as an API.</p>
+              <p class="proof">About 9,200 lines of TypeScript, covered by 15 Vitest suites and 4 Playwright end-to-end specs. Reports are signed with Ed25519; webhooks are HMAC-verified.</p>
               <ul class="tech"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>pdf.js</li><li>Tesseract.js</li><li>Vercel Blob</li><li>Razorpay</li></ul>
               <p class="links">
-                <a class="tlink" href="https://github.com/latharrr/Proofmart.shop" target="_blank" rel="noopener">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
+                <a class="tlink" href="https://github.com/latharrr/Proofmart.shop" target="_blank" rel="noopener" aria-label="ProofMart source code on GitHub">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
                 <a class="tlink" href="https://proofmart.shop" target="_blank" rel="noopener">Live &mdash; proofmart.shop <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
               </p>
             </div>
@@ -638,10 +697,10 @@
             <div>
               <div class="stop-head"><h3>Gapl</h3><span class="state" data-state="live"><svg aria-hidden="true"><use href="#s-live"/></svg>Live &middot; personal project</span></div>
               <p>Candidates get rejected without ever learning why. Gapl simulates a recruiter&rsquo;s screen of your resume against a target role and company tier &mdash; ATS fit, readiness, the exact gaps &mdash; then builds a week-by-week roadmap to close them.</p>
-              <p class="decision"><strong>Technical decision:</strong> every analysis goes through a fallback AI gateway (OpenAI, then Gemini), so one provider&rsquo;s outage never fails a scan. Email links are rewritten to a tracking subdomain by Next.js middleware for 30-day last-touch attribution.</p>
-              <ul class="tech"><li>Next.js</li><li>TypeScript</li><li>Firebase</li><li>Firestore</li><li>OpenAI</li><li>Gemini</li><li>Resend</li></ul>
+              <p class="decision"><strong>Technical decision:</strong> every analysis goes through a multi-model AI gateway that fails over across Groq, OpenAI, Anthropic and Gemini, so one provider&rsquo;s outage never fails a scan. Email links are rewritten to a tracking subdomain by Next.js middleware for 30-day last-touch attribution.</p>
+              <ul class="tech"><li>Next.js</li><li>TypeScript</li><li>Firebase</li><li>Firestore</li><li>Groq</li><li>OpenAI</li><li>Anthropic</li><li>Gemini</li><li>Razorpay</li><li>Resend</li></ul>
               <p class="links">
-                <a class="tlink" href="https://github.com/latharrr/gapl" target="_blank" rel="noopener">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
+                <a class="tlink" href="https://github.com/latharrr/gapl" target="_blank" rel="noopener" aria-label="Gapl source code on GitHub">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
                 <a class="tlink" href="https://gapl.vercel.app" target="_blank" rel="noopener">Live &mdash; gapl.vercel.app <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
               </p>
             </div>
@@ -655,8 +714,8 @@
               <p class="decision"><strong>Technical decision:</strong> courses are data, not code &mdash; a schema-validated registry fetched from GitHub, cached for 24 hours, with a bundled fallback for campus proxies. A version newer than the course allows is reported as a conflict, not a doomed install.</p>
               <ul class="tech"><li>TypeScript</li><li>Node.js</li><li>YAML registry</li><li>Windows preflight</li><li>GitHub Actions</li></ul>
               <p class="links">
-                <a class="tlink" href="https://github.com/latharrr/college-cli" target="_blank" rel="noopener">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
-                <span class="off">Live &mdash; npm release pending</span>
+                <a class="tlink" href="https://github.com/latharrr/college-cli" target="_blank" rel="noopener" aria-label="College-CLI source code on GitHub">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
+                <span class="off">No live link yet &mdash; npm release pending</span>
               </p>
             </div>
           </li>
@@ -668,8 +727,8 @@
               <p class="decision"><strong>Technical decision:</strong> privacy by mechanism &mdash; a mutual &ldquo;Enjoy&rdquo; unlocks friend requests before any name is shown. Socket.IO handles matching and chat, PeerJS/WebRTC carries peer-to-peer video, and every message is rate-limited and sanitised. Ships as an Android app via Capacitor.</p>
               <ul class="tech"><li>React 19</li><li>Vite</li><li>Socket.IO</li><li>WebRTC</li><li>Express 5</li><li>SQLite</li><li>Capacitor</li></ul>
               <p class="links">
-                <a class="tlink" href="https://github.com/latharrr/lpuconnect" target="_blank" rel="noopener">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
-                <span class="off">Live &mdash; demo currently offline</span>
+                <a class="tlink" href="https://github.com/latharrr/lpuconnect" target="_blank" rel="noopener" aria-label="UniConnect source code on GitHub">Source <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
+                <span class="off">No live demo &mdash; currently offline</span>
               </p>
             </div>
           </li>
@@ -688,50 +747,44 @@
           <li class="role current">
             <i class="rd" aria-hidden="true"></i>
             <div class="when">Jul 2025 &mdash; Present<br /><span class="now">Current</span></div>
-            <div class="what"><h3>Founder&rsquo;s Office &middot; Internship</h3><p class="where">PicaPool &middot; On-site</p></div>
+            <div class="what"><h3>AI Intern &middot; Founder&rsquo;s Office</h3><p class="where">PicaPool &middot; Delhi &middot; On-site</p></div>
             <ul class="did">
-              <li><strong>Product operations:</strong> running the feedback loop between early users and the dev team to ship faster.</li>
-              <li><strong>Growth &amp; marketing:</strong> organic content and campus campaigns driving acquisition without paid ads.</li>
-              <li><strong>Attribution &amp; tooling:</strong> building the analytics infrastructure that says where growth comes from.</li>
-              <li><strong>Market research:</strong> product hunting to spot gaps and benchmark competitors for the roadmap.</li>
-            </ul>
-          </li>
-          <li class="role current">
-            <i class="rd" aria-hidden="true"></i>
-            <div class="when">Jan 2026 &mdash; Present<br /><span class="now">Current</span></div>
-            <div class="what"><h3>Intern &middot; Part-time</h3><p class="where">LPU Division of Admissions &middot; Phagwara &middot; On-site</p></div>
-            <ul class="did">
-              <li>Crafting <strong>SEO-optimized content and narratives</strong> for the university&rsquo;s official channels.</li>
-              <li>Translating academic policies into <strong>engaging storytelling</strong> for prospective students and parents.</li>
-            </ul>
-          </li>
-          <li class="role">
-            <i class="rd" aria-hidden="true"></i>
-            <div class="when">Mar 2025 &mdash; Aug 2026</div>
-            <div class="what"><h3>Human Resources Coordinator &middot; Event Coordinator</h3><p class="where">Student Organization Cell &middot; Phagwara &middot; Part-time</p></div>
-            <ul class="did">
-              <li><strong>HR Coordinator</strong> (Jul 2025 &mdash; Aug 2026): recruitment, onboarding and team rituals.</li>
-              <li><strong>Event Coordinator</strong> (Mar 2025 &mdash; Jul 2025): hybrid campus events, on-site and online.</li>
+              <li>Built a <strong>read-only AI data analyst</strong> over a 79-table PostgreSQL schema that parses and validates LLM-generated SQL before it runs, removing the injection surface; deployed a Telegram RAG bot on the analytics layer.</li>
+              <li>Shipped <strong>15+ production internal tools in 8 weeks</strong>, including a CRM with role-based access, a WhatsApp Business API dashboard, campaign attribution and merchant onboarding, with the CTO advising on database design.</li>
+              <li>Engineered <strong>event-fingerprinting attribution</strong> across on-ground and digital funnels, replacing download counts with per-channel visibility for spend decisions.</li>
+              <li>Automated daily KPI digests and n8n workflows; the attribution and CRM tooling supported a two-month campus push that reached <strong>3,000+ students</strong>.</li>
             </ul>
           </li>
           <li class="role">
             <i class="rd" aria-hidden="true"></i>
             <div class="when">Jan 2026 &mdash; May 2026</div>
-            <div class="what"><h3>Founder&rsquo;s Office &middot; Internship</h3><p class="where">UniLyf &middot; Remote &middot; London Area, UK</p></div>
+            <div class="what"><h3>Product &amp; Growth Intern &middot; Founder&rsquo;s Office</h3><p class="where">UniLyf &middot; Remote &middot; London Area, UK</p></div>
             <ul class="did">
-              <li><strong>Growth strategy:</strong> user acquisition and insider community-building ahead of launch.</li>
-              <li><strong>Pre-launch operations</strong> with a cross-functional team across content, creative and copy.</li>
-              <li><strong>Market expansion:</strong> a campus-connectivity playbook starting at LPU, built to expand.</li>
+              <li>Instrumented a <strong>demand-validation framework</strong> across 200+ profiled beta users; cohort analysis isolated the actions that correlated with Day-7 retention.</li>
+              <li>Led a <strong>cross-functional team of 6</strong> across growth, content and deployment, owning sprint planning, task allocation and release accountability for a pre-launch product.</li>
+              <li>Turned the signals into a phased go-to-market plan and launch priority order, and grew a <strong>100+ member insider community</strong> as the first testing cohort.</li>
             </ul>
           </li>
           <li class="role">
             <i class="rd" aria-hidden="true"></i>
-            <div class="when">May 2025 &mdash; Jul 2025</div>
-            <div class="what"><h3>Regional Manager &middot; Internship</h3><p class="where">INGLU &middot; Delhi &middot; Hybrid</p></div>
+            <div class="when">Jun 2025 &mdash; Feb 2026</div>
+            <div class="what"><h3>Web Development &amp; Growth &middot; Freelance</h3><p class="where">Delhi</p></div>
             <ul class="did">
-              <li>Event planning and <strong>campus outreach strategies</strong> for student engagement.</li>
-              <li>Digital promotions and <strong>team coordination</strong> with regional teams.</li>
+              <li>Launched and ran a <strong>Shopify storefront for Spraykart LLP</strong>: store setup, catalogue configuration and uninterrupted orders.</li>
+              <li>Ran <strong>SEO and lead generation for YourProfessional</strong>, a chartered-accountancy practice, lifting organic visibility and bringing in inbound client leads.</li>
             </ul>
+          </li>
+          <li class="role campus">
+            <i class="rd" aria-hidden="true"></i>
+            <div class="when">2025 &mdash; Present</div>
+            <div class="what"><h3>Campus roles</h3><p class="where">LPU and Delhi</p></div>
+            <details class="did-more"><summary>Three campus roles</summary>
+            <ul class="did">
+              <li><strong>LPU Division of Admissions</strong>, part-time intern (Jan 2026 &mdash; present): SEO-optimised content and storytelling for the university&rsquo;s channels.</li>
+              <li><strong>Student Organization Cell</strong>, HR Coordinator (Jul 2025 &mdash; Aug 2026) after Event Coordinator (Mar &mdash; Jul 2025); member to HR Coordinator of a 10&ndash;15 person team in four months.</li>
+              <li><strong>INGLU</strong>, Regional Manager intern (May &mdash; Jul 2025): campus outreach, events and digital promotions.</li>
+            </ul>
+            </details>
           </li>
         </ol>
       </div>
@@ -755,7 +808,7 @@
           <div class="term-body" id="term-body" aria-live="polite"><div><span class="p">~ $</span> whoami</div><div class="o">deepanshu-lathar — <span class="k">full-stack &amp; AI engineer</span></div><div><span class="p">~ $</span> cat ./focus.txt</div><div class="o">attribution systems · document forensics · <span class="k">shipping weekly</span></div><div class="c"># type "help" to explore</div></div>
           <div class="term-input-row">
             <span class="p" aria-hidden="true">~ $</span>
-            <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" placeholder="type help, or ask a question" />
+            <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" placeholder="type help or ask" />
           </div>
         </div>
       </div>
@@ -769,41 +822,29 @@
           <p class="sub">Every number here traces back to a campaign, a repository, a program, or a team. Nothing is borrowed.</p>
         </header>
         <ul class="receipts">
+          <li><b>3,000+</b><span>students reached by a two-month campus acquisition push, on attribution and CRM tooling I built at PicaPool</span><i>Growth</i></li>
+          <li><b>15+</b><span>production internal tools shipped in 8 weeks at PicaPool</span><i>Engineering</i></li>
           <li><b>1,000+</b><span>flat-launch submissions collected in 72 hours for a campus product</span><i>Launch</i></li>
-          <li><b>200+</b><span>beta users expressing demand before a product launch</span><i>Validation</i></li>
-          <li><b>6-person</b><span>team led on attribution and internal tooling in the Founder&rsquo;s Office</span><i>Leadership</i></li>
+          <li><b>200+</b><span>profiled beta users in UniLyf&rsquo;s demand-validation framework</span><i>Validation</i></li>
+          <li><b>6-person</b><span>cross-functional team led at UniLyf across growth, content and deployment</span><i>Leadership</i></li>
           <li><b id="rc-repos">&mdash;</b><span>open-source repos on <a href="https://github.com/latharrr?tab=repositories" target="_blank" rel="noopener">GitHub</a>, counted live</span><i>Open source</i></li>
           <li><b>2</b><span>products live in production: <a href="https://proofmart.shop" target="_blank" rel="noopener">ProofMart</a> and <a href="https://gapl.vercel.app" target="_blank" rel="noopener">Gapl</a></span><i>Products</i></li>
-          <li><b>GTM</b><span>campus campaigns at PicaPool with attribution wired in from day one</span><i>Growth</i></li>
           <li><b>30 days</b><span>of <a href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">writing in public</a> completed &mdash; essays on GTM, deadlocks, and retention</span><i>Writing</i></li>
           <li><b>1,500+</b><span><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn followers</a> built through consistent public writing</span><i>Community</i></li>
-          <li><b>4 months</b><span>from member to HR Coordinator for a 10&ndash;15 person campus team</span><i>Leadership</i></li>
-          <li><b>Grade A</b><span>in Advanced Backend Development training at LPU</span><i>Academics</i></li>
-          <li><b>McKinsey</b><span>Forward Program &mdash; structured problem-solving for early-career talent</span><i>Programs</i></li>
-          <li><b>Scaler</b><span>Young Innovator Internship, 2nd edition &mdash; product thinking sprint</span><i>Programs</i></li>
-          <li><b>SEO</b><span>lead-generation engine built for YourProfessional&rsquo;s site</span><i>Freelance</i></li>
-          <li><b>Store</b><span>Shopify store launched and operated for Spraykart</span><i>E-commerce</i></li>
+          <li><b>Grade A</b><span>in Advanced Backend Development (Node.js, Express, MongoDB) at LPU&rsquo;s Centre for Professional Enhancement</span><i>Training</i></li>
         </ul>
 
         <div class="creds" id="certs">
-          <div class="creds-head">
-            <h3>Credentials, organized by craft.</h3>
-            <p>Every credential below is listed on my LinkedIn.</p>
-          </div>
-          <article class="cred">
-            <h3>Data Analytics Job Simulation</h3>
-            <p class="issuer">Forage &middot; Deloitte Australia</p>
-            <p class="detail">Forensic-style analytics on business datasets &mdash; cleaning, dashboarding, and insight write-ups.</p>
-            <dl><dt>Issued</dt><dd>September 2025</dd><dt>Credential ID</dt><dd class="mono">BaQLf9u7dkdyLE4L2</dd></dl>
-            <a class="tlink" href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">As listed on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
-          </article>
-          <article class="cred">
-            <h3>C Programming Certification</h3>
-            <p class="issuer">iamneo &middot; an NIIT venture</p>
-            <p class="detail">Systems-level fundamentals: memory, pointers, and data structures in C.</p>
-            <dl><dt>Issued</dt><dd>April 2025</dd><dt>Credential ID</dt><dd class="mono">25dM7bj5dk7bI5Am0B21</dd></dl>
-            <a class="tlink" href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">As listed on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></a>
-          </article>
+          <h3>Credentials.</h3>
+          <ul class="cred-list">
+            <li><b>McKinsey Forward Program</b><span>McKinsey &amp; Company</span><time>Apr 2026</time></li>
+            <li><b>Advanced Backend Development, Grade A</b><span>LPU Centre for Professional Enhancement</span><time>Jul 2026</time></li>
+            <li><b>Data Analytics Job Simulation</b><span>Deloitte Australia, via Forage &middot; ID <code>BaQLf9u7dkdyLE4L2</code></span><time>Sep 2025</time></li>
+            <li><b>Young Innovator Internship Challenge, Edition 2</b><span>Scaler School of Technology</span><time>Jun 2025</time></li>
+            <li><b>Digital Marketing</b><span>HubSpot Academy</span><time>Jul 2025</time></li>
+            <li><b>C Programming</b><span>iamneo, an NIIT venture &middot; ID <code>25dM7bj5dk7bI5Am0B21</code></span><time>Apr 2025</time></li>
+          </ul>
+          <p class="cred-note">All listed on <a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a>.</p>
         </div>
       </div>
     </section>
@@ -813,33 +854,33 @@
       <div class="wrap">
         <header class="sec-head">
           <h2>Tools I actually ship with.</h2>
-          <p class="sub">Every skill below has a repository, a project, or a production deployment behind it.</p>
+          <p class="sub">The first line in each row is what ships in a project named beside it. The second line lists other tools I have used.</p>
         </header>
         <dl class="tools">
           <div>
             <dt>Languages</dt>
-            <dd class="kit">TypeScript, JavaScript, Python, C, C++, SQL</dd>
+            <dd class="kit">TypeScript, JavaScript, Python, C++, SQL<small>Also: C (certified)</small></dd>
             <dd class="ships"><strong>TypeScript</strong> runs ProofMart, Gapl and College-CLI end to end; <strong>JavaScript</strong> powers UniConnect&rsquo;s client and signaling server. <strong>Python</strong> is my analytics language at PicaPool, <strong>C++</strong> ran the ESP32 firmware in the Vehicle Pollution Monitor &mdash; and <strong>SQL</strong> is where the attribution ledger lives.</dd>
           </div>
           <div>
             <dt>Frontend</dt>
-            <dd class="kit">React, Next.js, Tailwind, HTML5, CSS3, Vite</dd>
+            <dd class="kit">React, Next.js, Tailwind, Vite, HTML, CSS</dd>
             <dd class="ships"><strong>Next.js</strong> ships both ProofMart and Gapl &mdash; UI, API routes and middleware in one codebase. <strong>React + Vite</strong> drive UniConnect&rsquo;s chat and video client, and <strong>Tailwind</strong> kept PicaPool&rsquo;s campus experiment pages shipping in hours, not days.</dd>
           </div>
           <div>
             <dt>Backend</dt>
-            <dd class="kit">Node.js, Express, FastAPI, REST, Socket.IO, WebRTC</dd>
+            <dd class="kit">Node.js, Express, REST, Socket.IO, WebRTC<small>Also: FastAPI</small></dd>
             <dd class="ships"><strong>Next.js route handlers</strong> serve ProofMart&rsquo;s inspect, upload and billing APIs. <strong>Node + Express 5</strong> run UniConnect&rsquo;s API and signaling server, with <strong>Socket.IO</strong> carrying real-time matching and chat and <strong>WebRTC</strong> carrying peer-to-peer video.</dd>
           </div>
           <div>
-            <dt>Databases</dt>
-            <dd class="kit">PostgreSQL, MongoDB, Supabase, Firebase, AWS, Docker</dd>
-            <dd class="ships"><strong>Supabase (Postgres)</strong> holds ProofMart&rsquo;s users and documents, with files in Vercel Blob. <strong>Firestore</strong> runs Gapl&rsquo;s users, reports and email campaigns, and <strong>SQLite</strong> keeps UniConnect&rsquo;s friend graph light.</dd>
+            <dt>Data &amp; infra</dt>
+            <dd class="kit">PostgreSQL, Supabase, Firebase, SQLite, MongoDB, Docker<small>Also: AWS</small></dd>
+            <dd class="ships"><strong>Supabase (Postgres)</strong> holds ProofMart&rsquo;s users and documents, with files in Vercel Blob. <strong>Firestore</strong> runs Gapl&rsquo;s users, reports and email campaigns, and <strong>SQLite</strong> keeps UniConnect&rsquo;s friend graph light. <strong>MongoDB and Docker</strong> ran the Advanced Backend capstone.</dd>
           </div>
           <div>
             <dt>AI &amp; Tools</dt>
-            <dd class="kit">LangGraph, LangChain, n8n, OpenAI, OpenCV, Git, Linux, Vercel</dd>
-            <dd class="ships"><strong>LangGraph agents and n8n automations</strong> run PicaPool&rsquo;s internal tooling. Gapl sends every analysis through a <strong>fallback AI gateway</strong> (OpenAI, then Gemini); ProofMart runs <strong>Tesseract OCR</strong> on scanned pages. <strong>Git, Linux and Vercel</strong> hold the pipeline together.</dd>
+            <dd class="kit">LangGraph, n8n, OpenAI, Anthropic, Gemini, Tesseract OCR, Git, Linux, Vercel<small>Also: LangChain, OpenCV</small></dd>
+            <dd class="ships"><strong>LangGraph agents and n8n automations</strong> run PicaPool&rsquo;s internal tooling. Gapl sends every analysis through a <strong>multi-model AI gateway</strong> (Groq, OpenAI, Anthropic, Gemini); ProofMart runs <strong>Tesseract OCR</strong> on scanned pages. <strong>Git, Linux and Vercel</strong> hold the pipeline together.</dd>
           </div>
         </dl>
       </div>
@@ -894,26 +935,26 @@
           <h2>Notes from the ledger.</h2>
           <p class="sub">Essays and build notes from my 30-day writing challenge &mdash; on growth, systems and the odd personal milestone.</p>
         </header>
-        <ol class="strip">
-          <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
+        <ol class="strip" data-enter>
+          <li><a class="post" aria-label="The campus GTM playbook I wish I had, on LinkedIn" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
             <h3>The campus GTM playbook I wish I had</h3>
             <p>What actually moves a campus: pools, timing, and measurement &mdash; not posters. The playbook behind PicaPool&rsquo;s campus launches, with attribution wired in from day one.</p>
             <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Essay &middot; featured</span></span>
           </a></li>
-          <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
+          <li><a class="post" aria-label="Deadlocks are an organizational bug, on LinkedIn" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
             <h3>Deadlocks are an organizational bug</h3>
             <p>Two teams waiting on each other is a systems problem &mdash; here is how I debug it.</p>
             <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Essay</span></span>
           </a></li>
-          <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
+          <li><a class="post" aria-label="Retention is a metric, not a mood, on LinkedIn" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
             <h3>Retention is a metric, not a mood</h3>
             <p>Cohorts, curves, and the questions I ask before trusting any dashboard.</p>
             <span class="foot"><span class="go">Read on LinkedIn <svg class="ic" aria-hidden="true"><use href="#i-out"/></svg></span><span class="kind">Essay</span></span>
           </a></li>
-          <li><a class="post" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
+          <li><a class="post" aria-label="Retiring the laptop that raised me, on LinkedIn" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" target="_blank" rel="noopener">
             <i class="rd" aria-hidden="true"></i>
             <h3>Retiring the laptop that raised me</h3>
             <p>Five years, two degrees of heat, one very patient machine. A goodbye.</p>
@@ -1054,7 +1095,7 @@
     const siteEmail = () => 'deepanshulathar' + '@' + 'gmail.com';
     const commands = {
       help: () => ['whoami · skills · projects · contact · resume · theme [light|dark] · date · clear', '<span class="k">ask anything about deepanshu</span> — just type a question, e.g. <span class="c">is he open to internships?</span>', '<span class="c">up/down for history · tab to complete</span>'],
-      whoami: () => ['deepanshu-lathar — full-stack & AI engineer', 'B.Tech CSE @ LPU · Founder’s Office @ PicaPool'],
+      whoami: () => ['deepanshu-lathar — full-stack & AI engineer', 'B.Tech CSE @ LPU (2024–28) · AI Intern, Founder’s Office @ PicaPool'],
       skills: () => ['TypeScript · React · Next.js · Node.js · Express · Python', 'Supabase · Firestore · PostgreSQL · Socket.IO · LangGraph · n8n'],
       projects: () => ['proofmart — document-forensics API · live: <a href="https://proofmart.shop" target="_blank" rel="noopener">proofmart.shop</a>', 'gapl — application-readiness engine · live: <a href="https://gapl.vercel.app" target="_blank" rel="noopener">gapl.vercel.app</a>', 'college-cli — course-scoped dev setup (working, pre-release)', 'uniconnect — anonymous campus chat &amp; video (demo offline)'],
       contact: () => ['email: ' + siteEmail(), 'linkedin: linkedin.com/in/deepanshulathar', 'github: github.com/latharrr'],
@@ -1067,6 +1108,17 @@
     };
 
     /* ---- the AI: /api/ask (Groq), streamed; answers about Deepanshu only ---- */
+    // saved answers for the suggested questions, shown (and labelled) only when the assistant cannot be reached
+    const SAVED = {
+      'What is he building right now?': 'at picapool’s founder’s office he builds ai and attribution tooling: a read-only ai data analyst over the analytics database, internal tools and n8n automations. on the side: proofmart (a live document-forensics api) and gapl (a live resume-readiness engine).',
+      'Is he available for internships, and when?': 'yes — summer 2027 internships. he’s based in delhi ncr (IST). fastest route: email ' + siteEmail() + ' or type "resume".',
+      'Which project should I look at first, and why?': 'start with proofmart: it is live at proofmart.shop, and every finding it reports is pinned to the page with the arithmetic that proves it. then gapl, live at gapl.vercel.app.',
+      'What has he done at startups?': 'at picapool (founder’s office, jul 2025 – now) he shipped 15+ internal tools in 8 weeks and built the attribution behind a campus push that reached 3,000+ students. at unilyf (jan – may 2026) he led a team of 6 and validated demand with 200+ beta users.',
+    };
+    const failLine = (out, msg, q) => {
+      if (SAVED[q]) { out.innerHTML = '<span class="ai-tag saved">saved</span><span class="ai-txt">' + esc(SAVED[q]) + '</span>'; line('c', '# the live assistant is unavailable, so this is a saved answer'); return; }
+      out.className = 'w'; out.textContent = msg;
+    };
     const aiHistory = [];
     let aiBusy = false, aiLast = 0;
     const askAI = async (q) => {
@@ -1081,7 +1133,7 @@
         if (!res.ok || !res.body) {
           let msg = 'the assistant is offline right now — try "help"';
           try { const j = await res.json(); if (j && j.error) msg = j.error; } catch (e) {}
-          txt.innerHTML = '<span class="w">' + esc(msg) + '</span>';
+          failLine(out, msg, q);
         } else {
           const reader = res.body.getReader(), dec = new TextDecoder();
           txt.textContent = '';
@@ -1092,13 +1144,13 @@
             txt.textContent = answer;
             termBody.scrollTop = termBody.scrollHeight;
           }
-          if (!answer.trim()) txt.innerHTML = '<span class="w">no answer came back — try again</span>';
+          if (!answer.trim()) failLine(out, 'no answer came back — try again', q);
           else aiHistory.push({ q, a: answer.slice(0, 600) });
           const left = Number(res.headers.get('X-Questions-Left'));
           if (Number.isFinite(left) && left <= 3) line('c', '# ' + (left ? left + ' question' + (left === 1 ? '' : 's') + ' left today' : 'that was your last question for today'));
         }
       } catch (e) {
-        txt.innerHTML = '<span class="w">couldn’t reach the assistant — try "help"</span>';
+        failLine(out, 'couldn’t reach the assistant — try "help"', q);
       }
       aiBusy = false;
       termBody.scrollTop = termBody.scrollHeight;
@@ -1126,7 +1178,7 @@
     /* ---- attract mode: the terminal demos itself until a visitor touches it ---- */
     const demoScript = [
       { cmd: 'whoami' },
-      { cmd: 'ask what is he building right now?', ans: 'at picapool’s founder’s office he builds attribution and analytics tooling, langgraph agents and n8n automations. on the side: proofmart (a live document-forensics api) and gapl (a live resume-readiness engine).' },
+      { cmd: 'ask what is he building right now?', ans: SAVED['What is he building right now?'] },
       { cmd: 'projects' },
       { cmd: 'ask is he open to internships?', ans: 'yes — summer 2027 internships. he’s based in delhi ncr (IST). fastest route: email ' + siteEmail() + ' or type "resume".' },
       { cmd: 'skills' },
@@ -1142,7 +1194,7 @@
       return true;
     };
     const typeAnswer = async (text, g) => {
-      const d = line('ai', '<span class="ai-tag">AI</span><span class="ai-txt"></span>'), t = d.querySelector('.ai-txt');
+      const d = line('ai', '<span class="ai-tag demo">demo</span><span class="ai-txt"></span>'), t = d.querySelector('.ai-txt');
       for (let i = 0; i < text.length; i += 2) { if (!alive(g)) return false; t.textContent = text.slice(0, i + 2); termBody.scrollTop = termBody.scrollHeight; await sleep(14); }
       return true;
     };
@@ -1150,24 +1202,27 @@
       const g = ++demoGen;
       await waitVisible(g); if (!alive(g)) return;
       await sleep(600);
-      while (alive(g)) {
-        termBody.innerHTML = '';
-        line('c', '# demo — click here and type to take over');
-        for (const st of demoScript) {
-          await waitVisible(g); if (!alive(g)) return;
-          await sleep(700);
-          if (!(await typeCmd(st.cmd, g))) return;
-          await sleep(320);
-          if (st.ans) { if (!(await typeAnswer(st.ans, g))) return; }
-          else commands[st.cmd]().forEach(o => line('o', o));
-          await sleep(2300);
-        }
+      termBody.setAttribute('aria-live', 'off');
+      termBody.innerHTML = '';
+      line('c', '# scripted demo, plays once — click here and type to take over');
+      for (const st of demoScript) {
+        await waitVisible(g); if (!alive(g)) return;
+        await sleep(700);
+        if (!(await typeCmd(st.cmd, g))) return;
+        await sleep(320);
+        if (st.ans) { if (!(await typeAnswer(st.ans, g))) return; }
+        else commands[st.cmd]().forEach(o => line('o', o));
         await sleep(1800);
       }
+      if (!alive(g)) return;
+      demoOn = false;
+      line('c', '# end of demo — your turn: type "help", or ask anything about deepanshu');
+      termBody.setAttribute('aria-live', 'polite');
     };
     const stopDemo = () => {
       if (!demoOn) return;
       demoOn = false; demoGen++;
+      termBody.setAttribute('aria-live', 'polite');
       termBody.innerHTML = '';
       line('o', 'deepanshu-lathar — <span class="k">full-stack &amp; AI engineer</span>');
       line('c', '# your turn — type "help", or ask anything about deepanshu (AI answers, powered by groq)');
@@ -1199,7 +1254,7 @@
     let railBusy = false;
     $$('.ask-q').forEach(b => b.addEventListener('click', async () => {
       if (railBusy || aiBusy) return;
-      railBusy = true; $$('.ask-q').forEach(x => { x.disabled = true; });
+      railBusy = true; $$('.ask-q').forEach(x => x.setAttribute('aria-disabled', 'true'));
       stopDemo();
       const r = term.getBoundingClientRect();
       if (r.top < 60 || r.bottom > innerHeight) term.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
@@ -1208,21 +1263,42 @@
       termInput.value = '';
       runCommand(text);
       while (aiBusy) await sleep(150);
-      railBusy = false; $$('.ask-q').forEach(x => { x.disabled = false; });
+      railBusy = false; $$('.ask-q').forEach(x => x.setAttribute('aria-disabled', 'false'));
     }));
 
     /* ---- right now: his local time, and the last day he committed (GitHub's own calendar) ---- */
     const nowTime = $('#now-time'), nowState = $('#now-state');
+    let flapShown = '';
+    const setFlaps = (text, flutter) => {
+      if (!nowTime.firstElementChild || flapShown.length !== text.length) {
+        nowTime.innerHTML = '<span class="flaps" aria-hidden="true">' + [...text].map(c => (/\d/.test(c) ? '<b>' + c + '</b>' : '<i>' + c + '</i>')).join('') + '</span>';
+        nowTime.setAttribute('aria-label', text);
+        flapShown = text;
+        if (!flutter || reduceMotion) return;
+      }
+      nowTime.setAttribute('aria-label', text);
+      const cells = $$('.flaps > *', nowTime);
+      [...text].forEach((c, k) => {
+        const el = cells[k];
+        if (!el || el.tagName !== 'B' || (!flutter && flapShown[k] === c)) return;
+        if (reduceMotion) { el.textContent = c; return; }
+        const seq = flutter ? [String((Number(c) + 7) % 10), String((Number(c) + 4) % 10), c] : [c];
+        seq.forEach((v, n) => setTimeout(() => { el.classList.remove('go'); void el.offsetWidth; el.classList.add('go'); setTimeout(() => { el.textContent = v; }, 170); }, k * 70 + n * 360));
+      });
+      flapShown = text;
+    };
     const tickNow = () => {
       const d = new Date();
-      nowTime.textContent = d.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false });
+      setFlaps(d.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false }), false);
       const h = Number(d.toLocaleString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false })) % 24;
       nowState.textContent = 'IST · ' + (h >= 9 && h < 21 ? 'working hours' : 'off hours — replies by morning');
     };
     tickNow(); setInterval(tickNow, 30000);
-    fetch('/api/contributions').then(r => (r.ok ? r.json() : null)).then(data => {
+    new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); setFlaps(flapShown, true); } }, { threshold: 0.6 }).observe(nowTime);
+    window.__contrib = fetch('/api/contributions').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    window.__contrib.then(data => {
       const last = data && Array.isArray(data.days) ? [...data.days].reverse().find(d => d[1] > 0) : null;
-      if (!last) return;
+      if (!last) { $('#now-push').textContent = 'unavailable'; $('#now-push-n').textContent = 'couldn’t reach GitHub just now'; return; }
       const [y, m, dd] = last[0].split('-').map(Number);
       const days = Math.round((new Date().setHours(0, 0, 0, 0) - new Date(y, m - 1, dd).getTime()) / 864e5);
       $('#now-push').textContent = days <= 0 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago';
@@ -1238,6 +1314,18 @@
     heroMail.href = 'mailto:' + addr;
     heroMail.lastElementChild.textContent = addr;
     heroMail.setAttribute('aria-label', 'Email ' + addr);
+
+    /* ============ the map: pointing at a station lights its line ============ */
+    const stage = $('.stage'), heroSec = $('#home');
+    setTimeout(() => heroSec.classList.add('settled'), 2200);
+    const hotLine = (e) => { const li = e.target.closest && e.target.closest('.stations > li'); if (li && li.dataset.line) stage.dataset.hot = li.dataset.line; };
+    const coolLine = () => { delete stage.dataset.hot; };
+    $('.stations').addEventListener('pointerover', hotLine);
+    $('.stations').addEventListener('pointerout', coolLine);
+    $('.stations').addEventListener('focusin', hotLine);
+    $('.stations').addEventListener('focusout', coolLine);
+    const eio = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); eio.unobserve(e.target); } }), { threshold: 0.2 });
+    $$('[data-enter]').forEach(el => eio.observe(el));
 
     /* ============ the bar marks the current stop ============ */
     const navLinks = $$('.nav a, .mnav a');
@@ -1260,8 +1348,8 @@
     const setNum = (id, n, unit) => setTxt(id, (typeof n === 'number' ? n : 0).toLocaleString('en-IN') + (unit || ''));
     const graphOffline = () => {
       const g = $('#gh-graph');
-      if (g) g.innerHTML = '<p class="note">Could not load the contribution calendar right now — <a href="https://github.com/' + GH + '" target="_blank" rel="noopener">see it on GitHub</a>.</p>';
-      setTxt('gh-graph-note', 'offline');
+      if (g) { g.removeAttribute('role'); g.removeAttribute('aria-label'); g.innerHTML = '<p class="note">Could not load the contribution calendar right now — <a href="https://github.com/' + GH + '" target="_blank" rel="noopener">see it on GitHub</a>.</p>'; }
+      setTxt('gh-graph-note', 'unavailable');
     };
     /* contribution calendar: GitHub's own numbers (via /api/contributions), a full year, Monday-first */
     const renderGraph = (data) => {
@@ -1285,7 +1373,7 @@
           const rec = byDate.get(iso(day));
           if (!rec) { cells += '<i class="fut"></i>'; continue; }
           const when = day.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-          cells += '<i class="l' + rec[2] + '" title="' + (rec[1] ? rec[1] + ' contribution' + (rec[1] > 1 ? 's' : '') : 'No contributions') + ' · ' + when + '"></i>';
+          cells += '<i class="l' + rec[2] + '" style="--c:' + w + '" title="' + (rec[1] ? rec[1] + ' contribution' + (rec[1] > 1 ? 's' : '') : 'No contributions') + ' · ' + when + '"></i>';
         }
       }
       // streaks + busiest day, from the same data
@@ -1294,10 +1382,11 @@
       let cur = 0;
       for (let i = data.days.length - 1; i >= 0; i--) { if (data.days[i][1]) cur++; else if (i < data.days.length - 1) break; }
       const active = data.days.filter(d => d[1]).length;
+      box.setAttribute('role', 'img');
       box.setAttribute('aria-label', 'GitHub contribution calendar: ' + data.total + ' contributions in the last year, on ' + active + ' days');
       box.innerHTML = '<div class="hm-scroll"><div class="hm" style="--cols:' + cols + '">' +
         '<div class="hm-days"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span><span></span></div>' +
-        '<div><div class="hm-months">' + months + '</div><div class="hm-grid">' + cells + '</div></div></div></div>' +
+        '<div><div class="hm-months">' + months + '</div><div class="hm-grid' + (matchMedia('(prefers-reduced-motion: reduce)').matches ? '' : ' wave') + '">' + cells + '</div></div></div></div>' +
         '<div class="hm-foot"><span><b>' + data.total.toLocaleString('en-IN') + '</b> contributions in the last year · <b>' + active + '</b> active days · busiest: <b>' + busiest[1] + '</b> on ' + parse(busiest[0]).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + (cur ? ' · current streak <b>' + cur + 'd</b>' : '') + '</span>' +
         '<span class="hm-legend">less <i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> more</span></div>';
       const sc = $('.hm-scroll', box); if (sc) sc.scrollLeft = sc.scrollWidth; // phones: land on the most recent weeks
@@ -1343,16 +1432,18 @@
       setTxt('gh-activity-note', 'unavailable');
       const act = $('#gh-activity');
       if (act) act.innerHTML = '<li><span class="note">' + why + ' — <a href="https://github.com/latharrr?tab=repositories" target="_blank" rel="noopener">view repositories on GitHub</a>.</span></li>';
-      setTxt('gh-lang-note', 'offline');
+      setTxt('gh-lang-note', 'unavailable');
+      const rc = document.getElementById('rc-repos'); if (rc && rc.textContent.trim() === '—') rc.setAttribute('title', 'GitHub could not be reached just now');
       const lm = $('#lang-mix');
       if (lm) lm.innerHTML = '<p class="note">Could not reach the GitHub API — language data unavailable (' + why + ').</p>';
     };
     // the calendar comes from our own endpoint, so a GitHub API rate limit never blanks it
     const loadCal = async (fresh) => {
       try {
-        const cr = await fetch('/api/contributions', fresh ? { cache: 'reload' } : undefined);
-        if (!cr.ok) throw new Error('contrib-' + cr.status);
-        renderGraph(await cr.json());
+        // the first load reuses the request the status board already made
+        const data = (!fresh && window.__contrib) ? await window.__contrib : await fetch('/api/contributions', fresh ? { cache: 'reload' } : undefined).then(r => (r.ok ? r.json() : null));
+        if (!data) throw new Error('contributions unavailable');
+        renderGraph(data);
         setTxt('gh-graph-note', 'live');
         return true;
       } catch (e) { graphOffline(); return false; }
