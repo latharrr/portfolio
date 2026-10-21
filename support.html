@@ -1,0 +1,240 @@
+<!doctype html>
+<!--
+  support.html - deepanshulathar.com/support
+  Razorpay Payment Page (live, verified 2026-10-21): https://rzp.io/rzp/lathar
+-->
+<html lang="en" data-theme="light">
+<head>
+<script>(function(d){d.classList.add('js');var t=null;try{t=localStorage.getItem('dl-theme');}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t);})(document.documentElement)</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fbfaf5" />
+  <meta name="description" content="Support Deepanshu Lathar's work - the demos, bots and APIs run on servers and domains paid for out of pocket. Chip in via Razorpay, or help for free." />
+  <title>Support - Deepanshu Lathar</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Support - Deepanshu Lathar" />
+  <meta property="og:description" content="Keep the demos, bots and APIs running. Chip in via Razorpay, or help for free." />
+  <meta property="og:url" content="https://deepanshulathar.com/support" />
+  <link rel="preload" href="assets/fonts/overpass-latin.woff2" as="font" type="woff2" crossorigin />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://deepanshulathar.com/support" />
+  <style>
+    @font-face { font-family: "Overpass"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(assets/fonts/overpass-latin.woff2) format("woff2"); unicode-range: U+0000-00B6, U+00B8-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+2215; }
+    @font-face { font-family: "Overpass Mono"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(assets/fonts/overpass-mono-latin.woff2) format("woff2"); }
+
+    /* tokens - same Line Map palette as index.html */
+    :root, [data-theme="light"] {
+      --paper: #fbfaf5; --ink: #1a1a1a; --ink-2: #4d4b45; --rule: rgba(26, 26, 26, 0.16);
+      --eng: #0a5fb4; --growth: #f5c400; --writing: #c2187a;
+      --f-eng: #0a5fb4; --f-growth: #f5c400; --f-writing: #c2187a; --sign-ink: #1a1a1a;
+      --f-ink: #1a1a1a; --on-ink: #fbfaf5; --on-ink-2: #c9c6bc;
+      --sans: "Overpass", "Helvetica Neue", Arial, sans-serif;
+      --mono: "Overpass Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --bar-h: 60px;
+      --pad: clamp(20px, 5vw, 72px);
+    }
+    [data-theme="dark"] {
+      --paper: #111318; --ink: #f3f1ea; --ink-2: #b9b6ac; --rule: rgba(243, 241, 234, 0.2);
+      --eng: #5aa9f5; --writing: #f0569f;
+      --f-ink: #050607; --on-ink: #f3f1ea; --on-ink-2: #b9b6ac;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { overflow-x: clip; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scrollbar-color: var(--ink) var(--paper); }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.55 var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; }
+    ::selection { background: var(--f-growth); color: var(--sign-ink); }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration-thickness: 0.09em; text-underline-offset: 0.2em; }
+    h1, h2, h3, p, ul, figure { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    button { font: inherit; color: inherit; }
+    .ic { width: 1.05em; height: 1.05em; flex: none; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .wrap { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: var(--pad); }
+
+    /* the bar - identical signage strip */
+    .bar { position: sticky; top: 0; z-index: 50; height: var(--bar-h); display: flex; align-items: center; gap: 24px; padding-inline: var(--pad); background: var(--paper); border-bottom: 3px solid var(--ink); }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.0625rem; text-decoration: none; margin-right: auto; white-space: nowrap; }
+    .brand svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
+    .nav { display: flex; align-items: center; gap: clamp(10px, 1.5vw, 22px); }
+    .nav a { position: relative; display: flex; align-items: center; gap: 7px; height: var(--bar-h); font-size: 0.9375rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .nav a::before { content: ""; width: 11px; height: 11px; border-radius: 50%; border: 3px solid transparent; transition: border-color 0.2s; }
+    .nav a:hover { text-decoration: underline; }
+    .nav a.active { font-weight: 800; }
+    .nav a.active::before { border-color: var(--ink); }
+    .bar-cv { display: inline-flex; align-items: center; gap: 0.45em; min-height: 44px; padding: 0 0.95em; font-size: 0.9375rem; font-weight: 800; text-decoration: none; white-space: nowrap; border-radius: 4px; background: var(--f-growth); color: var(--sign-ink); border: 2px solid var(--sign-ink); }
+    .bar-cv:hover { background: var(--sign-ink); color: var(--f-growth); }
+    .icon-btn { display: grid; place-items: center; flex: none; width: 44px; height: 44px; background: none; border: 2px solid var(--ink); border-radius: 4px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .icon-btn:hover { background: var(--ink); color: var(--paper); }
+    .icon-btn .ic { width: 20px; height: 20px; }
+    [data-theme="light"] .theme-toggle .moon, [data-theme="dark"] .theme-toggle .sun { display: none; }
+
+    /* sections */
+    .sec { padding-block: clamp(72px, 9vw, 132px); }
+    .sec-head { margin-bottom: clamp(40px, 5vw, 72px); }
+    h1 { font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; max-width: 17ch; text-wrap: balance; }
+    h2 { font-size: clamp(2.25rem, 5vw, 4.5rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; max-width: 17ch; text-wrap: balance; }
+    .sub { margin-top: 18px; max-width: 60ch; font-size: 1.125rem; line-height: 1.55; color: var(--ink-2); }
+
+    /* the support line: one route, one station - you */
+    .routemap { margin-top: clamp(40px, 5vw, 64px); }
+    .routemap svg { width: 100%; height: auto; overflow: visible; }
+
+    /* exit signs */
+    .exits { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(32px, 4vw, 48px); }
+    .exit { display: inline-flex; align-items: center; gap: 0.7em; padding: 0.66em 1em 0.56em 0.66em; font-size: 1.125rem; font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; border-radius: 4px; background: var(--f-growth); color: var(--sign-ink); border: 3px solid var(--sign-ink); transition: translate 0.2s var(--ease), box-shadow 0.2s var(--ease); }
+    .exit .ex { display: grid; place-items: center; width: 1.7em; height: 1.7em; padding-top: 0.12em; background: var(--sign-ink); color: var(--f-growth); border-radius: 2px; }
+    .exit.b { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .exit.b .ex { background: var(--paper); color: var(--ink); }
+    .exit:hover { translate: 0 -2px; box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.45); }
+    .exit:active { translate: 0 0; box-shadow: none; }
+
+    /* growth field - the ask. Yellow commits at section scale. */
+    .ask { background: var(--f-growth); color: var(--sign-ink); }
+    .ask .sub { color: rgba(26, 26, 26, 0.75); }
+    .ask .exit { background: var(--f-ink); color: var(--on-ink); border-color: var(--f-ink); }
+    .ask .exit .ex { background: var(--f-growth); color: var(--sign-ink); }
+    .ask .fineprint { margin-top: 22px; max-width: 60ch; font-size: 0.9375rem; color: rgba(26, 26, 26, 0.75); }
+
+    /* fare table - where it goes */
+    .fare { border-top: 3px solid var(--ink); }
+    .fare li { display: grid; grid-template-columns: minmax(140px, 220px) 1fr auto; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+    .fare .fig { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+    .fare .what { max-width: 62ch; }
+    .fare .cat { font-family: var(--mono); font-size: 0.9375rem; color: var(--ink-2); white-space: nowrap; }
+
+    /* free ways - outline buttons */
+    .free .exit { background: transparent; color: var(--ink); border: 3px solid var(--ink); }
+    .free .exit .ex { background: var(--ink); color: var(--paper); }
+    .free .exit:hover { background: var(--ink); color: var(--paper); }
+    .free .exit:hover .ex { background: var(--paper); color: var(--ink); }
+
+    /* footer - same as index */
+    footer { border-top: 3px solid var(--ink); padding-block: 28px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between; font-size: 0.9375rem; color: var(--ink-2); }
+    footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    footer a { font-weight: 600; }
+
+    @media (max-width: 860px) {
+      .nav { display: none; }
+      .fare li { grid-template-columns: 1fr; gap: 8px; }
+      .fare .cat { justify-self: start; }
+    }
+  </style>
+</head>
+<body id="top">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  </svg>
+
+  <header class="bar" id="bar">
+    <a class="brand" href="/" aria-label="Deepanshu Lathar - home">
+      <svg viewBox="251 194 800 800" aria-hidden="true"><path d="M336 508 623 229v414L337 959zM565 778h401L786 959H346z"/></svg>
+      <span>Deepanshu Lathar</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#projects">Projects</a><a href="/#experience">Experience</a><a href="/#writing">Writing</a><a href="/#contact">Contact</a><a href="/support" class="active" aria-current="page">Support</a>
+    </nav>
+    <a class="bar-cv" href="Deepanshu-Lathar-Resume.pdf" download="Deepanshu-Lathar-Resume.pdf"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg><span>Résumé</span></a>
+    <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Toggle light / dark theme" title="Toggle light / dark theme">
+      <svg class="ic sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      <svg class="ic moon" aria-hidden="true"><use href="#i-moon"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <!-- the stop on the map -->
+    <section class="sec">
+      <div class="wrap">
+        <header class="sec-head">
+          <h1>Support the work.</h1>
+          <p class="sub">Everything on this site - the demos, the bots, the APIs - runs on servers and domains I pay for myself, next to a full-time degree. If something I built helped you, you can chip in below. If it didn't, the free ways at the bottom help just as much.</p>
+        </header>
+        <div class="routemap" aria-hidden="true">
+          <svg viewBox="0 0 1200 120">
+            <path d="M0 60 H1200" fill="none" stroke="var(--growth)" stroke-width="14" stroke-linecap="round"/>
+            <circle cx="300" cy="60" r="17" fill="var(--paper)" stroke="var(--ink)" stroke-width="8"/>
+            <circle cx="300" cy="60" r="7" fill="var(--ink)"/>
+            <circle cx="900" cy="60" r="17" fill="var(--paper)" stroke="var(--ink)" stroke-width="8"/>
+            <text x="300" y="108" text-anchor="middle" font-family="Overpass, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="17" fill="var(--ink)">You</text>
+            <text x="900" y="108" text-anchor="middle" font-family="Overpass, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="17" fill="var(--ink)">Next release</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- the ask -->
+    <section class="sec ask">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2>Chip in with Razorpay.</h2>
+          <p class="sub">UPI, cards and netbanking on Razorpay's own secure page. Any amount - there is no minimum and no account to create.</p>
+        </header>
+        <div class="exits">
+          <!-- PAYMENT-LINK: replace href with the real Razorpay Payment Page URL -->
+          <a class="exit" href="https://rzp.io/rzp/lathar" target="_blank" rel="noopener"><span class="ex" aria-hidden="true">A</span>Support on Razorpay</a>
+        </div>
+        <p class="fineprint">You leave this site and pay on Razorpay's hosted page. Your card or UPI details go to Razorpay, never to me - this site stores nothing.</p>
+      </div>
+    </section>
+
+    <!-- where it goes -->
+    <section class="sec">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2>Where it goes.</h2>
+          <p class="sub">No adjectives. Three line items, all of them real.</p>
+        </header>
+        <ul class="fare">
+          <li><span class="fig">Server</span><span class="what">The VPS behind LpuTV, the WhatsApp bots and the APIs. It is on every hour, whether anyone visits or not.</span><span class="cat">monthly</span></li>
+          <li><span class="fig">Domains</span><span class="what">deepanshulathar.com, proofmart.shop and the rest renew every year, lapsed or not.</span><span class="cat">yearly</span></li>
+          <li><span class="fig">Time</span><span class="what">Nights and weekends. This part stays free - but the two above don't.</span><span class="cat">always</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- free ways -->
+    <section class="sec free" style="padding-top:0">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2>No money? These help too.</h2>
+          <p class="sub">A star makes the work easier to find. A share puts it in front of someone who needs it. A bug report makes it better.</p>
+        </header>
+        <div class="exits">
+          <a class="exit" href="https://github.com/latharrr" target="_blank" rel="noopener"><span class="ex" aria-hidden="true">B</span>Star a repo</a>
+          <a class="exit" href="mailto:deepanshulathar@gmail.com?subject=Bug%20report"><span class="ex" aria-hidden="true">C</span>Report a bug</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Deepanshu Lathar - built by hand, no template</span>
+      <nav aria-label="Footer"><a href="/labs">Labs</a><a href="/privacy">Privacy</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a><a href="#top">Back to top</a></nav>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    'use strict';
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const meta = document.querySelector('meta[name="theme-color"]');
+    const apply = (t, save) => {
+      root.setAttribute('data-theme', t);
+      meta.setAttribute('content', t === 'dark' ? '#111318' : '#fbfaf5');
+      if (save) { try { localStorage.setItem('dl-theme', t); } catch (e) {} }
+    };
+    btn.addEventListener('click', () => apply(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true));
+  })();
+  </script>
+</body>
+</html>
