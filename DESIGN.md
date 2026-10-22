@@ -135,7 +135,7 @@ The site is a transit diagram of one person's work. Engineering, growth and writ
 
 The system exists to make status readable at a glance. A solid ring is live. A dashed ring on dashed track is unreleased. A barred ring is an offline demo. The words say the same thing beside the mark, so the drawing never has to be decoded.
 
-It is flat, loud and exact: map paper, ink, and three saturated route colours that take over whole sections. Type is one family, the open Highway Gothic, set heavy. Nothing glows, floats or blurs.
+It is flat, loud and exact: map paper, ink, and three saturated route colours that take over whole sections. Type is one family, the open Highway Gothic, set heavy. Nothing glows or blurs, and everything is flat at rest; depth appears only while the reader is moving the page or the pointer.
 
 **Key Characteristics:**
 - Thick route lines on eight directions only: horizontal, vertical and 45 degrees.
@@ -143,7 +143,7 @@ It is flat, loud and exact: map paper, ink, and three saturated route colours th
 - Whole sections drenched in one route colour, alternating with map paper and ink.
 - One typeface at heavy weights; monospace only for code, the terminal and credential IDs.
 - Status is always a mark plus plain words, never a mark alone.
-- Motion is rationed: the hero lines draw once on load; pointing at a station lights its line; the local time flips in once on a split-flap board; the writing line draws across once; the contribution calendar fills in once when its data arrives. Nothing loops.
+- Motion is a ride along the line: almost all of it is scrubbed by the scrollbar, so it runs backwards when you scroll up and stops when you stop. A few moves play once (the hero draw, the name, the split-flap time, the calendar fill). Nothing loops. See Motion below.
 
 ## Colors
 
@@ -274,6 +274,37 @@ Circles and straight lines. Stations are perfect circles with a heavy ring (7 to
 ### Hero map draw (motion)
 - On load the route lines draw outward from the interchange over about 1.15s with an exponential ease-out, and roundels seat in sequence. It runs once. Under reduced motion, or without JavaScript, the map is simply drawn.
 
+## Motion
+
+Scroll-driven, built on CSS scroll timelines (`animation-timeline: view()` / `scroll()`), with no animation library. Lenis (vendored at `assets/vendor/lenis.min.js`) adds smooth wheel scrolling on a mouse or trackpad only, loaded after the page is up.
+
+### Plays once on load
+- **Hero draw:** as above.
+- **Name:** the letters flip up in 3D, staggered. Splitting drops kerning, so each pair is measured against the whole name and given back as an em margin; the letters stay split so the name is never repainted late.
+
+### Scrubbed by scroll
+- **Rails fill to the reading line** (60% down the screen): travelled track is solid, track ahead is a faint mix of the line colour, and the project being read fills its roundel with the line colour. Dashed track stays dashed while it fills.
+- **Hero exit:** the map tips back in perspective (rotateX), shrinks and sinks while the board slides over it. Desktop only.
+- **Headlines:** words rise out of a mask one after another, always at full contrast.
+- **Status plates and the Current badge** open from the centre like a stamp (clip-path).
+- **Intros and bullets** lift in; **figures** roll up out of their row like a departure board, the right column a beat behind.
+- **Screenshots** are uncovered bottom-up and drift inside their frames.
+- **Writing rides:** on desktop the section pins and the four essays slide along the white line. Tabbing to an essay scrolls it into view.
+- **Contact** grows as a circle out of the end of the growth line on its terminus.
+- **Progress:** the bar's bottom rule fills yellow with how far down the page you are.
+
+### Pointer (mouse or trackpad only)
+- **Hero tilt:** the map tilts toward the pointer in 3D and its text layers part in depth only while it tilts; at rest everything is flat and sharp.
+- **Screenshots** tilt toward the pointer; screenshots and essay cards lean with scroll speed and settle.
+- **Exit signs and buttons** are pulled toward the pointer (at most 12px) and spring back.
+
+### Named Rules
+**The Ride Rule.** Motion follows the reader. Prefer scroll-scrubbed over time-based; a time-based move plays once.
+
+**The Rest Rule.** Every effect resolves to the static design when the page is still, so screenshots, print and reduced motion all see the same flat map.
+
+**The Fallback Rule.** Every scroll scene sits behind `@supports (animation-timeline: view())` and `prefers-reduced-motion: no-preference`; without either, the page is the static design. Phones get no Lenis, tilt, lean or pin.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -288,5 +319,6 @@ Circles and straight lines. Stations are perfect circles with a heavy ring (7 to
 - **Don't** put a small label above a heading, or number sections.
 - **Don't** use gradient text, glass, blur, or cards with shadows.
 - **Don't** add a decorative line that carries no station, or a station mark that states a status the project does not have.
-- **Don't** add looping or decorative motion; every animation must explain something or happen once.
+- **Don't** add looping motion, or motion that runs on a timer while the reader is still; scroll-scrubbed scenes and one-time entrances only.
+- **Don't** fade text through low contrast; reveal it by mask or movement at full colour.
 - **Don't** hard-code a figure that the page can read live.

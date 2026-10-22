@@ -60,6 +60,10 @@
     ::selection { background: var(--f-growth); color: var(--sign-ink); }
     :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
     main section[id], #certs { scroll-margin-top: calc(var(--bar-h) + 20px); }
+    /* smooth scroll (Lenis) owns the easing when it runs, so the browser's own smoothing steps aside */
+    html.lenis { scroll-behavior: auto; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis [data-lenis-prevent] { overscroll-behavior: contain; }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-decoration-thickness: 0.09em; text-underline-offset: 0.2em; }
     h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
@@ -70,6 +74,7 @@
     .ic.fill { fill: currentColor; stroke: none; }
     .skip { position: absolute; left: 12px; top: -80px; z-index: 100; background: var(--f-growth); color: var(--sign-ink); padding: 12px 16px; font-weight: 700; }
     .skip:focus { top: 12px; }
+    .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .wrap { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: var(--pad); }
 
     /* ============ the bar: a signage strip, the active link is the current stop ============ */
@@ -263,6 +268,93 @@
     .did { grid-column: 4; grid-row: 1; display: grid; gap: 8px; max-width: 62ch; }
     .did li { position: relative; padding-left: 1.2em; }
     .did li::before { content: ""; position: absolute; left: 0; top: 0.58em; width: 0.5em; height: 3px; background: currentColor; }
+
+    /* the rails fill to the reading line as you scroll: track behind you is solid, track ahead is faint, and the stop you are reading lights in its line colour */
+    @property --fill { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
+    @keyframes travel { from { --fill: 0%; } to { --fill: 100%; } }
+    @keyframes here { from, to { background-color: var(--eng); fill: var(--eng); } }
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .stop { --run: var(--eng); --ahead: color-mix(in srgb, var(--eng) 24%, var(--paper)); view-timeline: --stop block; }
+        .role { --run: var(--ink); --ahead: color-mix(in srgb, var(--ink) 26%, var(--paper)); }
+        .stop::before, .stop::after, .role::before { background: linear-gradient(var(--run), var(--run)) top / 100% var(--fill) no-repeat, var(--ahead); animation: travel linear both; animation-timeline: view(); animation-range: cover 40vh cover calc(100% - 60vh); }
+        .stop[data-state="pre"]::before, .stop[data-state="pre"]::after { background: repeating-linear-gradient(to bottom, var(--run) 0 16px, transparent 16px 27px) top / 100% var(--fill) no-repeat, repeating-linear-gradient(to bottom, var(--ahead) 0 16px, transparent 16px 27px); }
+        .stop:not([data-state="pre"]) > .rd, .stop[data-state="pre"] > .rd circle { animation: here linear; animation-timeline: --stop; animation-range: cover calc(40vh + 20px) cover calc(100% - 60vh); }
+      }
+    }
+
+    /* ============ scroll scenes: every move is scrubbed by the scrollbar and runs backwards when you scroll up ============ */
+    @keyframes rise { from { opacity: 0; transform: translateY(0.45em) rotateX(-80deg); } }
+    @keyframes hero-exit { to { transform: translateY(10%) rotateX(32deg) scale(0.86); } }
+    @keyframes curtain { from { clip-path: inset(100% 0 0 0); } }
+    @keyframes progress { from { scale: 0 1; } }
+    @property --tx { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+    @property --ty { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+    @keyframes word-in { from { translate: 0 130%; } }
+    @keyframes stamp { from { clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%); } to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); } }
+    @keyframes drift { from { transform: translateY(-5%) scale(1.12); } to { transform: translateY(5%) scale(1.12); } }
+    @keyframes terminus { from { clip-path: circle(2.5% at var(--ox, 50%) var(--oy, 14%)); } to { clip-path: circle(160% at var(--ox, 50%) var(--oy, 14%)); } }
+    @keyframes roll { from { translate: 0 100%; clip-path: inset(0 0 100% 0); } }
+    @keyframes lift { from { opacity: 0; translate: 0 1.4em; } }
+    @keyframes ride { to { translate: calc(var(--ride) * -1) 0; } }
+    @media (prefers-reduced-motion: no-preference) {
+      /* the name's letters rise into place once on load */
+      .hero-name { perspective: 700px; }
+      .hero-name .ch { display: inline-block; transform-origin: 50% 100%; animation: rise 0.9s var(--ease) both; animation-delay: calc(0.1s + var(--i) * 45ms); }
+    }
+    /* pointer depth: on a mouse, the hero map tilts toward the pointer and its layers part only while it tilts, so at rest everything sits flat and sharp */
+    @media (prefers-reduced-motion: no-preference) and (pointer: fine) {
+      @media (min-width: 1100px) {
+        .hero { perspective: 1600px; }
+        .stage { rotate: var(--tilt, none); }
+        .stage.deep { transform-style: preserve-3d; }
+        .stage.deep :is(.hero-name, .hero-role, .hero-lede) { translate: 0 0 calc(var(--d, 0) * 90px); }
+        .stage.deep :is(.exits, .facts) { translate: 0 0 calc(var(--d, 0) * 55px); }
+      }
+      /* screenshots tilt toward the pointer; screenshots and essay cards lean with scroll speed */
+      .shot { transform: perspective(900px) rotateX(var(--tx)) rotateY(var(--ty)) skewY(calc(var(--skew, 0) * 2.5deg)); transition: --tx 0.5s var(--ease), --ty 0.5s var(--ease); }
+      .post { transform: skewY(calc(var(--skew, 0) * 2.5deg)); }
+      /* signs and buttons are pulled toward the pointer and spring back */
+      .exit { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: translate 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      .btn { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: background 0.2s, color 0.2s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      .bar-cv { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      .exit.pull, .btn.pull { transition-duration: 0.2s, 0.2s, 0.15s; }
+      .bar-cv.pull { transition-duration: 0.15s; }
+    }
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        /* leaving the hero, the map tips, shrinks and sinks while the board slides over it */
+        .hero { view-timeline: --hero block; perspective: 1600px; }
+        .board { position: relative; z-index: 1; }
+        @media (min-width: 1100px) {
+          .hero .stage { transform-origin: 50% 100%; animation: hero-exit linear both; animation-timeline: --hero; animation-range: exit 0% exit 100%; }
+        }
+        /* section headlines rise out of a mask word by word as they climb the screen, always at full contrast */
+        .h-fill { view-timeline: --h block; }
+        .h-fill .wd { display: inline-block; overflow: clip; overflow-clip-margin: 0.14em; }
+        .h-fill .wd > span { display: inline-block; animation: word-in var(--ease) both; animation-timeline: --h; animation-range: cover calc(16% + var(--i) / var(--n) * 26%) cover calc(22% + var(--i) / var(--n) * 26%); }
+        /* status plates and the current badge open from the centre like a stamp */
+        .state, .when .now { animation: stamp linear both; animation-timeline: view(); animation-range: entry 100% cover 42%; }
+        /* screenshots drift inside their frames */
+        .shot { view-timeline: --shot block; animation: curtain linear both; animation-timeline: view(); animation-range: entry 0% entry 85%; }
+        /* the bar's rule fills with how far down the page you are */
+        .bar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 3px; background: var(--f-growth); transform-origin: 0 50%; animation: progress linear both; animation-timeline: scroll(root); }
+        .shot img { animation: drift linear both; animation-timeline: --shot; }
+        /* the terminus: the contact field grows out of one roundel */
+        .contact { animation: terminus cubic-bezier(0.55, 0, 0.8, 0.3) both; animation-timeline: view(); animation-range: entry 5% entry 70%; }
+        /* figures roll up out of their row like a departure board; the right-hand column trails a beat */
+        .receipts b, .stats b { animation: roll linear both; animation-timeline: view(); animation-range: entry 100% cover 34%; }
+        .receipts li:nth-child(even) b, .stats > div:nth-child(even) b { animation-range: entry 100% cover 40%; }
+        /* intros and bullets lift in under their headline */
+        .sub, .did li { animation: lift linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+        /* writing: the section pins and the four essays ride past along the white line */
+        @media (min-width: 1100px) and (min-height: 700px) {
+          #writing { --card: 34vw; --gap: 44px; height: 280svh; padding-block: 0; view-timeline: --ride block; }
+          #writing > .wrap { position: sticky; top: var(--bar-h); height: calc(100svh - var(--bar-h)); display: flex; flex-direction: column; justify-content: center; }
+          #writing .strip { --ride: calc(var(--card) * 4 + var(--gap) * 3 - (min(100vw, 1440px) - var(--pad) * 2)); width: max-content; grid-template-columns: repeat(4, var(--card)); gap: var(--gap); animation: ride linear both; animation-timeline: --ride; animation-range: contain 8% contain 92%; }
+        }
+      }
+    }
 
     /* ============ ask: the help point. a terminal on the ink field, no window costume ============ */
     .ask-grid { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: clamp(32px, 5vw, 88px); align-items: start; }
@@ -617,6 +709,8 @@
         </svg>
 
         <h1 class="hero-name" id="hero-name">Deepanshu<br />Lathar</h1>
+        <!-- the name's letters flip in before first paint; splitting drops kerning, so each pair is measured against the whole name and given back as an em margin (the letters stay split: swapping the text back would repaint the name late and push LCP) -->
+        <script>(function(h){if(!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;var src=h.innerHTML,lines=src.split(/<br\s*\/?>/),n=0;var wrap=function(cls){return lines.map(function(l){return l.split('').map(function(c){return '<span class="'+cls+'" aria-hidden="true" style="--i:'+(n++)+'">'+c+'</span>'}).join('')}).join('<br>')};h.setAttribute('aria-label',lines.join(' '));h.innerHTML=wrap('ch');var chars=h.querySelectorAll('.ch');(document.fonts?document.fonts.ready:Promise.resolve()).then(function(){var fs=parseFloat(getComputedStyle(h).fontSize);var probe=function(html){var c=h.cloneNode(false);c.removeAttribute('id');c.removeAttribute('aria-label');c.setAttribute('aria-hidden','true');c.style.cssText='position:absolute;left:0;top:0;visibility:hidden';c.innerHTML=html;h.parentNode.appendChild(c);return c};var whole=probe(src),cut=probe(wrap('cm')),r=document.createRange(),nat=[],spl=[],firsts={};Array.prototype.forEach.call(whole.childNodes,function(t){if(t.nodeType!==3)return;firsts[nat.length]=1;for(var i=0;i<t.length;i++){r.setStart(t,i);r.setEnd(t,i+1);nat.push(r.getBoundingClientRect().left)}});Array.prototype.forEach.call(cut.querySelectorAll('.cm'),function(s){s.style.display='inline-block';});Array.prototype.forEach.call(cut.querySelectorAll('.cm'),function(s){spl.push(s.getBoundingClientRect().left)});whole.remove();cut.remove();for(var i=0;i<chars.length;i++)if(!firsts[i])chars[i].style.marginLeft=(((nat[i]-nat[i-1])-(spl[i]-spl[i-1]))/fs).toFixed(4)+'em'})})(document.getElementById('hero-name'))</script>
         <p class="hero-role">Full-stack &amp; AI engineer.</p>
         <p class="hero-lede">B.Tech CSE student at LPU (2024&ndash;28) who ships <strong>full-stack and AI products</strong>: a live document-forensics API, an application-readiness engine with a multi-provider AI gateway, and internal attribution tooling inside a live startup.</p>
 
@@ -1271,12 +1365,11 @@
     let flapShown = '';
     const setFlaps = (text, flutter) => {
       if (!nowTime.firstElementChild || flapShown.length !== text.length) {
-        nowTime.innerHTML = '<span class="flaps" aria-hidden="true">' + [...text].map(c => (/\d/.test(c) ? '<b>' + c + '</b>' : '<i>' + c + '</i>')).join('') + '</span>';
-        nowTime.setAttribute('aria-label', text);
+        nowTime.innerHTML = '<span class="flaps" aria-hidden="true">' + [...text].map(c => (/\d/.test(c) ? '<b>' + c + '</b>' : '<i>' + c + '</i>')).join('') + '</span><span class="vh"></span>';
         flapShown = text;
         if (!flutter || reduceMotion) return;
       }
-      nowTime.setAttribute('aria-label', text);
+      $('.vh', nowTime).textContent = text;
       const cells = $$('.flaps > *', nowTime);
       [...text].forEach((c, k) => {
         const el = cells[k];
@@ -1326,6 +1419,111 @@
     $('.stations').addEventListener('focusout', coolLine);
     const eio = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); eio.unobserve(e.target); } }), { threshold: 0.2 });
     $$('[data-enter]').forEach(el => eio.observe(el));
+
+    /* ============ scroll scenes: split the name into letters and the headlines into words ============ */
+    const split = (el, cls) => {
+      let i = 0;
+      const walk = (node) => Array.from(node.childNodes).forEach(c => {
+        if (c.nodeType === 1) return walk(c);
+        if (c.nodeType !== 3) return;
+        const f = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(t => {
+          if (!t) return;
+          if (/^\s+$/.test(t)) { f.append(t); return; }
+          const s = document.createElement('span'), w = document.createElement('span');
+          s.className = cls; s.style.setProperty('--i', i++); w.textContent = t; s.append(w); f.append(s);
+        });
+        c.replaceWith(f);
+      });
+      walk(el);
+      el.style.setProperty('--n', i);
+    };
+    if (!reduceMotion && CSS.supports('animation-timeline: view()')) {
+      $$('main .sec h2').forEach(h => { split(h, 'wd'); h.classList.add('h-fill'); });
+
+      /* the contact field grows out of the end of the growth line on its terminus */
+      const contact = $('#contact'), endLine = $('.end path:nth-child(2)');
+      const aimTerminus = () => {
+        const c = contact.getBoundingClientRect(), e = endLine.getBoundingClientRect();
+        contact.style.setProperty('--ox', Math.round(e.right - c.left) + 'px');
+        contact.style.setProperty('--oy', Math.round(e.top + e.height / 2 - c.top) + 'px');
+      };
+      aimTerminus();
+      addEventListener('resize', aimTerminus);
+
+      /* keyboard: tabbing into the pinned essay strip scrolls the page until that essay has ridden into view */
+      const writing = $('#writing'), posts = $$('#writing .post');
+      posts.forEach((a, i) => a.addEventListener('focus', () => {
+        const run = writing.offsetHeight - innerHeight;
+        if (run < innerHeight) return;
+        scrollTo({ top: writing.getBoundingClientRect().top + scrollY + run * (0.08 + 0.84 * i / (posts.length - 1)), behavior: 'instant' });
+      }));
+    }
+
+    /* ============ smooth scroll: wheel and trackpad glide; touch and reduced motion keep native scrolling ============ */
+    // Lenis is fetched only for a mouse or trackpad, after the page is up, so it never sits on a phone's critical path
+    const fine = matchMedia('(pointer: fine)').matches;
+    if (!reduceMotion && fine) {
+      const s = document.createElement('script');
+      s.src = 'assets/vendor/lenis.min.js';
+      s.onload = () => {
+        $$('.term-body, .hm-scroll, .mnav').forEach(el => el.setAttribute('data-lenis-prevent', ''));
+        const lenis = new Lenis({ autoRaf: true, lerp: 0.1, anchors: true });
+        // fast scrolling leans the screenshots and essay cards; they settle as the scroll does
+        const leaners = $$('.shot, .post');
+        let lean = 0;
+        lenis.on('scroll', ({ velocity }) => {
+          const v = Math.max(-1, Math.min(1, velocity / 40));
+          if (Math.abs(v - lean) < 0.004) return;
+          lean = v;
+          leaners.forEach(el => el.style.setProperty('--skew', v.toFixed(3)));
+        });
+      };
+      document.head.append(s);
+    }
+
+    if (!reduceMotion && fine) {
+      /* the hero map tilts toward the pointer in 3D; --d parts the layers only while it tilts */
+      const hero = $('#home'), stage = $('.stage');
+      let gx = 0, gy = 0, cx = 0, cy = 0, spin = 0;
+      const tilt = () => {
+        cx += (gx - cx) * 0.08; cy += (gy - cy) * 0.08;
+        const ang = Math.hypot(cx, cy);
+        stage.style.setProperty('--tilt', ang < 0.01 ? 'none' : `${cy.toFixed(4)} ${cx.toFixed(4)} 0 ${ang.toFixed(3)}deg`);
+        stage.style.setProperty('--d', Math.min(1, ang / 4).toFixed(3));
+        stage.classList.toggle('deep', ang >= 0.01);
+        spin = Math.abs(gx - cx) + Math.abs(gy - cy) > 0.005 ? requestAnimationFrame(tilt) : 0;
+      };
+      const aim = (x, y) => { gx = x; gy = y; if (!spin) spin = requestAnimationFrame(tilt); };
+      hero.addEventListener('pointermove', (e) => {
+        if (scrollY > hero.offsetHeight * 0.5) return;
+        const r = hero.getBoundingClientRect();
+        aim(((e.clientX - r.left) / r.width - 0.5) * 7, -((e.clientY - r.top) / r.height - 0.5) * 5);
+      });
+      hero.addEventListener('pointerleave', () => aim(0, 0));
+
+      /* screenshots tilt toward the pointer */
+      $$('.shot').forEach(el => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--ty', (((e.clientX - r.left) / r.width - 0.5) * 9).toFixed(2) + 'deg');
+          el.style.setProperty('--tx', (-((e.clientY - r.top) / r.height - 0.5) * 7).toFixed(2) + 'deg');
+        });
+        el.addEventListener('pointerleave', () => { el.style.removeProperty('--tx'); el.style.removeProperty('--ty'); });
+      });
+
+      /* signs and buttons are pulled toward the pointer and spring back on leave */
+      $$('.exit, .btn, .bar-cv').forEach(el => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.classList.add('pull');
+          const pull = (d, max) => Math.max(-max, Math.min(max, d)).toFixed(1) + 'px';
+          el.style.setProperty('--mx', pull((e.clientX - r.left - r.width / 2) * 0.2, 12));
+          el.style.setProperty('--my', pull((e.clientY - r.top - r.height / 2) * 0.35, 8));
+        });
+        el.addEventListener('pointerleave', () => { el.classList.remove('pull'); el.style.removeProperty('--mx'); el.style.removeProperty('--my'); });
+      });
+    }
 
     /* ============ the bar marks the current stop ============ */
     const navLinks = $$('.nav a, .mnav a');
