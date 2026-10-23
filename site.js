@@ -304,6 +304,81 @@ var kickStars=function(){};
   }
 })();
 
+/* ---------- labs: the hanging sign turns over when tapped and leans toward the pointer ---------- */
+(function(){
+  var sign=doc.getElementById("sign"), hint=doc.getElementById("sign-hint"), swing=doc.getElementById("swing");
+  if(sign&&sign.tagName==="BUTTON"){
+    var open=sign.querySelector(".face.open"), busyFace=sign.querySelector(".face.busy");
+    var say=function(){
+      var busy=sign.getAttribute("aria-pressed")==="true";
+      /* the button is named by whichever face is showing */
+      if(open)open.setAttribute("aria-hidden",String(busy));
+      if(busyFace)busyFace.setAttribute("aria-hidden",String(!busy));
+      if(hint)hint.textContent=busy?"Your door, while you work. Tap to turn it.":"Tap the sign to turn it.";
+    };
+    var settle=function(){
+      if(RM||!swing)return;
+      swing.classList.remove("settle");void swing.offsetWidth;swing.classList.add("settle");
+    };
+    sign.addEventListener("click",function(){
+      sign.setAttribute("aria-pressed",String(sign.getAttribute("aria-pressed")!=="true"));
+      say();setTimeout(settle,520);
+    });
+    /* the first turn is done by the inline script beside the sign */
+    sign.addEventListener("turned",say);
+    say();
+  }
+  var hang=doc.querySelector(".hang"), sw=doc.querySelector(".swing"), card=doc.querySelector(".sign .card"),
+      zone=doc.querySelector(".lab-hero");
+  if(zone&&hang&&sw&&!RM&&window.matchMedia("(pointer: fine)").matches){
+    var lr=0;
+    zone.addEventListener("pointermove",function(e){
+      if(lr)return;
+      lr=requestAnimationFrame(function(){
+        lr=0;
+        var r=hang.getBoundingClientRect(),dx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/520));
+        sw.style.setProperty("--lean",(dx*-2.2).toFixed(2)+"deg");
+        if(card)card.style.setProperty("--ty",(dx*7).toFixed(2)+"deg");
+      });
+    });
+    zone.addEventListener("pointerleave",function(){sw.style.setProperty("--lean","0deg");if(card)card.style.setProperty("--ty","0deg")});
+  }
+})();
+
+/* ---------- labs: the example conversation plays once when it scrolls into view ---------- */
+(function(){
+  var chat=doc.querySelector(".chat ol"), note=doc.querySelector(".chat-note");
+  if(!chat||!note||RM||!("IntersectionObserver" in window))return;
+  var items=[].slice.call(chat.children), timers=[];
+  var btn=doc.createElement("button");
+  btn.type="button";btn.className="replay";btn.hidden=true;btn.textContent="Replay the example";
+  note.insertAdjacentElement("afterend",btn);
+  function play(){
+    timers.forEach(clearTimeout);timers=[];
+    items.forEach(function(li){li.classList.remove("shown","typing")});
+    chat.classList.add("playing");btn.hidden=true;
+    var t=250;
+    items.forEach(function(li,k){
+      var bot=li.classList.contains("bot");
+      if(bot){timers.push(setTimeout(function(){li.classList.add("typing")},t));t+=k===items.length-1?1300:800}
+      timers.push(setTimeout(function(){li.classList.remove("typing");li.classList.add("shown")},t));
+      t+=bot?750:650;
+    });
+    timers.push(setTimeout(function(){
+      chat.classList.remove("playing");items.forEach(function(li){li.classList.remove("shown")});btn.hidden=false;
+    },t+700));
+  }
+  btn.addEventListener("click",play);
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();play()}},{threshold:.35}).observe(chat);
+})();
+
+/* ---------- labs: the docked WhatsApp button steps aside at the contact strip ---------- */
+(function(){
+  var dock=doc.querySelector(".dock"), end=doc.getElementById("contact");
+  if(!dock||!end||!("IntersectionObserver" in window))return;
+  new IntersectionObserver(function(es){dock.classList.toggle("away",es[0].isIntersecting)},{rootMargin:"0px 0px -80px 0px"}).observe(end);
+})();
+
 /* ---------- misc ---------- */
 doc.querySelectorAll("[data-year]").forEach(function(s){s.textContent=new Date().getFullYear()});
 })();
