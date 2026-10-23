@@ -85,7 +85,7 @@ index = head("Deepanshu Labs · Independent software studio",
       <p data-reveal>Small, useful software for businesses, each with a live demo you can try before we talk.</p>
     </div>
     <article class="lab-item" data-reveal>
-      <a class="lab-item__media" href="/labs/whatsapp-receptionist" tabindex="-1" aria-hidden="true"><img src="/assets/tile-labs-800.webp" srcset="/assets/tile-labs-800.webp 800w, /assets/tile-labs.webp 1280w" sizes="(max-width: 900px) calc(100vw - 26px), 55vw" alt="" width="1280" height="775" loading="lazy" decoding="async" /></a>
+      <a class="lab-item__media" href="/labs/whatsapp-receptionist" tabindex="-1" aria-hidden="true"><img src="/assets/tile-labs-2-800.webp" srcset="/assets/tile-labs-2-800.webp 800w, /assets/tile-labs-2.webp 1280w" sizes="(max-width: 900px) calc(100vw - 26px), 55vw" alt="" width="1280" height="775" loading="lazy" decoding="async" /></a>
       <div class="lab-item__body">
         <span class="kicker">Project 01</span>
         <h3><a href="/labs/whatsapp-receptionist">WhatsApp AI Receptionist</a></h3>
@@ -251,7 +251,6 @@ privacy = head("Privacy policy · Deepanshu Labs",
 
         <h2 id="site">This website</h2>
         <p>These are static pages. They set no cookies, run no analytics and have no forms. Fonts and images are served from this site, not from third parties. The company that hosts it may keep standard server logs, such as IP address and the pages requested, to keep the site running.</p>
-        <p>If you pick a quick question in the &ldquo;Say hi&rdquo; window, it is held in your browser tab for a moment to carry it to the terminal on the Sidequests page, and is cleared when you close the tab. It is not sent to us.</p>
         <p>Links to WhatsApp, LinkedIn and GitHub open those services, under their own policies.</p>
 
         <h2 id="demo">The WhatsApp demo</h2>

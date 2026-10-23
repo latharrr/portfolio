@@ -480,24 +480,7 @@ a{color:inherit}
 .sq-cell p{color:var(--text);font-size:16px}
 .sq-cell__tag{font-family:var(--sans);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:12px;display:block}
 
-/* ============ 16. TERMINAL / OSS ============ */
-.term-band{background:#0d1117;color:#e6edf3}
-.term-band .band__column{border-color:#21262d}
-.term-band .band-title,.term-band .band-lede{color:#e6edf3}
-.terminal{
-  background:#010409;border:1px solid #21262d;border-radius:14px;max-width:860px;margin:36px auto 0;
-  font-family:var(--mono);font-size:14px;overflow:hidden;
-}
-.terminal-log{padding:22px;min-height:260px;max-height:420px;overflow-y:auto}
-.terminal-form{display:flex;border-top:1px solid #21262d;padding:14px 18px;gap:10px;color:var(--lime)}
-.terminal-form input{flex:1;min-width:0;background:transparent;border:0;color:#e6edf3;font:inherit;outline:none}
-.term-suggest{display:flex;gap:10px;flex-wrap:wrap;margin:22px auto 0;max-width:860px}
-.term-suggest button{
-  font-family:var(--sans);font-size:12px;background:transparent;color:#e6edf3;
-  border:1px solid #30363d;border-radius:999px;padding:9px 16px;cursor:pointer;
-  transition:border-color .2s,transform .2s;
-}
-.term-suggest button:hover{border-color:var(--lime);transform:translateY(-1px)}
+/* ============ 16. OPEN-SOURCE LEDGER ============ */
 .oss-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule)}
 .oss-cell{padding:30px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
 .oss-cell:nth-child(4n){border-right:0}
@@ -544,14 +527,6 @@ a{color:inherit}
 .sayhi__eyebrow{font-family:var(--sans);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--cobalt);margin-bottom:10px}
 .sayhi__dialog h2{font-weight:300;font-size:34px;margin-bottom:8px}
 .sayhi__sub{color:var(--muted);font-size:15.5px;margin-bottom:20px}
-.sayhi__chips{display:grid;gap:10px;margin-bottom:22px}
-.sayhi__chips button{
-  text-align:left;font-family:var(--serif);font-size:16.5px;background:var(--paper);
-  border:1px solid var(--rule);border-radius:12px;padding:13px 16px;cursor:pointer;color:var(--ink);
-  transition:transform .2s,border-color .2s;
-}
-.sayhi__chips button:hover{transform:translateX(3px);border-color:var(--cobalt)}
-.sayhi__chips button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 .sayhi__direct{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
 .sayhi__note{font-size:13.5px;color:var(--muted);line-height:1.5}
 

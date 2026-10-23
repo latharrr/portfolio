@@ -256,7 +256,7 @@ var kickStars=function(){};
       modal.classList.add("is-open");
     })});
     try{doc.body.style.overflow="hidden"}catch(e){}
-    var first=modal.querySelector(".sayhi__chips button");
+    var first=modal.querySelector(".sayhi__direct a");
     if(first)setTimeout(function(){first.focus()},60);
   }
   function close(){
@@ -264,24 +264,6 @@ var kickStars=function(){};
     try{doc.body.style.overflow=""}catch(e){}
     setTimeout(function(){modal.hidden=true},200);
     if(lastFocus&&lastFocus.focus)lastFocus.focus();
-  }
-  /* questions are answered by the terminal on /sidequests */
-  function askTerminal(q){
-    close();
-    var section=doc.getElementById("terminal"),
-        input=doc.getElementById("term-input"),
-        form=doc.getElementById("term-form");
-    if(section&&input&&form){
-      section.scrollIntoView({behavior:RM?"auto":"smooth",block:"start"});
-      input.value=q;
-      setTimeout(function(){
-        if(form.requestSubmit)form.requestSubmit();
-        else form.dispatchEvent(new Event("submit",{cancelable:true}));
-      },RM?0:450);
-    }else{
-      try{sessionStorage.setItem("dl-sayhi-q",q)}catch(e){}
-      location.href="/sidequests#terminal";
-    }
   }
   doc.querySelectorAll("[data-sayhi-open]").forEach(function(b){
     b.addEventListener("click",open);
@@ -292,16 +274,6 @@ var kickStars=function(){};
   doc.addEventListener("keydown",function(e){
     if(e.key==="Escape"&&!modal.hidden)close();
   });
-  modal.querySelectorAll("[data-term-q]").forEach(function(b){
-    b.addEventListener("click",function(){askTerminal(b.getAttribute("data-term-q"))});
-  });
-  /* cross-page handoff: a question picked on another page lands here */
-  var pending=null;
-  try{pending=sessionStorage.getItem("dl-sayhi-q")}catch(e){}
-  if(pending&&doc.getElementById("term-form")){
-    try{sessionStorage.removeItem("dl-sayhi-q")}catch(e){}
-    setTimeout(function(){askTerminal(pending)},900);
-  }
 })();
 
 /* ---------- labs: the hanging sign turns over when tapped and leans toward the pointer ---------- */
