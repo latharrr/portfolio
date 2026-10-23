@@ -1,123 +1,213 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<script>(function(d){var t=null;try{t=localStorage.getItem('dl-theme');}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t);})(document.documentElement)</script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#fbfaf5" />
-  <title>Privacy policy · Deepanshu Lathar</title>
-  <meta name="description" content="What deepanshulathar.com collects, which analytics it runs, what the AI terminal sends, and how to opt out or have data deleted." />
-  <link rel="canonical" href="https://deepanshulathar.com/privacy" />
-  <link rel="preload" href="/assets/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="stylesheet" href="/assets/pages.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="description" content="Privacy policy of deepanshulathar.com — what the site collects, which analytics it runs, what the AI terminal sends, and how to opt out or have data deleted." />
+<title>Privacy policy &middot; Deepanshu Lathar</title>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Privacy policy &middot; Deepanshu Lathar" />
+<meta property="og:description" content="What this website collects, which analytics it runs, what the AI terminal sends, and how to opt out or have data deleted." />
+<meta property="og:url" content="https://deepanshulathar.com/privacy" />
+<meta property="og:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<link rel="preload" href="/fonts/averia-serif-libre-300.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/averia-serif-libre-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://deepanshulathar.com/privacy" />
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Deepanshu Lathar","url":"https://deepanshulathar.com/privacy","image":"https://deepanshulathar.com/assets/portrait.webp","jobTitle":"Full-Stack and AI Engineer","address":{"@type":"PostalAddress","addressLocality":"Delhi","addressCountry":"IN"},"alumniOf":"Lovely Professional University","sameAs":["https://github.com/latharrr","https://www.linkedin.com/in/deepanshulathar"]}
+</script>
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="bar">
-    <a class="brand" href="/" aria-label="Deepanshu Lathar, home"><svg viewBox="251 194 800 800" aria-hidden="true"><path d="M336 508 623 229v414L337 959zM565 778h401L786 959H346z"/></svg><span>Deepanshu Lathar</span></a>
-    <nav aria-label="Primary"><a href="/#projects">Projects</a><a href="/#contact">Contact</a></nav>
-  </header>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="main">
-    <div class="wrap doc">
-      <h1>Privacy policy</h1>
-      <p class="sub">What this website collects, which analytics it runs, what the AI terminal sends, and how to opt out or have data deleted.</p>
-      <p class="eff">deepanshulathar.com · Effective 13 October 2026</p>
-      <div class="doc-grid">
-        <nav class="toc" aria-label="On this page">
-          <a href="#who">Who runs this site</a><a href="#analytics">Analytics</a><a href="#optout">Turning analytics off</a><a href="#terminal">The AI terminal</a><a href="#github">GitHub data</a><a href="#device">Stored on your device</a><a href="#hosting">Hosting and links</a><a href="#rights">Your rights</a><a href="#changes">Changes</a>
-        </nav>
-        <div class="policy">
-          <section id="who">
-            <h2>Who runs this site</h2>
-            <p>This is the personal website of Deepanshu Lathar, based in Delhi NCR, India. This policy covers deepanshulathar.com except the pages under /labs, which have <a href="/labs/privacy">their own policy</a>.</p>
-          </section>
-          <section id="analytics">
-            <h2>Analytics</h2>
-            <p>The home page loads two analytics tools once the page has finished loading:</p>
-            <ul>
-              <li>Google Analytics 4, which counts visits and records pages viewed, the site you came from, your device and browser type, and your approximate location worked out from your IP address.</li>
-              <li>Microsoft Clarity, which records how the page is used: clicks, scrolling and pointer movement. It can replay a visit as a recording and build heatmaps from many visits.</li>
-            </ul>
-            <p>Both set cookies in your browser and send this information to Google and Microsoft, who process it under their own privacy policies. I use it only to see which parts of the site are read and to fix what is not working. I do not use it for advertising, and I do not sell or share it.</p>
-            <p>This policy page and the pages under /labs load no analytics.</p>
-          </section>
-          <section id="optout">
-            <h2>Turning analytics off</h2>
-            <p>Analytics does not load at all if your browser sends a Global Privacy Control or Do Not Track signal. You can also switch it off for this browser here:</p>
-            <button class="btn" id="optout-btn" type="button" aria-pressed="false">Turn analytics off on this device</button>
-            <span class="state" id="optout-state" role="status"></span>
-            <p>The choice is remembered on this device only. Cookies already set by an earlier visit stay until they expire or you clear them in your browser settings.</p>
-          </section>
-          <section id="terminal">
-            <h2>The AI terminal</h2>
-            <p>The home page has a terminal that answers questions about me. When you ask one, your question and up to three earlier questions and answers from the same visit are sent to my server and on to Groq, the AI model provider, to write the reply. Groq processes it under its own privacy policy.</p>
-            <ul>
-              <li>Questions and answers are not stored by this site.</li>
-              <li>Your IP address is held in memory for a short time to limit each visitor to 15 questions a day. It is not written to a database.</li>
-              <li>Please do not type personal or sensitive information into the terminal.</li>
-            </ul>
-          </section>
-          <section id="github">
-            <h2>GitHub data</h2>
-            <p>The open-source section shows my public GitHub activity. It is normally fetched by my server. If that fails, your browser asks GitHub directly, and my profile picture is always loaded from GitHub, so GitHub may see your IP address.</p>
-          </section>
-          <section id="device">
-            <h2>Stored on your device</h2>
-            <ul>
-              <li>Your light or dark theme choice, so the site opens the way you left it.</li>
-              <li>Your analytics choice, if you use the switch above.</li>
-              <li>A short-lived copy of GitHub data for the current tab, only when your browser had to fetch it directly.</li>
-            </ul>
-            <p>These stay in your browser and are not sent to me.</p>
-          </section>
-          <section id="hosting">
-            <h2>Hosting and links</h2>
-            <p>The site is hosted by Vercel, which may keep standard server logs, such as IP address and the pages requested, to keep the site running.</p>
-            <p>Links to email, WhatsApp, LinkedIn, GitHub and my projects open those services, under their own policies. If you email or message me, I receive what you send and use it only to reply.</p>
-          </section>
-          <section id="rights">
-            <h2>Your rights</h2>
-            <p>You can ask to access, correct or delete personal data I hold about you, or withdraw consent, at any time, including under the UK GDPR, the EU GDPR and India's Digital Personal Data Protection Act, 2023. Email <a id="pmail" href="/#contact">deepanshulathar [at] gmail.com</a> and I will respond within 30 days.</p>
-            <p>This site is not intended for anyone under 18, and I do not knowingly collect their data.</p>
-          </section>
-          <section id="changes">
-            <h2>Changes</h2>
-            <p>If this policy changes, I will update this page and the effective date at the top of it.</p>
-          </section>
-        </div>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="site-header__home" href="/" aria-label="Deepanshu Lathar — home">
+      <img src="/favicon.svg" alt="" width="34" height="34" />
+    </a>
+    <nav class="site-header__nav" data-nav aria-label="Primary">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <button type="button" class="site-header__sayhi" data-sayhi-open>Say hi</button>
+    </nav>
+    <button class="site-header__toggle" data-menu-btn type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+      <svg class="ico-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      <svg class="ico-x" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="menu-panel" data-menu-panel id="menu-panel" hidden>
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a>
+      <button type="button" data-sayhi-open>Say hi</button>
+    </div>
+  </div>
+</header>
+
+<div class="sayhi" data-sayhi hidden>
+  <div class="sayhi__overlay" data-sayhi-close></div>
+  <div class="sayhi__dialog" role="dialog" aria-modal="true" aria-labelledby="sayhi-title">
+    <button class="sayhi__x" data-sayhi-close type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <p class="sayhi__eyebrow">Direct line</p>
+    <h2 id="sayhi-title">Say hi to Deepanshu</h2>
+    <p class="sayhi__sub">Quickest routes — pick one.</p>
+    <div class="sayhi__chips">
+      <button type="button" data-term-q="What is he building right now?">What is he building right now?</button>
+      <button type="button" data-term-q="Is he available for internships, and when?">Is he available, and when?</button>
+      <button type="button" data-term-q="Which project should I look at first, and why?">Which project should I see first?</button>
+    </div>
+    <div class="sayhi__direct">
+      <a class="btn btn--solid" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="#" data-email-link>Email me</a>
+    </div>
+    <p class="sayhi__note">Replies within a day — usually faster. Both buttons open in your own app.</p>
+  </div>
+</div>
+
+<main id="main">
+  <section class="band">
+    <div class="band__column">
+      <div class="prose">
+        <h1>Privacy policy</h1>
+        <p class="lede">What this website collects, which analytics it runs, what the AI terminal sends, and how to opt out or have data deleted.</p>
+        <p>Effective 23 October 2026.</p>
+
+        <h2>Who runs this site</h2>
+        <p>This is the personal website of Deepanshu Lathar, based in Delhi NCR, India. This policy covers deepanshulathar.com except the pages under /labs, which have <a href="/labs/privacy">their own policy</a>.</p>
+
+        <h2>Analytics</h2>
+        <p>Only the home page loads analytics, and only once the page has finished loading. It uses two tools:</p>
+        <ul>
+          <li><strong>Google Analytics 4</strong> counts visits and records the pages viewed, the site you came from, your device and browser type, and your approximate location worked out from your IP address.</li>
+          <li><strong>Microsoft Clarity</strong> records how the page is used: clicks, scrolling and pointer movement. It can replay a visit as a recording and build heatmaps from many visits.</li>
+        </ul>
+        <p>Both set cookies in your browser and send this information to Google and Microsoft, who process it under their own privacy policies. I use it only to see which parts of the site are read and to fix what is not working. I do not use it for advertising, and I do not sell or share it.</p>
+        <p>The other pages (About, Sidequests, the project pages, Support and this policy) and everything under /labs load no analytics.</p>
+
+        <h2>Turning analytics off</h2>
+        <p>Analytics does not load at all if your browser sends a Global Privacy Control or Do Not Track signal. You can also switch it off for this browser here:</p>
+        <button class="optout-btn" id="optout-btn" type="button">Turn analytics off on this device</button>
+        <p class="optout-state" id="optout-state"></p>
+        <p>The choice is remembered on this device only. Cookies already set by an earlier visit stay until they expire or you clear them in your browser settings.</p>
+
+        <h2>The AI terminal</h2>
+        <p>The <a href="/sidequests#terminal">Sidequests page</a> has a terminal that answers questions about me, and the quick questions in the &ldquo;Say hi&rdquo; window open it there. When you ask one, your question and up to three earlier questions and answers from the same visit are sent to my server and on to Groq, the AI model provider, to write the reply. Groq processes it under its own privacy policy. Questions and answers are not stored by this site. Your IP address is held in memory for a short time to limit each visitor to 15 questions a day. It is not written to a database. Please do not type personal or sensitive information into the terminal.</p>
+
+        <h2>GitHub data</h2>
+        <p>The open-source ledger on the Sidequests page shows my public GitHub activity. It is normally fetched by my server. If that fails, your browser asks the GitHub API directly, so GitHub may see your IP address.</p>
+
+        <h2>Stored on your device</h2>
+        <ul>
+          <li>Your analytics choice, if you use the switch above (kept until you change it).</li>
+          <li>Whether you paused the site&rsquo;s animations, and a question you picked in the &ldquo;Say hi&rdquo; window while it carries over to the terminal. Both are kept only for the current tab and are cleared when you close it.</li>
+        </ul>
+        <p>None of this is sent to me.</p>
+
+        <h2>Contact links</h2>
+        <p>The email, WhatsApp, LinkedIn and GitHub buttons only open your own app or that site. Nothing you write there passes through this website.</p>
+
+        <h2>Hosting and links</h2>
+        <p>The site is hosted by Vercel, which may keep standard server logs, such as IP address and the pages requested, to keep the site running. Fonts and images are served from this site, not from third parties.</p>
+        <p>Project links go to separate sites with their own policies: <a href="https://proofmart.shop">ProofMart</a>, <a href="https://gapl.vercel.app">Gapl</a> and <a href="https://lputv.vercel.app">LpuTV</a>.</p>
+
+        <h2>Your rights</h2>
+        <p>You can ask to access, correct or delete personal data I hold about you, or withdraw consent, at any time, including under the UK GDPR, the EU GDPR and India's Digital Personal Data Protection Act, 2023. Email <a href="#" data-email-link id="pmail">deepanshulathar [at] gmail.com</a> and I will respond within 30 days.</p>
+        <p>This site is not intended for anyone under 18, and I do not knowingly collect their data.</p>
+
+        <h2>Changes</h2>
+        <p>This policy may change as the site changes. The effective date at the top shows when it was last updated.</p>
       </div>
     </div>
-  </main>
+  </section>
+</main>
 
-  <footer>
-    <div class="wrap">
-      <span>© 2026 Deepanshu Lathar — built by hand, no template</span>
-      <nav aria-label="Footer"><a href="/">Home</a><a href="/labs">Labs</a><a href="/privacy">Privacy</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a></nav>
+<footer class="home2-footer">
+  <div class="footer-contact">
+    <div>
+      <h2 data-reveal>Have a role, a project, or a good argument about <em>attribution</em>?</h2>
+      <p class="footer-contact__facts"><span>Delhi NCR, India</span><span>IST (UTC+5:30)</span><span>Open to Summer 2027 internships</span><span>Replies within a day</span></p>
     </div>
-  </footer>
-  <script>
-    (function () {
-      var a = 'deepanshulathar' + '@' + 'gmail.com', m = document.getElementById('pmail');
-      m.textContent = a; m.href = 'mailto:' + a;
-      var btn = document.getElementById('optout-btn'), state = document.getElementById('optout-state');
-      var signal = !!navigator.globalPrivacyControl || navigator.doNotTrack === '1';
-      var read = function () { try { return localStorage.getItem('dl-no-analytics') === '1'; } catch (e) { return false; } };
-      var paint = function () {
-        var off = read();
-        btn.setAttribute('aria-pressed', String(off));
-        btn.textContent = off ? 'Turn analytics back on for this device' : 'Turn analytics off on this device';
-        state.textContent = off ? 'Analytics is off on this device.' : (signal ? 'Your browser already sends a privacy signal, so analytics is off for you.' : 'Analytics is on for this device.');
-      };
-      btn.addEventListener('click', function () {
-        try { if (read()) localStorage.removeItem('dl-no-analytics'); else localStorage.setItem('dl-no-analytics', '1'); }
-        catch (e) { state.textContent = 'This browser is blocking storage, so the choice cannot be saved.'; return; }
-        paint();
-      });
-      paint();
-    })();
-  </script>
+    <div class="footer-contact__actions">
+      <a class="btn btn--solid" href="#" data-email-link>Email me</a>
+      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="/Deepanshu-Lathar-Resume.pdf" download>Résumé (PDF)</a>
+    </div>
+  </div>
+  <div class="home2-footer__inner">
+    <a class="home2-footer__art" href="/about" aria-label="About Deepanshu">
+      <span class="home2-footer__folder" aria-hidden="true">
+        <svg viewBox="0 0 320 230">
+          <path d="M18 38 Q18 22 34 22 L118 22 L142 44 L286 44 Q302 44 302 60 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#8FD0FF"/>
+          <path d="M18 70 L302 70 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#5CB6F7"/>
+        </svg>
+      </span>
+      <span class="home2-footer__paper" aria-hidden="true">
+        <svg viewBox="0 0 260 190">
+          <g transform="rotate(3 130 95)">
+            <rect x="10" y="10" width="240" height="170" rx="6" fill="#FFFEF7" stroke="#FFFFFF" stroke-width="5"/>
+            <rect x="70" y="76" width="120" height="32" rx="7" fill="#E7FF7D"/>
+            <text x="130" y="64" text-anchor="middle" class="paper-title">TRACEABLE</text>
+            <text x="130" y="100" text-anchor="middle" class="paper-title">GROWTH</text>
+            <g stroke="#1F2328" fill="none" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="58" cy="142" r="10"/><circle cx="94" cy="130" r="10"/><circle cx="94" cy="154" r="10"/>
+              <path d="M68 142 h16 M84 136 l10 -6 M84 148 l10 6"/>
+              <circle cx="200" cy="142" r="13"/><path d="M210 152 l10 10"/>
+              <path d="M126 128 h44 l-9 14 h-26 z"/>
+            </g>
+            <path d="M40 40 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#3556FF"/>
+          </g>
+        </svg>
+      </span>
+    </a>
+    <nav class="home2-footer__links" aria-label="Footer">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a class="gap" href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a>
+      <a href="https://github.com/latharrr">GitHub</a>
+    </nav>
+  </div>
+  <div class="home2-footer__base">
+    <p class="home2-footer__credit">hand-coded with love in Delhi</p>
+    <p class="home2-footer__legal"><a href="/privacy">Privacy</a><a href="/support">Support</a><a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a><a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+<script>
+  var btn = document.getElementById('optout-btn');
+  var state = document.getElementById('optout-state');
+  var signal = !!navigator.globalPrivacyControl || navigator.doNotTrack === '1';
+  var read = function () { try { return localStorage.getItem('dl-no-analytics') === '1'; } catch (e) { return false; } };
+  var paint = function () {
+    var off = read();
+    btn.setAttribute('aria-pressed', String(off));
+    btn.textContent = off ? 'Turn analytics back on for this device' : 'Turn analytics off on this device';
+    state.textContent = off ? 'Analytics is off on this device.' : (signal ? 'Your browser already sends a privacy signal, so analytics is off for you.' : 'Analytics is on for this device.');
+  };
+  btn.addEventListener('click', function () {
+    try { if (read()) localStorage.removeItem('dl-no-analytics'); else localStorage.setItem('dl-no-analytics', '1'); }
+    catch (e) { state.textContent = 'This browser is blocking storage, so the choice cannot be saved.'; return; }
+    paint();
+  });
+  paint();
+</script>
 </body>
 </html>

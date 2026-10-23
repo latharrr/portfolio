@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="description" content="Sidequests — Deepanshu Lathar's essays from a 30-day writing challenge on growth, systems and the odd personal milestone, plus the open-source ledger." />
+<title>Sidequests · Deepanshu Lathar</title>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sidequests · Deepanshu Lathar" />
+<meta property="og:description" content="Essays from a 30-day writing challenge — on growth, systems and the odd personal milestone — plus the open-source ledger." />
+<meta property="og:url" content="https://deepanshulathar.com/sidequests" />
+<meta property="og:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<link rel="preload" href="/fonts/averia-serif-libre-300.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/averia-serif-libre-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://deepanshulathar.com/sidequests" />
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Deepanshu Lathar","url":"https://deepanshulathar.com/sidequests","image":"https://deepanshulathar.com/assets/portrait.webp","jobTitle":"Full-Stack and AI Engineer","address":{"@type":"PostalAddress","addressLocality":"Delhi","addressCountry":"IN"},"alumniOf":"Lovely Professional University","knowsAbout":["Attribution modelling","RAG","Next.js","Document verification","TypeScript"],"sameAs":["https://github.com/latharrr","https://www.linkedin.com/in/deepanshulathar"]}
+</script>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="site-header__home" href="/" aria-label="Deepanshu Lathar — home">
+      <img src="/favicon.svg" alt="" width="34" height="34" />
+    </a>
+    <nav class="site-header__nav" data-nav aria-label="Primary">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests" aria-current="page">Sidequests</a>
+      <a href="/about">About</a>
+      <button type="button" class="site-header__sayhi" data-sayhi-open>Say hi</button>
+    </nav>
+    <button class="site-header__toggle" data-menu-btn type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+      <svg class="ico-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      <svg class="ico-x" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="menu-panel" data-menu-panel id="menu-panel" hidden>
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a>
+      <button type="button" data-sayhi-open>Say hi</button>
+    </div>
+  </div>
+</header>
+
+<div class="sayhi" data-sayhi hidden>
+  <div class="sayhi__overlay" data-sayhi-close></div>
+  <div class="sayhi__dialog" role="dialog" aria-modal="true" aria-labelledby="sayhi-title">
+    <button class="sayhi__x" data-sayhi-close type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <p class="sayhi__eyebrow">Direct line</p>
+    <h2 id="sayhi-title">Say hi to Deepanshu</h2>
+    <p class="sayhi__sub">Quickest routes — pick one.</p>
+    <div class="sayhi__chips">
+      <button type="button" data-term-q="What is he building right now?">What is he building right now?</button>
+      <button type="button" data-term-q="Is he available for internships, and when?">Is he available, and when?</button>
+      <button type="button" data-term-q="Which project should I look at first, and why?">Which project should I see first?</button>
+    </div>
+    <div class="sayhi__direct">
+      <a class="btn btn--solid" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="#" data-email-link>Email me</a>
+    </div>
+    <p class="sayhi__note">Replies within a day — usually faster. Both buttons open in your own app.</p>
+  </div>
+</div>
+
+<main id="main">
+  <section class="band">
+    <div class="band__column band-pad">
+      <h1 class="band-title" data-reveal>Sidequests</h1>
+      <p class="band-lede" data-reveal>Notes from the ledger. Essays and build notes from my 30-day writing challenge — on growth, systems and the odd personal milestone.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__column">
+      <div class="sq-grid">
+        <a class="sq-cell" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" data-reveal>
+          <div class="sq-cell__thumb">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block" aria-hidden="true">
+              <rect width="320" height="180" fill="#f3f9dc"/>
+              <g fill="none" stroke="#1F2328" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M36 20 C34 62 35 104 38 142"/>
+                <path d="M36 142 C92 138 202 144 288 140"/>
+                <path d="M48 126 C84 118 104 100 136 88 C168 76 196 66 236 52 C256 44 272 34 288 24" stroke="#3556FF" stroke-width="4.5"/>
+                <path d="M288 24 L266 24 M288 24 L276 42" stroke="#3556FF" stroke-width="4.5"/>
+                <path d="M64 142 v-26 h16 v26 M72 142 v-14" stroke-width="2.5"/>
+                <path d="M92 142 v-38 h16 v38 M100 142 v-20" stroke-width="2.5"/>
+                <circle cx="136" cy="88" r="5" fill="#FF6B2C" stroke="none"/>
+                <circle cx="200" cy="64" r="5" fill="#FF6B2C" stroke="none"/>
+                <circle cx="248" cy="46" r="5" fill="#FF6B2C" stroke="none"/>
+                <circle cx="272" cy="118" r="7" stroke-width="2.5"/>
+                <path d="M272 104 v-8 M272 132 v8 M258 118 h-8 M286 118 h8 M262 108 l-6 -6 M282 128 l6 6 M282 108 l6 -6 M262 128 l-6 6" stroke-width="2.5"/>
+                <path d="M44 44 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" stroke="#3556FF" stroke-width="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <h3>The campus GTM playbook I wish I had</h3>
+          <p>What actually moves a campus: pools, timing, and measurement — not posters. The playbook behind PicaPool's campus launches, with attribution wired in from day one.</p>
+          <span class="sq-cell__tag">Essay · featured</span>
+        </a>
+        <a class="sq-cell" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" data-reveal>
+          <div class="sq-cell__thumb">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block" aria-hidden="true">
+              <rect width="320" height="180" fill="#fdeef4"/>
+              <g fill="none" stroke="#1F2328" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 70 H138"/>
+                <path d="M138 70 L120 60 M138 70 L120 80"/>
+                <path d="M290 110 H182"/>
+                <path d="M182 110 L200 100 M182 110 L200 120"/>
+                <path d="M140 92 c6 -18 30 -20 38 -6 c8 14 -8 26 -20 20 c-10 -5 -6 -20 8 -22 c16 -2 26 14 20 26 c-5 11 -24 12 -34 4" stroke="#3556FF" stroke-width="4"/>
+                <path d="M152 60 l-6 -8 M168 60 l6 -8" stroke-width="2.5"/>
+                <path d="M152 124 l-6 8 M168 124 l6 8" stroke-width="2.5"/>
+                <path d="M52 148 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" stroke="#3556FF" stroke-width="2.5"/>
+                <path d="M268 140 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" stroke-width="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <h3>Deadlocks are an organizational bug</h3>
+          <p>Two teams waiting on each other is a systems problem — here is how I debug it.</p>
+          <span class="sq-cell__tag">Essay</span>
+        </a>
+        <a class="sq-cell" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" data-reveal>
+          <div class="sq-cell__thumb">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block" aria-hidden="true">
+              <rect width="320" height="180" fill="#e9f4fd"/>
+              <g fill="none" stroke="#1F2328" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M38 22 C36 64 37 106 40 144"/>
+                <path d="M38 144 C94 140 204 146 290 142"/>
+                <path d="M52 42 C102 46 142 62 182 98 C212 124 252 142 290 147" stroke="#3556FF" stroke-width="4.5"/>
+                <path d="M290 147 L272 141 M290 147 L280 131" stroke="#3556FF" stroke-width="4.5"/>
+                <circle cx="82" cy="44" r="6" fill="#FF6B2C" stroke="none"/>
+                <circle cx="132" cy="60" r="5" fill="#FF6B2C" stroke="none"/>
+                <circle cx="182" cy="98" r="4" fill="#FF6B2C" stroke="none"/>
+                <circle cx="232" cy="126" r="3.5" fill="#FF6B2C" stroke="none"/>
+                <circle cx="272" cy="142" r="3" fill="#FF6B2C" stroke="none"/>
+                <path d="M52 42 C70 44 88 50 104 58" stroke-width="2" stroke-dasharray="5 6"/>
+                <path d="M250 40 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" stroke="#3556FF" stroke-width="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <h3>Retention is a metric, not a mood</h3>
+          <p>Cohorts, curves, and the questions I ask before trusting any dashboard.</p>
+          <span class="sq-cell__tag">Essay</span>
+        </a>
+        <a class="sq-cell" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/" data-reveal>
+          <div class="sq-cell__thumb">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block" aria-hidden="true">
+              <rect width="320" height="180" fill="#fdf2e6"/>
+              <g fill="none" stroke="#1F2328" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="102" y="46" width="116" height="74" rx="6"/>
+                <path d="M88 120 h144 l16 18 h-176 z"/>
+                <path d="M160 90 c-6 -10 -24 -10 -24 2 c0 9 10 14 24 24 c14 -10 24 -15 24 -24 c0 -12 -18 -12 -24 -2 z" fill="#FF6B2C"/>
+                <path d="M64 52 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" stroke="#3556FF" stroke-width="2.5"/>
+                <path d="M256 60 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 z" stroke-width="2.5"/>
+                <path d="M70 150 h40 M210 150 h40" stroke-width="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <h3>Retiring the laptop that raised me</h3>
+          <p>Five years, two degrees of heat, one very patient machine. A goodbye.</p>
+          <span class="sq-cell__tag">Personal</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__column band-pad" style="text-align:center">
+      <p class="band-lede" style="margin-inline:auto" data-reveal>Thirty days of writing in public — essays on GTM, deadlocks and retention, plus the odd personal milestone, all on LinkedIn.</p>
+      <p style="margin-top:26px" data-reveal><a class="btn btn--solid" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/">Read all 30 days of writing on LinkedIn</a></p>
+    </div>
+  </section>
+
+  <section class="band" id="open-source">
+    <div class="band__column band-pad">
+      <h2 class="band-title" data-reveal>The open-source ledger</h2>
+      <p class="band-lede" data-reveal>This section reads the GitHub API live — stats, language mix, and recent pushes; if the API is unreachable, tiles stay blank instead of showing stale numbers.</p>
+      <div class="oss-grid" id="oss-grid" style="margin-top:40px">
+        <div class="oss-cell" data-reveal><div class="oss-num" data-oss="contrib">—</div><div class="oss-label">Contributions · 1y</div></div>
+        <div class="oss-cell" data-reveal><div class="oss-num" data-oss="streak">—</div><div class="oss-label">Longest streak</div></div>
+        <div class="oss-cell" data-reveal><div class="oss-num" data-oss="repos">—</div><div class="oss-label">Public repos</div></div>
+        <div class="oss-cell" data-reveal><div class="oss-num" data-oss="stars">—</div><div class="oss-label">Stars earned</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin-top:28px;max-width:640px" data-reveal>Contributions come from GitHub's own calendar (private work included, refreshed hourly); repos and languages from the GitHub API — never hard-coded.</p>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px" data-oss-status role="status"></p>
+      <p style="margin-top:20px" data-reveal><button class="btn btn--ghost" id="oss-retry" type="button">Retry sync</button></p>
+    </div>
+  </section>
+
+  <section class="band term-band" id="terminal" aria-label="Ask the terminal">
+    <div class="band__column band-pad">
+      <h2 class="band-title" data-reveal>Ask the terminal</h2>
+      <p class="band-lede" data-reveal>Type <em>help</em>, or just ask a question about me. Answers come from Groq, fifteen questions a day, with saved answers when it&rsquo;s offline.</p>
+      <div class="terminal" data-reveal>
+        <div class="terminal-log" id="term-log" aria-live="polite"></div>
+        <form class="terminal-form" id="term-form">
+          <span aria-hidden="true">&rsaquo;</span>
+          <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Ask a question" placeholder="type help, or ask a question…" />
+        </form>
+      </div>
+      <div class="term-suggest" data-reveal>
+        <button type="button" class="suggest" data-q="What is he building right now?">What is he building right now?</button>
+        <button type="button" class="suggest" data-q="Is he available for internships, and when?">Is he available, and when?</button>
+        <button type="button" class="suggest" data-q="Which project should I look at first, and why?">Which project should I see first?</button>
+        <button type="button" class="suggest" data-q="What has he done at startups?">What has he done at startups?</button>
+        <button type="button" class="suggest" data-cmd="contact">How do I reach him?</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="home2-footer">
+  <div class="footer-contact">
+    <div>
+      <h2 data-reveal>Have a role, a project, or a good argument about <em>attribution</em>?</h2>
+      <p class="footer-contact__facts"><span>Delhi NCR, India</span><span>IST (UTC+5:30)</span><span>Open to Summer 2027 internships</span><span>Replies within a day</span></p>
+    </div>
+    <div class="footer-contact__actions">
+      <a class="btn btn--solid" href="#" data-email-link>Email me</a>
+      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="/Deepanshu-Lathar-Resume.pdf" download>Résumé (PDF)</a>
+    </div>
+  </div>
+  <div class="home2-footer__inner">
+    <a class="home2-footer__art" href="/about" aria-label="About Deepanshu">
+      <span class="home2-footer__folder" aria-hidden="true">
+        <svg viewBox="0 0 320 230">
+          <path d="M18 38 Q18 22 34 22 L118 22 L142 44 L286 44 Q302 44 302 60 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#8FD0FF"/>
+          <path d="M18 70 L302 70 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#5CB6F7"/>
+        </svg>
+      </span>
+      <span class="home2-footer__paper" aria-hidden="true">
+        <svg viewBox="0 0 260 190">
+          <g transform="rotate(3 130 95)">
+            <rect x="10" y="10" width="240" height="170" rx="6" fill="#FFFEF7" stroke="#FFFFFF" stroke-width="5"/>
+            <rect x="70" y="76" width="120" height="32" rx="7" fill="#E7FF7D"/>
+            <text x="130" y="64" text-anchor="middle" class="paper-title">TRACEABLE</text>
+            <text x="130" y="100" text-anchor="middle" class="paper-title">GROWTH</text>
+            <g stroke="#1F2328" fill="none" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="58" cy="142" r="10"/><circle cx="94" cy="130" r="10"/><circle cx="94" cy="154" r="10"/>
+              <path d="M68 142 h16 M84 136 l10 -6 M84 148 l10 6"/>
+              <circle cx="200" cy="142" r="13"/><path d="M210 152 l10 10"/>
+              <path d="M126 128 h44 l-9 14 h-26 z"/>
+            </g>
+            <path d="M40 40 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#3556FF"/>
+          </g>
+        </svg>
+      </span>
+    </a>
+    <nav class="home2-footer__links" aria-label="Footer">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a class="gap" href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a>
+      <a href="https://github.com/latharrr">GitHub</a>
+    </nav>
+  </div>
+  <div class="home2-footer__base">
+    <p class="home2-footer__credit">hand-coded with love in Delhi</p>
+    <p class="home2-footer__legal"><a href="/privacy">Privacy</a><a href="/support">Support</a><a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a><a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+<script src="/terminal.js" defer></script>
+<script src="/oss.js" defer></script>
+</body>
+</html>

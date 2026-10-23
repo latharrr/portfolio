@@ -5,36 +5,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/about",
-      "destination": "/#about",
-      "permanent": false
-    },
-    {
-      "source": "/experience",
-      "destination": "/#experience",
-      "permanent": false
-    },
-    {
-      "source": "/writing",
-      "destination": "/#writing",
-      "permanent": false
-    },
-    {
-      "source": "/work",
-      "destination": "/#projects",
-      "permanent": false
-    },
-    {
-      "source": "/work/:slug",
-      "destination": "/#projects",
-      "permanent": false
-    },
-    {
-      "source": "/archive",
-      "destination": "/#projects",
-      "permanent": false
-    },
-    {
       "source": "/resume",
       "destination": "/Deepanshu-Lathar-Resume.pdf",
       "permanent": false
@@ -58,9 +28,72 @@
       "source": "/labs/privacy-policy",
       "destination": "/labs/privacy",
       "permanent": true
+    },
+    {
+      "source": "/work",
+      "destination": "/#work",
+      "permanent": false
+    },
+    {
+      "source": "/work/:slug",
+      "destination": "/#work",
+      "permanent": false
+    },
+    {
+      "source": "/archive",
+      "destination": "/#work",
+      "permanent": false
+    },
+    {
+      "source": "/experience",
+      "destination": "/about",
+      "permanent": false
+    },
+    {
+      "source": "/writing",
+      "destination": "/sidequests",
+      "permanent": false
+    },
+    {
+      "source": "/uniconnect",
+      "destination": "/lputv",
+      "permanent": true
+    },
+    {
+      "source": "/college-cli",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/deepanshulathar",
+      "permanent": false
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/latharrr",
+      "permanent": false
     }
   ],
   "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/Deepanshu-Lathar-Resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Deepanshu-Lathar-Resume.pdf\""
+        }
+      ]
+    },
     {
       "source": "/assets/fonts/(.*)",
       "headers": [

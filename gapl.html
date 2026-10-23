@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="description" content="Gapl — a resume-readiness engine that simulates a recruiter's screen of your résumé against a target role and company tier: ATS fit, readiness, the exact gaps, and a week-by-week roadmap to close them." />
+<title>Gapl — Deepanshu Lathar</title>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gapl — Deepanshu Lathar" />
+<meta property="og:description" content="A resume-readiness engine that simulates a recruiter's screen of your résumé against a target role and company tier — ATS fit, readiness, the exact gaps, and a week-by-week roadmap to close them." />
+<meta property="og:url" content="https://deepanshulathar.com/gapl" />
+<meta property="og:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<link rel="preload" href="/fonts/averia-serif-libre-300.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/averia-serif-libre-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://deepanshulathar.com/gapl" />
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="site-header__home" href="/" aria-label="Deepanshu Lathar — home">
+      <img src="/favicon.svg" alt="" width="34" height="34" />
+    </a>
+    <nav class="site-header__nav" data-nav aria-label="Primary">
+      <a href="/#work" aria-current="page">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <button type="button" class="site-header__sayhi" data-sayhi-open>Say hi</button>
+    </nav>
+    <button class="site-header__toggle" data-menu-btn type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+      <svg class="ico-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      <svg class="ico-x" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="menu-panel" data-menu-panel id="menu-panel" hidden>
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a>
+      <button type="button" data-sayhi-open>Say hi</button>
+    </div>
+  </div>
+</header>
+
+<div class="sayhi" data-sayhi hidden>
+  <div class="sayhi__overlay" data-sayhi-close></div>
+  <div class="sayhi__dialog" role="dialog" aria-modal="true" aria-labelledby="sayhi-title">
+    <button class="sayhi__x" data-sayhi-close type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <p class="sayhi__eyebrow">Direct line</p>
+    <h2 id="sayhi-title">Say hi to Deepanshu</h2>
+    <p class="sayhi__sub">Quickest routes — pick one.</p>
+    <div class="sayhi__chips">
+      <button type="button" data-term-q="What is he building right now?">What is he building right now?</button>
+      <button type="button" data-term-q="Is he available for internships, and when?">Is he available, and when?</button>
+      <button type="button" data-term-q="Which project should I look at first, and why?">Which project should I see first?</button>
+    </div>
+    <div class="sayhi__direct">
+      <a class="btn btn--solid" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="#" data-email-link>Email me</a>
+    </div>
+    <p class="sayhi__note">Replies within a day — usually faster. Both buttons open in your own app.</p>
+  </div>
+</div>
+
+<main id="main">
+  <section class="case-head">
+    <div class="case-head__grid">
+      <div class="case-head__left">
+        <p class="case-head__eyebrow">GAPL <span class="dot"></span></p>
+        <h1 class="case-head__title"><span class="case-head__word" style="--i:0">GAPL</span></h1>
+        <ul class="case-head__chips">
+          <li>Live · personal project</li>
+          <li>2026</li>
+          <li>AI · multi-model</li>
+        </ul>
+      </div>
+      <div class="case-head__right">
+        <p class="case-head__summary">Candidates get rejected without ever learning why. Gapl simulates a recruiter's screen of your resume against a target role and company tier — ATS fit, readiness, the exact gaps — then builds a week-by-week roadmap to close them.</p>
+        <dl class="case-head__facts">
+          <dt>STATUS</dt><dd>Live · personal project at gapl.vercel.app (no commercial users)</dd>
+          <dt>ROLE</dt><dd>Solo builder</dd>
+          <dt>STACK</dt><dd>Next.js · TypeScript · Firebase · Firestore · Groq · OpenAI · Anthropic · Gemini · Razorpay · Resend</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-hero">
+    <div class="case-hero__inner">
+      <img src="/assets/gapl-1.png" alt="Gapl: a recruiter's screen of a résumé with ATS fit and gap analysis" />
+    </div>
+  </section>
+
+  <section class="case-body">
+    <h3>One provider's outage never fails a scan.</h3>
+    <p>Every analysis goes through a multi-model AI gateway that fails over across Groq, OpenAI, Anthropic and Gemini, so one provider's outage never fails a scan. Email links are rewritten to a tracking subdomain by Next.js middleware for 30-day last-touch attribution.</p>
+    <img src="/assets/gapl-2.png" alt="Gapl readiness roadmap: week-by-week plan to close the gaps" />
+    <p><a href="https://github.com/latharrr">Source on GitHub</a> · <a href="https://gapl.vercel.app">Live at gapl.vercel.app</a></p>
+  </section>
+
+  <section class="case-next">
+    <span>Next project</span><a href="/lputv">LpuTV →</a>
+    <a href="/#work">All work</a>
+  </section>
+</main>
+
+<footer class="home2-footer">
+  <div class="footer-contact">
+    <div>
+      <h2 data-reveal>Have a role, a project, or a good argument about <em>attribution</em>?</h2>
+      <p class="footer-contact__facts"><span>Delhi NCR, India</span><span>IST (UTC+5:30)</span><span>Open to Summer 2027 internships</span><span>Replies within a day</span></p>
+    </div>
+    <div class="footer-contact__actions">
+      <a class="btn btn--solid" href="#" data-email-link>Email me</a>
+      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="/Deepanshu-Lathar-Resume.pdf" download>Résumé (PDF)</a>
+    </div>
+  </div>
+  <div class="home2-footer__inner">
+    <a class="home2-footer__art" href="/about" aria-label="About Deepanshu">
+      <span class="home2-footer__folder" aria-hidden="true">
+        <svg viewBox="0 0 320 230">
+          <path d="M18 38 Q18 22 34 22 L118 22 L142 44 L286 44 Q302 44 302 60 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#8FD0FF"/>
+          <path d="M18 70 L302 70 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#5CB6F7"/>
+        </svg>
+      </span>
+      <span class="home2-footer__paper" aria-hidden="true">
+        <svg viewBox="0 0 260 190">
+          <g transform="rotate(3 130 95)">
+            <rect x="10" y="10" width="240" height="170" rx="6" fill="#FFFEF7" stroke="#FFFFFF" stroke-width="5"/>
+            <rect x="70" y="76" width="120" height="32" rx="7" fill="#E7FF7D"/>
+            <text x="130" y="64" text-anchor="middle" class="paper-title">TRACEABLE</text>
+            <text x="130" y="100" text-anchor="middle" class="paper-title">GROWTH</text>
+            <g stroke="#1F2328" fill="none" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="58" cy="142" r="10"/><circle cx="94" cy="130" r="10"/><circle cx="94" cy="154" r="10"/>
+              <path d="M68 142 h16 M84 136 l10 -6 M84 148 l10 6"/>
+              <circle cx="200" cy="142" r="13"/><path d="M210 152 l10 10"/>
+              <path d="M126 128 h44 l-9 14 h-26 z"/>
+            </g>
+            <path d="M40 40 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#3556FF"/>
+          </g>
+        </svg>
+      </span>
+    </a>
+    <nav class="home2-footer__links" aria-label="Footer">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a class="gap" href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a>
+      <a href="https://github.com/latharrr">GitHub</a>
+    </nav>
+  </div>
+  <div class="home2-footer__base">
+    <p class="home2-footer__credit">hand-coded with love in Delhi</p>
+    <p class="home2-footer__legal"><a href="/privacy">Privacy</a><a href="/support">Support</a><a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a><a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

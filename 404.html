@@ -1,48 +1,166 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<script>(function(d){var t=null;try{t=localStorage.getItem('dl-theme');}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t);})(document.documentElement)</script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#fbfaf5" />
-  <title>Page not found · Deepanshu Lathar</title>
-  <meta name="description" content="This page doesn't exist." />
-  <meta name="robots" content="noindex" />
-  <script>if(/^\/labs(\/|$)/.test(location.pathname)&&location.pathname!=='/labs/404')location.replace('/labs/404')</script>
-  <link rel="preload" href="/assets/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="stylesheet" href="/assets/pages.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="description" content="The page you asked for is not on the map." />
+<title>Page not found · Deepanshu Lathar</title>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Page not found · Deepanshu Lathar" />
+<meta property="og:description" content="The page you asked for is not on the map." />
+<meta property="og:url" content="https://deepanshulathar.com/404" />
+<meta property="og:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://deepanshulathar.com/assets/og-image.png" />
+<link rel="preload" href="/fonts/averia-serif-libre-300.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/averia-serif-libre-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://deepanshulathar.com/404" />
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="bar">
-    <a class="brand" href="/" aria-label="Deepanshu Lathar, home"><svg viewBox="251 194 800 800" aria-hidden="true"><path d="M336 508 623 229v414L337 959zM565 778h401L786 959H346z"/></svg><span>Deepanshu Lathar</span></a>
-    <nav aria-label="Primary"><a href="/#projects">Projects</a><a href="/#contact">Contact</a></nav>
-  </header>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="main">
-    <div class="wrap lost">
-      <svg viewBox="0 0 560 90" aria-hidden="true" focusable="false">
-        <path d="M-2000 45H250" fill="none" stroke="var(--eng)" stroke-width="20"/>
-        <path d="M250 45H2600" fill="none" stroke="var(--eng)" stroke-width="20" stroke-dasharray="26 16"/>
-        <circle cx="250" cy="45" r="24" fill="var(--paper)" stroke="var(--ink)" stroke-width="11"/>
-        <path d="M229 66 271 24" stroke="var(--ink)" stroke-width="8"/>
-      </svg>
-      <h1>This stop doesn’t exist.</h1>
-      <p>The page you asked for is not on the map. It may have moved, or the link may be wrong.</p>
-      <div class="exits">
-        <a class="exit" href="/"><span class="ex" aria-hidden="true">A</span>Back to the home page</a>
-        <a class="exit b" href="/#projects"><span class="ex" aria-hidden="true">B</span>See the projects</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="site-header__home" href="/" aria-label="Deepanshu Lathar — home">
+      <img src="/favicon.svg" alt="" width="34" height="34" />
+    </a>
+    <nav class="site-header__nav" data-nav aria-label="Primary">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <button type="button" class="site-header__sayhi" data-sayhi-open>Say hi</button>
+    </nav>
+    <button class="site-header__toggle" data-menu-btn type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+      <svg class="ico-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      <svg class="ico-x" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="menu-panel" data-menu-panel id="menu-panel" hidden>
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a>
+      <button type="button" data-sayhi-open>Say hi</button>
+    </div>
+  </div>
+</header>
+
+<div class="sayhi" data-sayhi hidden>
+  <div class="sayhi__overlay" data-sayhi-close></div>
+  <div class="sayhi__dialog" role="dialog" aria-modal="true" aria-labelledby="sayhi-title">
+    <button class="sayhi__x" data-sayhi-close type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <p class="sayhi__eyebrow">Direct line</p>
+    <h2 id="sayhi-title">Say hi to Deepanshu</h2>
+    <p class="sayhi__sub">Quickest routes — pick one.</p>
+    <div class="sayhi__chips">
+      <button type="button" data-term-q="What is he building right now?">What is he building right now?</button>
+      <button type="button" data-term-q="Is he available for internships, and when?">Is he available, and when?</button>
+      <button type="button" data-term-q="Which project should I look at first, and why?">Which project should I see first?</button>
+    </div>
+    <div class="sayhi__direct">
+      <a class="btn btn--solid" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="#" data-email-link>Email me</a>
+    </div>
+    <p class="sayhi__note">Replies within a day — usually faster. Both buttons open in your own app.</p>
+  </div>
+</div>
+
+<main id="main">
+  <div class="errors-hero" data-playing="true">
+    <div class="errors-hero__row" style="--loop-duration:30s">
+      <div class="errors-hero__set">
+        <span class="errors-hero__word">lost?</span>
+        <span class="errors-hero__word errors-hero__word--ghost">not on the map</span>
+        <span class="errors-hero__word">lost?</span>
+        <span class="errors-hero__word errors-hero__word--ghost">not on the map</span>
+        <span class="errors-hero__word">lost?</span>
+        <span class="errors-hero__word errors-hero__word--ghost">not on the map</span>
+      </div>
+      <div class="errors-hero__set">
+        <span class="errors-hero__word">lost?</span>
+        <span class="errors-hero__word errors-hero__word--ghost">not on the map</span>
+        <span class="errors-hero__word">lost?</span>
+        <span class="errors-hero__word errors-hero__word--ghost">not on the map</span>
+        <span class="errors-hero__word">lost?</span>
+        <span class="errors-hero__word errors-hero__word--ghost">not on the map</span>
       </div>
     </div>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <span>© 2026 Deepanshu Lathar — built by hand, no template</span>
-      <nav aria-label="Footer"><a href="/">Home</a><a href="/labs">Labs</a><a href="/privacy">Privacy</a><a href="https://github.com/latharrr" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a></nav>
+  </div>
+  <div class="errors-center">
+    <h1>This stop doesn't exist.</h1>
+    <p>The page you asked for is not on the map. It may have moved, or the link may be wrong.</p>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="/">Back to the home page</a>
+      <a class="btn btn--ghost" href="/#work">See the projects</a>
     </div>
-  </footer>
+  </div>
+</main>
+
+<footer class="home2-footer">
+  <div class="footer-contact">
+    <div>
+      <h2 data-reveal>Have a role, a project, or a good argument about <em>attribution</em>?</h2>
+      <p class="footer-contact__facts"><span>Delhi NCR, India</span><span>IST (UTC+5:30)</span><span>Open to Summer 2027 internships</span><span>Replies within a day</span></p>
+    </div>
+    <div class="footer-contact__actions">
+      <a class="btn btn--solid" href="#" data-email-link>Email me</a>
+      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20your%20portfolio">WhatsApp</a>
+      <a class="btn btn--ghost" href="/Deepanshu-Lathar-Resume.pdf" download>Résumé (PDF)</a>
+    </div>
+  </div>
+  <div class="home2-footer__inner">
+    <a class="home2-footer__art" href="/about" aria-label="About Deepanshu">
+      <span class="home2-footer__folder" aria-hidden="true">
+        <svg viewBox="0 0 320 230">
+          <path d="M18 38 Q18 22 34 22 L118 22 L142 44 L286 44 Q302 44 302 60 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#8FD0FF"/>
+          <path d="M18 70 L302 70 L302 196 Q302 212 286 212 L34 212 Q18 212 18 196 Z" fill="#5CB6F7"/>
+        </svg>
+      </span>
+      <span class="home2-footer__paper" aria-hidden="true">
+        <svg viewBox="0 0 260 190">
+          <g transform="rotate(3 130 95)">
+            <rect x="10" y="10" width="240" height="170" rx="6" fill="#FFFEF7" stroke="#FFFFFF" stroke-width="5"/>
+            <rect x="70" y="76" width="120" height="32" rx="7" fill="#E7FF7D"/>
+            <text x="130" y="64" text-anchor="middle" class="paper-title">TRACEABLE</text>
+            <text x="130" y="100" text-anchor="middle" class="paper-title">GROWTH</text>
+            <g stroke="#1F2328" fill="none" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="58" cy="142" r="10"/><circle cx="94" cy="130" r="10"/><circle cx="94" cy="154" r="10"/>
+              <path d="M68 142 h16 M84 136 l10 -6 M84 148 l10 6"/>
+              <circle cx="200" cy="142" r="13"/><path d="M210 152 l10 10"/>
+              <path d="M126 128 h44 l-9 14 h-26 z"/>
+            </g>
+            <path d="M40 40 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#3556FF"/>
+          </g>
+        </svg>
+      </span>
+    </a>
+    <nav class="home2-footer__links" aria-label="Footer">
+      <a href="/#work">Work</a>
+      <a href="/labs">Labs</a>
+      <a href="/sidequests">Sidequests</a>
+      <a href="/about">About</a>
+      <a class="gap" href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a>
+      <a href="https://github.com/latharrr">GitHub</a>
+    </nav>
+  </div>
+  <div class="home2-footer__base">
+    <p class="home2-footer__credit">hand-coded with love in Delhi</p>
+    <p class="home2-footer__legal"><a href="/privacy">Privacy</a><a href="/support">Support</a><a href="/Deepanshu-Lathar-Resume.pdf" download>Résumé</a><a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
 </body>
 </html>
