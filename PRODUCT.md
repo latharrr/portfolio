@@ -20,7 +20,7 @@ It exists to turn a recruiter's skim into contact. Success is a visitor who can 
 
 ## Positioning
 
-Every claim on the site can be checked. Each project links to its real repository and to a running deployment where one exists, and carries its true status in plain words ("Live · beta", "Working · pre-release", "Built · demo offline"). Each number traces to a campaign, repository, program, or team. A portfolio that rounds up, hides dead demos, or lists skills with nothing behind them could not copy this without rewriting its content.
+Every claim on the site can be checked. Each project links to its real repository and to a running deployment where one exists, and carries its true status in plain words ("Live · beta", "Live · personal", "Live", "Live 24/7"). Each number traces to a campaign, repository, program, or team. A portfolio that rounds up, hides dead demos, or lists skills with nothing behind them could not copy this without rewriting its content.
 
 The second half of the position is range: he builds the product and also runs growth, attribution, and operations inside early-stage startups, so the work spans engineering and distribution.
 
@@ -29,7 +29,7 @@ The second half of the position is range: he builds the product and also runs gr
 - Entry points: the résumé PDF, LinkedIn profile, GitHub profile, and direct links. `/resume` and `/cv` redirect to the PDF.
 - The recruiter's ritual is comparison under time pressure, mostly on a laptop, sometimes on a phone from a LinkedIn link.
 - Outbound actions the site supports: download résumé, email, LinkedIn, GitHub, WhatsApp.
-- Section order today: home, projects, experience, ask (AI terminal), achievements with credentials, skills, open source, writing, about, contact. The résumé download sits in the top bar and first in the phone menu. Old routes (`/about`, `/work`, `/experience`, `/writing`, `/archive`) redirect to these anchors.
+- Pages (since 23 Oct 2026): home (hero, Work, The receipts, Sidequests teaser), `/about` (bio, experience, skills, credentials), `/sidequests` (writing, open-source ledger), project pages `/proofmart`, `/gapl`, `/lputv`, plus `/privacy`, `/support` and `/labs`. Contact sits in every footer and in the Say hi window. Old routes redirect: `/work`, `/work/:slug` and `/archive` go to `/#work`; `/experience` goes to `/about`; `/writing` to `/sidequests`; `/uniconnect` to `/lputv`; `/college-cli` to `/#work`.
 
 ## Capabilities and Constraints
 
@@ -40,38 +40,37 @@ The second half of the position is range: he builds the product and also runs gr
 
 **Present today, open to change:**
 
-- An interactive terminal that answers questions about Deepanshu through Groq (`api/ask.mjs`). It answers only from a fixed fact sheet, is rate-limited to 15 questions per visitor per day, and is restricted to the site's own origins.
-- The main site is one hand-written static `index.html` with no framework, self-hosted Geist fonts, light and dark themes, and three Vercel serverless functions. Deployed on Vercel with `cleanUrls` and security headers set in `vercel.json`.
+- Hand-written static pages with no framework and self-hosted Averia Serif Libre and Mona Sans fonts. `styles.css` is inlined into every page (`tools/inline-css.py`); the shared header, say-hi window and footer are copied from `index.html` (`tools/sync-pages.py`). Two Vercel serverless functions feed the open-source ledger. Deployed on Vercel with `cleanUrls` and security headers set in `vercel.json`. The owner considers the site final as of 23 Oct 2026.
+- The AI "Ask the terminal" was removed at the owner's request on 23 Oct 2026.
 - Résumé served as `Deepanshu-Lathar-Resume.pdf` at the repo root.
-- The home page loads Google Analytics 4 and Microsoft Clarity on the production domain. This is disclosed at `/privacy`, where a visitor can switch it off; it also stays off for browsers sending Global Privacy Control or Do Not Track.
-- `/privacy` and the site-wide `404.html` are plain sub-pages styled by `assets/pages.css`.
+- The home page loads Google Analytics 4 and Microsoft Clarity on the production domain, only after the visitor's first scroll, tap, key press or pointer move (this keeps Lighthouse at 100). This is disclosed at `/privacy`, where a visitor can switch it off; it also stays off for browsers sending Global Privacy Control or Do Not Track.
 
 **Out of scope for this file:**
 
-- `/labs` is Deepanshu Labs, an independent software studio whose first project is a WhatsApp AI receptionist. It has a different audience and its own `labs/PRODUCT.md` and `labs/DESIGN.md`. This PRODUCT.md does not govern it.
+- `/labs` is Deepanshu Labs, an independent software studio whose first project is a WhatsApp AI receptionist. It has a different audience and its own `labs/PRODUCT.md`. It shares this site's design system (`DESIGN.md`).
 
-**Terminology:** "ProofMart", "Gapl", "College-CLI", "UniConnect" (also shown as "LPU Connect"), "PicaPool", "UniLyf", "Founder's Office". Availability is stated as "Summer 2027 internships".
+**Terminology:** "ProofMart", "Gapl", "LpuTV" (formerly UniConnect), "Deepanshu Labs", "PicaPool", "UniLyf", "Founder's Office". College-CLI is no longer shown anywhere. Availability is stated as "Summer 2027 internships".
 
 **Facts that go stale and must be re-checked before reuse:** current roles, availability window, repo count, follower count, project status labels, résumé PDF.
 
 ## Brand Commitments
 
 - Name: Deepanshu Lathar. Domain: deepanshulathar.com. Title line: "Full-Stack & AI Engineer".
-- Mark: the L logo (`assets/logo.svg`, `favicon.svg`), shared with Deepanshu Labs.
+- Mark: the L logo (`assets/logo.svg`, `favicon.svg`), used as the favicon, app icon and header mark on every page, including Labs.
 - Voice as written today (observed, not separately confirmed as binding): first person, plain, specific, a little dry. Section headings state a stance ("Receipts, not adjectives.", "Built, deployed, and labeled honestly."). Claims are followed by their proof, not by superlatives.
 
 ## Evidence on Hand
 
 - Portrait: `assets/portrait.webp`.
-- Product screenshots: `assets/shot-proofmart.webp`, `assets/shot-gapl.webp`; project images `assets/proj-college-cli.webp`, `assets/proj-lpu-connect.webp`.
-- Writing thumbnails: `assets/post-campus-gtm.webp`, `post-deadlocks.webp`, `post-retention.webp`, `post-laptop.webp`. The essays themselves live on LinkedIn.
-- Live products: proofmart.shop (beta), gapl.vercel.app. College-CLI has source but no npm release yet. UniConnect has source; its demo is offline.
+- Work tiles: `assets/tile-proofmart.webp`, `tile-gapl.webp`, `tile-lputv.webp`, `tile-labs-2.webp` (each with an `-800` version). Case images: `proofmart-1/2.webp`, `gapl-1/2.webp`. Share image: `assets/og-image.png` (1200×630, pastel).
+- Drawings (hero cards, sidequest thumbnails, icons): `art.svg`. The essays themselves live on LinkedIn.
+- Live products: proofmart.shop (beta), gapl.vercel.app, lputv.vercel.app, and the Labs WhatsApp receptionist (demo line +91 99996 02901).
 - Stated figures (matched to the résumé on 2026-10-14): 3,000+ students reached by a PicaPool campus push, 15+ internal tools in 8 weeks at PicaPool, a 6-person team led at UniLyf, 200+ profiled beta users at UniLyf, 1,000+ launch submissions in 72 hours (product not yet named), open-source repo count read live, 2 products live, 30 days of public writing, 1,500+ LinkedIn followers, Grade A in Advanced Backend Development.
 - Title at PicaPool: "AI Intern, Founder's Office" (as on the résumé). Education shown: B.Tech CSE, LPU, 2024–28.
 - Credentials: McKinsey Forward Program, Advanced Backend Development (Grade A), Deloitte Australia Data Analytics Job Simulation, Scaler Young Innovator Internship Challenge (Edition 2), HubSpot Digital Marketing, C Programming. Two carry credential IDs.
 - Experience: PicaPool Founder's Office (Jul 2025 – present), LPU Division of Admissions (Jan 2026 – present), Student Organization Cell, UniLyf, INGLU.
 
-**Absent, and not to be fabricated:** testimonials, recommendations, employer or client logos, press, case-study metrics beyond the figures above, GPA, and any live demo for UniConnect or published package for College-CLI.
+**Absent, and not to be fabricated:** testimonials, recommendations, employer or client logos, press, case-study metrics beyond the figures above, and GPA.
 
 ## Product Principles
 
@@ -83,4 +82,4 @@ The second half of the position is range: he builds the product and also runs gr
 
 ## Accessibility & Inclusion
 
-No standard has been set by the owner. The current site already has a skip link, ARIA labelling on interactive controls, reduced-motion handling, and light and dark themes; future work should not regress these.
+No standard has been set by the owner. The current site has a skip link, ARIA labelling on interactive controls, ordered headings, reduced-motion handling and a pause control. Every page scored 100 for Lighthouse Accessibility on 23 Oct 2026. Future work should not regress these.
