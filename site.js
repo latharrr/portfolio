@@ -34,6 +34,7 @@ doc.querySelectorAll("[data-motion-btn]").forEach(function(b){
     if(RM)return;
     try{sessionStorage.setItem(motionKey,String(!storePaused()))}catch(e){}
     applyMotion();
+    if(storePaused()){settleHero();settleStars()}
     kickStars();
   });
 });
@@ -59,8 +60,19 @@ applyMotion();
 doc.querySelectorAll(".home2-hero").forEach(function(hero){
   requestAnimationFrame(function(){requestAnimationFrame(function(){
     hero.setAttribute("data-animation-ready","true");
+    if(storePaused())settleHero();
   })});
 });
+/* paused means still, not hidden: jump the one-off intro (box, flaps, cards) to its end state,
+   which is what reduced motion shows, instead of freezing the cards inside the box */
+function settleHero(){
+  doc.querySelectorAll(".home2-hero").forEach(function(hero){
+    if(!hero.getAnimations)return;
+    hero.getAnimations({subtree:true}).forEach(function(a){
+      try{if(a.effect&&a.effect.getComputedTiming().endTime!==Infinity)a.finish()}catch(e){}
+    });
+  });
+}
 
 /* ---------- mobile menu ---------- */
 (function(){
@@ -114,7 +126,7 @@ doc.querySelectorAll(".home2-hero").forEach(function(hero){
 })();
 
 /* ---------- sparkles: 15 dots drift out of the box, then idle and dodge the pointer ---------- */
-var kickStars=function(){};
+var kickStars=function(){}, settleStars=function(){};
 (function(){
   var field=doc.querySelector("[data-sparkles]");
   if(!field)return;
@@ -215,12 +227,18 @@ var kickStars=function(){};
     }
     raf=requestAnimationFrame(frame);
   }
+  /* pausing before a dot has landed sends it to its resting place instead of freezing it at the box */
+  settleStars=function(){
+    var t=(performance.now()-t0)/1000;
+    stars.forEach(function(s){if(t<s.release+s.travel)place(s,s.toX,s.toY)});
+  };
   kickStars=function(){
     if(raf||isPaused()||doc.hidden||!inView)return;
     raf=requestAnimationFrame(frame);
   };
-  /* park every dot at the box until the loop starts */
-  stars.forEach(function(s){place(s,s.fromX,s.fromY)});
+  /* park every dot at the box until the loop starts; a page that loads paused shows them settled */
+  var parked=storePaused();
+  stars.forEach(function(s){parked?place(s,s.toX,s.toY):place(s,s.fromX,s.fromY)});
   if("IntersectionObserver" in window){
     new IntersectionObserver(function(en){
       inView=en[0].isIntersecting;

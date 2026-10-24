@@ -126,6 +126,13 @@
     </div>
   </div>
 </section>
+<script>
+  /* size the hero stages from their measured width before the first paint; site.js keeps them in step on resize */
+  [[".hero-fit",".hero-stage","--s",1664],[".hero-art",".hero-art__stage","--ms",860]].forEach(function(f){
+    var box=document.querySelector(f[0]),stage=box&&box.querySelector(f[1]);
+    if(stage)stage.style.setProperty(f[2],String(box.clientWidth/f[3]));
+  });
+</script>
 
 <!-- ================= WORK ================= -->
 <section class="band" id="work" aria-label="Work">
