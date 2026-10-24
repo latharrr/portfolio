@@ -40,11 +40,10 @@ doc.querySelectorAll("[data-motion-btn]").forEach(function(b){
 applyMotion();
 
 /* ---------- hero: scale fallback + animation-ready gate ---------- */
-/* CSS scales the stages with tan(atan2()); browsers without it get the same value from here. */
+/* CSS scales the stages with tan(atan2(100cqw, …)) for the first paint. Some iOS Safari versions
+   support tan(atan2()) yet resolve it with cqw far too small (about 0.11 instead of 0.42 at 390px),
+   shrinking the phone scene into the top-left corner, so the measured width always wins. */
 (function(){
-  var probe=doc.createElement("div");
-  probe.style.width="calc(1px * tan(atan2(1px, 2px)))";
-  if(probe.style.width)return;
   var fits=[[".hero-fit",".hero-stage","--s",1664],[".hero-art",".hero-art__stage","--ms",860]];
   function fit(){
     fits.forEach(function(f){
