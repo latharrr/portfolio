@@ -43,15 +43,16 @@ LABS_CONTACT = '''<div class="footer-contact" id="contact">
       <a class="btn btn--ghost" href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>'''
-RECEPTIONIST_CONTACT = f'''<div class="footer-contact" id="contact">
+RECEPTIONIST_CONTACT = f'''<div class="footer-contact rx-close" id="contact">
     <div>
-      <h2 data-reveal>Message the number. Then let’s <em>talk</em>.</h2>
-      <p class="footer-contact__sub">Ask it to book you a call and watch a real Google Meet link land in the chat. If you like what you see, tell me about your business and how your customers get in touch today.</p>
-    </div>
-    <div class="footer-contact__actions">
-      <a class="btn btn--lime" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a>
-      <a class="btn btn--ghost" href="#" data-email-link>Email me</a>
-      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I'd%20like%20to%20talk%20about%20a%20receptionist%20for%20my%20business." target="_blank" rel="noopener">Message me on WhatsApp</a>
+      <h2 data-reveal>Try it free for 15 days.</h2>
+      <div class="rx-close__row">
+        <p>Start with the demo. If you like it, yours is set up around your services, prices and hours.</p>
+        <div>
+          <div class="rx-act"><a class="btn btn--solid" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a></div>
+          <p class="rx-foot">Demo line <b>+91 99996 02901</b></p>
+        </div>
+      </div>
     </div>
   </div>'''
 

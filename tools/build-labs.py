@@ -113,118 +113,128 @@ index = head("Deepanshu Labs · Independent software studio",
 # ---------------- /labs/whatsapp-receptionist ----------------
 check = '<svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5 4.5 10 11 2M7 9.5l.9.6L14.5 2"/></svg>'
 recep = head("WhatsApp AI Receptionist · Deepanshu Labs",
-  "An AI receptionist that answers your customers on WhatsApp in seconds, answers their questions, and books calls straight into the diary - tailored to your services and prices on setup. Try the live demo.",
+  "An AI receptionist that replies to your customers on WhatsApp in seconds, answers common questions and takes call requests. Set up around your business. Try the live demo.",
   "/labs/whatsapp-receptionist",
   "WhatsApp AI Receptionist · a Deepanshu Labs project",
-  "WhatsApp the live demo. Message the number and watch it book you a call with a real Google Meet link.") + '<body id="top" class="has-dock">\n' + SHELL_TOP + f'''<main id="main">
+  "WhatsApp the live demo. Ask it about the receptionist, then leave a preferred time for a call with Deepanshu.").replace('</head>', '''<style data-page="receptionist">
+/* receptionist page only: one left edge (48px), one picture (the chat), one action */
+.rx-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,580px);align-items:start;gap:64px;padding:112px 48px 128px}
+.rx-eyebrow,.rx-hero .chat-note{font-family:var(--sans);font-size:12px;line-height:18px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.rx-eyebrow{margin-bottom:28px}
+.rx-hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(56px,6vw,86px);line-height:.93;letter-spacing:-.032em;color:#000;max-width:13ch;text-wrap:balance}
+.rx-lede{margin-top:32px;font-size:19px;line-height:1.5;color:var(--text);max-width:38ch}
+.rx-act{margin-top:36px}
+.rx-foot{margin-top:16px;font-size:16px;line-height:1.5;color:var(--muted);max-width:44ch}
+.rx-foot b{font-weight:400;color:var(--ink);white-space:nowrap}
+.rx-hero .chat{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;align-items:start;align-self:stretch;justify-self:end;width:100%;max-width:580px}
+.rx-hero .chat-note{margin:0 0 12px}
+.rx-hero .replay{min-height:0;margin:0 0 12px;line-height:18px}
+.rx-hero .chat-screen{grid-column:1/-1;align-self:stretch;display:flex;flex-direction:column}
+.rx-hero .chat-head{padding:18px 22px}
+.rx-hero .chat ol{flex:1;align-content:end;gap:12px;padding:28px 22px 30px}
+.rx-hero .chat li{font-size:15.5px;max-width:80%;padding:11px 15px 10px}
+.rx-hero .chat time svg{stroke:var(--teal-ink)}
+.rx-hero .chat-head span{font-family:var(--sans);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.rx-does{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,760px);gap:64px;align-items:start;padding:128px 48px 136px}
+.rx-does h2{font-family:var(--serif);font-weight:300;font-size:48px;line-height:1.05;letter-spacing:-.02em;color:#000}
+.rx-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.rx-rows li{display:flex;align-items:center;min-height:84px;padding:20px 0;border-bottom:1px solid var(--rule);font-size:19px;line-height:1.45;color:var(--muted)}
+.rx-rows strong{font-weight:400;color:#000}
+.home2-footer .rx-close{display:block;padding:128px 48px 136px;text-align:center}
+.rx-close>div{max-width:760px;margin-inline:auto}
+.rx-close h2{max-width:none;margin-inline:auto;text-wrap:balance;font-size:clamp(56px,5.6vw,80px);line-height:1;letter-spacing:-.028em;color:#000}
+.rx-close__row{display:grid;grid-template-columns:minmax(0,1fr);gap:36px;justify-items:center;margin-top:32px}
+.rx-close p{font-size:19px;line-height:1.5;color:var(--text);max-width:40ch;margin-inline:auto}
+.rx-close .rx-act{margin-top:0}
+.rx-close .rx-foot{margin-top:18px;max-width:none;font-family:var(--sans);font-size:12px;line-height:18px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.rx-close .rx-foot b{font-weight:500;color:var(--ink)}
+/* the shared footer, kept whole but turned down so the offer above stays the last strong thing */
+.home2-footer .home2-footer__inner{min-height:0;padding:40px 48px 28px}
+.home2-footer .home2-footer__art{width:150px;height:109px}
+.home2-footer .home2-footer__links{flex-direction:row;flex-wrap:wrap;justify-content:flex-end;gap:6px 22px}
+.home2-footer .home2-footer__links a{font-size:20px;line-height:1.3;letter-spacing:-.01em}
+.home2-footer .home2-footer__links .gap{margin-top:0}
+.home2-footer .home2-footer__credit{font-size:15px}
+@media (max-width:900px){
+  .rx-hero{grid-template-columns:1fr;gap:56px;padding:88px 24px 72px}
+  .rx-eyebrow{margin-bottom:20px}
+  .rx-hero h1{font-size:clamp(40px,11.4vw,56px);line-height:.95;max-width:none}
+  .rx-lede{margin-top:22px;font-size:17px}
+  .rx-act{margin-top:28px}
+  .rx-hero .chat{justify-self:stretch;max-width:none}
+  .rx-hero .chat{align-self:start}
+  .rx-hero .chat-head{padding:14px 16px}
+  .rx-hero .chat ol{gap:8px;padding:16px 10px 18px}
+  .rx-hero .chat li{max-width:93%;padding:9px 12px 8px}
+  .rx-does{grid-template-columns:1fr;gap:32px;padding:72px 24px 80px}
+  .rx-does h2{font-size:36px}
+  .rx-rows li{min-height:0;padding:20px 0;font-size:17px}
+  .home2-footer .rx-close{padding:80px 24px 88px}
+  .rx-close h2{font-size:clamp(40px,11.4vw,56px)}
+  .rx-close__row{grid-template-columns:1fr;margin-top:24px;gap:28px}
+  .rx-close p{font-size:17px}
+  .home2-footer .home2-footer__inner{gap:24px;padding:40px 24px 24px}
+  .home2-footer .home2-footer__art{width:120px;height:87px}
+  .home2-footer .home2-footer__links{justify-content:center;gap:4px 18px}
+  .home2-footer .home2-footer__links a{font-size:18px}
+  html.js .dock.dock--hero{translate:0 110%}
+  /* the label keeps one line; the replay link moves under the chat */
+  .rx-hero .chat-note{white-space:nowrap}
+  .rx-hero .replay{grid-row:3;grid-column:1/-1;justify-self:start;margin:14px 0 0}
+  /* the dock has already stepped aside at the contact strip, so no white band under the footer */
+  body.has-dock{padding-bottom:0}
+}
+</style>
+</head>''', 1) + '<body id="top" class="has-dock">\n' + SHELL_TOP + f'''<main id="main">
 <section class="band" aria-labelledby="hero-h">
   <div class="band__column">
-    <div class="lab-hero">
+    <div class="rx-hero">
       <div>
-        <div class="hang">
-          <div class="swing" id="swing">
-            {cord()}
-            <button class="sign" id="sign" type="button" aria-pressed="false">
-              <span class="card">
-                <span class="face open"><small>Your WhatsApp is</small><b>Open</b><span>answered in seconds</span></span>
-                <span class="face busy" aria-hidden="true"><small>Sorry, we’re</small><b>Busy</b><span>with a customer</span></span>
-              </span>
-              <span class="sr-only"> (tap to turn the sign over)</span>
-            </button>
-          </div>
-          <script>
-            /* the sign arrives showing BUSY and turns itself over once; this does not wait for site.js */
-            (function (s, w) {{
-              if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-              s.classList.add('pre'); s.setAttribute('aria-pressed', 'true');
-              requestAnimationFrame(function () {{ requestAnimationFrame(function () {{
-                s.classList.remove('pre');
-                setTimeout(function () {{
-                  s.setAttribute('aria-pressed', 'false');
-                  s.dispatchEvent(new Event('turned'));
-                  setTimeout(function () {{ w.classList.add('settle'); }}, 520);
-                }}, 700);
-              }}); }});
-            }})(document.getElementById('sign'), document.getElementById('swing'));
-          </script>
-        </div>
-        <span class="turn" id="sign-hint" aria-hidden="true"></span>
+        <p class="rx-eyebrow">WhatsApp AI receptionist</p>
+        <h1 id="hero-h">Busy with a customer? The next one still gets a reply.</h1>
+        <p class="rx-lede">An AI receptionist for your WhatsApp. It replies in seconds, answers common questions and takes call requests.</p>
+        <div class="rx-act"><a class="btn btn--solid" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a></div>
+        <p class="rx-foot">Demo line <b>+91 99996 02901</b>. Ask it anything, then leave a time for a call with Deepanshu.</p>
       </div>
-      <div>
-        <p class="lab-eyebrow"><a href="/labs">Deepanshu Labs</a> <span aria-hidden="true">/</span> WhatsApp AI Receptionist</p>
-        <h1 id="hero-h">It’s 9pm. A customer just WhatsApped you. <span class="chip-word chip-word--lime chip-word--nowrap">Who answers?</span></h1>
-        <p class="lede"><strong>An AI receptionist for your business.</strong> While you’re with a customer, it replies to the next one in seconds, answers their questions, and books the next step straight into the diary. Set up around your business: your services, your prices, your hours.</p>
-        <div class="lab-actions">
-          <a class="btn btn--solid" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a>
-          <a class="btn btn--ghost" href="#how">How it works</a>
-        </div>
-        <p class="lab-demo"><strong>Message the number and watch it book you a call.</strong> Demo line: +91 99996 02901</p>
-        <div class="lab-meta"><span class="live-chip">Demo line · Live 24/7</span><span>A <a href="/labs">Deepanshu Labs</a> project</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="how" aria-label="How it works">
-  <div class="band__column">
-    <div class="section-head">
-      <div class="section-head__row">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 4a13 13 0 0 0-11.2 19.6L4 30l6.6-1.7A13 13 0 1 0 17 4z" fill="#E7FF7D" stroke="#17323A" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        <h2 data-reveal>Try it the way a customer would.</h2>
-      </div>
-      <p data-reveal>Four steps, all on WhatsApp. Nothing to install, and no real business gets your messages.</p>
-    </div>
-    <div class="lab-how">
-      <div data-reveal>
-        <ol class="steps">
-          <li><span class="n" aria-hidden="true">1</span><h3>Message the number</h3><p>Open WhatsApp and say hello to +91 99996 02901. Ask it to book you a call with Deepanshu.</p></li>
-          <li><span class="n" aria-hidden="true">2</span><h3>Give it a time and topic</h3><p>Pick a day and time and say what the call is about. It asks for whatever is missing - one short question, never a form.</p></li>
-          <li><span class="n" aria-hidden="true">3</span><h3>Get a real Meet link</h3><p>Within minutes a Google Meet link lands in the chat, with the date, time and both names on it.</p></li>
-          <li><span class="n" aria-hidden="true">4</span><h3>Show up and talk</h3><p>The same details reach Deepanshu and his calendar. The flow you just tried is the one your customers would get.</p></li>
-        </ol>
-        <div class="lab-how__act">
-          <a class="btn btn--solid" href="{DEMO}" target="_blank" rel="noopener">{WA}Book a demo call</a>
-          <span>The demo line answers 24/7.</span>
-        </div>
-      </div>
-      <figure class="chat" data-reveal>
+      <figure class="chat" aria-label="Example conversation with the Deepanshu Labs demo line">
+        <figcaption class="chat-note">Example conversation</figcaption>
         <div class="chat-screen">
-          <div class="chat-head"><i class="ava" aria-hidden="true">DL</i><div><b>Deepanshu Labs</b><span>AI assistant · live WhatsApp line</span></div></div>
+          <div class="chat-head"><i class="ava" aria-hidden="true">DL</i><div><b>Deepanshu Labs</b><span>AI receptionist · Demo</span></div></div>
           <ol>
-            <li class="them"><span class="who">Visitor: </span>Hi, I’d like to book a call with Deepanshu this week.<time>11:02{check}</time></li>
-            <li class="bot"><span class="who">Assistant: </span>Happy to set that up - what day and time works for you?<time>11:02</time></li>
-            <li class="them"><span class="who">Visitor: </span>Tomorrow at 3pm<time>11:03{check}</time></li>
-            <li class="bot"><span class="who">Assistant: </span>What should we cover on the call?<time>11:03</time></li>
-            <li class="them"><span class="who">Visitor: </span>An AI receptionist for my salon<time>11:04{check}</time></li>
-            <li class="bot payoff"><span class="who">Assistant: </span>Locked in: AI receptionist - Sam x Deepanshu, 14 Oct 2026, 3:00 PM IST. Your Google Meet link:<span class="meet"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5A1.5 1.5 0 0 1 5.5 6h8A1.5 1.5 0 0 1 15 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 16.5zM15 10.5l5-3v9l-5-3z"/></svg></i><span><b>Google Meet</b><span>meet.google.com/abc-defg-hij</span></span></span><time>11:04</time></li>
+            <li class="them"><span class="who">Visitor: </span>Hi, can it answer my customers’ questions on WhatsApp?<time>21:14{check}</time></li>
+            <li class="bot"><span class="who">Assistant: </span>Yes. It’s set up around your business, so it answers questions about your services, prices and hours.<time>21:14</time></li>
+            <li class="them"><span class="who">Visitor: </span>Are you a real person?<time>21:15{check}</time></li>
+            <li class="bot"><span class="who">Assistant: </span>No, I’m an AI assistant. I can pass a call request to Deepanshu. What time suits you, and what would you like to talk about?<time>21:15</time></li>
+            <li class="them"><span class="who">Visitor: </span>Thursday at 4pm. A receptionist for my clinic.<time>21:16{check}</time></li>
+            <li class="bot"><span class="who">Assistant: </span>This is a time request, not a confirmed booking. Wait for confirmation before making plans.<time>21:16</time></li>
           </ol>
         </div>
-        <figcaption class="chat-note">An example conversation. The real one is waiting on WhatsApp.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section class="band" id="expect" aria-label="What to expect">
-  <div class="band__column">
-    <div class="section-head">
-      <div class="section-head__row">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M8 4h18v26l-3-2-3 2-3-2-3 2-3-2-3 2z" fill="#AFE3FF" stroke="#17323A" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 13l3 3 6-6" fill="none" stroke="#17323A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h2 data-reveal>What to expect.</h2>
-      </div>
-    </div>
-    <div class="receipt-grid">
-      <div class="receipt promise receipt--1" data-reveal><h3>You deal with me</h3><p>One person, not an agency. The person you message is the person who builds and fixes it.</p></div>
-      <div class="receipt promise receipt--2" data-reveal><h3>It sounds like your business</h3><p>Set up around your business: your services, your prices, your diary. Not a generic script.</p></div>
-      <div class="receipt promise receipt--3" data-reveal><h3>You stay in charge</h3><p>It doesn’t pretend to be human: ask and it says it’s an AI assistant. And when someone books a call, you hear about it right away.</p></div>
-      <div class="receipt promise receipt--4" data-reveal><h3>Try it before we talk</h3><p>The demo is live now. Test it as hard as you like, then bring me your questions.</p></div>
-      <div class="receipt promise receipt--5" data-reveal><h3>Straight answers</h3><p>Plain English, honest labels, and no numbers I can’t back up.</p></div>
-      <div class="receipt promise promise--cta receipt--6" data-reveal><h3>Message +91 99996 02901</h3><a class="btn btn--solid" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a></div>
-    </div>
+<section class="band" aria-labelledby="does-h">
+  <div class="band__column rx-does">
+    <h2 id="does-h">What it does</h2>
+    <ul class="rx-rows">
+      <li><p><strong>Replies on WhatsApp in seconds,</strong> even while you’re with a customer.</p></li>
+      <li><p><strong>Answers common questions</strong> about your services, prices and hours.</p></li>
+      <li><p><strong>Takes call requests</strong> when a customer asks to talk, and passes their preferred time to you to confirm.</p></li>
+      <li><p><strong>Says it’s an AI</strong> whenever someone asks.</p></li>
+    </ul>
   </div>
 </section>
 </main>
-''' + SHELL_BOTTOM + f'''<div class="dock"><a class="btn btn--lime" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a></div>
+''' + SHELL_BOTTOM + f'''<div class="dock dock--hero"><a class="btn btn--lime" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a></div>
+<script>
+  /* phones: the docked button waits until the hero button has scrolled away, so only one shows at a time */
+  (function (d, b) {{
+    if (!d) return;
+    if (!b || !('IntersectionObserver' in window)) {{ d.classList.remove('dock--hero'); return; }}
+    new IntersectionObserver(function (e) {{ d.classList.toggle('dock--hero', e[0].isIntersecting); }}).observe(b);
+  }})(document.querySelector('.dock'), document.querySelector('.rx-act .btn'));
+</script>
 
 <script src="/site.js" defer></script>
 </body>
