@@ -4,7 +4,7 @@ Source of my portfolio site: [deepanshulathar.com](https://deepanshulathar.com).
 
 [Live site](https://deepanshulathar.com) | [Résumé (PDF)](Deepanshu-Lathar-Resume.pdf) | [GitHub](https://github.com/latharrr)
 
-| | |
+| At a glance | |
 |---|---|
 | **What it is** | Hand-written static site: home, about, three project pages, writing and open-source page, plus a separate Labs section |
 | **Stack** | HTML, CSS and a little vanilla JavaScript. No framework, no bundler. Two Vercel serverless functions |
