@@ -57,7 +57,7 @@ api/              GitHub stats and contribution calendar functions
 assets/, fonts/   images (WebP with 800 px variants) and self-hosted fonts
 labs/             Deepanshu Labs pages
 tools/            local server and page generators
-design/           design system notes and the share-image source
+design/           design system notes and the share-image source (design/og-image.html renders assets/og-portrait.png, the 1200x630 portrait share card used in every page's social-preview tags)
 ```
 
 ## Notes
