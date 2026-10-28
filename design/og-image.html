@@ -1,30 +1,24 @@
 <!doctype html>
-<!-- Source for assets/og-image.png (1200 x 630). Open through the site's static server and screenshot at 1200 x 630. -->
-<html lang="en"><head><meta charset="utf-8"><title>Share image source</title>
+<!-- Source for assets/og-portrait.png (1200 x 630): portrait share card. Render at 1200 x 630 (e.g. viewport 1200x630) and screenshot. Fonts and portrait load from the live site. -->
+<html lang="en"><head><meta charset="utf-8">
 <style>
-  @font-face { font-family: "Overpass"; font-weight: 100 900; src: url(../assets/fonts/overpass-latin.woff2) format("woff2"); unicode-range: U+0000-00B6, U+00B8-00FF, U+2000-206F; }
-  * { box-sizing: border-box; margin: 0; }
-  body { width: 1200px; height: 630px; overflow: hidden; position: relative; background: #fbfaf5; color: #1a1a1a; font-family: "Overpass", "Helvetica Neue", Arial, sans-serif; }
-  svg { position: absolute; inset: 0; }
-  path { fill: none; stroke-width: 22; stroke-linejoin: round; }
-  h1 { position: absolute; left: 64px; top: 58px; font-size: 136px; font-weight: 800; line-height: 0.84; letter-spacing: -0.035em; }
-  p { position: absolute; left: 68px; top: 300px; font-size: 38px; font-weight: 700; letter-spacing: -0.01em; }
-  .url { top: auto; bottom: 46px; font-size: 26px; font-weight: 700; }
-  .lb { position: absolute; font-size: 22px; font-weight: 800; line-height: 1.15; white-space: nowrap; }
-  .lb small { display: block; font-size: 17px; font-weight: 500; color: #4d4b45; }
+  @font-face { font-family:"Averia"; font-weight:300; src:url("https://deepanshulathar.com/fonts/averia-serif-libre-300.woff2") format("woff2"); }
+  @font-face { font-family:"Averia"; font-weight:400; src:url("https://deepanshulathar.com/fonts/averia-serif-libre-400.woff2") format("woff2"); }
+  @font-face { font-family:"Mona"; font-weight:500; src:url("https://deepanshulathar.com/fonts/mona-sans-500-expanded.woff2") format("woff2"); }
+  * { box-sizing:border-box; margin:0; }
+  body { width:1200px; height:630px; overflow:hidden; position:relative; background:#ffffff; color:#141414; font-family:"Averia", Georgia, serif; }
+  .name { position:absolute; left:64px; top:128px; font-size:78px; font-weight:400; line-height:1.02; letter-spacing:-0.01em; }
+  .role { position:absolute; left:64px; top:264px; font-size:42px; line-height:1.1; }
+  .role span { background:#e7ff7d; padding:8px 20px; }
+  .proj { position:absolute; left:66px; top:398px; font-family:"Mona", Arial, sans-serif; font-size:19px; letter-spacing:0.11em; color:#4d4b45; }
+  .proj b { color:#141414; font-weight:500; }
+  .url { position:absolute; left:66px; bottom:48px; font-family:"Mona", Arial, sans-serif; font-size:23px; font-weight:500; color:#141414; }
+  .frame { position:absolute; right:64px; top:55px; width:400px; height:520px; border-radius:28px; border:3px solid #141414; overflow:hidden; background:#f4f2ec; }
+  .frame img { width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block; }
 </style></head><body>
-<svg viewBox="0 0 1200 630" aria-hidden="true">
-  <path stroke="#f5c400" d="M-40 500H474L689.6 284.4 840 435H1240"/>
-  <path stroke="#0a5fb4" d="M-40 424H520L674 270H930L1040 160H1066"/>
-  <path stroke="#0a5fb4" stroke-dasharray="26 16" d="M1082 160H1240"/>
-  <path stroke="#c2187a" d="M682 670V278L980-20"/>
-  <circle cx="682" cy="278" r="32" fill="#fbfaf5" stroke="#1a1a1a" stroke-width="11"/><circle cx="682" cy="278" r="12" fill="#1a1a1a"/>
-  <g fill="#fbfaf5" stroke="#1a1a1a" stroke-width="8"><circle cx="800" cy="270" r="13"/><circle cx="890" cy="270" r="13"/><circle cx="960" cy="435" r="13"/><circle cx="790" cy="170" r="13"/></g>
-</svg>
-<h1>Deepanshu<br>Lathar</h1>
-<p>Full-stack &amp; AI engineer</p>
-<span class="lb" style="left:760px;top:206px">ProofMart<small>Live · beta</small></span>
-<span class="lb" style="left:866px;top:296px">Gapl<small>Live</small></span>
-<span class="lb" style="left:906px;top:462px">LPU Admissions<small>Now · part-time</small></span>
-<p class="url">deepanshulathar.com</p>
+  <h1 class="name">Deepanshu Lathar</h1>
+  <p class="role"><span>Full-stack &amp; AI engineer</span></p>
+  <p class="proj">PROOFMART&nbsp;&nbsp;·&nbsp;&nbsp;GAPL&nbsp;&nbsp;·&nbsp;&nbsp;LPUTV&nbsp;&nbsp;·&nbsp;&nbsp;<b>LABS</b>&nbsp;&nbsp;·&nbsp;&nbsp;ALL&nbsp;LIVE</p>
+  <p class="url">deepanshulathar.com</p>
+  <div class="frame"><img src="https://deepanshulathar.com/assets/portrait.webp" alt=""></div>
 </body></html>
