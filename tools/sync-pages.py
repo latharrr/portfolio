@@ -39,7 +39,7 @@ LABS_CONTACT = '''<div class="footer-contact" id="contact">
     </div>
     <div class="footer-contact__actions">
       <a class="btn btn--solid" href="#" data-email-link>Email me</a>
-      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20Deepanshu%20Labs" target="_blank" rel="noopener">Message me on WhatsApp</a>
+      <a class="btn btn--ghost" href="https://wa.me/918221016809?text=Hi%20Deepanshu%2C%20I%20found%20Lathar%20Labs" target="_blank" rel="noopener">Message me on WhatsApp</a>
       <a class="btn btn--ghost" href="https://www.linkedin.com/in/deepanshulathar" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>'''

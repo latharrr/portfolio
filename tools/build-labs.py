@@ -49,8 +49,8 @@ def cord():
     return '<svg class="cord" viewBox="0 0 100 28.25" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M29.09 28.25 50 1.5 70.91 28.25"/><circle cx="50" cy="1.5" r="1.5"/></svg>'
 
 # ---------------- /labs ----------------
-index = head("Deepanshu Labs · Independent software studio",
-  "Deepanshu Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. First project: a WhatsApp AI receptionist with a live demo.",
+index = head("Lathar Labs · Independent software studio",
+  "Lathar Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. First project: a WhatsApp AI receptionist with a live demo.",
   "/labs") + '<body id="top">\n' + SHELL_TOP + f'''<main id="main">
 <section class="band" aria-labelledby="hero-h">
   <div class="band__column">
@@ -63,7 +63,7 @@ index = head("Deepanshu Labs · Independent software studio",
       </div>
       <div>
         <p class="lab-eyebrow">Independent software studio · Delhi NCR</p>
-        <h1 id="hero-h">Deepanshu <span class="chip-word chip-word--lime">Labs</span></h1>
+        <h1 id="hero-h">Lathar <span class="chip-word chip-word--lime">Labs</span></h1>
         <p class="lede">An independent software studio run by Deepanshu Lathar in Delhi NCR, India. <strong>One person, not an agency:</strong> the person you message is the person who builds and fixes it.</p>
         <div class="lab-actions">
           <a class="btn btn--solid" href="#projects">See the projects</a>
@@ -112,10 +112,10 @@ index = head("Deepanshu Labs · Independent software studio",
 
 # ---------------- /labs/whatsapp-receptionist ----------------
 check = '<svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5 4.5 10 11 2M7 9.5l.9.6L14.5 2"/></svg>'
-recep = head("WhatsApp AI Receptionist · Deepanshu Labs",
+recep = head("WhatsApp AI Receptionist · Lathar Labs",
   "An AI receptionist that replies to your customers on WhatsApp in seconds, answers common questions and takes call requests. Set up around your business. Try the live demo.",
   "/labs/whatsapp-receptionist",
-  "WhatsApp AI Receptionist · a Deepanshu Labs project",
+  "WhatsApp AI Receptionist · a Lathar Labs project",
   "WhatsApp the live demo. Ask it about the receptionist, then leave a preferred time for a call with Deepanshu.").replace('</head>', '''<style data-page="receptionist">
 /* receptionist page only: one left edge (48px), one picture (the chat), one action */
 .rx-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,580px);align-items:start;gap:64px;padding:112px 48px 128px}
@@ -196,10 +196,10 @@ recep = head("WhatsApp AI Receptionist · Deepanshu Labs",
         <div class="rx-act"><a class="btn btn--solid" href="{DEMO}" target="_blank" rel="noopener">{WA}Try it on WhatsApp</a></div>
         <p class="rx-foot">Demo line <b>+91 99996 02901</b>. Ask it anything, then leave a time for a call with Deepanshu.</p>
       </div>
-      <figure class="chat" aria-label="Example conversation with the Deepanshu Labs demo line">
+      <figure class="chat" aria-label="Example conversation with the Lathar Labs demo line">
         <figcaption class="chat-note">Example conversation</figcaption>
         <div class="chat-screen">
-          <div class="chat-head"><i class="ava" aria-hidden="true">DL</i><div><b>Deepanshu Labs</b><span>AI receptionist · Demo</span></div></div>
+          <div class="chat-head"><i class="ava" aria-hidden="true">LL</i><div><b>Lathar Labs</b><span>AI receptionist · Demo</span></div></div>
           <ol>
             <li class="them"><span class="who">Visitor: </span>Hi, can it answer my customers’ questions on WhatsApp?<time>21:14{check}</time></li>
             <li class="bot"><span class="who">Assistant: </span>Yes. It’s set up around your business, so it answers questions about your services, prices and hours.<time>21:14</time></li>
@@ -242,29 +242,29 @@ recep = head("WhatsApp AI Receptionist · Deepanshu Labs",
 '''
 
 # ---------------- /labs/privacy ----------------
-privacy = head("Privacy policy · Deepanshu Labs",
-  "What Deepanshu Labs collects through this website and the WhatsApp receptionist demo, and how to have it deleted.",
+privacy = head("Privacy policy · Lathar Labs",
+  "What Lathar Labs collects through this website and the WhatsApp receptionist demo, and how to have it deleted.",
   "/labs/privacy") + '<body id="top">\n' + SHELL_TOP + '''<main id="main">
   <section class="band">
     <div class="band__column">
       <div class="prose">
-        <p class="lab-eyebrow"><a href="/labs">Deepanshu Labs</a> <span aria-hidden="true">/</span> Privacy</p>
+        <p class="lab-eyebrow"><a href="/labs">Lathar Labs</a> <span aria-hidden="true">/</span> Privacy</p>
         <h1>Privacy policy</h1>
         <p class="lede">What we collect through this website and the WhatsApp demo, and how to have it deleted.</p>
-        <p class="eff">Deepanshu Labs · Effective 23 October 2026</p>
+        <p class="eff">Lathar Labs · Effective 23 October 2026</p>
         <nav aria-label="On this page"><ul class="toc-chips">
           <li><a href="#who">Who we are</a></li><li><a href="#site">This website</a></li><li><a href="#demo">The WhatsApp demo</a></li><li><a href="#providers">Service providers</a></li><li><a href="#deletion">Retention and deletion</a></li><li><a href="#rights">Your rights</a></li><li><a href="#children">Children</a></li><li><a href="#changes">Changes</a></li>
         </ul></nav>
 
         <h2 id="who">Who we are</h2>
-        <p>Deepanshu Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. This policy covers the Deepanshu Labs pages of this website (deepanshulathar.com/labs) and the WhatsApp AI receptionist demo they link to. The rest of deepanshulathar.com has <a href="/privacy">its own privacy policy</a>.</p>
+        <p>Lathar Labs is an independent software studio run by Deepanshu Lathar in Delhi NCR, India. This policy covers the Lathar Labs pages of this website (deepanshulathar.com/labs) and the WhatsApp AI receptionist demo they link to. The rest of deepanshulathar.com has <a href="/privacy">its own privacy policy</a>.</p>
 
         <h2 id="site">This website</h2>
         <p>These are static pages. They set no cookies, run no analytics and have no forms. Fonts and images are served from this site, not from third parties. The company that hosts it may keep standard server logs, such as IP address and the pages requested, to keep the site running.</p>
         <p>Links to WhatsApp, LinkedIn and GitHub open those services, under their own policies.</p>
 
         <h2 id="demo">The WhatsApp demo</h2>
-        <p>The demo line answers as the Deepanshu Labs assistant and books calls on Deepanshu's calendar. When you message it, we receive what WhatsApp shares with the business you are messaging: your phone number, your WhatsApp profile name, and the messages and photos you send.</p>
+        <p>The demo line answers as the Lathar Labs assistant and books calls on Deepanshu's calendar. When you message it, we receive what WhatsApp shares with the business you are messaging: your phone number, your WhatsApp profile name, and the messages and photos you send.</p>
         <p>We use them only to:</p>
         <ul>
           <li>Reply to you and manage your booking.</li>
@@ -306,7 +306,7 @@ privacy = head("Privacy policy · Deepanshu Labs",
 '''
 
 # ---------------- /labs 404 ----------------
-gone = head("Page not found · Deepanshu Labs", "This page doesn't exist.", "/labs/404").replace(
+gone = head("Page not found · Lathar Labs", "This page doesn't exist.", "/labs/404").replace(
   '<meta name="author"', '<meta name="robots" content="noindex" />\n<meta name="author"') + '<body id="top">\n' + SHELL_TOP + f'''<main id="main">
   <section class="band">
     <div class="band__column">
@@ -318,7 +318,7 @@ gone = head("Page not found · Deepanshu Labs", "This page doesn't exist.", "/la
           </div>
         </div>
         <h1>This page doesn’t exist.</h1>
-        <div class="btn-row"><a class="btn btn--solid" href="/labs">Back to Deepanshu Labs</a><a class="btn btn--ghost" href="/">Deepanshu’s portfolio</a></div>
+        <div class="btn-row"><a class="btn btn--solid" href="/labs">Back to Lathar Labs</a><a class="btn btn--ghost" href="/">Deepanshu’s portfolio</a></div>
       </div>
     </div>
   </section>

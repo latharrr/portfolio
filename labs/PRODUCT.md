@@ -18,7 +18,7 @@ They are not technical and do not judge the product by the builder's engineering
 
 ## Product Purpose
 
-Deepanshu Labs is an independent software studio run by Deepanshu Lathar. It is the umbrella, not a single product: projects ship under it, and more will be added. `/labs` is the studio's home and lists every live project.
+Lathar Labs is an independent software studio run by Deepanshu Lathar. It is the umbrella, not a single product: projects ship under it, and more will be added. `/labs` is the studio's home and lists every live project.
 
 The first project is the **WhatsApp AI Receptionist** (`/labs/whatsapp-receptionist`): it replies to a business's customers in seconds, answers their questions, and books the next step into the diary. It is set up around each business's own services, prices and hours.
 
@@ -66,7 +66,7 @@ Second: one person, not an agency. The person the visitor messages is the person
 
 ## Brand Commitments
 
-- Name: Deepanshu Labs. Run by Deepanshu Lathar, Delhi NCR, India.
+- Name: Lathar Labs. Run by Deepanshu Lathar, Delhi NCR, India.
 - Mark: the L logo, shared with the portfolio.
 - Voice as written: plain English, second person, short sentences, no hype. "Straight answers", "honest labels", "no numbers I can't back up".
 - Design: on 23 Oct 2026 the owner chose to match the portfolio (shared header with Work · Labs · Sidequests · About, pastel palette, Averia and Mona fonts). The copy stays written for customers, not recruiters. See the root `DESIGN.md`, Labs components.

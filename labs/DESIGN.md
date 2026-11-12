@@ -1,6 +1,6 @@
-# Design System: Deepanshu Labs
+# Design System: Lathar Labs
 
-Since 23 October 2026 Deepanshu Labs uses the portfolio's design system. See `/DESIGN.md` at the repo root, especially the "Labs components" section: the hanging sign, the example chat, steps, the live chip and the phone dock. The earlier "Open Sign" identity (dark bar, red and amber fields, Archivo) is retired, and its `labs.css`, `labs.js` and font were removed.
+Since 23 October 2026 Lathar Labs uses the portfolio's design system. See `/DESIGN.md` at the repo root, especially the "Labs components" section: the hanging sign, the example chat, steps, the live chip and the phone dock. The earlier "Open Sign" identity (dark bar, red and amber fields, Archivo) is retired, and its `labs.css`, `labs.js` and font were removed.
 
 Labs-specific rules that still hold:
 

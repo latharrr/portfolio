@@ -20,7 +20,7 @@ Source of my portfolio site: [deepanshulathar.com](https://deepanshulathar.com).
 | `/about` | Bio, experience, skills, credentials |
 | `/proofmart`, `/gapl`, `/lputv` | One page per project with status, screenshots and links to the source |
 | `/sidequests` | Writing and an open-source ledger fed by live GitHub data |
-| `/labs` | Deepanshu Labs, an independent studio page with its own design notes |
+| `/labs` | Lathar Labs, an independent studio page with its own design notes |
 | `/resume`, `/cv` | Redirect to the PDF |
 | `/privacy`, `/support` | Privacy notice and support contact |
 
@@ -55,12 +55,14 @@ styles.css        design source, inlined into pages by tools/inline-css.py
 site.js, oss.js   interactions and the open-source section
 api/              GitHub stats and contribution calendar functions
 assets/, fonts/   images (WebP with 800 px variants) and self-hosted fonts
-labs/             Deepanshu Labs pages
+labs/             Lathar Labs pages
 tools/            local server and page generators
 design/           design system notes and the share-image source (design/og-image.html renders assets/og-portrait.png, the 1200x630 portrait share card used in every page's social-preview tags)
 ```
 
 ## Notes
+
+- Business-brand references use **Lathar Labs**. The personal name Deepanshu Lathar, contact details, routes and existing service/policy scope are unchanged. This rename does not represent Meta approval or launch a multi-client service.
 
 - Content is checked by hand against the résumé; there is no automated test suite or CI for this repo.
 - Facts such as role, availability and project status change over time and are updated in the pages themselves.

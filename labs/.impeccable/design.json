@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-10-13T15:00:53+00:00",
-  "title": "Design System: Deepanshu Labs — Open Sign",
+  "title": "Design System: Lathar Labs — Open Sign",
   "extensions": {
     "colorMeta": {
       "push-amber": {
@@ -197,7 +197,7 @@
       "kind": "card",
       "refersTo": "chat-card",
       "description": "The example conversation in WhatsApp's own colours, at the owner's request; always captioned as an example.",
-      "html": "<figure class=\"ds-chat\"><div class=\"ds-chat-head\"><i>DL</i><b>Deepanshu Labs</b></div><p class=\"ds-them\">Tomorrow at 3pm</p><p class=\"ds-bot\">What should we cover on the call?</p></figure>",
+      "html": "<figure class=\"ds-chat\"><div class=\"ds-chat-head\"><i>DL</i><b>Lathar Labs</b></div><p class=\"ds-them\">Tomorrow at 3pm</p><p class=\"ds-bot\">What should we cover on the call?</p></figure>",
       "css": ".ds-chat { margin: 0; width: 320px; display: grid; gap: 8px; padding: 0 0 18px; background: #efe7dd; color: #111b21; border-radius: 14px; overflow: hidden; font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; font-size: 15px; line-height: 1.4; } .ds-chat-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin-bottom: 10px; background: #075e54; color: #fff; } .ds-chat-head i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #f2b705; color: #14181c; font-style: normal; font-weight: 800; } .ds-chat p { margin: 0 14px; max-width: 84%; padding: 8px 12px 7px; border-radius: 10px; box-shadow: 0 1px 1px rgba(17,27,33,0.14); } .ds-them { justify-self: end; background: #d9fdd3; } .ds-bot { justify-self: start; background: #fff; }"
     },
     {
@@ -205,7 +205,7 @@
       "kind": "nav",
       "refersTo": "navigation",
       "description": "Lettering along the top of the door.",
-      "html": "<nav class=\"ds-bar\"><b>Deepanshu Labs</b><a href=\"#\">How it works</a><a href=\"#\">Privacy</a></nav>",
+      "html": "<nav class=\"ds-bar\"><b>Lathar Labs</b><a href=\"#\">How it works</a><a href=\"#\">Privacy</a></nav>",
       "css": ".ds-bar { display: flex; align-items: center; gap: 22px; height: 58px; padding: 0 20px; background: #14181c; color: #fff; border-bottom: 2px solid rgba(255,255,255,0.3); font-family: Archivo, \"Helvetica Neue\", Arial, sans-serif; } .ds-bar b { margin-right: auto; font-weight: 800; font-stretch: 108%; } .ds-bar a { color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; } .ds-bar a:hover { text-decoration: underline; } .ds-bar a:focus-visible { outline: 3px solid #f2b705; outline-offset: 3px; }"
     }
   ],

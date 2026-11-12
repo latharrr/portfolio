@@ -5,7 +5,7 @@ primary_target: "labs/index.html"
 related_targets: ["labs/privacy/index.html","labs/404.html"]
 ---
 
-# Surface brief: Deepanshu Labs (labs/index.html, with labs/privacy and labs/404)
+# Surface brief: Lathar Labs (labs/index.html, with labs/privacy and labs/404)
 
 Scope: the customer-facing labs site under `/labs`. Visitor mode: Persuade for the home page, Read for the privacy policy.
 
@@ -39,7 +39,7 @@ Open points only the owner can settle:
 
 ## Owner changes on 2026-10-13 (after launch)
 
-- Deepanshu Labs is the studio; the receptionist is one project under it. `/labs` is now the studio home with a project shelf, and the receptionist moved to `/labs/whatsapp-receptionist`. The direction contract below describes the receptionist page; the studio home uses the same door with a fixed "Come in, we're OPEN" sign.
+- Lathar Labs is the studio; the receptionist is one project under it. `/labs` is now the studio home with a project shelf, and the receptionist moved to `/labs/whatsapp-receptionist`. The direction contract below describes the receptionist page; the studio home uses the same door with a fixed "Come in, we're OPEN" sign.
 - Demo line is live 24/7; the hours, booking and setup rows and the open-now clock are gone. The hero shows one row, "Demo line: Live 24/7".
 - The example chat is colourful, in WhatsApp's own look, at the owner's request.
 - "Message me on WhatsApp" now opens Deepanshu's own number (+91 82210 16809), taken from the portfolio's contact link, not the demo line.

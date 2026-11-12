@@ -1,6 +1,6 @@
 ---
 name: Deepanshu Lathar — Pastel Grid
-description: A ruled, white editorial grid modelled on eemonroy.com, with lime and sky highlight chips, pastel gradient cards and one playful hero (cards rising out of a box). Used by the portfolio and by Deepanshu Labs.
+description: A ruled, white editorial grid modelled on eemonroy.com, with lime and sky highlight chips, pastel gradient cards and one playful hero (cards rising out of a box). Used by the portfolio and by Lathar Labs.
 colors:
   ink: "#1f2328"
   text: "#2b3138"

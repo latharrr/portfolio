@@ -47,9 +47,9 @@ The second half of the position is range: he builds the product and also runs gr
 
 **Out of scope for this file:**
 
-- `/labs` is Deepanshu Labs, an independent software studio whose first project is a WhatsApp AI receptionist. It has a different audience and its own `labs/PRODUCT.md`. It shares this site's design system (`DESIGN.md`).
+- `/labs` is Lathar Labs, an independent software studio whose first project is a WhatsApp AI receptionist. It has a different audience and its own `labs/PRODUCT.md`. It shares this site's design system (`DESIGN.md`).
 
-**Terminology:** "ProofMart", "Gapl", "LpuTV" (formerly UniConnect), "Deepanshu Labs", "PicaPool", "UniLyf", "Founder's Office". College-CLI is no longer shown anywhere. Availability is stated as "Summer 2027 internships".
+**Terminology:** "ProofMart", "Gapl", "LpuTV" (formerly UniConnect), "Lathar Labs", "PicaPool", "UniLyf", "Founder's Office". College-CLI is no longer shown anywhere. Availability is stated as "Summer 2027 internships".
 
 **Facts that go stale and must be re-checked before reuse:** current roles, availability window, repo count, follower count, project status labels, résumé PDF.
 
