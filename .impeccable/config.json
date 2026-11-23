@@ -39,6 +39,84 @@
         ],
         "createdAt": "2026-10-13T15:14:32.409Z",
         "reason": "User picked the Line Map direction card; these sub-pages share the home page's #fbfaf5 map-paper ground"
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-24T15:59:43.830Z",
+        "reason": "Claude: Work-tile <img class=lazy> carry data-src/data-srcset by design; site.js sets src when scrolled near (IntersectionObserver lazy-load)"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T08:45:19.348Z",
+        "reason": "Claude: #ACA6BD on #120042 is the supplied La Boite a Slides skill token pair for secondary text on dark (~7:1 contrast)"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-23T08:45:19.372Z",
+        "reason": "Claude: user's supplied La Boite a Slides skill mandates Inter variable for body"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T08:45:19.394Z",
+        "reason": "Claude: user's supplied skills require the proof marquee; pauses on hover, stops under reduced motion"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T08:45:19.414Z",
+        "reason": "Claude: two-sentence statement set as uppercase display type per the supplied skill's headline style, ~84px, not body copy"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "**/*.html"
+        ],
+        "createdAt": "2026-11-23T09:13:27.546Z",
+        "reason": "Claude: #ACA6BD on #120042/#1e0d4b is the supplied La Boite a Slides skill's secondary-text token pair (~7:1), used site-wide after the full redesign"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "**/*.html"
+        ],
+        "createdAt": "2026-11-23T09:13:27.559Z",
+        "reason": "Claude: user's supplied skills require the proof marquee on every page; pauses on hover, stops under reduced motion"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "**/about.html"
+        ],
+        "createdAt": "2026-11-23T09:13:27.572Z",
+        "reason": "Claude: G15 story set as uppercase display statement per the supplied skill's statement style, ~84px, not body copy"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T11:17:17.930Z",
+        "reason": "User requested: 'All giant headlines: slight chromatic fringe text-shadow (-1px 0 #ff0050aa, 1px 0 #00dcffaa)' in the living-motion spec"
       }
     ]
   }

@@ -40,7 +40,7 @@ The second half of the position is range: he builds the product and also runs gr
 
 **Present today, open to change:**
 
-- Hand-written static pages with no framework and self-hosted Averia Serif Libre and Mona Sans fonts. `styles.css` is inlined into every page (`tools/inline-css.py`); the shared header, say-hi window and footer are copied from `index.html` (`tools/sync-pages.py`). Two Vercel serverless functions feed the open-source ledger. Deployed on Vercel with `cleanUrls` and security headers set in `vercel.json`. The owner considers the site final as of 23 Oct 2026.
+- Static pages with no framework and self-hosted Anton and Inter fonts. Page bodies live in `src/pages/` and `tools/build.py` wraps them in the shared head, header, menu and footer; `ui.css` and `ui.js` are shared by every page. Two Vercel serverless functions feed the open-source ledger. Deployed on Vercel with `cleanUrls` and security headers set in `vercel.json`. Redesigned to the Violet Proof system (DESIGN.md) on 23 Nov 2026.
 - The AI "Ask the terminal" was removed at the owner's request on 23 Oct 2026.
 - Résumé served as `Deepanshu-Lathar-Resume.pdf` at the repo root.
 - The home page loads Google Analytics 4 and Microsoft Clarity on the production domain, only after the visitor's first scroll, tap, key press or pointer move (this keeps Lighthouse at 100). This is disclosed at `/privacy`, where a visitor can switch it off; it also stays off for browsers sending Global Privacy Control or Do Not Track.

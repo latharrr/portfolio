@@ -1,0 +1,55 @@
+<!--
+out: sidequests.html
+path: /sidequests
+nav: sidequests
+title: Sidequests · Deepanshu Lathar
+description: Sidequests: Deepanshu Lathar's essays from a 30-day writing challenge on growth, systems and the odd personal milestone, plus a live open-source ledger read from the GitHub API.
+scripts: /oss.js
+-->
+<section class="phero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow in" style="--i:0">Sidequests</p>
+    <h1 id="h1"><span class="line in" style="--i:1">Notes from</span><span class="line in" style="--i:2">the <span class="hl-lime">ledger</span></span></h1>
+    <p class="lede in" style="--i:4">Essays and build notes from my 30-day writing challenge, on growth, systems and the odd personal milestone. Plus everything I push to GitHub, counted live.</p>
+    <div class="ctas in late"><a class="btn btn--light" href="#writing">Read the essays</a><a class="btn btn--ghost" href="#open-source">The open-source ledger</a></div>
+  </div>
+</section>
+
+<section class="white" id="writing" aria-labelledby="wr-h" data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <h2 class="h2 rv" id="wr-h" data-split>Thirty days of <span class="hl">writing</span></h2>
+      <p class="lede rv">Essays on GTM, deadlocks and retention, plus the odd personal milestone. All published on LinkedIn.</p>
+    </div>
+    <div class="rows">
+      <a class="row draw" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/"><h3>The campus GTM playbook I wish I had</h3><p>What actually moves a campus: pools, timing and measurement, not posters. The playbook behind PicaPool's campus launches, with attribution wired in from day one.</p><b><small>Essay · featured</small></b></a>
+      <a class="row draw" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/"><h3>Deadlocks are an organizational bug</h3><p>Two teams waiting on each other is a systems problem. Here is how I debug it.</p><b><small>Essay</small></b></a>
+      <a class="row draw" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/"><h3>Retention is a metric, not a mood</h3><p>Cohorts, curves, and the questions I ask before trusting any dashboard.</p><b><small>Essay</small></b></a>
+      <a class="row draw" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/"><h3>Retiring the laptop that raised me</h3><p>Five years, two degrees of heat, one very patient machine. A goodbye.</p><b><small>Personal</small></b></a>
+    </div>
+    <p class="rv" style="margin-top:40px"><a class="btn btn--dark" href="https://www.linkedin.com/in/deepanshulathar/recent-activity/all/">Read all 30 days on LinkedIn</a></p>
+  </div>
+</section>
+
+<section id="open-source" aria-labelledby="os-h" data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <h2 class="h2 rv" id="os-h" data-split>The open-source <span class="hl-lime">ledger</span></h2>
+      <p class="lede on-dark rv">Read from the GitHub API live: stats, language mix and recent pushes. If the API is unreachable, the tiles stay blank instead of showing stale numbers.</p>
+    </div>
+    <div class="tiles" id="oss-grid">
+      <div class="tile rv"><b data-oss="contrib">—</b><span>Contributions · 1y</span></div>
+      <div class="tile rv"><b data-oss="streak">—</b><span>Longest streak</span></div>
+      <div class="tile rv"><b data-oss="repos">—</b><span>Public repos</span></div>
+      <div class="tile rv"><b data-oss="stars">—</b><span>Stars earned</span></div>
+    </div>
+    <div class="ledger-more">
+      <div class="panel rv"><h3>Language mix</h3><p data-oss="langs">—</p><div class="cal" data-oss="cal" role="img" aria-label="Contribution calendar"></div></div>
+      <div class="panel rv"><h3>Recent pushes</h3><div data-oss="pushes">—</div></div>
+    </div>
+    <div class="status rv"><span data-oss-status role="status"></span><button id="oss-retry" type="button">Retry sync</button></div>
+    <p class="rv" style="margin-top:12px;color:var(--muted);font-size:14px">Contributions come from GitHub's own calendar (private work included, refreshed hourly); repos and languages from the GitHub API. Never hard-coded.</p>
+  </div>
+</section>
+
+{{cta}}

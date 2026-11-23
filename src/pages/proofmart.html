@@ -1,0 +1,56 @@
+<!--
+out: proofmart.html
+path: /proofmart
+nav: work
+title: ProofMart · Deepanshu Lathar
+description: ProofMart is a document-forensics API that checks a document's own maths: running balances, cross-page carry-forwards, duplicate transactions. Live beta at proofmart.shop.
+-->
+<section class="phero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow in" style="--i:0">Case study · Document forensics API · 2026</p>
+    <h1 id="h1"><span class="line in" style="--i:1">Proof<span class="hl-lime">Mart</span></span></h1>
+    <p class="lede in" style="--i:3">Edited bank statements and invoices pass a visual check. ProofMart is a document-forensics API: upload a PDF and get back a structured report of findings, each pinned to its place on the page, each with the arithmetic that proves it.</p>
+    <div class="ctas in late"><a class="btn btn--primary" href="https://proofmart.shop">Open proofmart.shop</a><a class="btn btn--ghost" href="https://github.com/latharrr">Source on GitHub</a></div>
+  </div>
+</section>
+
+<section class="pt0" aria-label="Project facts" data-reveal data-progress>
+  <div class="wrap">
+    <dl class="facts rv">
+      <div><dt>Status</dt><dd>Live · beta at <a href="https://proofmart.shop">proofmart.shop</a></dd></div>
+      <div><dt>Role</dt><dd>Solo builder</dd></div>
+      <div><dt>Stack</dt><dd>Next.js · TypeScript · Supabase · pdf.js · Tesseract.js · Vercel Blob · Razorpay</dd></div>
+      <div><dt>Year</dt><dd>2026</dd></div>
+    </dl>
+    <figure class="shot drift clip mt"><img src="/assets/proofmart-1.webp" alt="ProofMart report: annotated bank statement with verification ticks" /></figure>
+  </div>
+</section>
+
+<section class="white" aria-labelledby="s1" data-reveal>
+  <div class="wrap duo">
+    <div class="prose">
+      <h2 class="rv" id="s1" data-split>Check the document's <span class="hl">own maths</span></h2>
+      <p class="rv">Instead of guessing at pixels, ProofMart checks the document's own maths: running balances, cross-page carry-forwards, duplicate transactions. So every flag is explainable.</p>
+      <p class="rv">Tesseract OCR covers scanned pages; Next.js route handlers expose it all as an API.</p>
+    </div>
+    <figure class="shot clip"><img src="/assets/proofmart-2-800.webp" alt="ProofMart finding detail, pinned to the page with its arithmetic" loading="lazy" /></figure>
+  </div>
+</section>
+
+<section class="light" aria-labelledby="s2" data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <h2 class="h2 rv" id="s2" data-split>Built like <span class="hl">infrastructure</span></h2>
+      <p class="lede rv">Reports are signed with Ed25519; webhooks are HMAC-verified.</p>
+    </div>
+    <div class="stats">
+      <div class="stat rv"><b data-count>9,200</b><p>lines of TypeScript, approximately.<small>Codebase</small></p></div>
+      <div class="stat rv"><b data-count>15</b><p>Vitest suites covering the checks.<small>Unit tests</small></p></div>
+      <div class="stat rv"><b data-count>4</b><p>Playwright end-to-end specs.<small>E2E</small></p></div>
+    </div>
+  </div>
+</section>
+
+<a class="next" href="/gapl">
+  <div class="wrap"><p class="eyebrow">Next project</p><h2>Gapl {{arrow}}</h2></div>
+</a>

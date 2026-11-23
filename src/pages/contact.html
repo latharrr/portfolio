@@ -1,0 +1,60 @@
+<!--
+out: contact.html
+path: /contact
+nav: contact
+title: Contact · Deepanshu Lathar
+description: Send Deepanshu Lathar a brief for a role, an internship or a freelance build. Name the goal, timeline and stack, and get a reply within a day. WhatsApp +91 82210 16809.
+-->
+<section class="phero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow in" style="--i:0">Contact · replies within a day</p>
+    <h1 id="h1"><span class="line in" style="--i:1">Send a</span><span class="line in" style="--i:2"><span class="hl-lime">brief</span></span></h1>
+    <p class="lede in" style="--i:4">A role, an internship, a freelance build, or a good argument about attribution. Four lines are enough for me to say yes, no, or ask one good question.</p>
+  </div>
+</section>
+
+<section class="light" aria-labelledby="form-h" data-reveal>
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <h2 class="h2--s rv" id="form-h" data-split>The <span class="hl">brief</span></h2>
+      <form class="form rv" id="brief" novalidate>
+        <div class="two">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required /><span class="err" id="f-name-err" aria-live="polite"></span></div>
+          <div class="field"><label for="f-reply">Where should I reply? <small>(email or phone, optional)</small></label><input id="f-reply" name="reply" autocomplete="email" /></div>
+        </div>
+        <fieldset class="field"><legend>It's about</legend>
+          <div class="radios">
+            <label><input type="radio" name="kind" value="A role or internship" checked /> A role or internship</label>
+            <label><input type="radio" name="kind" value="A freelance build" /> A freelance build</label>
+            <label><input type="radio" name="kind" value="Something else" /> Something else</label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="f-brief">The goal, in a line or two</label><textarea id="f-brief" name="brief" required></textarea><span class="err" id="f-brief-err" aria-live="polite"></span></div>
+        <div class="two">
+          <div class="field"><label for="f-when">Timeline <small>(optional)</small></label><input id="f-when" name="when" placeholder="e.g. start of May 2027" /></div>
+          <div class="field"><label for="f-stack">Stack <small>(optional)</small></label><input id="f-stack" name="stack" placeholder="e.g. Next.js, Postgres" /></div>
+        </div>
+        <div class="field"><label for="f-link">A link to what exists today <small>(optional)</small></label><input id="f-link" name="link" type="url" inputmode="url" placeholder="https://" /></div>
+        <div class="ctas">
+          <button class="btn btn--primary" type="submit" value="whatsapp">Send on WhatsApp</button>
+          <button class="btn btn--dark" type="submit" value="email">Send by email</button>
+        </div>
+        <p class="form-note">This site stores nothing. The button opens WhatsApp or your email app with the brief filled in, and you press send there.</p>
+        <p class="sent" id="sent" role="status" hidden></p>
+      </form>
+    </div>
+    <aside class="contact-side rv" aria-label="Direct contact">
+      <div class="contact-card"><h3>WhatsApp or call</h3><p>Fastest. Usually the same day.</p><a class="big" href="tel:+918221016809">+91 82210 16809</a></div>
+      <div class="contact-card"><h3>Email</h3><p>For anything with attachments.</p><a class="big" data-email data-email-text href="/contact">Email me</a></div>
+      <div class="contact-card"><h3>Elsewhere</h3><p>Delhi NCR, India · IST (UTC+5:30) · open to Summer 2027 internships.</p>
+        <div class="ctas" style="margin-top:16px"><a class="btn btn--outline" href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a><a class="btn btn--outline" href="https://github.com/latharrr">GitHub</a></div></div>
+    </aside>
+  </div>
+</section>
+
+<section class="white" id="faq" aria-labelledby="faq-h" data-reveal>
+  <div class="wrap">
+    <h2 class="h2 rv" id="faq-h" data-split>Before you <span class="hl">send</span></h2>
+    {{faq}}
+  </div>
+</section>

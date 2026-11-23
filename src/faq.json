@@ -1,0 +1,18 @@
+[
+  ["Are you available right now?", "Yes. I'm open to Summer 2027 internships, and I take on focused freelance builds alongside my current role at PicaPool."],
+  ["What should I send for a fast reply?", "The role or project in one line, the timeline, the stack if you have one, and a link to whatever exists today. The brief form on the contact page asks for exactly that."],
+  ["Who have you worked with?", "PicaPool (Founder's Office, since Jul 2025), UniLyf (Product & Growth, Jan to May 2026), Spraykart LLP and YourProfessional as freelance clients, and LPU's Division of Admissions."],
+  ["How fast do you ship?", "At PicaPool I shipped 15+ production internal tools in 8 weeks. I work in small deployed slices, so you see a running URL early."],
+  ["How do you price freelance work?", "Per project, after a short call to understand scope. I don't publish a rate card."],
+  ["Can you keep my project confidential?", "Yes. Ask, and we can put an NDA in place before you share anything sensitive."],
+  ["Why pick you over another engineer?", "I build the product and the measurement in the same pass. You get the feature and the numbers that show whether it worked."],
+  ["Can you handle a launch or a big campaign?", "Yes. My attribution and CRM tooling carried a two-month campus push that reached 3,000+ students, and a campus launch collected 1,000+ submissions in 72 hours."],
+  ["Can you help with content and growth, not just code?", "Yes. I've run SEO and lead generation for a chartered-accountancy practice, written SEO content for LPU's channels, and built a phased go-to-market plan at UniLyf."],
+  ["Do I own the code?", "Yes. Client work lives in your repository and is yours."],
+  ["What stack do you use?", "TypeScript, Next.js, React, Node and Express, Postgres and Supabase, Firebase, Docker, plus LangGraph, n8n and OpenAI, Anthropic, Gemini and Groq for AI. Python for analytics."],
+  ["How do I reach you?", "WhatsApp on +91 82210 16809, email, or the brief form on the contact page. I reply within a day, usually faster."],
+  ["Do you work remotely?", "Yes. I'm in Delhi NCR on IST (UTC+5:30), and I worked remotely with UniLyf's London-based team."],
+  ["Is ProofMart actually live?", "Yes. ProofMart is in live beta at proofmart.shop, and Gapl is live too. LpuTV and the Lathar Labs receptionist run in production."],
+  ["What is Lathar Labs?", "My small software studio. Its first product is a WhatsApp AI receptionist that answers customers in seconds and takes call requests."],
+  ["Where is your résumé?", "On this site as a PDF, linked in the menu and the footer. The About page has the full timeline, skills and credentials."]
+]

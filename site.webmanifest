@@ -3,8 +3,8 @@
   "short_name": "Deepanshu",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#ffffff",
-  "theme_color": "#0b0d10",
+  "background_color": "#120042",
+  "theme_color": "#120042",
   "icons": [
     { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
     { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" },

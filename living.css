@@ -1,0 +1,160 @@
+/* The living layer, on every page (home adds its own sections below). Static by default (solid section colours, everything visible);
+   html.lm = GSAP + Lenis running; html.gl = the WebGL canvas is painting the backgrounds. */
+html[data-motion=gsap],html[data-motion=gsap] body{scroll-behavior:auto}
+html.gl body{background:transparent}
+html[data-motion=gsap] .rv{opacity:1;transform:none}
+html.gsap-wait .hero .li,html.gsap-wait .hero .hx{visibility:hidden}
+
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity .8s ease-out}
+html.gl #gl{opacity:1}
+
+/* sections paint their own colour until the canvas takes over */
+.ls{position:relative;background:var(--bg)}
+html.gl .ls{background:transparent}
+.s-light{color:var(--navy)}
+.s-light .lede,.s-light .eyebrow{color:#4a4560}
+.s-dark{color:var(--white)}
+.s-dark .lede,.s-dark .eyebrow,.s-dark .hero-sub{color:rgba(255,255,255,.86)}
+.s-dark .hl{color:var(--lime)}
+.s-light .hl-lime{color:var(--violet)}
+.stack .lede{color:rgba(18,0,61,.82)}
+
+/* giant headlines: chromatic fringe, offset grows with scroll velocity (--fr, set by home.js) */
+html.lm .fx,html.lm h1,html.lm .h2,html.lm .h2--s,html.lm .final h2,html.lm .next h2{text-shadow:calc(-1px - var(--fr,0px)) 0 #ff0050aa,calc(1px + var(--fr,0px)) 0 #00dcffaa}
+
+/* header theme follows the section under it */
+.header .logo,.header .menu-btn,.header>.btn{transition:background-color .3s ease-out,color .3s ease-out,translate .3s ease-out,transform .2s ease-out}
+.header[data-theme=light] .logo,.header[data-theme=light] .menu-btn,.header[data-theme=light]>.btn{background:rgba(18,0,61,.92);color:var(--white)}
+.header[data-theme=light] .logo span,.header[data-theme=image] .logo span{color:var(--lime)}
+.header[data-theme=image] .logo,.header[data-theme=image] .menu-btn,.header[data-theme=image]>.btn{background:rgba(255,255,255,.16);color:var(--white);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.menu-open .header .menu-btn{background:var(--navy);color:var(--white)}
+
+/* 1. hero */
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .li,.hero h1 .lj{display:block}
+.scroll-badge{position:absolute;right:var(--gutter);bottom:clamp(24px,6vh,56px);width:116px;height:116px;color:var(--white);display:none}
+html.lm .scroll-badge{display:block}
+.scroll-badge text{font:600 11px/1 var(--body);letter-spacing:.18em;fill:currentColor}
+@media(max-width:899px){html.lm .scroll-badge{display:none}}
+@media(min-width:900px){html.lm .hero .hero-row{padding-right:150px}}
+
+/* 2. statement */
+#statement{display:flex;align-items:center}
+.statement .st-stage>p{font:400 clamp(34px,5.4vw,84px)/1 var(--display);text-transform:uppercase;max-width:1200px;margin:0 auto;text-align:center}
+.statement .st-b{margin-top:32px;color:var(--navy)}
+html.lm #statement{min-height:100vh}
+html.lm .st-stage{display:grid;align-items:center}
+html.lm .st-stage>p{grid-area:1/1;margin-top:0}
+
+/* masks made by SplitText keep descenders */
+.mask-pad{padding-bottom:.08em;margin-bottom:-.08em}
+
+/* 3. stats on lime */
+.stack .stat{will-change:transform}
+
+/* 4. cards: 3D tilt + glare */
+.tilt{position:relative;overflow:hidden;transform-style:preserve-3d}
+.glare{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .3s ease-out;
+  background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.5),transparent 45%);mix-blend-mode:soft-light}
+.tilt:hover .glare{opacity:1}
+
+/* 5. work */
+#work .proj figure{overflow:hidden}
+#work .proj h3{overflow:hidden}
+
+/* 6. tension: letters type in, paragraph fills beside */
+.tension{text-align:left}
+.ten-split{display:grid;gap:40px;align-items:end}
+@media(min-width:900px){.ten-split{grid-template-columns:1.35fr .65fr}}
+.tension .type-h{font-size:clamp(52px,8.6vw,150px);max-width:none;margin:0}
+.tension .lede{margin:0 0 32px}
+.ten-badges{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+
+/* 7. certs: pinned headline, frosted cards cross it */
+.certs-stage{padding:clamp(88px,12vw,168px) var(--gutter)}
+.certs-h{font-size:clamp(64px,15vw,250px);line-height:.9;text-align:center}
+.certs-track{display:grid;gap:16px;margin-top:56px}
+@media(min-width:760px){.certs-track{grid-template-columns:repeat(3,1fr)}}
+.certs .badge{background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 30px 60px rgba(0,0,0,.35);color:var(--white)}
+.certs .badge p{color:rgba(255,255,255,.78)}
+html.lm .certs{padding:0;overflow:hidden}
+html.lm .certs-stage{height:100vh;height:100svh;position:relative;display:grid;place-items:center;padding:0 var(--gutter)}
+html.lm .certs-track{position:absolute;left:0;top:50%;display:flex;gap:32px;margin:0;width:max-content;will-change:transform}
+html.lm .certs .badge{width:min(380px,78vw);flex:none}
+
+/* 8. tenure: active row solid violet, the rest outlined; preview card follows */
+.trow{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline;padding:22px 0;border-top:1px solid var(--border)}
+.ten-rows>.trow:last-child{border-bottom:1px solid var(--border)}
+.trow h3{font-size:clamp(40px,7.4vw,124px);transition:color .4s ease-out,-webkit-text-stroke-color .4s ease-out}
+.trow p{color:var(--grey);grid-column:1/-1}
+.trow b{font:400 clamp(32px,4vw,56px)/1 var(--display);color:var(--violet);grid-row:1;grid-column:2}
+.trow b small{font:600 14px/1 var(--body);color:var(--grey);letter-spacing:.06em;text-transform:uppercase;margin-left:6px}
+html.lm .trow h3{color:transparent;-webkit-text-stroke:1.5px rgba(18,0,61,.32)}
+html.lm .trow.on h3{color:var(--violet);-webkit-text-stroke-color:transparent}
+.ten-grid{margin-top:56px}
+.ten-preview{display:none}
+@media(min-width:900px){
+  .ten-grid{display:grid;grid-template-columns:1fr 360px;gap:56px}
+  html.lm .trow p,html.lm .trow b{display:none}
+  html.lm .trow{grid-template-columns:1fr}
+  html.lm .ten-preview{display:block;position:relative}
+}
+.tp-card{position:absolute;top:0;left:0;right:0;background:var(--navy);color:var(--white);border-radius:24px;padding:32px;box-shadow:0 30px 60px rgba(18,0,61,.25);will-change:transform}
+.tp-card h4{margin:0 0 12px;font:400 40px/1 var(--display);text-transform:uppercase}
+.tp-card p{color:rgba(255,255,255,.82)}
+.tp-card b{display:block;margin-top:20px;font:400 64px/1 var(--display);color:var(--lime)}
+.tp-card b small{font:600 14px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;margin-left:6px;color:rgba(255,255,255,.8)}
+
+/* 9. how: violet with wave ribbons; blocks stack and pin on desktop */
+.how{overflow:hidden}
+.how .lede{color:rgba(255,255,255,.86)}
+.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:45%;pointer-events:none;overflow:visible}
+.wv1{fill:rgba(255,255,255,.08)}.wv2{fill:rgba(255,255,255,.06)}.wv3{fill:rgba(18,0,61,.22)}
+.how-wrap{position:relative}
+.how-grid{display:grid;gap:40px;margin-top:48px}
+@media(min-width:900px){.how-grid{grid-template-columns:1fr 1.1fr}}
+.how-b+.how-b{margin-top:56px}
+.how-b h3{font-size:clamp(32px,3.2vw,48px);margin-bottom:18px}
+.how-b p{font-size:clamp(17px,1.4vw,20px);color:var(--white)}
+.how-b p+p{margin-top:12px}
+.how-b strong{color:var(--lime)}
+@media(min-width:900px){
+  html.lm .how{min-height:100vh;min-height:100svh;padding:clamp(120px,14vh,160px) 0 0}
+  html.lm .how-stack{display:grid}
+  html.lm .how-b{grid-area:1/1;margin:0}
+  html.lm .how-space{min-height:52vh}
+}
+
+/* 10. orbit: thumbnail sphere behind, paragraph fills */
+.orbit{text-align:center}
+.orbit-text{max-width:900px;margin:0 auto}
+.orbit-p{font:400 clamp(26px,3.4vw,52px)/1.05 var(--display);text-transform:uppercase;margin:24px 0 36px}
+html.lm .orbit{min-height:100vh;min-height:100svh;display:grid;align-items:end;padding-bottom:12vh}
+
+/* 11. faq: height animated by GSAP */
+html[data-motion=gsap] .faq-a{max-height:none;height:0;overflow:hidden}
+
+/* 12. cta */
+html.lm .marquee-track{animation:none;will-change:transform}
+.final .wrap{padding-bottom:clamp(64px,8vw,120px)}
+.final .ctas{margin-bottom:0}
+
+/* 13. footer: frosted glass over the scene */
+html[data-motion=gsap] footer{border-top:0;padding:0 16px 16px;background:transparent}
+html.gl footer{background:transparent}
+html[data-motion=gsap] footer>.wrap{background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:24px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);padding:48px clamp(20px,4vw,48px) 32px}
+html[data-motion=gsap] .foot-pos,html[data-motion=gsap] .foot h4,html[data-motion=gsap] .legal{color:rgba(255,255,255,.82)}
+
+html.lm .hero h1 .lj,html.lm .st-a,html.lm .tp-card{will-change:transform}
+
+/* ---------- every page: GSAP owns these, so CSS transitions and old reveal states step aside ---------- */
+html.lm .phero h1 .line,html.lm .hero h1 .line{opacity:1;transform:none;transition:none;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.phero h1 .li{display:block}
+html.gsap-wait .phero h1 .line{visibility:hidden}
+html.lm .rv,html.lm .clip{transition:none}
+html.lm .clip{clip-path:none}
+html.lm .card,html.lm .card.rv{transition:background-color .77s ease-out,color .3s ease-out}
+html.lm .proj,html.lm .proj img,html.lm .drift img,html.lm .shot img{transition:none}
+html.lm .final-fill{display:none}

@@ -1,0 +1,81 @@
+<!--
+out: privacy.html
+path: /privacy
+title: Privacy policy · Deepanshu Lathar
+description: Privacy policy of deepanshulathar.com: what the site collects, which analytics it runs, and how to opt out or have data deleted.
+-->
+<section class="phero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow in" style="--i:0">Effective 23 November 2026</p>
+    <h1 id="h1"><span class="line in" style="--i:1">Privacy</span><span class="line in" style="--i:2"><span class="hl-lime">policy</span></span></h1>
+    <p class="lede in" style="--i:4">What this website collects, which analytics it runs, and how to opt out or have data deleted.</p>
+  </div>
+</section>
+
+<section class="white" aria-label="Policy" data-reveal>
+  <div class="wrap">
+    <ul class="toc rv">
+      <li><a href="#who">Who runs this site</a></li><li><a href="#analytics">Analytics</a></li><li><a href="#optout">Turning analytics off</a></li>
+      <li><a href="#github">GitHub data</a></li><li><a href="#device">Stored on your device</a></li><li><a href="#contact">Contact links</a></li>
+      <li><a href="#hosting">Hosting and links</a></li><li><a href="#rights">Your rights</a></li><li><a href="#changes">Changes</a></li>
+    </ul>
+    <div class="prose rv">
+      <h2 id="who">Who runs this site</h2>
+      <p>This is the personal website of Deepanshu Lathar, based in Delhi NCR, India. This policy covers deepanshulathar.com except the pages under /labs, which have <a href="/labs/privacy">their own policy</a>.</p>
+
+      <h2 id="analytics">Analytics</h2>
+      <p>Only the home page loads analytics, and only after you first scroll, tap, type or move the pointer on it. It uses two tools:</p>
+      <ul>
+        <li><strong>Google Analytics 4</strong> counts visits and records the pages viewed, the site you came from, your device and browser type, and your approximate location worked out from your IP address.</li>
+        <li><strong>Microsoft Clarity</strong> records how the page is used: clicks, scrolling and pointer movement. It can replay a visit as a recording and build heatmaps from many visits.</li>
+      </ul>
+      <p>Both set cookies in your browser and send this information to Google and Microsoft, who process it under their own privacy policies. I use it only to see which parts of the site are read and to fix what is not working. I do not use it for advertising, and I do not sell or share it.</p>
+      <p>The other pages (Work, Expertise, About, Contact, Sidequests, the project pages, Support and this policy) and everything under /labs load no analytics.</p>
+
+      <h2 id="optout">Turning analytics off</h2>
+      <p>Analytics does not load at all if your browser sends a Global Privacy Control or Do Not Track signal. You can also switch it off for this browser here:</p>
+      <p style="margin-top:20px"><button class="btn btn--dark" id="optout" type="button" aria-pressed="false">Turn analytics off on this device</button></p>
+      <p id="optout-state" role="status" style="margin-top:12px"></p>
+      <p>The choice is remembered on this device only. Cookies already set by an earlier visit stay until they expire or you clear them in your browser settings.</p>
+
+      <h2 id="github">GitHub data</h2>
+      <p>The open-source ledger on the Sidequests page shows my public GitHub activity. It is normally fetched by my server. If that fails, your browser asks the GitHub API directly, so GitHub may see your IP address.</p>
+
+      <h2 id="device">Stored on your device</h2>
+      <ul>
+        <li>Your analytics choice, if you use the switch above (kept until you change it).</li>
+        <li>Whether you have already seen the opening animation, kept only for the current tab and cleared when you close it.</li>
+      </ul>
+      <p>None of this is sent to me.</p>
+
+      <h2 id="contact">Contact links and the brief form</h2>
+      <p>The email, WhatsApp, LinkedIn and GitHub buttons only open your own app or that site. The brief form on the contact page works the same way: it fills in a WhatsApp message or an email in your own app, and nothing you type is sent to or stored on this website.</p>
+
+      <h2 id="hosting">Hosting and links</h2>
+      <p>The site is hosted by Vercel, which may keep standard server logs, such as IP address and the pages requested, to keep the site running. Fonts and images are served from this site, not from third parties.</p>
+      <p>Project links go to separate sites with their own policies: <a href="https://proofmart.shop">ProofMart</a>, <a href="https://gapl.vercel.app">Gapl</a> and <a href="https://lputv.vercel.app">LpuTV</a>.</p>
+
+      <h2 id="rights">Your rights</h2>
+      <p>You can ask to access, correct or delete personal data I hold about you, or withdraw consent, at any time, including under the UK GDPR, the EU GDPR and India's Digital Personal Data Protection Act, 2023. <a data-email data-email-text href="/contact">Email me</a> and I will respond within 30 days.</p>
+      <p>This site is not intended for anyone under 18, and I do not knowingly collect their data.</p>
+
+      <h2 id="changes">Changes</h2>
+      <p>This policy may change as the site changes. The effective date at the top shows when it was last updated.</p>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var btn=document.getElementById('optout'),state=document.getElementById('optout-state');
+  var signal=!!navigator.globalPrivacyControl||navigator.doNotTrack==='1';
+  function read(){try{return localStorage.getItem('dl-no-analytics')==='1'}catch(e){return false}}
+  function paint(){var off=read();btn.setAttribute('aria-pressed',String(off));
+    btn.textContent=off?'Turn analytics back on for this device':'Turn analytics off on this device';
+    state.textContent=off?'Analytics is off on this device.':(signal?'Your browser already sends a privacy signal, so analytics is off for you.':'Analytics is on for this device.')}
+  btn.addEventListener('click',function(){
+    try{if(read())localStorage.removeItem('dl-no-analytics');else localStorage.setItem('dl-no-analytics','1')}
+    catch(e){state.textContent='This browser is blocking storage, so the choice cannot be saved.';return}
+    paint()});
+  paint();
+})();
+</script>

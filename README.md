@@ -6,58 +6,57 @@ Source of my portfolio site: [deepanshulathar.com](https://deepanshulathar.com).
 
 | At a glance | |
 |---|---|
-| **What it is** | Hand-written static site: home, about, three project pages, writing and open-source page, plus a separate Labs section |
-| **Stack** | HTML, CSS and a little vanilla JavaScript. No framework, no bundler. Two Vercel serverless functions |
+| **What it is** | Static site: home, work (filterable), expertise, about, contact, three project pages, sidequests, plus a Lathar Labs section |
+| **Stack** | HTML, one stylesheet (`ui.css`), one script (`ui.js`). No framework, no bundler. Two Vercel serverless functions |
+| **Design** | Violet and navy flat colour blocks, Anton display type, Inter body, motion that reveals once on scroll. See [DESIGN.md](DESIGN.md) |
 | **Hosting** | Vercel, clean URLs, redirects in `vercel.json` |
-| **Fonts** | Self-hosted (Averia Serif Libre, Mona Sans) |
-| **Data** | GitHub numbers on the open-source page come live from the GitHub API and show nothing when it is unreachable |
+| **Fonts** | Self-hosted Anton and Inter (latin subsets) in `fonts/` |
+| **Data** | GitHub numbers on the open-source ledger come live from the GitHub API and show nothing when it is unreachable |
 
 ## Pages
 
 | Route | Purpose |
 |---|---|
-| `/` | Hero, selected work, proof points, sidequests teaser |
-| `/about` | Bio, experience, skills, credentials |
-| `/proofmart`, `/gapl`, `/lputv` | One page per project with status, screenshots and links to the source |
-| `/sidequests` | Writing and an open-source ledger fed by live GitHub data |
-| `/labs` | Lathar Labs, an independent studio page with its own design notes |
+| `/` | Hero, proof marquee, stats, expertise, selected work, tenure, long-form, FAQ |
+| `/work` | Every project, filterable by type and sector |
+| `/expertise` | AI systems, attribution, internal tools and products, each with proof |
+| `/about` | Story, timeline, skills, credentials |
+| `/contact` | Brief form that opens WhatsApp or email with the brief filled in; nothing is stored |
+| `/proofmart`, `/gapl`, `/lputv` | One case study per project |
+| `/sidequests` | Writing and the live open-source ledger |
+| `/labs`, `/labs/whatsapp-receptionist`, `/labs/privacy` | Lathar Labs |
+| `/privacy`, `/support` | Privacy policy and support |
 | `/resume`, `/cv` | Redirect to the PDF |
-| `/privacy`, `/support` | Privacy notice and support contact |
 
 ## How it is built
 
-- **Plain files.** Each page is one `.html` file. `styles.css` is the source of truth and is copied, lightly minified, into a `<style>` block in every page so first paint does not wait for a stylesheet request.
-- **Shared header and footer** live in `index.html` and are copied into the other pages by a script.
-- **Live GitHub data.** `api/github.mjs` and `api/contributions.mjs` are serverless functions the browser calls when the open-source section nears the viewport (`oss.js`). Nothing there is hard-coded.
-- **Analytics load late.** Google Analytics and Microsoft Clarity start only after the first scroll, tap, key press or pointer move, can be switched off at `/privacy`, and stay off for browsers sending Global Privacy Control.
-- **Design system.** [DESIGN.md](DESIGN.md) records colours, type and components; [PRODUCT.md](PRODUCT.md) records the audience and the rule that every claim must be traceable.
+- **Pages are generated.** Page bodies live in `src/pages/*.html`, each starting with a short front-matter comment (output file, path, title, description). `tools/build.py` wraps them in the shared head, header, menu and footer and writes the HTML files in the site root. Edit `src/`, then rebuild. Never hand-edit the generated `.html` files.
+- **Shared parts.** `{{marquee}}`, `{{cta}}`, `{{faq}}` and `{{arrow}}` in a page body are filled in by the build. The FAQ text lives in `src/faq.json` and also becomes FAQPage schema.
+- **Motion.** `ui.js` handles the loader (first page of a visit only), menu, marquee, reveal-once sections, word-by-word headline reveals, scroll-linked word fill, count-ups, the `--progress` scroll variable, the accordion, work filters and the contact form. Everything is at rest under reduced motion.
+- **Live GitHub data.** `api/github.mjs` and `api/contributions.mjs` are serverless functions the browser calls when the ledger nears the viewport (`oss.js`). Nothing there is hard-coded.
+- **Analytics load late.** Google Analytics and Microsoft Clarity run on the home page only, start after the first scroll, tap, key press or pointer move, can be switched off at `/privacy`, and stay off for browsers sending Global Privacy Control or Do Not Track.
 
 ## Run it locally
 
 No install step.
 
 ```bash
+python3 tools/build.py          # regenerate every page from src/
 node tools/serve.js . 8811      # http://localhost:8811, with Vercel-style clean URLs and a 404 page
-```
-
-After editing shared parts:
-
-```bash
-python3 tools/sync-pages.py     # copy header, say-hi window and footer from index.html into every page
-python3 tools/inline-css.py     # copy styles.css into each page's <style> block
 ```
 
 ## Repo layout
 
 ```
-*.html            pages (index, about, gapl, proofmart, lputv, sidequests, privacy, support, 404)
-styles.css        design source, inlined into pages by tools/inline-css.py
-site.js, oss.js   interactions and the open-source section
+src/pages/        page bodies (source of truth)
+src/faq.json      FAQ questions and answers
+*.html, labs/     generated pages, do not edit by hand
+ui.css, ui.js     shared design and behaviour
+oss.js            the open-source ledger
 api/              GitHub stats and contribution calendar functions
 assets/, fonts/   images (WebP with 800 px variants) and self-hosted fonts
-labs/             Lathar Labs pages
-tools/            local server and page generators
-design/           design system notes and the share-image source (design/og-image.html renders assets/og-portrait.png, the 1200x630 portrait share card used in every page's social-preview tags)
+tools/            build script and local server
+design/           share-image source (design/og-image.html renders assets/og-portrait.png)
 ```
 
 ## Notes

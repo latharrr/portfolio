@@ -30,18 +30,13 @@
       "permanent": true
     },
     {
-      "source": "/work",
-      "destination": "/#work",
-      "permanent": false
-    },
-    {
       "source": "/work/:slug",
-      "destination": "/#work",
+      "destination": "/work",
       "permanent": false
     },
     {
       "source": "/archive",
-      "destination": "/#work",
+      "destination": "/work",
       "permanent": false
     },
     {
@@ -61,7 +56,7 @@
     },
     {
       "source": "/college-cli",
-      "destination": "/#work",
+      "destination": "/work",
       "permanent": true
     },
     {

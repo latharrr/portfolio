@@ -1,0 +1,49 @@
+<!--
+out: lputv.html
+path: /lputv
+nav: work
+title: LpuTV · Deepanshu Lathar
+description: LpuTV lets you talk to a random university student for ten minutes; names stay hidden until you both say yes. Live at lputv.vercel.app.
+-->
+<section class="phero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow in" style="--i:0">Case study · Mobile, WebRTC · 2026</p>
+    <h1 id="h1"><span class="line in" style="--i:1">Lpu<span class="hl-lime">TV</span></span></h1>
+    <p class="lede in" style="--i:3">60,000 students on one campus, and meeting anyone outside your class still depends on luck. LpuTV is a photo booth for conversation: talk to a random student for ten minutes, and nobody sees who you are until you both say yes.</p>
+    <div class="ctas in late"><a class="btn btn--primary" href="https://lputv.vercel.app">Open lputv.vercel.app</a><a class="btn btn--ghost" href="https://github.com/latharrr">Source on GitHub</a></div>
+  </div>
+</section>
+
+<section class="pt0" aria-label="Project facts" data-reveal data-progress>
+  <div class="wrap">
+    <dl class="facts rv">
+      <div><dt>Status</dt><dd>Live at <a href="https://lputv.vercel.app">lputv.vercel.app</a></dd></div>
+      <div><dt>Role</dt><dd>Solo builder</dd></div>
+      <div><dt>Stack</dt><dd>React 19 · Vite · Socket.IO · WebRTC · Express 5 · SQLite · Capacitor</dd></div>
+      <div><dt>Year</dt><dd>2026</dd></div>
+    </dl>
+    <figure class="shot drift clip mt"><img src="/assets/tile-lputv.webp" alt="LpuTV home screen: step into the booth, with a sample photo strip beside it" /></figure>
+  </div>
+</section>
+
+<section class="white" aria-labelledby="s1" data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <h2 class="h2 rv" id="s1" data-split>Privacy by <span class="hl">mechanism</span></h2>
+      <p class="lede rv">A mutual "Enjoy" unlocks friend requests before any name is shown.</p>
+    </div>
+    <div class="stats">
+      <div class="stat rv"><b data-count>10</b><p>minutes per conversation with a random student.<small>The booth</small></p></div>
+      <div class="stat rv"><b data-count>60,000</b><p>students on one campus, most of them strangers.<small>The problem</small></p></div>
+      <div class="stat rv"><b data-count>2</b><p>yeses needed before anyone sees a name.<small>The rule</small></p></div>
+    </div>
+    <div class="longform">
+      <article class="rv"><h3>How it runs</h3><p>Socket.IO handles matching and chat, PeerJS/WebRTC carries peer-to-peer video, and every message is rate-limited and sanitised.</p></article>
+      <article class="rv"><h3>Where it runs</h3><p>On the web, and as an Android app via Capacitor. Sign in with a college Google account for a verified badge. It started life as UniConnect.</p></article>
+    </div>
+  </div>
+</section>
+
+<a class="next" href="/proofmart">
+  <div class="wrap"><p class="eyebrow">Back to the first project</p><h2>ProofMart {{arrow}}</h2></div>
+</a>
