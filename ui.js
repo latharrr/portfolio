@@ -15,13 +15,29 @@
 
   /* menu: clip-path wipe, scroll lock, focus return */
   var M=d.getElementById('menuBtn'),ML=d.getElementById('menuLabel'),menu=d.getElementById('menu');
-  function setMenu(open){
+  var closeT=0;
+  function setMenu(open,mouse){
+    clearTimeout(closeT);closeT=0;
     if(open===b.classList.contains('menu-open'))return;
     b.classList.toggle('menu-open',open);
     M.setAttribute('aria-expanded',String(open));ML.textContent=open?'Close':'Menu';
-    if(open)menu.querySelector('a').focus({preventScroll:true});else M.focus({preventScroll:true});
+    if(!mouse){if(open)menu.querySelector('a').focus({preventScroll:true});else M.focus({preventScroll:true})} // hover open/close leaves focus alone (no ring on WORK)
   }
-  M.addEventListener('click',function(){setMenu(!b.classList.contains('menu-open'))});
+  var hoverAt=0,hoverT;
+  M.addEventListener('click',function(){if(Date.now()-hoverAt<700)return;setMenu(!b.classList.contains('menu-open'))}); // a click right after hover-open must not close it
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    /* mouse: hovering Menu opens it (short intent delay so passing over doesn't); it stays open while the
+       pointer is on a menu link, a footer link or Close, and closes 350ms after it rests anywhere else */
+    var KEEP='.menu nav a,.menu-foot a,.menu-btn';
+    function away(){if(b.classList.contains('menu-open')&&!closeT)closeT=setTimeout(function(){setMenu(false,true)},350)}
+    M.addEventListener('pointerenter',function(){if(b.classList.contains('menu-open'))return;hoverT=setTimeout(function(){hoverAt=Date.now();setMenu(true,true)},120)});
+    M.addEventListener('pointerleave',function(){clearTimeout(hoverT)});
+    addEventListener('pointermove',function(e){
+      if(!b.classList.contains('menu-open'))return;
+      if(e.target.closest&&e.target.closest(KEEP)){clearTimeout(closeT);closeT=0}else away();
+    },{passive:true});
+    d.documentElement.addEventListener('pointerleave',away);
+  }
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
   addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
 
@@ -197,6 +213,7 @@
       /* magnetic: buttons lean up to 6px toward the cursor, arrow circles up to 10px inside their card */
       function magnet(el,zone,max){
         zone.addEventListener('pointermove',function(e){
+          if(el.classList.contains('is-venom'))return; // the goo button stays put so its hit box matches the drawing
           var r=el.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/r.width,y=(e.clientY-(r.top+r.height/2))/r.height;
           el.style.translate=(Math.max(-1,Math.min(1,x))*max).toFixed(1)+'px '+(Math.max(-1,Math.min(1,y))*max).toFixed(1)+'px';
         });

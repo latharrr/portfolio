@@ -36,7 +36,7 @@ html.lm .fx,html.lm h1,html.lm .h2,html.lm .h2--s,html.lm .final h2,html.lm .nex
 html.lm .scroll-badge{display:block}
 .scroll-badge text{font:600 11px/1 var(--body);letter-spacing:.18em;fill:currentColor}
 @media(max-width:899px){html.lm .scroll-badge{display:none}}
-@media(min-width:900px){html.lm .hero .hero-row{padding-right:150px}}
+@media(min-width:900px){html.lm .hero .hero-row{padding-right:150px}html.lm .hero h1{margin-bottom:clamp(44px,7vh,68px)}} /* keeps the headline clear of the scroll badge */
 
 /* 2. statement */
 #statement{display:flex;align-items:center}
@@ -59,8 +59,12 @@ html.lm .st-stage>p{grid-area:1/1;margin-top:0}
 .tilt:hover .glare{opacity:1}
 
 /* 5. work */
-#work .proj figure{overflow:hidden}
 #work .proj h3{overflow:hidden}
+/* project screenshots (home Work + /work): shown whole, as a framed window on a dark panel (no zoom-crop) */
+.proj figure{overflow:hidden;display:grid;place-items:center;padding:6%;background:radial-gradient(120% 90% at 30% 0%,#3a1a9e,#1c0a55 70%)}
+html.lm .proj figure img,html .proj figure img{width:100%;height:auto;aspect-ratio:1280/775;object-fit:cover;object-position:top;border-radius:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.1),0 28px 56px -18px rgba(0,0,0,.7);transform:none!important;translate:none;transition:translate .5s cubic-bezier(.2,.8,.2,1)}
+.proj:hover figure img{translate:0 -6px}
 
 /* 6. tension: letters type in, paragraph fills beside */
 .tension{text-align:left}
@@ -75,9 +79,11 @@ html.lm .st-stage>p{grid-area:1/1;margin-top:0}
 .certs-h{font-size:clamp(64px,15vw,250px);line-height:.9;text-align:center}
 .certs-track{display:grid;gap:16px;margin-top:56px}
 @media(min-width:760px){.certs-track{grid-template-columns:repeat(3,1fr)}}
-.certs .badge{background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 30px 60px rgba(0,0,0,.35);color:var(--white)}
+/* near-solid cards: the headline passes behind them instead of smearing through the text */
+.certs .badge{background:linear-gradient(160deg,rgba(38,30,62,.97),rgba(16,14,24,.97));-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.12),0 40px 80px -20px rgba(0,0,0,.8);color:var(--white)}
 .certs .badge p{color:rgba(255,255,255,.78)}
+.certs .badge:nth-child(3n+1) .badge-mark{background:var(--white);color:var(--navy)} /* navy mark vanished on the dark card */
 html.lm .certs{padding:0;overflow:hidden}
 html.lm .certs-stage{height:100vh;height:100svh;position:relative;display:grid;place-items:center;padding:0 var(--gutter)}
 html.lm .certs-track{position:absolute;left:0;top:50%;display:flex;gap:32px;margin:0;width:max-content;will-change:transform}
@@ -158,3 +164,12 @@ html.lm .clip{clip-path:none}
 html.lm .card,html.lm .card.rv{transition:background-color .77s ease-out,color .3s ease-out}
 html.lm .proj,html.lm .proj img,html.lm .drift img,html.lm .shot img{transition:none}
 html.lm .final-fill{display:none}
+/* home header: venom goo Hire me (vendor/venom.js adds .is-venom and the stage on desktop) */
+.venom-stage{position:absolute;width:640px;height:480px;pointer-events:none;z-index:1}
+.venom-stage canvas{display:block;width:100%;height:100%}
+.header>.btn.is-venom,.header[data-theme]>.btn.is-venom{background:transparent;color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0;border-radius:999px;overflow:visible;z-index:2}
+.btn.is-venom::before{display:none}
+.btn.is-venom:hover,.btn.is-venom:active{transform:none}
+.btn.is-venom:focus-visible{outline:2px solid var(--white);outline-offset:14px}
+body.is-over-goo{cursor:var(--cur-hand) 7 2,pointer}
+body.is-engaged,body.is-engaged *{cursor:none}

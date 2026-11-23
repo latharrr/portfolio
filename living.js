@@ -230,7 +230,8 @@ async function start() {
     gsap.set(lis, { yPercent: 110 });
     whenReady(() => gsap.to(lis, { yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: .12 }));
     const hero = lines[0].closest('section');
-    gsap.to(lis, { yPercent: -45, ease: 'none', stagger: .04, scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: .6 } });
+    // drift the masks, not the words: tweening lis here too would fight the entrance and snap line one back to hidden on scroll
+    gsap.to(lines, { yPercent: -45, ease: 'none', stagger: .04, scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: .6 } });
   }
 
   /* statement: pinned; line one masks in and out, then line two fills word by word */
