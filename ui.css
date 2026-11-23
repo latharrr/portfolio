@@ -124,7 +124,7 @@ body.menu-open{overflow:hidden}
 .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 clamp(32px,5vh,56px)}
 .eyebrow{font:600 14px/1.4 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .light .eyebrow,.white .eyebrow{color:var(--grey)}
-.hero h1{font-size:clamp(54px,min(13.4vw,18.5vh),220px);margin:clamp(12px,2vh,20px) 0 clamp(20px,3.5vh,36px)}
+.hero h1{font-size:clamp(44px,min(11.4vw,18.5vh),220px);margin:clamp(12px,2vh,20px) 0 clamp(20px,3.5vh,36px)}
 .hero h1 .line,.phero h1 .line{display:block}
 .hero-row{display:flex;flex-wrap:wrap;gap:24px 32px;align-items:flex-end;justify-content:space-between}
 .hero-sub{max-width:520px;font-size:clamp(17px,1.5vw,21px);color:var(--muted)}

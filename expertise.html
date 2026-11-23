@@ -58,14 +58,14 @@
   <div class="wrap">
     <div class="split">
       <div><p class="eyebrow rv">01 · AI systems</p><h2 class="h2 rv" id="ai-h" data-split>AI that answers <span class="hl">safely</span></h2></div>
-      <p class="lede rv">AI on top of real company data, built so a wrong answer can't do damage. The model writes, the system checks, and only then does anything run.</p>
+      <p class="lede rv">AI on top of real company data, with guardrails on what can run. The model drafts the query, validation checks it, and only read-only queries reach the database.</p>
     </div>
     <div class="longform">
       <article class="rv">
         <h3>What I've built</h3>
-        <p><strong>A read-only AI data analyst</strong> over a 79-table PostgreSQL schema at PicaPool. It parses and validates LLM-generated SQL before it runs, removing the injection surface.</p>
+        <p><strong>A read-only AI data analyst</strong> over a 79-table PostgreSQL schema at PicaPool. Validated, read-only queries with guardrails on what can run.</p>
         <p><strong>A Telegram RAG bot</strong> on the same analytics layer, so the team can ask questions where they already talk.</p>
-        <p><strong>A multi-model gateway</strong> in Gapl that fails over across Groq, OpenAI, Anthropic and Gemini, so one provider's outage never fails a scan.</p>
+        <p><strong>A multi-model gateway</strong> in Gapl that fails over across Groq, OpenAI, Anthropic and Gemini. If one AI provider fails, the request falls back to another.</p>
       </article>
       <article class="rv">
         <h3>Stack</h3>
@@ -113,7 +113,7 @@
   <div class="wrap">
     <div class="split">
       <div><p class="eyebrow rv">04 · Products</p><h2 class="h2 rv" id="pr-h" data-split>Idea to <span class="hl-lime">live URL</span></h2></div>
-      <p class="lede on-dark rv">Built solo, end to end: product, code, payments and launch. All four are running.</p>
+      <p class="lede on-dark rv">Product, code, payments and launch, for four different problems.</p>
     </div>
     <div class="rows on-navy">
       <a class="row draw" href="/proofmart"><h3>ProofMart</h3><p>Document forensics. Next.js, Supabase, pdf.js, Tesseract.js, Razorpay.</p><b>2026</b></a>
@@ -147,21 +147,21 @@
       <a class="btn btn--ghost" href="/Deepanshu-Lathar-Resume.pdf">Résumé (PDF)</a>
     </div>
   </div>
-  <div class="marquee marquee--light" aria-hidden="true"><div class="marquee-track" data-marquee><ul><li>15+ production tools in 8 weeks</li><li>3,000+ students reached</li><li>1,000+ submissions in 72 hours</li><li>200+ profiled beta users</li><li>2 products live</li><li>McKinsey Forward 2026</li></ul></div></div>
+  <div class="marquee marquee--light" aria-hidden="true"><div class="marquee-track" data-marquee><ul><li>15+ production tools in 8 weeks</li><li>3,000+ students reached</li><li>1,000+ submissions in 72 hours</li><li>15 deeply profiled beta users</li><li>4 selected products</li><li>4 Oracle Foundations certifications</li></ul></div></div>
 </section>
 
 </main>
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div><a class="logo" href="/">Lathar<span>.</span></a><p class="foot-pos">Full-stack &amp; AI engineer. Builds the product, then proves it worked.</p></div>
+      <div><a class="logo" href="/">Lathar<span>.</span></a><p class="foot-pos">I turn product questions into working software.</p></div>
       <div><h4>Site</h4><ul><li><a href="/work">Work</a></li><li><a href="/expertise">Expertise</a></li><li><a href="/about">About</a></li><li><a href="/labs">Labs</a></li><li><a href="/sidequests">Sidequests</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="/contact">Send a brief</a></li><li><a href="tel:+918221016809">+91 82210 16809</a></li><li><a data-email href="/contact">Email</a></li><li>Delhi NCR · IST</li></ul></div>
       <div><h4>Social</h4><ul><li><a href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a></li><li><a href="https://github.com/latharrr">GitHub</a></li><li><a href="/Deepanshu-Lathar-Resume.pdf">Résumé (PDF)</a></li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Deepanshu Lathar · <a href="/privacy">Privacy</a> · <a href="/support">Support</a></span>
-      <span><span class="chip">McKinsey Forward 2026</span> <span class="chip">Open to Summer 2027</span></span>
+      <span><span class="chip">4 Oracle Foundations certifications</span> <span class="chip">Exploring Founder's Office and Product internships</span></span>
     </div>
   </div>
 </footer>

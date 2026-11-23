@@ -8,7 +8,7 @@ web
 
 ## Users
 
-**Primary: internship recruiters and hiring engineers** screening Deepanshu Lathar for Summer 2027 software and AI internships. They arrive from a résumé link, LinkedIn, or GitHub, usually with many candidates open at once. Their job is to decide in seconds whether he is worth a closer look, then either download the résumé or email him. The ones who stay read a project or two to check that the claims hold up.
+**Primary: internship recruiters and hiring engineers** screening Deepanshu Lathar for Founder's Office and Product internships. They arrive from a résumé link, LinkedIn, or GitHub, usually with many candidates open at once. Their job is to decide in seconds whether he is worth a closer look, then either download the résumé or email him. The ones who stay read a project or two to check that the claims hold up.
 
 Other visitors exist (startup founders, freelance clients, campus placement panels) but none of them is the audience design decisions are made for. When their needs conflict with the recruiter's, the recruiter wins.
 
@@ -64,10 +64,10 @@ The second half of the position is range: he builds the product and also runs gr
 - Portrait: `assets/portrait.webp`.
 - Work tiles: `assets/tile-proofmart.webp`, `tile-gapl.webp`, `tile-lputv.webp`, `tile-labs-2.webp` (each with an `-800` version). Case images: `proofmart-1/2.webp`, `gapl-1/2.webp`. Share image: `assets/og-image.png` (1200×630, pastel).
 - Drawings (hero cards, sidequest thumbnails, icons): `art.svg`. The essays themselves live on LinkedIn.
-- Live products: proofmart.shop (beta), gapl.vercel.app, lputv.vercel.app, and the Labs WhatsApp receptionist (demo line +91 99996 02901).
-- Stated figures (matched to the résumé on 2026-10-14): 3,000+ students reached by a PicaPool campus push, 15+ internal tools in 8 weeks at PicaPool, a 6-person team led at UniLyf, 200+ profiled beta users at UniLyf, 1,000+ launch submissions in 72 hours (product not yet named), open-source repo count read live, 2 products live, 30 days of public writing, 1,500+ LinkedIn followers, Grade A in Advanced Backend Development.
-- Title at PicaPool: "AI Intern, Founder's Office" (as on the résumé). Education shown: B.Tech CSE, LPU, 2024–28.
-- Credentials: McKinsey Forward Program, Advanced Backend Development (Grade A), Deloitte Australia Data Analytics Job Simulation, Scaler Young Innovator Internship Challenge (Edition 2), HubSpot Digital Marketing, C Programming. Two carry credential IDs.
+- Products shown (4 selected): proofmart.shop (beta), gapl.143.lat, tv.143.lat (LpuTV), and the Labs WhatsApp receptionist (demo line +91 99996 02901). Dandiya Nights is listed on /work as a completed event project (640 signups, 174 matches).
+- Stated figures (matched to the résumé on 2026-10-14): 3,000+ students reached by a PicaPool campus push, 15+ internal tools in 8 weeks at PicaPool, a 6-person team led at UniLyf, 15 deeply profiled beta users at UniLyf (corrected 2026-11-23), 1,000+ launch submissions in 72 hours (product not yet named), open-source repo count read live, 4 selected products, Gapl 10+ early users and a 44-document synthetic test (41/44 to 44/44, labelled as a test result), 30 days of public writing, 1,500+ LinkedIn followers, Grade A in Advanced Backend Development.
+- Title at PicaPool: "Founder's Office Intern" (changed 2026-11-23 at the owner's request; the older CVs still say "AI Intern"). Education shown: B.Tech CSE, LPU, 2024–28.
+- Credentials: four Oracle Foundations Associate certifications (Nov 2026, with verify links), Advanced Backend Development (Grade A), Deloitte Australia Data Analytics Job Simulation, Scaler Young Innovator Internship Challenge (Edition 2), HubSpot Digital Marketing, C Programming. Two carry credential IDs.
 - Experience: PicaPool Founder's Office (Jul 2025 – present), LPU Division of Admissions (Jan 2026 – present), Student Organization Cell, UniLyf, INGLU.
 
 **Absent, and not to be fabricated:** testimonials, recommendations, employer or client logos, press, case-study metrics beyond the figures above, and GPA.

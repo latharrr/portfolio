@@ -20,7 +20,7 @@ They are not technical and do not judge the product by the builder's engineering
 
 Lathar Labs is an independent software studio run by Deepanshu Lathar. It is the umbrella, not a single product: projects ship under it, and more will be added. `/labs` is the studio's home and lists every live project.
 
-The first project is the **WhatsApp AI Receptionist** (`/labs/whatsapp-receptionist`): it replies to a business's customers in seconds, answers their questions, and books the next step into the diary. It is set up around each business's own services, prices and hours.
+The first project is the **WhatsApp AI Receptionist** (`/labs/whatsapp-receptionist`): it replies to a business's customers on WhatsApp, answers their questions, and takes call requests (never a confirmed booking). It is set up around each business's own services, prices and hours.
 
 The receptionist page exists to get a business owner to try the live demo. Success is a visitor who taps through to WhatsApp, messages the demo line, and sees it book a real call.
 
@@ -43,7 +43,7 @@ Second: one person, not an agency. The person the visitor messages is the person
 
 **Confirmed capabilities (from the current page):**
 
-- Replies on WhatsApp in seconds and answers customer questions.
+- Replies on WhatsApp and answers customer questions (no response-time promise on the site).
 - Books the next step into the diary; in the demo, a call with a real Google Meet link.
 - Set up per business: services, prices, hours.
 - Does not pretend to be human: when asked, it says it is an AI assistant.

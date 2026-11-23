@@ -18,14 +18,14 @@ description: What Deepanshu Lathar builds: AI systems over your data, attributio
   <div class="wrap">
     <div class="split">
       <div><p class="eyebrow rv">01 · AI systems</p><h2 class="h2 rv" id="ai-h" data-split>AI that answers <span class="hl">safely</span></h2></div>
-      <p class="lede rv">AI on top of real company data, built so a wrong answer can't do damage. The model writes, the system checks, and only then does anything run.</p>
+      <p class="lede rv">AI on top of real company data, with guardrails on what can run. The model drafts the query, validation checks it, and only read-only queries reach the database.</p>
     </div>
     <div class="longform">
       <article class="rv">
         <h3>What I've built</h3>
-        <p><strong>A read-only AI data analyst</strong> over a 79-table PostgreSQL schema at PicaPool. It parses and validates LLM-generated SQL before it runs, removing the injection surface.</p>
+        <p><strong>A read-only AI data analyst</strong> over a 79-table PostgreSQL schema at PicaPool. Validated, read-only queries with guardrails on what can run.</p>
         <p><strong>A Telegram RAG bot</strong> on the same analytics layer, so the team can ask questions where they already talk.</p>
-        <p><strong>A multi-model gateway</strong> in Gapl that fails over across Groq, OpenAI, Anthropic and Gemini, so one provider's outage never fails a scan.</p>
+        <p><strong>A multi-model gateway</strong> in Gapl that fails over across Groq, OpenAI, Anthropic and Gemini. If one AI provider fails, the request falls back to another.</p>
       </article>
       <article class="rv">
         <h3>Stack</h3>
@@ -73,7 +73,7 @@ description: What Deepanshu Lathar builds: AI systems over your data, attributio
   <div class="wrap">
     <div class="split">
       <div><p class="eyebrow rv">04 · Products</p><h2 class="h2 rv" id="pr-h" data-split>Idea to <span class="hl-lime">live URL</span></h2></div>
-      <p class="lede on-dark rv">Built solo, end to end: product, code, payments and launch. All four are running.</p>
+      <p class="lede on-dark rv">Product, code, payments and launch, for four different problems.</p>
     </div>
     <div class="rows on-navy">
       <a class="row draw" href="/proofmart"><h3>ProofMart</h3><p>Document forensics. Next.js, Supabase, pdf.js, Tesseract.js, Razorpay.</p><b>2026</b></a>

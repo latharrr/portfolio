@@ -1,5 +1,5 @@
 [
-  ["Are you available right now?", "Yes. I'm open to Summer 2027 internships, and I take on focused freelance builds alongside my current role at PicaPool."],
+  ["Are you available right now?", "I'm exploring Founder's Office and Product internships, and I take on focused freelance builds alongside my current role at PicaPool."],
   ["What should I send for a fast reply?", "The role or project in one line, the timeline, the stack if you have one, and a link to whatever exists today. The brief form on the contact page asks for exactly that."],
   ["Who have you worked with?", "PicaPool (Founder's Office, since Jul 2025), UniLyf (Product & Growth, Jan to May 2026), Spraykart LLP and YourProfessional as freelance clients, and LPU's Division of Admissions."],
   ["How fast do you ship?", "At PicaPool I shipped 15+ production internal tools in 8 weeks. I work in small deployed slices, so you see a running URL early."],
@@ -12,7 +12,7 @@
   ["What stack do you use?", "TypeScript, Next.js, React, Node and Express, Postgres and Supabase, Firebase, Docker, plus LangGraph, n8n and OpenAI, Anthropic, Gemini and Groq for AI. Python for analytics."],
   ["How do I reach you?", "WhatsApp on +91 82210 16809, email, or the brief form on the contact page. I reply within a day, usually faster."],
   ["Do you work remotely?", "Yes. I'm in Delhi NCR on IST (UTC+5:30), and I worked remotely with UniLyf's London-based team."],
-  ["Is ProofMart actually live?", "Yes. ProofMart is in live beta at proofmart.shop, and Gapl is live too. LpuTV and the Lathar Labs receptionist run in production."],
-  ["What is Lathar Labs?", "My small software studio. Its first product is a WhatsApp AI receptionist that answers customers in seconds and takes call requests."],
+  ["Is ProofMart actually live?", "ProofMart's beta is at proofmart.shop, Gapl is at gapl.143.lat and LpuTV is at tv.143.lat. The Lathar Labs receptionist has a demo line you can message."],
+  ["What is Lathar Labs?", "My small software studio. Its first product is a WhatsApp AI receptionist that answers common customer questions and takes call requests."],
   ["Where is your résumé?", "On this site as a PDF, linked in the menu and the footer. The About page has the full timeline, skills and credentials."]
 ]

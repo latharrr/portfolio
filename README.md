@@ -1,6 +1,6 @@
 # deepanshulathar.com
 
-Source of my portfolio site: [deepanshulathar.com](https://deepanshulathar.com). It is written for someone skimming many candidates at once: the home page carries the name, role, a Summer 2027 internship availability line, the résumé link and contact options, and each project page states a status label.
+Source of my portfolio site: [deepanshulathar.com](https://deepanshulathar.com). It is written for someone skimming many candidates at once: the home page carries the name, role, an internship line, the résumé link and contact options, and each project page states a status label.
 
 [Live site](https://deepanshulathar.com) | [Résumé (PDF)](Deepanshu-Lathar-Resume.pdf) | [GitHub](https://github.com/latharrr)
 

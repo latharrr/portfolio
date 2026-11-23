@@ -10,15 +10,15 @@ description: Gapl is a résumé-readiness engine that simulates a recruiter's sc
     <p class="eyebrow in" style="--i:0">Case study · AI, multi-model · 2026</p>
     <h1 id="h1"><span class="line in" style="--i:1">Ga<span class="hl-lime">pl</span></span></h1>
     <p class="lede in" style="--i:3">Candidates get rejected without ever learning why. Gapl simulates a recruiter's screen of your résumé against a target role and company tier: ATS fit, readiness, the exact gaps. Then it builds a week-by-week roadmap to close them.</p>
-    <div class="ctas in late"><a class="btn btn--primary" href="https://gapl.vercel.app">Open gapl.vercel.app</a><a class="btn btn--ghost" href="https://github.com/latharrr">Source on GitHub</a></div>
+    <div class="ctas in late"><a class="btn btn--primary" href="https://gapl.143.lat">Open gapl.143.lat</a><a class="btn btn--ghost" href="https://github.com/latharrr">Source on GitHub</a></div>
   </div>
 </section>
 
 <section class="pt0" aria-label="Project facts" data-reveal data-progress>
   <div class="wrap">
     <dl class="facts rv">
-      <div><dt>Status</dt><dd>Live · personal project at <a href="https://gapl.vercel.app">gapl.vercel.app</a> (no commercial users)</dd></div>
-      <div><dt>Role</dt><dd>Solo builder</dd></div>
+      <div><dt>Status</dt><dd>Live · personal project at <a href="https://gapl.143.lat">gapl.143.lat</a> · 10+ early users, no commercial users</dd></div>
+      <div><dt>Role</dt><dd>Product and engineering</dd></div>
       <div><dt>Stack</dt><dd>Next.js · TypeScript · Firebase · Firestore · Groq · OpenAI · Anthropic · Gemini · Razorpay · Resend</dd></div>
       <div><dt>Year</dt><dd>2026</dd></div>
     </dl>
@@ -29,9 +29,10 @@ description: Gapl is a résumé-readiness engine that simulates a recruiter's sc
 <section class="white" aria-labelledby="s1" data-reveal>
   <div class="wrap duo">
     <div class="prose">
-      <h2 class="rv" id="s1" data-split>One provider's outage never <span class="hl">fails a scan</span></h2>
+      <h2 class="rv" id="s1" data-split>If one provider fails, the scan <span class="hl">falls back</span></h2>
       <p class="rv">Every analysis goes through a multi-model AI gateway that fails over across Groq, OpenAI, Anthropic and Gemini.</p>
       <p class="rv">Email links are rewritten to a tracking subdomain by Next.js middleware for 30-day last-touch attribution.</p>
+      <p class="rv"><strong>Test result:</strong> evaluated the résumé pipeline on a 44-document synthetic test set. Found and fixed a false-rejection bug: 41/44 to 44/44. Pipeline test result, not real-user accuracy.</p>
     </div>
     <figure class="shot clip"><img src="/assets/gapl-2-800.webp" alt="Gapl readiness roadmap: week-by-week plan to close the gaps" loading="lazy" /></figure>
   </div>

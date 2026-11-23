@@ -27,7 +27,7 @@ NAV = [("work", "/work", "Work"), ("expertise", "/expertise", "Expertise"), ("ab
        ("labs", "/labs", "Labs"), ("sidequests", "/sidequests", "Sidequests"), ("contact", "/contact", "Contact")]
 
 PROOF = ["15+ production tools in 8 weeks", "3,000+ students reached", "1,000+ submissions in 72 hours",
-         "200+ profiled beta users", "2 products live", "McKinsey Forward 2026"]
+         "15 deeply profiled beta users", "4 selected products", "4 Oracle Foundations certifications"]
 
 ARROW = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 
@@ -71,7 +71,7 @@ def faq_schema(faq):
 
 
 PERSON = json.dumps({"@context": "https://schema.org", "@type": "Person", "name": "Deepanshu Lathar", "url": SITE + "/",
-                     "jobTitle": "Full-stack & AI engineer", "address": {"@type": "PostalAddress", "addressRegion": "Delhi NCR", "addressCountry": "IN"},
+                     "jobTitle": "Product and software builder", "description": "Turns product questions into working software.", "address": {"@type": "PostalAddress", "addressRegion": "Delhi NCR", "addressCountry": "IN"},
                      "sameAs": ["https://www.linkedin.com/in/deepanshulathar", "https://github.com/latharrr"]})
 
 ANALYTICS = """<script>
@@ -164,14 +164,14 @@ def shell(meta, body):
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div><a class="logo" href="/">Lathar<span>.</span></a><p class="foot-pos">Full-stack &amp; AI engineer. Builds the product, then proves it worked.</p></div>
+      <div><a class="logo" href="/">Lathar<span>.</span></a><p class="foot-pos">I turn product questions into working software.</p></div>
       <div><h4>Site</h4><ul><li><a href="/work">Work</a></li><li><a href="/expertise">Expertise</a></li><li><a href="/about">About</a></li><li><a href="/labs">Labs</a></li><li><a href="/sidequests">Sidequests</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="/contact">Send a brief</a></li><li><a href="tel:+918221016809">+91 82210 16809</a></li><li><a data-email href="/contact">Email</a></li><li>Delhi NCR · IST</li></ul></div>
       <div><h4>Social</h4><ul><li><a href="https://www.linkedin.com/in/deepanshulathar">LinkedIn</a></li><li><a href="https://github.com/latharrr">GitHub</a></li><li><a href="/Deepanshu-Lathar-Resume.pdf">Résumé (PDF)</a></li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Deepanshu Lathar · <a href="{privacy}">Privacy</a> · <a href="/support">Support</a></span>
-      <span><span class="chip">McKinsey Forward 2026</span> <span class="chip">Open to Summer 2027</span></span>
+      <span><span class="chip">4 Oracle Foundations certifications</span> <span class="chip">Exploring Founder's Office and Product internships</span></span>
     </div>
   </div>
 </footer>
