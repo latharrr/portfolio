@@ -68,6 +68,11 @@
       "source": "/github",
       "destination": "https://github.com/latharrr",
       "permanent": false
+    },
+    {
+      "source": "/ai-ops-cv",
+      "destination": "/ai-ops-cv.pdf",
+      "permanent": false
     }
   ],
   "headers": [
